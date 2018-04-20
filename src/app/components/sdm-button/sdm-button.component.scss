@@ -1,0 +1,9 @@
+@import '../../../assets/sass-utils/variables.scss';
+
+.uk-button-default-custom {
+    border: 1px solid $button-default-border-color;
+
+    &:hover {
+        border-color: $global-primary-background; 
+    }
+}

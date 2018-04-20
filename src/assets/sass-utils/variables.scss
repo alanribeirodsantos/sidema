@@ -1,0 +1,24 @@
+// COLORS
+$white: #FFFFFF;
+$global-primary-background: #78BD00;
+$button-default-border-color: #78bd0080;
+
+// Facebook
+$facebook-color: #3B5998;
+$facebook-color-hover: #314b81;
+
+// Google
+$google-color: #DB4437;
+$google-color-hover: #c03d31;
+
+// FONTS
+$primary-font: 'AileronRegular';
+$primary-font-bold: 'AileronBold';
+$primary-font-Light: 'AileronLight';
+$secondary-font: 'ChivoRegular';
+$secondary-font-bold: 'ChivoBold';
+$secondary-font-Light: 'ChivoLight';
+
+// IMPORTS
+@import "../../../node_modules/uikit/src/scss/variables-theme.scss";
+@import "fonts.scss";

@@ -1,0 +1,9 @@
+<button class="uk-button"
+        [ngClass]="{
+          'facebook-button': socialNetwork == 'Facebook',
+          'google-button': socialNetwork == 'Google'
+        }">
+        <i uk-icon="facebook" class="facebook-button__icon uk-margin-small-right" *ngIf="socialNetwork == 'Facebook'"></i>
+        <i uk-icon="google" class="google-button__icon uk-margin-small-right" *ngIf="socialNetwork == 'Google'"></i>
+        {{buttonTitle}}
+</button>

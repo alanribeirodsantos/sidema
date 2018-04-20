@@ -1,0 +1,29 @@
+@import '../../../assets/sass-utils/variables.scss';
+
+.facebook-button {
+    background-color: $facebook-color;
+    color: $white;
+
+    &__icon {
+        float: left;
+        margin: 10px 0;
+    }
+
+    &:hover {
+        background-color: $facebook-color-hover;
+    }
+}
+
+.google-button {
+    background-color: $google-color;
+    color: $white;
+
+    &__icon {
+        float: left;
+        margin: 10px 0;
+    }
+
+    &:hover {
+        background-color: $google-color-hover;
+    }
+}
