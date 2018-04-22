@@ -29,13 +29,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Git tutorial
 
-### git clone <repository-link>
+### git clone 'repository-link'
 Clone the repository
 
 ### git checkout develop
 Switch to branch develop
 
-### git flow feature start <feature-name>
+### git flow feature start 'feature-name'
 Create a new feature branch
 
 After completing the changes:
@@ -49,7 +49,7 @@ Back to the branch develop
 ### git pull
 Updating the branch develop to the newer version
 
-### git checkout <name-of-your-feature>
+### git checkout 'name-of-your-feature'
 Back to your feature
 
 ### git rebase develop
@@ -60,7 +60,7 @@ NOTE: In case of conflict, resolve all conflicts, and then run:
 ### git rebase --continue
 Continue and end the rebase
 
-### git push <name-of-your-feature>
+### git push 'name-of-your-feature'
 Submit your changes to create a new Pull Request
 
 Now just open the repository in github and create a new Pull Request by selecting its feature.
