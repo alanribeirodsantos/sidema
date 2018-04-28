@@ -1,1 +1,11 @@
-@import "../node_modules/uikit/src/scss/mixins-theme.scss";
+@import "node_modules/uikit/src/scss/mixins-theme.scss";
+
+@mixin mq($width) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        
+        @media only screen and (max-width: $width) {
+            @content;
+        }
+    }
+}

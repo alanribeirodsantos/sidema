@@ -1,9 +1,13 @@
-@import '../../../assets/sass-utils/variables.scss';
+@import '~assets/sass-utils/variables.scss';
+
+.sdm-button {
+    font-family: $primary-font-bold;
+}
 
 .uk-button-default-custom {
     border: 1px solid $button-default-border-color;
 
     &:hover {
-        border-color: $global-primary-background; 
+        border-color: $global-primary-background;
     }
 }

@@ -1,8 +1,9 @@
-<button class="uk-button"
+<button class="sdm-button uk-button"
         [ngClass]="{
           'uk-button-primary': type == 'primary',
           'uk-button-default': type == 'secondary',
-          'uk-button-default-custom': type == 'secondary'
+          'uk-button-default-custom': type == 'secondary',
+          'uk-width-1-1': btnWidth == 'large'
         }">
   <ng-content></ng-content>
 </button>

@@ -1,29 +1,39 @@
 @import '../../../assets/sass-utils/variables.scss';
 
-.facebook-button {
-    background-color: $facebook-color;
+.social-button {
+    font-family: $primary-font;
+    font-size: $font-size-small;
+    letter-spacing: 1px;
     color: $white;
+    display: inline-flex;
+    align-items: center;
 
     &__icon {
         float: left;
         margin: 10px 0;
     }
 
-    &:hover {
-        background-color: $facebook-color-hover;
-    }
-}
+    &--facebook {
+        background-color: $facebook-color;
 
-.google-button {
-    background-color: $google-color;
-    color: $white;
-
-    &__icon {
-        float: left;
-        margin: 10px 0;
+        &:hover {
+            background-color: $facebook-color-hover;
+        }
     }
 
-    &:hover {
-        background-color: $google-color-hover;
+    &--google {
+        background-color: $google-color;
+
+        &:hover {
+            background-color: $google-color-hover;
+        }
+    }
+
+    &--half-width {
+        width: calc(50% - 10px);
+    }
+
+    &--float-right {
+        float: right;
     }
 }

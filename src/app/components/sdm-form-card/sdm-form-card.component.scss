@@ -1,0 +1,60 @@
+@import "~assets/sass-utils/variables";
+@import "~assets/sass-utils/mixins";
+
+.form-card {
+    background-color: $gray-fa;
+    width: 400px;
+
+    &__content {
+        width: 100%;
+        padding: 30px;
+        box-sizing: border-box;
+        overflow: hidden;
+        
+        &__slider {
+            width: calc(200% + 60px);
+            display: flex;
+            justify-content: space-between;
+            transition: transform 0.2s linear;
+
+            &__sign-up,
+            &__sign-in {
+                width: 340px;
+            }
+
+            &--on-sign-in {
+                transform: translateX(-400px);
+            }
+        }
+    }
+
+    &__footer {
+        font-family: $secondary-font;
+        font-size: $font-size-text;
+        padding: 15px 30px;
+        width: calc(100% - 60px);
+        overflow: hidden;
+
+        &__slider {
+            width: calc(200% + 60px);
+            display: flex;
+            justify-content: space-between;
+            transition: transform 0.2s linear;
+
+            &__sign-up,
+            &__sign-in {
+                width: 340px;
+            }
+
+            &--on-sign-in {
+                transform: translateX(400px);
+            }
+        }
+
+        &__link {
+            color: $primary-color;
+            font-family: $primary-font;
+            margin-top: -3px;
+        }
+    }
+}

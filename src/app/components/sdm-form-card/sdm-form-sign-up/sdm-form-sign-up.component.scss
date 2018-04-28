@@ -1,0 +1,28 @@
+@import "~assets/sass-utils/variables";
+
+.form-sign-up {
+    width: 100%;
+    text-align: left;
+
+    &__title {
+        text-align: center;
+        font-family: $primary-font-bold;
+        color: $primary-color;
+        font-size: $font-size-title;
+        margin-bottom: 20px;
+    }
+
+    &__description {
+        font-family: $secondary-font;
+        font-size: $font-size-text;
+        line-height: 1.4;
+        margin-bottom: 20px;
+    }
+
+    &__divider {
+        display: flex;
+        align-items: center;
+        font-family: $secondary-font;
+        font-size: $font-size-small;
+    }
+}
