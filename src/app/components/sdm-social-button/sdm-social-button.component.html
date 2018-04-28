@@ -1,9 +1,11 @@
-<button class="uk-button"
+<button class="social-button uk-button"
         [ngClass]="{
-          'facebook-button': socialNetwork == 'Facebook',
-          'google-button': socialNetwork == 'Google'
+          'social-button--facebook': socialNetwork == 'Facebook',
+          'social-button--google': socialNetwork == 'Google',
+          'social-button--half-width': btnWidth == 'half',
+          'social-button--float-right': btnFloat == 'right'
         }">
-        <i uk-icon="facebook" class="facebook-button__icon uk-margin-small-right" *ngIf="socialNetwork == 'Facebook'"></i>
-        <i uk-icon="google" class="google-button__icon uk-margin-small-right" *ngIf="socialNetwork == 'Google'"></i>
-        {{buttonTitle}}
+        <i uk-icon="facebook" class="social-button__icon uk-margin-small-right" *ngIf="socialNetwork == 'Facebook'"></i>
+        <i uk-icon="google" class="social-button__icon uk-margin-small-right" *ngIf="socialNetwork == 'Google'"></i>
+        {{socialNetwork}}
 </button>

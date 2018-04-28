@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
 export class SdmButtonComponent {
 
   @Input() type:string;
+  @Input() btnWidth:string;
 
 }

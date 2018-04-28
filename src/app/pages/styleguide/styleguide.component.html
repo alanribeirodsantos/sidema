@@ -11,11 +11,13 @@
   <!-- SOCIAL BUTTONS -->
   <h4 style="text-align: center">Social Buttons</h4>
   <div style="margin-bottom: 20px">
-    <sdm-social-button [socialNetwork]="'Facebook'" [type]="'sign-in'"></sdm-social-button>
-    <sdm-social-button [socialNetwork]="'Facebook'" [type]="'sign-up'"></sdm-social-button>
+    <sdm-social-button [socialNetwork]="'Facebook'"></sdm-social-button>
+    <sdm-social-button [socialNetwork]="'Google'"></sdm-social-button>
   </div>
-  <div style="margin-bottom: 20px">
-    <sdm-social-button [socialNetwork]="'Google'" [type]="'sign-in'"></sdm-social-button>
-    <sdm-social-button [socialNetwork]="'Google'" [type]="'sign-up'"></sdm-social-button>
+
+  <!-- FORM SIGN IN / SIGN UP -->
+  <h4 style="text-align: center">Form sign in / sign up</h4>
+  <div style="display: flex; justify-content: center;">
+    <sdm-form-card></sdm-form-card>
   </div>
 </div>
