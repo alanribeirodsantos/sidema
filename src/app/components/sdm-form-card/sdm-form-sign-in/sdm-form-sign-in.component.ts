@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../../backend/services/user.service';
 
 @Component({
   selector: 'sdm-form-sign-in',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SdmFormSignInComponent implements OnInit {
 
-  constructor() { }
+  email:string = "";
+  senha:string = "";
 
-  ngOnInit() {
+  constructor(private userService:UserService) {}
+
+  ngOnInit() {}
+
+  logar(){
+    this.userService.logarUsuario(this.email, this.senha);
   }
 
 }

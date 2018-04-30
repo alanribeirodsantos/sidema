@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// import { Observable } from 'rxjs/Observable';
+import { UserService } from '../../../backend/services/user.service';
 
 @Component({
   selector: 'sdm-form-sign-up',
@@ -7,9 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SdmFormSignUpComponent implements OnInit {
 
-  constructor() { }
+  nome:string = "";
+  email:string ="";
+  senha:string = "";
+  confirmarSenha:string = "";
+  usuarios:any;
 
-  ngOnInit() {
+  constructor(private userService:UserService) {
+    this.userService.recuperarUsuarios().subscribe(
+      data => { this.usuarios = data},
+      error => console.log(error)
+    );
   }
 
+  ngOnInit() {
+    
+  }
+
+  createUser(){
+    if(this.confirmarSenha === this.senha){
+      this.userService.criarUsuario(this.email, this.senha);
+      this.userService.cadastrarUsuario(this.nome, this.email, this.senha);
+      this.nome = "";
+      this.email = "";
+      this.senha = "";
+      this.confirmarSenha = "";
+    }
+    else alert("As senhas não correspondem!");
+  }
 }
