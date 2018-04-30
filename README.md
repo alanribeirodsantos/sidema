@@ -40,6 +40,9 @@ Create a new feature branch
 
 After completing the changes:
 
+### git add *
+Add all modified files to the stage
+
 ### git commit -m "Make a comment here"
 Committing your changes
 
@@ -60,7 +63,7 @@ NOTE: In case of conflict, resolve all conflicts, and then run:
 ### git rebase --continue
 Continue and end the rebase
 
-### git push 'name-of-your-feature'
+### git push origin 'name-of-your-feature'
 Submit your changes to create a new Pull Request
 
 Now just open the repository in github and create a new Pull Request by selecting its feature.
