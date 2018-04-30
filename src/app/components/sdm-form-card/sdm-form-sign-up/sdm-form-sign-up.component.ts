@@ -16,7 +16,7 @@ export class SdmFormSignUpComponent implements OnInit {
   usuarios:any;
 
   constructor(private userService:UserService) {
-    this.userService.recuperarUsuarios().subscribe(
+    this.userService.getUsers().subscribe(
       data => { this.usuarios = data},
       error => console.log(error)
     );
@@ -28,7 +28,7 @@ export class SdmFormSignUpComponent implements OnInit {
 
   createUser(){
     if(this.confirmarSenha === this.senha){
-      this.userService.criarUsuario(this.nome, this.email, this.senha);
+      this.userService.createUser(this.nome, this.email, this.senha);
       this.nome = "";
       this.email = "";
       this.senha = "";

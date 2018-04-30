@@ -5,7 +5,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule} from 'angularfire2/auth';
 
-
 import { AppComponent } from './app.component';
 import { StyleguideComponent } from './pages/styleguide/styleguide.component';
 import { routing } from './app.routing';
@@ -15,7 +14,6 @@ import { SdmFormCardComponent } from './components/sdm-form-card/sdm-form-card.c
 import { SdmFormSignUpComponent } from './components/sdm-form-card/sdm-form-sign-up/sdm-form-sign-up.component';
 import { SdmFormSignInComponent } from './components/sdm-form-card/sdm-form-sign-in/sdm-form-sign-in.component';
 import { UserService } from './backend/services/user.service';
-
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASY7GlvEimsp0Gqv1H6qvwdX_w6AI0m6Y",

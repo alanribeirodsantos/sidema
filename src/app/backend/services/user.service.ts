@@ -7,17 +7,17 @@ import * as firebase from 'firebase/app';
 @Injectable()
 export class UserService {
 
-  usuarios:Observable<any[]>;
-  usuario:any;
+  users:Observable<any[]>;
+  user:any;
 
   constructor(private angularFireAuth:AngularFireAuth, private angularFireDatabase:AngularFireDatabase) {}
 
-  criarUsuario(nome, email, senha){
+  createUser(nome, email, senha){
     this.angularFireAuth.auth.createUserWithEmailAndPassword(email, senha)
     .then( () => {
       alert("Usuário cadastrado com sucesso!");
       this.angularFireAuth.auth.signOut();
-      this.cadastrarUsuario(nome, email, senha);
+      this.addUser(nome, email, senha);
     })
     .catch( (erro) => {
       if(erro.code === "auth/email-already-in-use"){
@@ -26,7 +26,7 @@ export class UserService {
     } );
   }
 
-  cadastrarUsuario(nome, email, senha){
+  addUser(nome, email, senha){
     this.angularFireDatabase.database.ref("usuários").push({
       nome: nome,
       email: email,
@@ -34,26 +34,26 @@ export class UserService {
     })
   }
 
-  recuperarUsuarios(){
-    return this.usuarios = this.angularFireDatabase.list("usuários").valueChanges();
+  getUsers(){
+    return this.users = this.angularFireDatabase.list("usuários").valueChanges();
   }
 
-  logarUsuario(email, senha){
+  login(email, senha){
     if(email.length === 0 || senha.length === 0){
       alert("Existem campos vazios!");
     }
     else {
       this.angularFireAuth.auth.signInWithEmailAndPassword(email, senha)
       .then( () => {
-        this.angularFireAuth.authState.subscribe( (usuario) => {
-          let usuarios:any;
-          this.recuperarUsuarios().subscribe(
+        this.angularFireAuth.authState.subscribe( (user) => {
+          let users:any;
+          this.getUsers().subscribe(
             data => { 
-              usuarios = data;
-              for(let u in usuarios){
-                if(usuarios[u].email === usuario.email){
-                  this.usuario = usuarios[u].nome;
-                  alert("Usuário logado! Bem-vindo "+this.usuario);
+              users = data;
+              for(let u in users){
+                if(users[u].email === user.email){
+                  this.user = users[u].nome;
+                  alert("Usuário logado! Bem-vindo "+this.user);
                 }
               }
             },
@@ -79,9 +79,7 @@ export class UserService {
     }
   }
 
-  deslogarUsuario(){
+  logout(){
     this.angularFireAuth.auth.signOut();
   }
-
-
 }

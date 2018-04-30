@@ -16,7 +16,7 @@ export class SdmFormSignInComponent implements OnInit {
   ngOnInit() {}
 
   logar(){
-    this.userService.logarUsuario(this.email, this.senha);
+    this.userService.login(this.email, this.senha);
   }
 
 }
