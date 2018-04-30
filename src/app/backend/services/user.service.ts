@@ -12,10 +12,18 @@ export class UserService {
 
   constructor(private angularFireAuth:AngularFireAuth, private angularFireDatabase:AngularFireDatabase) {}
 
-  criarUsuario(email, senha){
+  criarUsuario(nome, email, senha){
     this.angularFireAuth.auth.createUserWithEmailAndPassword(email, senha)
-    .then( () => alert("Usuário cadastrado com sucesso!"))
-    .catch( (erro) => alert(erro.message) );
+    .then( () => {
+      alert("Usuário cadastrado com sucesso!");
+      this.angularFireAuth.auth.signOut();
+      this.cadastrarUsuario(nome, email, senha);
+    })
+    .catch( (erro) => {
+      if(erro.code === "auth/email-already-in-use"){
+        alert("O usuário já existe!");
+      }
+    } );
   }
 
   cadastrarUsuario(nome, email, senha){

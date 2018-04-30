@@ -28,8 +28,7 @@ export class SdmFormSignUpComponent implements OnInit {
 
   createUser(){
     if(this.confirmarSenha === this.senha){
-      this.userService.criarUsuario(this.email, this.senha);
-      this.userService.cadastrarUsuario(this.nome, this.email, this.senha);
+      this.userService.criarUsuario(this.nome, this.email, this.senha);
       this.nome = "";
       this.email = "";
       this.senha = "";
