@@ -12,12 +12,12 @@ export class UserService {
 
   constructor(private angularFireAuth:AngularFireAuth, private angularFireDatabase:AngularFireDatabase) {}
 
-  createUser(nome, email, senha){
-    this.angularFireAuth.auth.createUserWithEmailAndPassword(email, senha)
+  createUser(name, email, password){
+    this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password)
     .then( () => {
       alert("Usuário cadastrado com sucesso!");
       this.angularFireAuth.auth.signOut();
-      this.addUser(nome, email, senha);
+      this.addUser(name, email, password);
     })
     .catch( (erro) => {
       if(erro.code === "auth/email-already-in-use"){
@@ -26,11 +26,11 @@ export class UserService {
     } );
   }
 
-  addUser(nome, email, senha){
+  addUser(name, email, password){
     this.angularFireDatabase.database.ref("usuários").push({
-      nome: nome,
+      name: name,
       email: email,
-      senha: senha
+      password: password
     })
   }
 
@@ -38,12 +38,12 @@ export class UserService {
     return this.users = this.angularFireDatabase.list("usuários").valueChanges();
   }
 
-  login(email, senha){
-    if(email.length === 0 || senha.length === 0){
+  login(email, password){
+    if(email.length === 0 || password.length === 0){
       alert("Existem campos vazios!");
     }
     else {
-      this.angularFireAuth.auth.signInWithEmailAndPassword(email, senha)
+      this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
       .then( () => {
         this.angularFireAuth.authState.subscribe( (user) => {
           let users:any;
@@ -52,10 +52,12 @@ export class UserService {
               users = data;
               for(let u in users){
                 if(users[u].email === user.email){
-                  this.user = users[u].nome;
+                  this.user = users[u].name;
                   alert("Usuário logado! Bem-vindo "+this.user);
+                  this.logout();
+                  break;
                 }
-              }
+              }              
             },
             error => console.log(error)
           )

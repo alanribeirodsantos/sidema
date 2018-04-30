@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { Observable } from 'rxjs/Observable';
 import { UserService } from '../../../backend/services/user.service';
 
 @Component({
@@ -9,30 +8,28 @@ import { UserService } from '../../../backend/services/user.service';
 })
 export class SdmFormSignUpComponent implements OnInit {
 
-  nome:string = "";
+  name:string = "";
   email:string ="";
-  senha:string = "";
-  confirmarSenha:string = "";
-  usuarios:any;
+  password:string = "";
+  confirmPassword:string = "";
+  users:any;
 
   constructor(private userService:UserService) {
     this.userService.getUsers().subscribe(
-      data => { this.usuarios = data},
+      data => { this.users = data},
       error => console.log(error)
     );
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
   createUser(){
-    if(this.confirmarSenha === this.senha){
-      this.userService.createUser(this.nome, this.email, this.senha);
-      this.nome = "";
+    if(this.confirmPassword === this.password){
+      this.userService.createUser(this.name, this.email, this.password);
+      this.name = "";
       this.email = "";
-      this.senha = "";
-      this.confirmarSenha = "";
+      this.password = "";
+      this.confirmPassword = "";
     }
     else alert("As senhas não correspondem!");
   }

@@ -9,14 +9,14 @@ import { UserService } from '../../../backend/services/user.service';
 export class SdmFormSignInComponent implements OnInit {
 
   email:string = "";
-  senha:string = "";
+  password:string = "";
 
   constructor(private userService:UserService) {}
 
   ngOnInit() {}
 
-  logar(){
-    this.userService.login(this.email, this.senha);
+  login(){
+    this.userService.login(this.email, this.password);
   }
 
 }
