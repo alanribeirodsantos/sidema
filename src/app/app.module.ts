@@ -14,6 +14,10 @@ import { SdmFormCardComponent } from './components/sdm-form-card/sdm-form-card.c
 import { SdmFormSignUpComponent } from './components/sdm-form-card/sdm-form-sign-up/sdm-form-sign-up.component';
 import { SdmFormSignInComponent } from './components/sdm-form-card/sdm-form-sign-in/sdm-form-sign-in.component';
 import { UserService } from './backend/services/user.service';
+import { SdmSectionComponent } from './components/sdm-section/sdm-section.component';
+import { HomeComponent } from './pages/home/home.component';
+import { SdmDownArrowComponent } from './components/sdm-down-arrow/sdm-down-arrow.component';
+import { SdmLogoComponent } from './components/sdm-logo/sdm-logo.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASY7GlvEimsp0Gqv1H6qvwdX_w6AI0m6Y",
@@ -31,7 +35,11 @@ export const firebaseConfig = {
     SdmSocialButtonComponent,
     SdmFormCardComponent,
     SdmFormSignUpComponent,
-    SdmFormSignInComponent
+    SdmFormSignInComponent,
+    SdmSectionComponent,
+    HomeComponent,
+    SdmDownArrowComponent,
+    SdmLogoComponent
   ],
   imports: [
     BrowserModule,

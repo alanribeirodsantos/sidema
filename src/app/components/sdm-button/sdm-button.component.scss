@@ -1,11 +1,16 @@
 @import '~assets/sass-utils/variables.scss';
 
 .sdm-button {
-    font-family: $primary-font-bold;
+    font-family: $primary-font;
+
+    &--width {
+        width: 240px;
+    }
 }
 
 .uk-button-default-custom {
     border: 1px solid $button-default-border-color;
+    color: $white;
 
     &:hover {
         border-color: $global-primary-background;
