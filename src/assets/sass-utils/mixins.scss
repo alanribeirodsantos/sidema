@@ -1,5 +1,29 @@
 @import "node_modules/uikit/src/scss/mixins-theme.scss";
 
+// Lienar gradient
+@mixin linear-gradient($direction, $color-stops...) {
+    background: nth($color-stops, 1);
+    background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+    background: linear-gradient($direction, $color-stops);
+}
+
+// Keyframes
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+      @content; 
+    }
+    @-moz-keyframes #{$name} {
+      @content;
+    }
+    @-ms-keyframes #{$name} {
+      @content;
+    }
+    @keyframes #{$name} {
+      @content;
+    } 
+}
+
+// Media querys
 @mixin mq($width) {
     @if map_has_key($breakpoints, $width) {
         $width: map_get($breakpoints, $width);

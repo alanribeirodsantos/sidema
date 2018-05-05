@@ -1,0 +1,54 @@
+@import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
+
+.section-one {
+    &__layer {
+        height: 100%;
+        width: 100%;
+        background-color: rgba($black, $alpha: 0.8);
+        display: flex;
+
+        &__introduction {
+            width: 60%;
+            height: 100%;
+            padding: 50px 80px;
+
+            &__logo {
+                text-align: center;
+            }
+
+            &__slogan {
+                font-family: $primary-font-bold;
+                color: $white;
+                font-size: $font-size-title;
+                letter-spacing: 0.8px;
+                margin-top: 20px;
+                text-align: center;
+            }
+
+            &__description {
+                font-family: $secondary-font;
+                font-size: $font-size-medium;
+                color: $gray-fa;
+                text-align: justify;
+                -moz-hyphens: auto;
+                -webkit-hyphens: auto;
+                hyphens: auto;
+                margin: 50px 0;
+            }
+
+            &__actions {
+                text-align: left;
+            }
+
+        }
+    
+        &__form {
+            width: 40%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
