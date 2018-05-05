@@ -1,11 +1,11 @@
 import { Report } from './report';
-export class Organ{
+export class User{
     constructor(
         id: number,
         name: string,
         email: string,
-        passoword: string,
+        password: string,
         picture: any,
-        report: Array<Report>,
+        reports: Array<Report>,
     ){}
 }

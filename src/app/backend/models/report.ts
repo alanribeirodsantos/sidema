@@ -5,8 +5,8 @@ export class Report{
         violator: string,
         category: string,
         subcategory: string,
-        midia: any,
+        media: any[],
         location: string,
-        nSupport: number
+        numberSupport: number
     ){}
 }

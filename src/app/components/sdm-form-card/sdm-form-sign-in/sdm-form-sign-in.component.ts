@@ -19,4 +19,16 @@ export class SdmFormSignInComponent implements OnInit {
     this.userService.login(this.email, this.password);
   }
 
+  loginFacebook(){
+    this.userService.loginFacebook();
+  }
+
+  loginGoogle(){
+    this.userService.loginGoogle();
+  }
+
+  resetPassword(){
+    this.userService.resetPassword(this.email);
+  }
+
 }

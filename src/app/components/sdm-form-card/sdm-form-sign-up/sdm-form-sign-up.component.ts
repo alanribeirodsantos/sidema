@@ -24,13 +24,18 @@ export class SdmFormSignUpComponent implements OnInit {
   ngOnInit() {}
 
   createUser(){
-    if(this.confirmPassword === this.password){
-      this.userService.createUser(this.name, this.email, this.password);
-      this.name = "";
-      this.email = "";
-      this.password = "";
-      this.confirmPassword = "";
+    if(this.name.length == 0 || this.email.length == 0 || this.password.length == 0 || this.confirmPassword.length == 0){
+      alert("Existem campos em branco!");
     }
-    else alert("As senhas não correspondem!");
+    else {
+      if(this.confirmPassword === this.password){
+        this.userService.createUser(this.name, this.email, this.password);
+        this.name = "";
+        this.email = "";
+        this.password = "";
+        this.confirmPassword = "";
+      }
+      else alert("As senhas não correspondem!");
+    }
   }
 }
