@@ -1,0 +1,51 @@
+@import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
+
+.menu-container{
+    height: 100%;
+    width: 20%;
+    text-align: center;
+
+    &__user{
+        width: 20%;
+        position: absolute;
+        margin-top: 30px;
+
+        &__div{
+            margin-bottom: 10px;
+            
+            &__image{
+                width: 50%;
+                height: auto;
+            }
+
+        }
+
+        &__text{
+            color: $white;
+            font-family: $primary-font;
+            font-size:  $font-size-medium;
+        }
+
+        &__button{
+            margin-top: 50px;
+        }
+
+    }
+
+    &__nav{
+        position: absolute;
+        bottom: 30px;
+        width: 20%;
+        text-align: center;
+
+        &__options{
+            color: $white;
+            font-family: $primary-font;
+            font-size:  $font-size-medium;
+            padding-bottom: 20px;
+        }
+
+    }
+
+}

@@ -1,0 +1,12 @@
+@import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
+
+.section{
+    &__layer{
+        background-color: rgba($black, $alpha: 0.9);
+        height: 100%;
+        width: 20%;
+        display: flex;
+
+    }
+}

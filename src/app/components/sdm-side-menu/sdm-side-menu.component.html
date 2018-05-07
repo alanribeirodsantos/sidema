@@ -1,0 +1,14 @@
+<sdm-section class="menu-container">
+  <div class="menu-container__user">
+    <div class="menu-container__user__div">
+      <img src="/assets/images/user.png" class="menu-container__user__div__image">
+    </div>
+    <span class="menu-container__user__text">Bem vinda, <br>Kátia</span>
+    <div class="menu-container__user__button"><sdm-button [type]="'primary'" (click)="report()">REALIZAR DENÚNCIA</sdm-button></div>
+  </div>
+  
+  <ul class="uk-nav-default uk-nav-parent-icon menu-container__nav" uk-nav>
+      <li (click)="editProfile()"><a href="#" class="menu-container__nav__options"><span uk-icon="icon: cog"></span>  Editar Perfil</a></li>
+      <li (click)="singOut()"><a href="#" class="menu-container__nav__options"><span uk-icon="icon: sign-out"></span>  Desconectar</a></li>
+  </ul>
+</sdm-section>
