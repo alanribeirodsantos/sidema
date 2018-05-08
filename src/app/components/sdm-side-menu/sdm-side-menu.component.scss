@@ -1,0 +1,53 @@
+@import '~assets/sass-utils/variables';
+
+.menu-container{
+    text-align: center;
+    background-image: url("assets/images/02.jpg");
+    background-repeat: no-repeat;
+
+    &__layer{
+        background-color: rgba($black, $alpha: 0.8);
+        height: 100vh;
+        width: 270px;
+        display: flex;
+
+        &__user-info{
+            width: 270px;
+            position: absolute;
+            margin-top: 30px;
+    
+            &__image-container{
+                margin-bottom: 10px;
+                
+                &__image{
+                    width: 50%;
+                    height: auto;
+                }
+            }
+    
+            &__welcome-text{
+                color: $white;
+                font-family: $primary-font;
+                font-size:  $font-size-medium;
+            }
+    
+            &__report-button{
+                margin-top: 50px;
+            }
+        }
+    }
+
+    &__actions{
+        position: absolute;
+        bottom: 30px;
+        width: 270px;
+        text-align: center;
+
+        &__options{
+            color: $white;
+            font-family: $primary-font;
+            font-size:  $font-size-medium;
+            padding-bottom: 20px;
+        }
+    }
+}

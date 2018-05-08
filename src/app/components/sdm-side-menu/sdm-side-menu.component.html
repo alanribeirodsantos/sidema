@@ -1,0 +1,15 @@
+<aside class="menu-container">
+  <div class="menu-container__layer">
+    <div class="menu-container__layer__user-info">
+      <div class="menu-container__layer__user-info__image-container">
+        <img src="/assets/images/user.png" class="menu-container__layer__user-info__image-container__image">
+      </div>
+      <span class="menu-container__layer__user-info__welcome-text">Bem vinda, <br>Kátia</span>
+      <div class="menu-container__layer__user-info__report-button"><sdm-button [type]="'primary'" (click)="report()">REALIZAR DENÚNCIA</sdm-button></div>
+    </div>
+  </div>
+  <ul class="uk-nav-default uk-nav-parent-icon menu-container__actions" uk-nav>
+      <li (click)="editProfile()"><a href="#" class="menu-container__actions__options"><span uk-icon="icon: cog"></span>  Editar Perfil</a></li>
+      <li (click)="singOut()"><a href="#" class="menu-container__actions__options"><span uk-icon="icon: sign-out"></span>  Desconectar</a></li>
+  </ul>
+</aside>
