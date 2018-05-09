@@ -33,7 +33,13 @@ $font-size-text: 12px;
 $font-size-small: 10px;
 
 // media query
-$breakpoints: ('md': 1200px);
+$width-breakpoints: (
+    'md': 455px,
+    'mdx': 605px,
+    'lg': 1000px,
+    'lgx': 1075px,
+    'lgxx': 1200px
+);
 
 // Imports
 @import "node_modules/uikit/src/scss/variables-theme.scss";

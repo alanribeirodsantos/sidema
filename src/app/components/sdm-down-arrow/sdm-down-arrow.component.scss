@@ -6,14 +6,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: $white;
-    font-family: $primary-font;
-    font-size:  $font-size-medium;
     position: absolute;
     bottom: 25px;
     left: 50%;
     margin-left: -50px;
     cursor: pointer;
+
+    &__text {
+        color: $white;
+        font-family: $primary-font;
+        font-size:  $font-size-medium;
+
+        @include mqMaxWidth('mdx') {
+            display: none;
+        }
+    }
 
     &__icon {
         margin-left: 5px;
