@@ -9,5 +9,6 @@ export class SdmSectionComponent {
 
   @Input() image:string;
   @Input() color:string;
+  @Input() display:string;
 
 }
