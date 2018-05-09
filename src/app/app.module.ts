@@ -20,6 +20,8 @@ import { SdmDownArrowComponent } from './components/sdm-down-arrow/sdm-down-arro
 import { SdmLogoComponent } from './components/sdm-logo/sdm-logo.component';
 import { SdmSideMenuComponent } from './components/sdm-side-menu/sdm-side-menu.component';
 import { SystemComponent } from './pages/system/system.component';
+import { SdmReportCardComponent } from './components/sdm-report-card/sdm-report-card.component';
+import { ReportsListComponent } from './pages/system/reports-list/reports-list.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASY7GlvEimsp0Gqv1H6qvwdX_w6AI0m6Y",
@@ -43,7 +45,9 @@ export const firebaseConfig = {
     SdmDownArrowComponent,
     SdmLogoComponent,
     SdmSideMenuComponent,
-    SystemComponent
+    SystemComponent,
+    SdmReportCardComponent,
+    ReportsListComponent
   ],
   imports: [
     BrowserModule,
