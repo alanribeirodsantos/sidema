@@ -1,10 +1,26 @@
 @import '~assets/sass-utils/variables.scss';
+@import '~assets/sass-utils/mixins.scss';
 
 .sdm-button {
     font-family: $primary-font;
 
     &--width {
         width: 240px;
+
+        @include mqMaxWidth('lgx') {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    
+        @include mqMaxWidth('lg') {
+            width: 240px;
+            margin-bottom: 0;
+        }
+
+        @include mqMaxWidth('mdx') {
+            width: 100%;
+            margin-bottom: 10px;
+        }
     }
 }
 
