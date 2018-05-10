@@ -1,6 +1,6 @@
 .header {
   background: url('/assets/images/main-background.jpg');
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100vw;
@@ -10,7 +10,8 @@
   align-items: center;
 
     &__logo {
-      width: 120px;
+      width: 9vw;
+      min-width: 120px;
       z-index: 1;
     }
 
