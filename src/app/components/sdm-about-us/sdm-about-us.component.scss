@@ -1,0 +1,17 @@
+@import '~assets/sass-utils/variables.scss';
+
+.container {
+    padding: 25px 65px 0 65px;
+
+    &__h1 {
+        font-family: $primary-font-bold;
+        font-size: $font-size-h1;
+        color: $primary-color;
+    }
+
+    &__content {
+        font-family: $secondary-font;
+        font-size: $font-size-medium;
+        color: $black;
+    }
+}
