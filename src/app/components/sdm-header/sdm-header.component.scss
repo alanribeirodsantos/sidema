@@ -1,0 +1,28 @@
+.header {
+  background: url('/assets/images/main-background.jpg');
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+    &__logo {
+      width: 9vw;
+      min-width: 120px;
+      z-index: 1;
+    }
+
+    &:after {
+      content: ' ';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.8);
+    }
+}
+

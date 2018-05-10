@@ -1,0 +1,47 @@
+@import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
+
+.sdm-down-arrow {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    margin-left: -50px;
+    cursor: pointer;
+
+    &__text {
+        color: $white;
+        font-family: $primary-font;
+        font-size:  $font-size-medium;
+
+        @include mqMaxWidth('mdx') {
+            display: none;
+        }
+    }
+
+    &__icon {
+        margin-left: 5px;
+        animation: floating 1.5s ease-in-out infinite;
+
+        svg {
+            width: 28px;
+            height: 28px;
+            fill: $primary-color;
+        }
+    }
+}
+
+@include keyframes(floating) {
+    0% {
+        transform: translateY(-2px);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+    100% {
+        transform: translateY(-2px);
+    }
+}

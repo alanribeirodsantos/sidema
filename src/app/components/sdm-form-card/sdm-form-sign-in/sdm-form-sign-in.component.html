@@ -13,7 +13,7 @@
         <div class="form-sign-in__form__forgot-password uk-margin-bottom">
             <a class="form-sign-in__form__forgot-password__link uk-link-muted" href="#">Esqueci minha senha</a>
         </div>
-        <sdm-button [type]="'primary'" [btnWidth]="'large'" (click)="login()">ENTRAR</sdm-button>
+        <sdm-button [type]="'primary'" [btnWidth]="'large'" (click)="login()" routerLink="/sistema">ENTRAR</sdm-button>
     </form>
     <hr class="uk-divider-icon">
     <sdm-social-button [socialNetwork]="'Facebook'" [btnWidth]="'half'" (click)="loginFacebook()"></sdm-social-button>

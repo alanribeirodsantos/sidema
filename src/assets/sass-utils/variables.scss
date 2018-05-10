@@ -1,10 +1,12 @@
 // Colors
 $white: #FFFFFF;
 $gray-fa: #FaFaFa;
+$gray-bb: #bbbbbb;
 $gray-66: #666666;
+$black: #000000;
 
 $primary-color: #78BD00;
-
+$styleguidePageBgColor: #deecb8;
 
 //UIkit overwritten
 $global-primary-background: $primary-color;
@@ -28,11 +30,18 @@ $secondary-font-Light: 'ChivoLight';
 
 // Fonts sizes
 $font-size-title: 18px;
+$font-size-medium: 14px;
 $font-size-text: 12px;
 $font-size-small: 10px;
 
 // media query
-$breakpoints: ('md': 1200px);
+$width-breakpoints: (
+    'md': 455px,
+    'mdx': 605px,
+    'lg': 1000px,
+    'lgx': 1075px,
+    'lgxx': 1200px
+);
 
 // Imports
 @import "node_modules/uikit/src/scss/variables-theme.scss";
