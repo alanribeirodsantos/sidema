@@ -1,0 +1,28 @@
+@import '~assets/sass-utils/variables';
+
+.sdm-header {
+    background: url('/assets/images/main-background.jpg');
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 105px;
+
+    &__layer {
+        width: 100%;
+        height: 100%;
+        background-color: rgba($black, $alpha: 0.8);
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 5vw;    
+    }
+  
+      &__logo {
+        max-width: 100px;
+      }
+
+  }
+  
+  
