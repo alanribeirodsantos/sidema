@@ -1,12 +1,30 @@
 @import '~assets/sass-utils/variables.scss';
+@import '~assets/sass-utils/mixins.scss';
 
-.faq-question {
-    font-family: $secondary-font-bold;
-    color: $black;
-}
+.faq-container {
+    width: 50%;
+    float: left;
+    text-align: justify;
+    padding-bottom: 25px;
+    padding-right: 25px;
+    box-sizing: border-box;
 
-.faq-answer {
-    font-family: $secondary-font-Light;
-    color: $black;
+    @include mqMaxWidth('mdx') {
+        width: 100%;
+    }
 
+    &__faq-content {
+
+        &__faq-question {
+            font-family: $primary-font-bold;
+            color: $black;
+            font-size: $font-size-title-big;
+        }
+            
+        &__faq-answer {
+            font-family: $secondary-font;
+            color: $black;
+            font-size: $font-size-medium;
+        }
+    }
 }
