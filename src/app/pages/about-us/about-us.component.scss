@@ -1,12 +1,13 @@
 @import '~assets/sass-utils/variables.scss';
 
-.container {
+.aboutus-container {
     padding: 25px 65px 0 65px;
 
-    &__h1 {
+    &__title {
         font-family: $primary-font-bold;
-        font-size: $font-size-h1;
+        font-size: $font-size-title-large;
         color: $primary-color;
+        margin-bottom: 10px;
     }
 
     &__content {

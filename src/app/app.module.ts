@@ -23,7 +23,7 @@ import { SystemComponent } from './pages/system/system.component';
 import { SdmReportCardComponent } from './components/sdm-report-card/sdm-report-card.component';
 import { ReportsListComponent } from './pages/system/reports-list/reports-list.component';
 import { SdmHeaderComponent } from './components/sdm-header/sdm-header.component';
-import { SdmAboutUsComponent } from './components/sdm-about-us/sdm-about-us.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASY7GlvEimsp0Gqv1H6qvwdX_w6AI0m6Y",
@@ -51,7 +51,7 @@ export const firebaseConfig = {
     SdmReportCardComponent,
     ReportsListComponent,
     SdmHeaderComponent,
-    SdmAboutUsComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
