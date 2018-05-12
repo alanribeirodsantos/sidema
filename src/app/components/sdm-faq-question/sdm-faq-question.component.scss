@@ -2,29 +2,20 @@
 @import '~assets/sass-utils/mixins.scss';
 
 .faq-container {
-    width: 50%;
-    float: left;
+    
     text-align: justify;
-    padding-bottom: 25px;
-    padding-right: 25px;
+  //  padding-bottom: 25px;
     box-sizing: border-box;
 
-    @include mqMaxWidth('mdx') {
-        width: 100%;
-    }
-
-    &__faq-content {
-
-        &__faq-question {
-            font-family: $primary-font-bold;
-            color: $black;
-            font-size: $font-size-title-big;
+    &__faq-question {
+        font-family: $primary-font-bold;
+        color: $black;
+        font-size: $font-size-title-big;
         }
             
-        &__faq-answer {
-            font-family: $secondary-font;
-            color: $black;
-            font-size: $font-size-medium;
-        }
+    &__faq-answer {
+        font-family: $secondary-font;
+        color: $black;
+        font-size: $font-size-medium;
     }
 }

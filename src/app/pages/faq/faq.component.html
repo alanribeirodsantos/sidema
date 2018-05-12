@@ -1,6 +1,8 @@
 <sdm-header></sdm-header>
 <div class="faq-container">
   <div class="faq-container__title">Perguntas Frequentes</div>
-  <sdm-faq-question [question] = "i.q" [answer] = "i.a" *ngFor="let i of faqList"></sdm-faq-question>
+  <div uk-grid>
+    <sdm-faq-question *ngFor="let faqItem of faqList" [question] = "faqItem.q" [answer] = "faqItem.a"></sdm-faq-question>
+  </div>
 </div>
 <!--<sdm-footer></sdm-footer>-->
