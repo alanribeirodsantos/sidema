@@ -26,6 +26,10 @@ import { SdmHeaderComponent } from './components/sdm-header/sdm-header.component
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { SdmFaqQuestionComponent } from './components/sdm-faq-question/sdm-faq-question.component';
+import { SdmBoostReportComponent } from './components/sdm-report-card/sdm-boost-report/sdm-boost-report.component';
+import { SdmReportCategoryComponent } from './components/sdm-report-card/sdm-report-category/sdm-report-category.component';
+import { SdmReportStatusComponent } from './components/sdm-report-card/sdm-report-status/sdm-report-status.component';
+import { SdmMyReportComponent } from './components/sdm-report-card/sdm-my-report/sdm-my-report.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASY7GlvEimsp0Gqv1H6qvwdX_w6AI0m6Y",
@@ -56,6 +60,10 @@ export const firebaseConfig = {
     AboutUsComponent,
     FaqComponent,
     SdmFaqQuestionComponent,
+    SdmBoostReportComponent,
+    SdmReportCategoryComponent,
+    SdmReportStatusComponent,
+    SdmMyReportComponent
   ],
   imports: [
     BrowserModule,

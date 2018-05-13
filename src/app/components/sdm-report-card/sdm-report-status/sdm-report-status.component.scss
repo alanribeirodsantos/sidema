@@ -1,0 +1,6 @@
+@import '~assets/sass-utils/variables.scss';
+
+.uk-label-in-progress {
+    background-color: $status-in-progress;
+    color: $white;
+}

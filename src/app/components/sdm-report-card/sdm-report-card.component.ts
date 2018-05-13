@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-sdm-report-card',
+  selector: 'sdm-report-card',
   templateUrl: './sdm-report-card.component.html',
   styleUrls: ['./sdm-report-card.component.scss']
 })
-export class SdmReportCardComponent implements OnInit {
+export class SdmReportCardComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Input() report:any;
 
 }
