@@ -32,3 +32,22 @@
         border-color: $global-primary-background;
     }
 }
+
+.uk-button-default-custom-location{
+    border: 1px solid $button-default-border-color;
+    color: $primary-color;
+    background-color: $white;
+
+    &:hover {
+        border-color: $global-primary-background;
+    }
+}
+
+.uk-button-default-custom-report{
+    color: $white;
+    background-color: $blue;
+
+    &:hover {
+        background-color: $background-button-report;
+    }
+}

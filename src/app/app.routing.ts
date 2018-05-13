@@ -6,6 +6,7 @@ import { SystemComponent } from './pages/system/system.component';
 import { ReportsListComponent } from './pages/system/reports-list/reports-list.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { FaqComponent } from './pages/faq/faq.component';
+import { ReportComponent } from './pages/system/report/report.component';
 
 const APP_ROUTES: Routes = [
     {path: "", redirectTo: "/styleguide", pathMatch: "full"},
@@ -14,8 +15,9 @@ const APP_ROUTES: Routes = [
     {path: "about-us", component: AboutUsComponent},
     {path: "FAQ", component: FaqComponent},
     {path: "sistema", component: SystemComponent, children:[
-        {path: "", redirectTo: "denuncias", pathMatch: "full"},
-        {path: "denuncias", component: ReportsListComponent}
+        {path: "", redirectTo: "denuncia", pathMatch: "full"},
+        {path: "denuncias", component: ReportsListComponent},
+        {path: "denunciar", component: ReportComponent}
     ]},
 ];
 
