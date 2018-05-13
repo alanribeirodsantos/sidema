@@ -1,0 +1,8 @@
+<span class="uk-label uk-margin-right"
+      uk-tooltip="title: Status; pos: bottom; delay: 500;"
+      [ngClass]="{
+        'uk-label-success': status == 'received',
+        'uk-label-warning': status == 'verifying-veracity',
+        'uk-label-danger': status == 'filed',
+        'uk-label-in-progress': status == 'in-progress'
+      }">{{statusTitle}}</span>
