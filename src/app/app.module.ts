@@ -26,6 +26,7 @@ import { SdmHeaderComponent } from './components/sdm-header/sdm-header.component
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { SdmFaqQuestionComponent } from './components/sdm-faq-question/sdm-faq-question.component';
+import { ReportComponent } from './pages/system/report/report.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASY7GlvEimsp0Gqv1H6qvwdX_w6AI0m6Y",
@@ -56,6 +57,7 @@ export const firebaseConfig = {
     AboutUsComponent,
     FaqComponent,
     SdmFaqQuestionComponent,
+    ReportComponent,
   ],
   imports: [
     BrowserModule,
