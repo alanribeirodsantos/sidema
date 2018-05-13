@@ -2,5 +2,7 @@
     height: 100vh;
     width: calc(100% - 270px);
     padding: 30px;
+    box-sizing: border-box;
     display: inline-block;
+    overflow-y: auto;
 }
