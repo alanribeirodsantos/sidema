@@ -1,0 +1,90 @@
+@import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
+
+.section-one {
+    &__layer {
+        height: 100%;
+        width: 100%;
+        background-color: rgba($black, $alpha: 0.8);
+        display: flex;
+
+        &__introduction {
+            width: calc(100% - 450px);
+            height: 100%;
+            padding: 0 50px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &__container {
+                max-width: 900px;
+
+                &__logo {
+                    text-align: center;
+                }
+    
+                &__slogan {
+                    font-family: $primary-font;
+                    color: $white;
+                    font-size: $font-size-title;
+                    letter-spacing: 0.8px;
+                    margin-top: 20px;
+                    text-align: center;
+
+                    &__break-line {
+                        @include mqMaxWidth('md') {
+                            display: none;
+                        }
+                    }
+
+                    @include mqMaxWidth('mdx') {
+                        font-size: $font-size-medium;
+                    }
+                }
+    
+                &__description {
+                    font-family: $secondary-font;
+                    font-size: $font-size-medium;
+                    color: $gray-fa;
+                    text-align: justify;
+                    -moz-hyphens: auto;
+                    -webkit-hyphens: auto;
+                    hyphens: auto;
+                    margin: 50px 0;
+
+                    @include mqMaxWidth('mdx') {
+                        margin: 25px 0;
+                    }
+                }
+    
+                &__actions {
+                    text-align: left;
+
+                    @include mqMaxWidth('lgxx') {
+                        text-align: center;
+                    }
+                }
+            }
+
+            @include mqMaxWidth('lg') {
+                width: 100%;
+            }
+
+            @include mqMaxWidth('md') {
+                padding: 0 25px;
+            }
+        }
+    
+        &__form {
+            width: 450px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            @include mqMaxWidth('lg') {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,10 +1,44 @@
 @import "node_modules/uikit/src/scss/mixins-theme.scss";
 
-@mixin mq($width) {
-    @if map_has_key($breakpoints, $width) {
-        $width: map_get($breakpoints, $width);
+// Lienar gradient
+@mixin linear-gradient($direction, $color-stops...) {
+    background: nth($color-stops, 1);
+    background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+    background: linear-gradient($direction, $color-stops);
+}
+
+// Keyframes
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+      @content; 
+    }
+    @-moz-keyframes #{$name} {
+      @content;
+    }
+    @-ms-keyframes #{$name} {
+      @content;
+    }
+    @keyframes #{$name} {
+      @content;
+    } 
+}
+
+// Media querys
+@mixin mqMaxWidth($width) {
+    @if map_has_key($width-breakpoints, $width) {
+        $width: map_get($width-breakpoints, $width);
         
         @media only screen and (max-width: $width) {
+            @content;
+        }
+    }
+}
+
+@mixin mqMaxHeight($height) {
+    @if map_has_key($height-breakpoints, $height) {
+        $width: map_get($height-breakpoints, $height);
+        
+        @media only screen and (max-height: $height) {
             @content;
         }
     }
