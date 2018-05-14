@@ -20,7 +20,7 @@
       <input class="uk-input" type="text" placeholder="Complemento">
     </div>
     <div class="uk-width-1-4@s">
-      <sdm-button [type]="'location'" [btnWidth]="'large'">GERAR LOCALIZAÇÃO</sdm-button>
+      <sdm-button [type]="'tertiary'" [btnWidth]="'large'">GERAR LOCALIZAÇÃO</sdm-button>
     </div>
     <div class="uk-width-1-1">
       <input class="uk-input" type="text" placeholder="Descrição do Infrator (se houver)">
@@ -29,6 +29,10 @@
       <div uk-form-custom="target: > * > span:first-child">
           <select>
               <option value="">Categoria*</option>
+              <option value="1">Monólitos</option>
+              <option value="2">Recursos Hídricos</option>
+              <option value="3">Vegetação</option>
+              <option value="4">Patrimônio</option>
           </select>
           <button class="uk-button uk-button-default" type="button" tabindex="-1">
               <span></span>
@@ -55,7 +59,7 @@
       </div>
     </div>
     <div class="uk-margin uk-width-1-1">
-      <sdm-button [type]="'report'" [btnWidth]="'large'" (click)="sendReport()">ENVIAR DENÚNCIA</sdm-button>
+      <sdm-button [type]="'quaternary'" [btnWidth]="'large'" (click)="sendReport()">ENVIAR DENÚNCIA</sdm-button>
     </div>
   </form>
 </section>

@@ -30,7 +30,8 @@ import { SdmBoostReportComponent } from './components/sdm-report-card/sdm-boost-
 import { SdmReportCategoryComponent } from './components/sdm-report-card/sdm-report-category/sdm-report-category.component';
 import { SdmReportStatusComponent } from './components/sdm-report-card/sdm-report-status/sdm-report-status.component';
 import { SdmMyReportComponent } from './components/sdm-report-card/sdm-my-report/sdm-my-report.component';
-
+import { ReportingComponent } from './pages/system/reporting/reporting.component';
+ 
 export const firebaseConfig = {
   apiKey: "AIzaSyASY7GlvEimsp0Gqv1H6qvwdX_w6AI0m6Y",
   authDomain: "sidema-dd795.firebaseapp.com",
@@ -63,10 +64,11 @@ export const firebaseConfig = {
     SdmBoostReportComponent,
     SdmReportCategoryComponent,
     SdmReportStatusComponent,
-    SdmMyReportComponent
+    SdmMyReportComponent,
+    ReportingComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     routing,
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
