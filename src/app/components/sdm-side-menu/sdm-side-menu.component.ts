@@ -11,9 +11,6 @@ export class SdmSideMenuComponent{
 
   }
   editProfile(){
-  }
 
-  report(){ 
   }
-
 }
