@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../../../backend/services/user.service';
+// import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'sdm-form-sign-in',
@@ -10,6 +11,7 @@ export class SdmFormSignInComponent {
 
   email:string = "";
   password:string = "";
+  @Output() clickedForgot:EventEmitter<any> = new EventEmitter();
 
   constructor(private userService:UserService) {}
 
@@ -25,7 +27,7 @@ export class SdmFormSignInComponent {
     this.userService.loginGoogle();
   }
 
-  resetPassword(){
-    this.userService.resetPassword(this.email);
+  forgotPassword(){
+    this.clickedForgot.emit("forgot");
   }
 }
