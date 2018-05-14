@@ -12,7 +12,7 @@ const APP_ROUTES: Routes = [
     {path: "", redirectTo: "/styleguide", pathMatch: "full"},
     {path: "styleguide", component: StyleguideComponent},
     {path: "home", component: HomeComponent},
-    {path: "about-us", component: AboutUsComponent},
+    {path: "sobre-nos", component: AboutUsComponent},
     {path: "FAQ", component: FaqComponent},
     {path: "sistema", component: SystemComponent, children:[
         {path: "", redirectTo: "denuncias", pathMatch: "full"},

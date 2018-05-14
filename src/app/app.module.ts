@@ -68,7 +68,7 @@ export const firebaseConfig = {
     ReportingComponent
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     routing,
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
