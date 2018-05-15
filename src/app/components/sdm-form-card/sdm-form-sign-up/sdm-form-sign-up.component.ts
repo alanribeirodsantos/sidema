@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../../backend/services/user.service';
+import * as UIkit from 'uikit';
 
 @Component({
   selector: 'sdm-form-sign-up',
@@ -23,7 +24,11 @@ export class SdmFormSignUpComponent {
 
   createUser(){
     if(this.name.length == 0 || this.email.length == 0 || this.password.length == 0 || this.confirmPassword.length == 0){
-      alert("Existem campos em branco!");
+      UIkit.notification({
+        message: "<span uk-icon='icon: warning'></span> Existem campos em branco!",
+        status: "warning",
+        timeout: 3000
+      })
     }
     else {
       if(this.confirmPassword === this.password){
@@ -33,7 +38,7 @@ export class SdmFormSignUpComponent {
         this.password = "";
         this.confirmPassword = "";
       }
-      else alert("As senhas não correspondem!");
+      else  UIkit.notification({message: "<span uk-icon='icon: close'></span> As senhas não correspondem!", status: "danger", timeout: 3000})
     }
   }
 }
