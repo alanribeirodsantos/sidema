@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
+import * as UIkit from 'uikit';
 
 @Injectable()
 export class UserService {
@@ -15,18 +16,30 @@ export class UserService {
   createUser(name, email, password){
     this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password)
     .then( (result) => {
-      alert("Usuário cadastrado com sucesso!");
+      UIkit.notification({
+        message: "<span uk-icon='icon: check'></span> Usuário cadastrado com sucesso!",
+        status: "success",
+        timeout: 3000
+      })
       this.logout();
       this.addUser(result.uid, name, email, password);
     })
     .catch( (erro) => {
       if(erro.code === "auth/email-already-in-use"){
-        alert("O usuário já existe!");
+        UIkit.notification({
+          message: "<span uk-icon='icon: warning'></span> O usuário já existe",
+          status: "warning",
+          timeout: 3000
+        })
       }
       else if(erro.code === "auth/invalid-email"){
-        alert("O e-mail informado é inválido, tente novamente!");
+        UIkit.notification({
+          message: "<span uk-icon='icon: close'></span> O e-mail informado é inválido, tente novamente!",
+          status: "danger",
+          timeout: 3000
+        })
       }
-      else alert("Erro ao cadastrar usuário!");
+      else UIkit.notification({message: "<span uk-icon='icon: close'></span> Erro ao cadastrar usuário!", status: "danger", timeout: 4000});
     } );
   }
 
@@ -45,7 +58,11 @@ export class UserService {
 
   login(email, password){
     if(email.length === 0 || password.length === 0){
-      alert("Existem campos vazios!");
+      UIkit.notification({
+        message: "<span uk-icon='icon: warning'></span> Existem campos vazios!",
+        status: "warning",
+        timeout: 3000
+      })
     }
     else {
       this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
@@ -58,7 +75,11 @@ export class UserService {
             for(let u in users){
               if(users[u].email === email){
                 this.user = users[u].name;
-                alert("Usuário logado! Bem-vindo "+ this.user);
+                UIkit.notification({
+                  message: `Bem-vindo ${this.user}!`,
+                  status: "success",
+                  timeout: 3000
+                })
                 break;
               }
             }
@@ -68,18 +89,34 @@ export class UserService {
       })
       .catch( (error) => {
         if(error.code === "auth/user-not-found"){
-          alert("Erro, usuário não existe!");
+          UIkit.notification({
+            message: "<span uk-icon='icon: close'></span> Erro, usuário não existe!",
+            status: "danger",
+            timeout: 3000
+          })
         }
         else if(error.code === "auth/wrong-password"){
-          alert("A senha está incorreta!");
+          UIkit.notification({
+            message: "<span uk-icon='icon: close'></span> A senha está incorreta!",
+            status: "danger",
+            timeout: 3000
+          })
         }
         else if(error.code === "auth/invalid-email"){
-          alert("O e-mail é inválido ou está incorreto!");
+          UIkit.notification({
+            message: "<span uk-icon='icon: close'></span> O e-mail é inválido ou está incorreto!",
+            status: "danger",
+            timeout: 3000
+          })
         }
         else if(error.code === "auth/network-request-failed"){
-          alert("Erro, sem conexão com a internet!");
+          UIkit.notification({
+            message: "<span uk-icon='icon: close'></span> Erro, sem conexão com a internet!",
+            status: "danger",
+            timeout: 3000
+          })
         }
-        else alert("Erro interno");
+        else UIkit.notification({message: "<span uk-icon='icon: close'></span> Erro interno!", status: "danger", timeout: 3000})
       })
     }
   }
@@ -93,6 +130,12 @@ export class UserService {
       var user = result.user;
       console.log("TOKEN: " + token);
       console.log("USER: " + user.displayName);
+      this.angularFireDatabase.database.ref("usuários").push({
+        id: user.uid,
+        name: user.displayName,
+        email: user.email,
+        provider: "Facebook"
+      })
     }).catch( (error) => console.log(error.message));
   }
 
@@ -105,6 +148,12 @@ export class UserService {
       var user = result.user;
       console.log("TOKEN: " + token);
       console.log("USER: " + user.displayName);
+      this.angularFireDatabase.database.ref("usuários").push({
+        id: user.uid,
+        name: user.displayName,
+        email: user.email,
+        provider: "Google"
+      })
     }).catch( (error) => console.log(error.message));
   }
 
@@ -114,7 +163,11 @@ export class UserService {
 
   resetPassword(email){
     firebase.auth().sendPasswordResetEmail(email)
-    .then( () => alert("Um e-mail de redefinição de senha foi enviado para: " + email))
-    .catch( (error) => console.log(error.message));
+    .then( () => UIkit.notification({
+      message: `<span uk-icon='icon: check'></span> Um e-mail de redefinição de senha foi enviado para: ${email}`,
+      status: "primary",
+      timeout: 3000
+    }))
+    .catch( (error) => console.log(error.code));
   }
 }
