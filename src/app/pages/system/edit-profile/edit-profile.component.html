@@ -1,0 +1,30 @@
+<section class="form-editProfile">
+  <header class="form-editProfile__title">Editar Perfil</header>
+  <form class="uk-grid-small" uk-grid>
+    <div class="uk-width-1-1">
+      <input class="uk-input" type="text" placeholder="Nome" value="Kátia">
+    </div>
+    <div class="uk-width-1-1">
+      <input class="uk-input" type="email" placeholder="E-mail" value="katiane@katia.com">
+    </div>
+    <div class="uk-width-1-1">
+      <input class="uk-input" type="password" placeholder="Nova Senha">
+    </div>
+    <div class="uk-width-1-1">
+      <input class="uk-input" type="password" placeholder="Confirmar Senha">
+    </div>
+    <div class="uk-width-1-1">
+      <input class="uk-input uk-form-danger" type="password" placeholder="Senha Atual">
+    </div>
+    <span class="form-editProfile__subtitle uk-width-1-1">Atualizar Foto</span>
+    <div>
+      <div uk-form-custom>
+        <input type="file">
+        <div type="button" class="uk-button uk-button-default uk-card uk-card-body" uk-icon="icon: plus"></div>
+      </div>
+    </div>
+    <div class="uk-margin uk-width-1-1">
+      <sdm-button [type]="'quaternary'" [btnWidth]="'large'" (click)="editProfile()">Salvar Alterações</sdm-button>
+    </div>
+  </form>
+</section>

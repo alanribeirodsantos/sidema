@@ -1,0 +1,18 @@
+@import '~assets/sass-utils/variables.scss';
+
+.aboutus-container {
+    padding: 25px 65px 0 65px;
+
+    &__title {
+        font-family: $primary-font-bold;
+        font-size: $font-size-title-large;
+        color: $primary-color;
+        margin-bottom: 10px;
+    }
+
+    &__content {
+        font-family: $secondary-font;
+        font-size: $font-size-medium;
+        color: $black;
+    }
+}

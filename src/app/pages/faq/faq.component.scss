@@ -1,0 +1,12 @@
+@import '~assets/sass-utils/variables.scss';
+
+.faq-container {
+    padding: 25px 65px 0 65px;
+
+    &__title {
+        font-family: $primary-font-bold;
+        font-size: $font-size-title-large;
+        color: $primary-color;
+        margin-bottom: 10px;
+    }
+}
