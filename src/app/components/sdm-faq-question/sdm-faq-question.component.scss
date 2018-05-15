@@ -1,0 +1,18 @@
+@import '~assets/sass-utils/variables.scss';
+
+.faq-question-container {
+    text-align: justify;
+    box-sizing: border-box;
+
+    &__faq-question {
+        font-family: $primary-font-bold;
+        color: $black;
+        font-size: $font-size-title-big;
+    }
+            
+    &__faq-answer {
+        font-family: $secondary-font;
+        color: $black;
+        font-size: $font-size-medium;
+    }
+}

@@ -1,18 +1,19 @@
 <article class="form-card uk-card uk-card-default">
     <section class="form-card__content uk-card-body">
-        <div class="form-card__content__slider" [ngClass]="{'form-card__content__slider--on-sign-in': OnSignIn}">
+        <div class="form-card__content__slider" [ngClass]="{'form-card__content__slider--on-sign-in': OnSignIn, 'form-card__content__slider--on-forgot-password': OnForgotPassword}">
             <sdm-form-sign-up class="form-card__content__slider__sign-up"></sdm-form-sign-up>
-            <sdm-form-sign-in class="form-card__content__slider__sign-in"></sdm-form-sign-in>
+            <sdm-form-sign-in class="form-card__content__slider__sign-in" (clickedForgot)="toggleState($event)"></sdm-form-sign-in>
+            <sdm-form-forgot-password class="form-card__content__slider__forgot-password"></sdm-form-forgot-password>
         </div>
     </section>
-    <div class="form-card__footer uk-card-footer">
+    <footer class="form-card__footer uk-card-footer">
         <div class="form-card__footer__slider" [ngClass]="{'form-card__content__slider--on-sign-in': OnSignIn}">
             <div class="form-card__footer__slider__sign-up">
-                Já possui uma conta? <span class="form-card__footer__link uk-button uk-button-text" (click)="toggleSignIn()">ENTRAR</span>
+                Já possui uma conta? <span class="form-card__footer__link uk-button uk-button-text" (click)="toggleState('signIn')">ENTRAR</span>
             </div>
             <div class="form-card__footer__slider__sign-in">
-                Ainda não é cadastrado? <span class="form-card__footer__link uk-button uk-button-text" (click)="toggleSignIn()">CADASTRE-SE</span>
+                Ainda não é cadastrado? <span class="form-card__footer__link uk-button uk-button-text" (click)="toggleState('signUp')">CADASTRE-SE</span>
             </div>
         </div>
-    </div>
+    </footer>
 </article>

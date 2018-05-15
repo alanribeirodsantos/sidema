@@ -1,0 +1,11 @@
+@import '~assets/sass-utils/variables.scss';
+
+.sdm-my-report {
+    font-family: $secondary-font;
+    font-size: $font-size-text;
+    color: $my-report-text-color;
+
+    &__icon {
+        margin-right: 3px;
+    }
+}

@@ -1,0 +1,11 @@
+@import '~assets/sass-utils/variables.scss';
+
+.sdm-report-category {
+    font-family: $secondary-font;
+    font-size: $font-size-text;
+
+    &__image {
+        height: 15px;
+        margin-right: 3px;
+    }
+}
