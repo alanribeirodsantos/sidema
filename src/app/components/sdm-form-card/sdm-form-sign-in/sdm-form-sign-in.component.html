@@ -11,11 +11,11 @@
             <input class="uk-input" type="password" placeholder="Senha" [(ngModel)]="password" name="password">
         </div>
         <div class="form-sign-in__form__forgot-password uk-margin-bottom">
-            <a class="form-sign-in__form__forgot-password__link uk-link-muted" href="#">Esqueci minha senha</a>
+            <a class="form-sign-in__form__forgot-password__link uk-link-muted" href="javascript:void(0)" (click)="forgotPassword()">Esqueci minha senha</a>
         </div>
-        <sdm-button [type]="'primary'" [btnWidth]="'large'" (click)="login()" routerLink="/sistema">ENTRAR</sdm-button>
+        <sdm-button [type]=" 'primary' " [btnWidth]=" 'large' " (click)="login() " routerLink="/sistema">ENTRAR</sdm-button>
     </form>
-    <hr class="uk-divider-icon">
-    <sdm-social-button [socialNetwork]="'Facebook'" [btnWidth]="'half'" (click)="loginFacebook()"></sdm-social-button>
-    <sdm-social-button [socialNetwork]="'Google'" [btnWidth]="'half'" [btnFloat]="'right'" (click)="loginGoogle()"></sdm-social-button>
+    <hr class="uk-divider-icon ">
+    <sdm-social-button [socialNetwork]=" 'Facebook' " [btnWidth]=" 'half' " (click)="loginFacebook() "></sdm-social-button>
+    <sdm-social-button [socialNetwork]=" 'Google' " [btnWidth]=" 'half' " [btnFloat]=" 'right' " (click)="loginGoogle() "></sdm-social-button>
 </section>
