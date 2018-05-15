@@ -1,39 +1,61 @@
 // Colors
 $white: #FFFFFF;
-$gray-fa: #FaFaFa;
+$gray-fa: #FAFAFA;
+$gray-bb: #BBBBBB;
+$gray-99: #999999;
 $gray-66: #666666;
+$black: #000000;
 
+$quaternary-button-background: #16a5de;
+$quaternary-button-background-hover: #118fc0;
 $primary-color: #78BD00;
+$styleguidePageBgColor: #DEECB8;
+$my-report-text-color: #1E87F0;
 
-
-//UIkit overwritten
-$global-primary-background: $primary-color;
-$button-default-border-color: #78bd0080;
+$status-filed: #F0506E;
+$status-verifying-veracity: #FAA05A;
+$status-received: #32D296;
+$status-resolved: #1E87F0;
+$status-in-progress: $primary-color;
 
 // Facebook
 $facebook-color: #3B5998;
-$facebook-color-hover: #314b81;
+$facebook-color-hover: #314B81;
 
 // Google
 $google-color: #DB4437;
-$google-color-hover: #c03d31;
+$google-color-hover: #C03D31;
 
 // Fonts
 $primary-font: 'AileronRegular';
 $primary-font-bold: 'AileronBold';
-$primary-font-Light: 'AileronLight';
+$primary-font-light: 'AileronLight';
 $secondary-font: 'ChivoRegular';
 $secondary-font-bold: 'ChivoBold';
-$secondary-font-Light: 'ChivoLight';
+$secondary-font-light: 'ChivoLight';
 
 // Fonts sizes
+$font-size-title-large: 26px;
+$font-size-title-big: 20px;
 $font-size-title: 18px;
+$font-size-medium: 14px;
 $font-size-text: 12px;
 $font-size-small: 10px;
 
 // media query
-$breakpoints: ('md': 1200px);
+$width-breakpoints: (
+    'md': 455px,
+    'mdx': 605px,
+    'lg': 1000px,
+    'lgx': 1075px,
+    'lgxx': 1200px
+);
+
+//UIkit overwritten
+$global-primary-background: $primary-color;
+$button-default-border-color: #78BD0080;
+$label-background: $status-resolved;
+$label-font-size: $font-size-text;
 
 // Imports
 @import "node_modules/uikit/src/scss/variables-theme.scss";
-@import "fonts.scss";
