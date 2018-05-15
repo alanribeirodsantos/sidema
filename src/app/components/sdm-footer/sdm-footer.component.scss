@@ -1,0 +1,47 @@
+@import '~assets/sass-utils/variables';
+
+.sdm-footer {
+    background-color: $primary-color;
+    margin-top: 50px;
+    padding: 50px;
+    box-sizing: border-box;
+    color: $white;
+
+    &__infos {
+        &__sitename {
+            font: $font-size-title-enormous $primary-font-bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        &__copyright {
+            font: $font-size-medium $secondary-font;
+            text-transform: uppercase;
+        }
+    }
+
+    &__sitemap {
+        &__title {
+            font: $font-size-title-big $primary-font-bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        & a {
+            font: $font-size-medium $secondary-font;
+            color: $white;
+        }
+    }
+
+    &__mediaicons {
+        &__title {
+            font: $font-size-title-big $primary-font-bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        
+        & span {
+            margin-right: 15px;
+        }
+    }
+}

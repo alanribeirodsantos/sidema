@@ -33,6 +33,7 @@ import { SdmMyReportComponent } from './components/sdm-report-card/sdm-my-report
 import { ReportingComponent } from './pages/system/reporting/reporting.component';
 import { EditProfileComponent } from './pages/system/edit-profile/edit-profile.component';
 import { SdmFormForgotPasswordComponent } from './components/sdm-form-card/sdm-form-forgot-password/sdm-form-forgot-password.component';
+import { SdmFooterComponent } from './components/sdm-footer/sdm-footer.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASY7GlvEimsp0Gqv1H6qvwdX_w6AI0m6Y",
@@ -69,7 +70,8 @@ export const firebaseConfig = {
     SdmMyReportComponent,
     ReportingComponent,
     EditProfileComponent,
-    SdmFormForgotPasswordComponent
+    SdmFormForgotPasswordComponent,
+    SdmFooterComponent
   ],
   imports: [
     BrowserModule,
