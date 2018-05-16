@@ -8,10 +8,24 @@ import { Component } from '@angular/core';
 export class SdmFormCardComponent {
 
   OnSignIn:boolean = false;
+  OnSignUp:boolean = true;
+  OnForgotPassword:boolean = false;
 
-  toggleSignIn() {
-    this.OnSignIn = !this.OnSignIn;
-    console.log(this.OnSignIn);
+  toggleState(state){
+    if(state === "signIn"){
+      this.OnSignUp = false;
+      this.OnSignIn = true;
+      this.OnForgotPassword = false;
+    }
+    else if(state === "forgot"){
+      this.OnSignUp = false;
+      this.OnSignIn = false;
+      this.OnForgotPassword = true;
+    }
+    else if(state === "signUp"){
+      this.OnSignUp = true;
+      this.OnSignIn = false;
+      this.OnForgotPassword = false;
+    }
   }
-
 }

@@ -11,7 +11,7 @@
             <input class="uk-input" type="password" placeholder="Senha" [(ngModel)]="password" name="password">
         </div>
         <div class="form-sign-in__form__forgot-password uk-margin-bottom">
-            <a class="form-sign-in__form__forgot-password__link uk-link-muted" href="#">Esqueci minha senha</a>
+            <a class="form-sign-in__form__forgot-password__link uk-link-muted" href="javascript:void(0)" (click)="forgotPassword()">Esqueci minha senha</a>
         </div>
         <sdm-button [type]="'primary'" [btnWidth]="'large'" (click)="login()" routerLink="/sistema">ENTRAR</sdm-button>
     </form>
