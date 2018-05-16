@@ -8,6 +8,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { ReportingComponent } from './pages/system/reporting/reporting.component';
 import { EditProfileComponent } from './pages/system/edit-profile/edit-profile.component';
+import { Report } from './backend/models/report';
+import { ReportComponent } from './pages/system/report/report.component';
 
 const APP_ROUTES: Routes = [
     {path: "", redirectTo: "/styleguide", pathMatch: "full"},
@@ -19,7 +21,8 @@ const APP_ROUTES: Routes = [
         {path: "", redirectTo: "denuncias", pathMatch: "full"},
         {path: "denuncias", component: ReportsListComponent},
         {path: "denunciar", component: ReportingComponent},
-        {path: "perfil", component: EditProfileComponent}
+        {path: "perfil", component: EditProfileComponent},
+        {path: "denuncia", component: ReportComponent}
     ]},
 ];
 
