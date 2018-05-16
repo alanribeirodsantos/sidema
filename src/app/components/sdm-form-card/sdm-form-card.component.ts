@@ -18,9 +18,9 @@ export class SdmFormCardComponent {
       this.OnForgotPassword = false;
     }
     else if(state === "forgot"){
+      this.OnSignUp = false;
       this.OnSignIn = false;
       this.OnForgotPassword = true;
-      this.OnSignUp = false;
     }
     else if(state === "signUp"){
       this.OnSignUp = true;
