@@ -28,12 +28,13 @@ import { FaqComponent } from './pages/faq/faq.component';
 import { SdmFaqQuestionComponent } from './components/sdm-faq-question/sdm-faq-question.component';
 import { SdmBoostReportComponent } from './components/sdm-report-card/sdm-boost-report/sdm-boost-report.component';
 import { SdmReportCategoryComponent } from './components/sdm-report-card/sdm-report-category/sdm-report-category.component';
-import { SdmReportStatusComponent } from './components/sdm-report-card/sdm-report-status/sdm-report-status.component';
+import { SdmReportStatusComponent } from './components/sdm-report-status/sdm-report-status.component';
 import { SdmMyReportComponent } from './components/sdm-report-card/sdm-my-report/sdm-my-report.component';
 import { ReportingComponent } from './pages/system/reporting/reporting.component';
 import { EditProfileComponent } from './pages/system/edit-profile/edit-profile.component';
 import { SdmFormForgotPasswordComponent } from './components/sdm-form-card/sdm-form-forgot-password/sdm-form-forgot-password.component';
 import { SdmFooterComponent } from './components/sdm-footer/sdm-footer.component';
+import { ReportDetailsComponent } from './pages/system/report-details/report-details.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASY7GlvEimsp0Gqv1H6qvwdX_w6AI0m6Y",
@@ -71,7 +72,8 @@ export const firebaseConfig = {
     ReportingComponent,
     EditProfileComponent,
     SdmFormForgotPasswordComponent,
-    SdmFooterComponent
+    SdmFooterComponent,
+    ReportDetailsComponent
   ],
   imports: [
     BrowserModule,

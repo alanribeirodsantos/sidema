@@ -39,6 +39,26 @@
             background-color: $quaternary-button-background-hover;
         }
     }
+
+    &--danger{
+        color: $white;
+        background-color: $danger-button-background;
+
+        &:hover {
+            background-color: $danger-button-background-hover;
+        }
+    }
+
+    &--danger-secondary{
+        border: 1px solid $danger-button-background;
+        color: $danger-button-background;
+        background-color: transparent;
+
+        &:hover {
+            border-color: $danger-button-background-hover;
+            color: $danger-button-background-hover;
+        }
+    }
 }
 
 .uk-button-default-custom {
