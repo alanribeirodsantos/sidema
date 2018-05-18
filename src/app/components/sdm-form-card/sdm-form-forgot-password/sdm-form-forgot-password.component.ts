@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserService } from '../../../backend/services/user.service';
+import { UserService } from '../../../backend/services/user/user.service';
 
 @Component({
   selector: 'sdm-form-forgot-password',

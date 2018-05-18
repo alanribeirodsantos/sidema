@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { UserService } from '../../../backend/services/user.service';
+import { UserService } from '../../../backend/services/user/user.service';
 // import { EventEmitter } from 'protractor';
 
 @Component({

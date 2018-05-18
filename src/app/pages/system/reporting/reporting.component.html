@@ -1,65 +1,65 @@
 <section class="form-report">
-  <header class="form-report__title">Registrar nova denúncia</header>
-  <form class="uk-grid-small" uk-grid>
-    <div class="uk-width-1-1">
-      <input class="uk-input" type="text" placeholder="Título da Denúncia*">
-    </div>
-    <div class="uk-width-1-1">
-      <textarea class="uk-textarea" rows="5" placeholder="Decrição da Denúncia* (Informe a maior quantidade possível de detalhes)"></textarea>
-    </div>
-    <div class="uk-width-1-2@s">
-      <input class="uk-input" type="text" placeholder="Endereço*">
-    </div>
-    <div class="uk-width-1-4@s">
-      <input class="uk-input" type="text" placeholder="Número">
-    </div>
-    <div class="uk-width-1-4@s">
-      <input class="uk-input" type="text" placeholder="Bairro*">
-    </div>
-    <div class="uk-width-1-2@s">
-      <input class="uk-input" type="text" placeholder="Complemento">
-    </div>
-    <div class="uk-width-1-4@s">
-      <sdm-button [type]="'tertiary'" [btnWidth]="'large'">GERAR LOCALIZAÇÃO</sdm-button>
-    </div>
-    <div class="uk-width-1-1">
-      <input class="uk-input" type="text" placeholder="Descrição do Infrator (se houver)">
-    </div>
-    <div class="uk-width-auto@m">
-      <div uk-form-custom="target: > * > span:first-child">
-          <select>
-              <option value="">Categoria*</option>
-              <option value="1">Monólitos</option>
-              <option value="2">Recursos Hídricos</option>
-              <option value="3">Vegetação</option>
-              <option value="4">Patrimônio</option>
-          </select>
-          <button class="uk-button uk-button-default" type="button" tabindex="-1">
-              <span></span>
-              <span uk-icon="icon: chevron-down"></span>
-          </button>
-      </div>
-    </div>
-    <div class="uk-width-auto@m">
-      <div uk-form-custom="target: > * > span:first-child">
-          <select>
-              <option value="">Tipo de infração*</option>
-          </select>
-          <button class="uk-button uk-button-default" type="button" tabindex="-1">
-              <span></span>
-              <span uk-icon="icon: chevron-down"></span>
-          </button>
-      </div>
-    </div>
-    <span class="form-report__subtitle uk-width-1-1">Mídias*</span>
-    <div>
-      <div uk-form-custom>
-        <input type="file">
-        <div type="button" class="uk-button uk-button-default uk-card uk-card-body" uk-icon="icon: plus"></div>
-      </div>
-    </div>
-    <div class="uk-margin uk-width-1-1">
-      <sdm-button [type]="'quaternary'" [btnWidth]="'large'" (click)="sendReport()">ENVIAR DENÚNCIA</sdm-button>
-    </div>
-  </form>
+    <header class="form-report__title">Registrar nova denúncia</header>
+    <form class="uk-grid-small" uk-grid>
+        <div class="uk-width-1-1">
+            <input class="uk-input" type="text" placeholder="Título da Denúncia*" name="titulo" [(ngModel)]="titulo">
+        </div>
+        <div class="uk-width-1-1">
+            <textarea class="uk-textarea" rows="5" placeholder="Decrição da Denúncia* (Informe a maior quantidade possível de detalhes)" name="descricao" [(ngModel)]="descricao"></textarea>
+        </div>
+        <div class="uk-width-1-2@s">
+            <input class="uk-input" type="text" placeholder="Endereço*" name="endereco" [(ngModel)]="endereco">
+        </div>
+        <div class="uk-width-1-4@s">
+            <input class="uk-input" type="text" placeholder="Número" name="numero" [(ngModel)]="numero">
+        </div>
+        <div class="uk-width-1-4@s">
+            <input class="uk-input" type="text" placeholder="Bairro*" name="bairro" [(ngModel)]="bairro">
+        </div>
+        <div class="uk-width-1-2@s">
+            <input class="uk-input" type="text" placeholder="Complemento" name="complemento" [(ngModel)]="complemento">
+        </div>
+        <div class="uk-width-1-4@s">
+            <sdm-button [type]="'tertiary'" [btnWidth]="'large'">GERAR LOCALIZAÇÃO</sdm-button>
+        </div>
+        <div class="uk-width-1-1">
+            <input class="uk-input" type="text" placeholder="Descrição do Infrator (se houver)" name="infrator" [(ngModel)]="infrator">
+        </div>
+        <div class="uk-width-auto@m">
+            <div uk-form-custom="target: > * > span:first-child">
+                <select [(ngModel)]="categoria" name="categoria">
+                  <option value="">Categoria*</option>
+                  <option value="monoliths">Monólitos</option>
+                  <option value="water-resources">Recursos Hídricos</option>
+                  <option value="vegetation">Vegetação</option>
+                  <option value="historical-patrimony">Patrimônio</option>
+                </select>
+                <button class="uk-button uk-button-default" type="button" tabindex="-1">
+                  <span></span>
+                  <span uk-icon="icon: chevron-down"></span>
+                </button>
+            </div>
+        </div>
+        <div class="uk-width-auto@m">
+            <div uk-form-custom="target: > * > span:first-child">
+                <select>
+                  <option value="">Tipo de infração*</option>
+                </select>
+                <button class="uk-button uk-button-default" type="button" tabindex="-1">
+                  <span></span>
+                  <span uk-icon="icon: chevron-down"></span>
+                </button>
+            </div>
+        </div>
+        <span class="form-report__subtitle uk-width-1-1">Mídias*</span>
+        <div>
+            <div uk-form-custom>
+                <input type="file">
+                <div type="button" class="uk-button uk-button-default uk-card uk-card-body" uk-icon="icon: plus"></div>
+            </div>
+        </div>
+        <div class="uk-margin uk-width-1-1">
+            <sdm-button [type]="'quaternary'" [btnWidth]="'large'" (click)="sendReport()">ENVIAR DENÚNCIA</sdm-button>
+        </div>
+    </form>
 </section>
