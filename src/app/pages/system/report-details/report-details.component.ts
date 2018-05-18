@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
-import { Report } from '../../../backend/models/report';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'report',
-  templateUrl: './report.component.html',
-  styleUrls: ['./report.component.scss']
+  selector: 'app-report-details',
+  templateUrl: './report-details.component.html',
+  styleUrls: ['./report-details.component.scss']
 })
-export class ReportComponent {
+export class ReportDetailsComponent {
 
   commentary: string;
 
@@ -63,7 +62,22 @@ export class ReportComponent {
     ],
     reportDate: "14/03/2018",
     occurrenceDate: "12/03/2018",
-    organ: "SEMA"
+    organ: function() {
+      switch(this.category) {
+        case 'historical-patrimony': {
+          return "SEMA"
+        }
+        case 'water': {
+          return "DNOCS"
+        }
+        case 'monolith': {
+          return "SEDUMA"
+        }
+        case 'vegetation': {
+          return "SEDUMA"
+        }
+      }
+    }
   }
 
   sendCommentary(){
@@ -75,4 +89,5 @@ export class ReportComponent {
       message: this.commentary
     })
   }
+
 }
