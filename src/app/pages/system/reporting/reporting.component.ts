@@ -21,23 +21,7 @@ export class ReportingComponent{
 
   constructor(private reportService:ReportService){}
 
-  // verifyCategory(category){
-  //   if(category === "1"){
-  //     this.categoria = "Monólitos";
-  //   }
-  //   else if(category === "2"){
-  //     this.categoria = "Recursos Hídricos";
-  //   }
-  //   else if(category === "3"){
-  //     this.categoria = "Vegetação";
-  //   }
-  //   else if(category === "4"){
-  //     this.categoria = "Patrimônio";
-  //   }
-  // }
-  
   sendReport(){
-    // this.verifyCategory(this.categoria);
     this.reportService.addReport(this.titulo, this.descricao, this.endereco, this.numero, this.bairro, this.complemento, this.infrator, this.categoria, this.subcategoria, this.midia);
   }
 }
