@@ -1,6 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { UserService } from '../../../backend/services/user.service';
-// import { EventEmitter } from 'protractor';
+import { UserService } from '../../../backend/services/user/user.service';
 
 @Component({
   selector: 'sdm-form-sign-in',

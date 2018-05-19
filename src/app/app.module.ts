@@ -13,7 +13,8 @@ import { SdmSocialButtonComponent } from './components/sdm-social-button/sdm-soc
 import { SdmFormCardComponent } from './components/sdm-form-card/sdm-form-card.component';
 import { SdmFormSignUpComponent } from './components/sdm-form-card/sdm-form-sign-up/sdm-form-sign-up.component';
 import { SdmFormSignInComponent } from './components/sdm-form-card/sdm-form-sign-in/sdm-form-sign-in.component';
-import { UserService } from './backend/services/user.service';
+import { UserService } from './backend/services/user/user.service';
+import { ReportService } from './backend/services/report/report.service';
 import { SdmSectionComponent } from './components/sdm-section/sdm-section.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SdmDownArrowComponent } from './components/sdm-down-arrow/sdm-down-arrow.component';
@@ -83,7 +84,7 @@ export const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [UserService],
+  providers: [UserService, ReportService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
