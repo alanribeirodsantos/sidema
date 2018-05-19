@@ -12,18 +12,18 @@ export class ReportService {
 
   constructor(private angularFireAuth:AngularFireAuth, private angularFireDatabase:AngularFireDatabase) {}
 
-  addReport(titulo, descricao, endereco, numero, bairro, complemento, infrator, categoria, subcategoria, midia){
+  addReport(title, description, address, number, neighborhood, complement, violator, category, subcategort, media){
     var id = this.angularFireDatabase.database.ref().push().key;
     this.angularFireDatabase.database.ref("denúncias").child(id).set({
       id: id,
-      title: titulo,
-      description: descricao,
-      location: `${endereco}, ${numero} - ${bairro}`,
-      complement: complemento,
-      violator: infrator,
-      category: categoria,
-      subcategory: subcategoria,
-      media: midia,
+      title: title,
+      description: description,
+      location: `${address}, ${number} - ${neighborhood}`,
+      complement: complement,
+      violator: violator,
+      category: category,
+      subcategory: subcategort,
+      media: media,
       numberOfSupporters: 0,
       status: "received"
     }).then( () => {

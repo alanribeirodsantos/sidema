@@ -2,32 +2,32 @@
     <header class="form-report__title">Registrar nova denúncia</header>
     <form class="uk-grid-small" uk-grid>
         <div class="uk-width-1-1">
-            <input class="uk-input" type="text" placeholder="Título da Denúncia*" name="titulo" [(ngModel)]="titulo">
+            <input class="uk-input" type="text" placeholder="Título da Denúncia*" name="title" [(ngModel)]="title">
         </div>
         <div class="uk-width-1-1">
-            <textarea class="uk-textarea" rows="5" placeholder="Decrição da Denúncia* (Informe a maior quantidade possível de detalhes)" name="descricao" [(ngModel)]="descricao"></textarea>
+            <textarea class="uk-textarea" rows="5" placeholder="Decrição da Denúncia* (Informe a maior quantidade possível de detalhes)" name="description" [(ngModel)]="description"></textarea>
         </div>
         <div class="uk-width-1-2@s">
-            <input class="uk-input" type="text" placeholder="Endereço*" name="endereco" [(ngModel)]="endereco">
+            <input class="uk-input" type="text" placeholder="Endereço*" name="address" [(ngModel)]="address">
         </div>
         <div class="uk-width-1-4@s">
-            <input class="uk-input" type="text" placeholder="Número" name="numero" [(ngModel)]="numero">
+            <input class="uk-input" type="text" placeholder="Número" name="number" [(ngModel)]="number">
         </div>
         <div class="uk-width-1-4@s">
-            <input class="uk-input" type="text" placeholder="Bairro*" name="bairro" [(ngModel)]="bairro">
+            <input class="uk-input" type="text" placeholder="Bairro*" name="neighborhood" [(ngModel)]="neighborhood">
         </div>
         <div class="uk-width-1-2@s">
-            <input class="uk-input" type="text" placeholder="Complemento" name="complemento" [(ngModel)]="complemento">
+            <input class="uk-input" type="text" placeholder="Complemento" name="complement" [(ngModel)]="complement">
         </div>
         <div class="uk-width-1-4@s">
             <sdm-button [type]="'tertiary'" [btnWidth]="'large'">GERAR LOCALIZAÇÃO</sdm-button>
         </div>
         <div class="uk-width-1-1">
-            <input class="uk-input" type="text" placeholder="Descrição do Infrator (se houver)" name="infrator" [(ngModel)]="infrator">
+            <input class="uk-input" type="text" placeholder="Descrição do Infrator (se houver)" name="violator" [(ngModel)]="violator">
         </div>
         <div class="uk-width-auto@m">
             <div uk-form-custom="target: > * > span:first-child">
-                <select [(ngModel)]="categoria" name="categoria">
+                <select [(ngModel)]="category" name="category">
                   <option value="">Categoria*</option>
                   <option value="monoliths">Monólitos</option>
                   <option value="water-resources">Recursos Hídricos</option>
