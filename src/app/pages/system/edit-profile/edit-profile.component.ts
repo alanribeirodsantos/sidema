@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../backend/services/user/user.service';
 import { Router, NavigationEnd } from '@angular/router';
+import * as UIkit from 'uikit';
 
 @Component({
   selector: 'edit-profile',
@@ -35,7 +36,13 @@ export class EditProfileComponent implements OnInit {
                 this.userService.updateUser(this.name, this.email, this.newPassword);
                 break;
               }
-              else console.log("Senha atual incorreta");
+              else {
+                UIkit.notification({
+                  message: "<span uk-icon='icon: ban'></span> Senha atual incorreta!",
+                  status: "danger",
+                  timeout: 1500
+                })
+              }
             }
           },
           error => console.log(error)

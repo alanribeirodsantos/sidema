@@ -72,7 +72,6 @@ export class UserService {
                   var userLocal = JSON.parse(localStorage.getItem("user"));
                   userLocal.name = name;
                   localStorage.setItem("user", JSON.stringify(userLocal));
-                  console.log("Atualizou nome");
                 })
                 .catch( (error) => console.log(error));
               }).catch( (error) => console.log(error)); 
@@ -84,19 +83,17 @@ export class UserService {
                   var userLocal = JSON.parse(localStorage.getItem("user"));
                   userLocal.email = email;
                   localStorage.setItem("user", JSON.stringify(userLocal));
-                  console.log("Atualizou email");
                 }).catch( (error) => console.log(error));
               }).catch( () => console.log("Erro ao atualizar email"));
             }
             if(newPassword.length > 0){
               if(users[u].password !== undefined && users[u].password !== newPassword){
                 this.angularFireDatabase.object(`/usuários/${user.uid}/password`).set(newPassword)
-                .then( () => console.log("Senha atualizada")).catch( () => console.log("Erro ao atualizar senha"));
+                .then( () => console.log("")).catch( () => console.log("Erro ao atualizar senha"));
               }
               user.updatePassword(newPassword).then( () => {
                 var credentials = firebase.auth.EmailAuthProvider.credential(user.email, newPassword);
                 user.reauthenticateWithCredential(credentials).then( () => console.log("Reauth OK")).catch( (error) => console.log(error));
-                console.log("Senha trocada!");
               }).catch( () => console.log("Erro na troca de senha"));
             }
             break;
@@ -199,10 +196,7 @@ export class UserService {
               break;
             }
           }
-          if(flag === 1){
-            console.log("Verified");
-          }
-          else {
+          if(flag === 0){
             this.angularFireDatabase.database.ref("usuários").push({
               id: user.uid,
               name: user.displayName,
@@ -210,6 +204,7 @@ export class UserService {
               provider: "Facebook"
             })
           }
+          
           this.router.navigateByUrl("/sistema/denuncias");
         },
         error => console.log(error)
@@ -242,15 +237,12 @@ export class UserService {
               break;
             }
           }
-          if(flag === 1){
-            console.log("Verified");
-          }
-          else {
+          if(flag === 0){
             this.angularFireDatabase.database.ref("usuários").push({
               id: user.uid,
               name: user.displayName,
               email: user.email,
-              provider: "Facebook"
+              provider: "Google"
             })
           }
           this.router.navigateByUrl("/sistema/denuncias");
