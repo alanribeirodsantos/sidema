@@ -89,7 +89,7 @@ export class UserService {
             if(newPassword.length > 0){
               if(users[u].password !== undefined && users[u].password !== newPassword){
                 this.angularFireDatabase.object(`/usuários/${user.uid}/password`).set(newPassword)
-                .then( () => console.log("Senha atualizada")).catch( () => console.log("Erro ao atualizar senha"));
+                .then( () => console.log("")).catch( () => console.log("Erro ao atualizar senha"));
               }
               user.updatePassword(newPassword).then( () => {
                 var credentials = firebase.auth.EmailAuthProvider.credential(user.email, newPassword);
@@ -204,6 +204,7 @@ export class UserService {
               provider: "Facebook"
             })
           }
+          
           this.router.navigateByUrl("/sistema/denuncias");
         },
         error => console.log(error)
