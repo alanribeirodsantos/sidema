@@ -9,24 +9,7 @@
         <div class="menu-container__layer__report-button">
             <sdm-button [type]="'primary'" [btnWidth]="'large'" routerLink="/sistema/denunciar">REALIZAR DENÚNCIA</sdm-button>
         </div>
-        <div class="menu-container__layer__hints-container">
-            <div class="menu-container__layer__hints-container__hint uk-margin-bottom">
-                <div class="menu-container__layer__hints-container__hint__icon">
-                    <i uk-icon="icon: info; ratio: 0.7"></i>
-                </div>
-                <div class="menu-container__layer__hints-container__hint__text">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi voluptate similique saepe quaerat fugiat, cum voluptatum alias, laboriosam illo molestias, pariatur necessi tatibus in neque porro.
-                </div>
-            </div>
-            <div class="menu-container__layer__hints-container__hint">
-                <span class="menu-container__layer__hints-container__hint__icon">
-                    <i uk-icon="icon: info; ratio: 0.7"></i>
-                </span>
-                <span class="menu-container__layer__hints-container__hint__text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor possimus odit quae laboriosam.
-                </span>
-            </div>
-        </div>
+        <sdm-hints></sdm-hints>
         <ul class="menu-container__layer__actions uk-nav-default uk-nav-parent-icon" uk-nav>
             <li class="menu-container__layer__actions__option">
                 <a routerLink="/sistema/perfil">

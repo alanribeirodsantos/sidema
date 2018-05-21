@@ -20,46 +20,50 @@
             <input class="uk-input" type="text" placeholder="Complemento" name="complement" [(ngModel)]="complement">
         </div>
         <div class="uk-width-1-4@s">
-            <sdm-button [type]="'tertiary'" [btnWidth]="'large'">GERAR LOCALIZAÇÃO</sdm-button>
+            <sdm-button [type]="'tertiary'" [btnWidth]="'large'" uk-tooltip="title: Gerar localização automaticamente">GERAR LOCALIZAÇÃO</sdm-button>
         </div>
         <div class="uk-width-1-1">
             <input class="uk-input" type="text" placeholder="Descrição do Infrator (se houver)" name="violator" [(ngModel)]="violator">
         </div>
         <div class="uk-width-auto@m">
-            <div uk-form-custom="target: > * > span:first-child">
-                <select [(ngModel)]="category" name="category">
-                  <option value="">Categoria*</option>
-                  <option value="monoliths">Monólitos</option>
-                  <option value="water-resources">Recursos Hídricos</option>
-                  <option value="vegetation">Vegetação</option>
-                  <option value="historical-patrimony">Patrimônio</option>
-                </select>
-                <button class="uk-button uk-button-default" type="button" tabindex="-1">
-                  <span></span>
-                  <span uk-icon="icon: chevron-down"></span>
-                </button>
-            </div>
+          <div class="uk-margin">
+            <select class="uk-select" (change)="onChange($event.target.value)" [(ngModel)]="category" name="category">
+                <option value="">Categoria*</option>
+                <option value="monoliths">Monólitos</option>
+                <option value="water-resources">Recursos Hidricos</option>
+                <option value="vegetation">Vegetação</option>
+                <option value="historical-patrimony">Patrimônio</option>
+            </select>
+          </div>
         </div>
         <div class="uk-width-auto@m">
-            <div uk-form-custom="target: > * > span:first-child">
-                <select>
-                  <option value="">Tipo de infração*</option>
-                </select>
-                <button class="uk-button uk-button-default" type="button" tabindex="-1">
-                  <span></span>
-                  <span uk-icon="icon: chevron-down"></span>
-                </button>
-            </div>
+          <div class="uk-margin">
+            <select class="uk-select">
+                <option>Tipo de Infração*</option>
+                <option *ngIf="categorySelect== 'monoliths' || categorySelect== 'water-resources' || categorySelect== 'historical-patrimony' || categorySelect== 'vegetation'">Poluição</option>
+                <option *ngIf="categorySelect== 'water-resources'">Poços Irregulares</option>
+                <option *ngIf="categorySelect== 'water-resources'">Desperdício de Água</option>
+                <option *ngIf="categorySelect== 'monoliths'">Construção Irregular</option>
+                <option *ngIf="categorySelect== 'monoliths' || categorySelect== 'historical-patrimony'">Depredação</option>
+                <option *ngIf="categorySelect== 'vegetation'">Queimada</option>
+                <option *ngIf="categorySelect== 'vegetation'">Desmatamento</option>
+                <option *ngIf="categorySelect== 'historical-patrimony'">Ocupação Ilegal</option>
+                <option *ngIf="categorySelect== 'monoliths' || categorySelect== 'water-resources' || categorySelect== 'historical-patrimony' || categorySelect== 'vegetation'">Outro</option>
+            </select>
+          </div>
         </div>
         <span class="form-report__subtitle uk-width-1-1">Mídias*</span>
-        <div>
-            <div uk-form-custom>
+        <div class="uk-width-1-1">
+            <div uk-form-custom uk-tooltip="title: Insira uma mídia sobre a denúncia">
                 <input type="file">
                 <div type="button" class="uk-button uk-button-default uk-card uk-card-body" uk-icon="icon: plus"></div>
             </div>
         </div>
-        <div class="uk-margin uk-width-1-1">
+        <div class="uk-margin uk-width-1-2@m">
             <sdm-button [type]="'quaternary'" [btnWidth]="'large'" (click)="sendReport()">ENVIAR DENÚNCIA</sdm-button>
+        </div>
+        <div class="uk-margin uk-width-1-2@s">
+          <sdm-button [type]="'danger-secondary'" [btnWidth]="'large'" (click)="cancelReport()" routerLink="/sistema/denuncias">Cancelar</sdm-button>
         </div>
     </form>
 </section>

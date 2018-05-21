@@ -17,14 +17,17 @@
             <input class="uk-input uk-form-danger" type="password" placeholder="Senha Atual" name="currentPassword" [(ngModel)]="currentPassword">
         </div>
         <span class="form-editProfile__subtitle uk-width-1-1">Atualizar Foto</span>
-        <div>
-            <div uk-form-custom>
+        <div class="uk-width-1-1">
+            <div uk-form-custom uk-tooltip="title: Insira uma nova foto de perfil">
                 <input type="file">
                 <div type="button" class="uk-button uk-button-default uk-card uk-card-body" uk-icon="icon: plus"></div>
             </div>
         </div>
-        <div class="uk-margin uk-width-1-1">
-            <sdm-button [type]="'quaternary'" [btnWidth]="'large'" (click)="editProfile()">Salvar Alterações</sdm-button>
+        <div class="uk-margin uk-width-1-2@s">
+          <sdm-button [type]="'quaternary'" [btnWidth]="'large'" (click)="editProfile()">Salvar Alterações</sdm-button>
+        </div>
+        <div class="uk-margin uk-width-1-2@s">
+          <sdm-button [type]="'danger-secondary'" [btnWidth]="'large'" (click)="cancel()" routerLink="/sistema/denuncias">Cancelar</sdm-button>
         </div>
     </form>
 </section>

@@ -23,4 +23,8 @@ export class SdmSideMenuComponent implements OnInit {
   signOut(){
     this.userService.logout();
   }
+
+  editProfile(){
+  
+  }
 }

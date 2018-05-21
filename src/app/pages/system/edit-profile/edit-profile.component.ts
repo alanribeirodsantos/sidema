@@ -51,4 +51,7 @@ export class EditProfileComponent implements OnInit {
     }
     else this.userService.updateUser(this.name, this.email, this.newPassword);
   }
+  cancel(){
+
+  }
 }
