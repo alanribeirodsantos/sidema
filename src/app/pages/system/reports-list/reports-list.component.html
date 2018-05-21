@@ -1,5 +1,98 @@
-<article class="reports-list-container">
-    <section class="reports-list-container__list">
-        <sdm-report-card *ngFor="let report of reportsList" [report]="report"></sdm-report-card>
+<div class="uk-offcanvas-content reports-list">
+    <header class="reports-list__header">
+        <span class="reports-list__header__title">Denúncias</span>
+        <div class="reports-list__header__search-and-filter uk-width-1-2">
+            <form class="uk-search uk-search-default uk-width-expand uk-margin-right">
+                <span class="uk-search-icon-flip" uk-search-icon></span>
+                <input class="uk-search-input"
+                       name="search"
+                       type="search"
+                       placeholder="Digite um termo para pesquisar..."
+                       [(ngModel)]="searchTag">
+            </form>
+            <button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-flip">Filtrar</button>
+        </div>
+    </header>
+
+    <!-- <section class="reports-list__filter-tags">
+        <sdm-filter-chip [filterName]="'Categoria: Monólitos'"></sdm-filter-chip>
+    </section> -->
+
+    <section class="reports-list__list">
+        <div class="reports-list__list__container">
+            <sdm-report-card *ngFor="let report of reportsList |
+                                     reportSearch: searchTag |
+                                     reportOrderBy: [orderBy()] |
+                                     reportFilter: [filterByCategory(), filterBySubcategory(), filterByStatus()]"
+                             [report]="report">
+            </sdm-report-card>
+        </div>
     </section>
-</article>
+
+    <div id="offcanvas-flip" uk-offcanvas="flip: true">
+        <div class="uk-offcanvas-bar">
+            <button class="uk-offcanvas-close" type="button" uk-close></button>
+            <h3>Filtros</h3>
+            <hr>
+            <form>
+                <label>
+                    <input class="uk-checkbox" type="checkbox"> Somente minhas denúncias
+                </label>
+                <hr>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-horizontal-select">Organizar por:</label>
+                    <div class="uk-form-controls uk-margin-small-top">
+                        <select class="uk-select uk-form-small" id="form-horizontal-select" name="selectOrderBy" [(ngModel)]="orderField">
+                            <option>Número de apoiadores</option>
+                            <option>Status da denúncia</option>
+                            <option>Categoria</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-horizontal-select">Categoria:</label>
+                    <div class="uk-form-controls uk-margin-small-top">
+                        <select class="uk-select uk-form-small" id="form-horizontal-select" name="selectCategory" [(ngModel)]="filterCategory">
+                            <option>Todas</option>
+                            <option>Monólitos</option>
+                            <option>Patrimônio histórico</option>
+                            <option>Recursos hídricos</option>
+                            <option>Vegetação</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="uk-margin" *ngIf="filterCategory != 'Todas'">
+                    <label class="uk-form-label" for="form-horizontal-select">Subcategoria:</label>
+                    <div class="uk-form-controls uk-margin-small-top">
+                        <select class="uk-select uk-form-small" id="form-horizontal-select" name="selectFilterSubcategory" [(ngModel)]="filterSubcategory">
+                            <option>Todas</option>
+                            <option>Poluição</option>
+                            <option *ngIf="filterCategory == 'Recursos hídricos'">Poços irregulares</option>
+                            <option *ngIf="filterCategory == 'Recursos hídricos'">Desperdício de água</option>
+                            <option *ngIf="filterCategory == 'Monólitos'">Construção irregular</option>
+                            <option *ngIf="filterCategory == 'Monólitos' || filterCategory == 'Patrimônio histórico'">Depredação</option>
+                            <option *ngIf="filterCategory == 'Vegetação'">Queimadas</option>
+                            <option *ngIf="filterCategory == 'Vegetação'">Desmatamento</option>
+                            <option *ngIf="filterCategory == 'Patrimônio histórico'">Ocupação ilegal</option>
+                            <option>Outra</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-horizontal-select">Status:</label>
+                    <div class="uk-form-controls uk-margin-small-top">
+                        <select class="uk-select uk-form-small" id="form-horizontal-select" name="selectFilterStatus" [(ngModel)]="filterStatus">
+                            <option>Todos</option>
+                            <option>Arquivada</option>
+                            <option>Em andamento</option>
+                            <option>Recebida</option>
+                            <option>Resolvida</option>
+                            <option>Verificando veracidade</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,8 +1,52 @@
-.reports-list-container {
-    display: flex;
-    justify-content: center;
+@import '~assets/sass-utils/variables.scss';
+
+.reports-list {
+
+    &__header {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__title {
+            font-family: $primary-font-bold;
+            font-size: $font-size-title-large;
+            color: $primary-color;
+        }
+
+        &__search-and-filter {
+            display: flex;
+        }
+    }
+
+    // &__filter-tags {
+    //     background-color: red;
+    //     height: 30px;
+    // }
 
     &__list {
-        width: 80%;
+        display: flex;
+        justify-content: center;
+        
+        &__container {
+            width: 80%;
+        }
+    }
+}
+
+.uk-offcanvas-bar {
+    .uk-checkbox:checked {
+        background-color: $primary-color;
+        border-color: transparent;
+    }
+
+    h3 {
+        margin-top: 0;
+    }
+}
+
+.uk-select {
+    option {
+        color: $black;
     }
 }
