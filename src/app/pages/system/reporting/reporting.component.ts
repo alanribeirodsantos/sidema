@@ -8,7 +8,7 @@ import { ReportService } from '../../../backend/services/report/report.service';
 })
 export class ReportingComponent{
 
-  categorySelect: any;
+  categorySelect: string;
 
   onChange(option){
     this.categorySelect = option;
