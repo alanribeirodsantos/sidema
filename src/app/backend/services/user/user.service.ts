@@ -34,12 +34,12 @@ export class UserService {
       }
       else if(erro.code === "auth/invalid-email"){
         UIkit.notification({
-          message: "<span uk-icon='icon: close'></span> O e-mail informado é inválido, tente novamente!",
+          message: "<span uk-icon='icon: ban'></span> O e-mail informado é inválido, tente novamente!",
           status: "danger",
           timeout: 1500
         })
       }
-      else UIkit.notification({message: "<span uk-icon='icon: close'></span> Erro ao cadastrar usuário!", status: "danger", timeout: 4000});
+      else UIkit.notification({message: "<span uk-icon='icon: ban'></span> Erro ao cadastrar usuário!", status: "danger", timeout: 4000});
     } );
   }
 
@@ -57,51 +57,62 @@ export class UserService {
   }
 
   updateUser(name, email, newPassword){
-    var users:any;
-    var user = this.angularFireAuth.auth.currentUser;
-    this.getUsers().subscribe(
-      data => {
-        users = data;
-        for(let u in users){
-          if(users[u].id === user.uid){
-            if(users[u].name !== name){
-              this.angularFireDatabase.object(`/usuários/${user.uid}/name`).set(name)
-              .then( () => {
-                user.updateProfile({displayName: name, photoURL: ""})
+    var credentialsChanged = localStorage.getItem("credentialsChanged");
+    if(credentialsChanged === "true"){
+      this.logout();
+      UIkit.notification({
+        message: "<span uk-icon='icon: warning'></span> Você trocou suas credenciais recentemente! É necessário fazer login para continuar.",
+        status: "warning",
+        timeout: 3000
+      })
+    }
+    else {
+      var users:any;
+      var user = firebase.auth().currentUser;
+      this.getUsers().subscribe(
+        data => {
+          users = data;
+          for(let u in users){
+            if(users[u].id === user.uid){
+              if(users[u].name !== name && name.length > 0){
+                this.angularFireDatabase.object(`/usuários/${user.uid}/name`).set(name)
                 .then( () => {
                   var userLocal = JSON.parse(localStorage.getItem("user"));
                   userLocal.name = name;
                   localStorage.setItem("user", JSON.stringify(userLocal));
-                })
-                .catch( (error) => console.log(error));
-              }).catch( (error) => console.log(error)); 
-            }
-            if(users[u].email !== email){
-              this.angularFireDatabase.object(`/usuários/${user.uid}/email`).set(email)
-              .then( () => {
-                user.updateEmail(email).then( () => {
+                }).catch( (error) => console.log(error.message));
+              }
+              else if(users[u].email !== email && email.length > 0){
+                this.angularFireDatabase.object(`/usuários/${user.uid}/email`).set(email)
+                .then( () => {
                   var userLocal = JSON.parse(localStorage.getItem("user"));
                   userLocal.email = email;
                   localStorage.setItem("user", JSON.stringify(userLocal));
-                }).catch( (error) => console.log(error));
-              }).catch( () => console.log("Erro ao atualizar email"));
-            }
-            if(newPassword.length > 0){
-              if(users[u].password !== undefined && users[u].password !== newPassword){
-                this.angularFireDatabase.object(`/usuários/${user.uid}/password`).set(newPassword)
-                .then( () => console.log("")).catch( () => console.log("Erro ao atualizar senha"));
+                  var temp = true;
+                  localStorage.setItem("credentialsChanged", JSON.stringify(temp));
+                }).catch( (error) => console.log(error.code));
+                user.updateEmail(email).then( () => console.log("update email")).catch( (error) => console.log(error.code));
+                
               }
-              user.updatePassword(newPassword).then( () => {
-                var credentials = firebase.auth.EmailAuthProvider.credential(user.email, newPassword);
-                user.reauthenticateWithCredential(credentials).then( () => console.log("Reauth OK")).catch( (error) => console.log(error));
-              }).catch( () => console.log("Erro na troca de senha"));
-            }
-            break;
+              else if(newPassword.length > 0){
+                if(users[u].password !== undefined && users[u].password !== newPassword){
+                  this.angularFireDatabase.object(`/usuários/${user.uid}/password`).set(newPassword)
+                  .then( () => {
+                    var temp = true;
+                    localStorage.setItem("credentialsChanged", JSON.stringify(temp));
+                  }).catch( (error) => console.log(error.code));
+                  var credentials = firebase.auth.EmailAuthProvider.credential(email, users[u].password);
+                  user.reauthenticateAndRetrieveDataWithCredential(credentials).then( () => console.log("reauth pass ok")).catch( (error) => console.log(error.code));
+                  user.updatePassword(newPassword).then( () => console.log("update password")).catch( (error) => console.log(error.code));
+                }
+              }
+              break;
+            }          
           }
-        }
-      },
-      error => console.log(error)
-    )
+        },
+        error => console.log(error)
+      )
+    }
   }
 
   login(email, password){
@@ -140,33 +151,33 @@ export class UserService {
       .catch( (error) => {
         if(error.code === "auth/user-not-found"){
           UIkit.notification({
-            message: "<span uk-icon='icon: close'></span> Erro, usuário não existe!",
+            message: "<span uk-icon='icon: ban'></span> Erro, usuário não existe!",
             status: "danger",
             timeout: 1500
           })
         }
         else if(error.code === "auth/wrong-password"){
           UIkit.notification({
-            message: "<span uk-icon='icon: close'></span> A senha está incorreta!",
+            message: "<span uk-icon='icon: ban'></span> A senha está incorreta!",
             status: "danger",
             timeout: 1500
           })
         }
         else if(error.code === "auth/invalid-email"){
           UIkit.notification({
-            message: "<span uk-icon='icon: close'></span> O e-mail é inválido ou está incorreto!",
+            message: "<span uk-icon='icon: ban'></span> O e-mail é inválido ou está incorreto!",
             status: "danger",
             timeout: 1500
           })
         }
         else if(error.code === "auth/network-request-failed"){
           UIkit.notification({
-            message: "<span uk-icon='icon: close'></span> Erro, sem conexão com a internet!",
+            message: "<span uk-icon='icon: ban'></span> Erro, sem conexão com a internet!",
             status: "danger",
             timeout: 1500
           })
         }
-        else UIkit.notification({message: "<span uk-icon='icon: close'></span> Erro interno!", status: "danger", timeout: 3000})
+        else UIkit.notification({message: "<span uk-icon='icon: ban'></span> Erro interno!", status: "danger", timeout: 3000})
       })
     }
   }
@@ -256,6 +267,8 @@ export class UserService {
     this.angularFireAuth.auth.signOut().then( () => {
       this.router.navigateByUrl("/home");
       localStorage.setItem("user", "null");
+      var temp = false;
+      localStorage.setItem("credentialsChanged", JSON.stringify(temp));
     });
   }
 
