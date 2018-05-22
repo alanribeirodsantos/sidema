@@ -40,26 +40,6 @@
             margin: 30px 0;
         }
 
-        &__hints-container {
-            flex-grow: 1;
-
-            &__hint {
-                color: $white;
-                font-family: $secondary-font;
-                font-size: $font-size-small;
-                text-align: left;
-                display: flex;
-
-                &__icon {
-                    color: $primary-color;
-                }
-
-                &__text {
-                    padding-left: 10px;
-                }
-            }
-        }
-
         &__actions {
             &__option {
                 margin: 10px 0px;   

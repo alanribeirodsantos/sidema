@@ -8,6 +8,12 @@ import { ReportService } from '../../../backend/services/report/report.service';
 })
 export class ReportingComponent{
 
+  categorySelect: string;
+
+  onChange(option){
+    this.categorySelect = option;
+  }
+
   title:string = "";
   description:string = "";
   address:string = "";
@@ -23,5 +29,8 @@ export class ReportingComponent{
 
   sendReport(){
     this.reportService.addReport(this.title, this.description, this.address, this.number, this.neighborhood, this.complement, this.violator, this.category, this.subcategory, this.media);
+  }
+  cancelReport(){
+
   }
 }
