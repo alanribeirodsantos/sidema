@@ -25,6 +25,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   editProfile(){
+    var flag:number = 0;
     if(this.newPassword.length > 0 && this.newPassword === this.confirmNewPassword){
       if(this.currentPassword.length > 0){
         var users:any;
@@ -34,15 +35,16 @@ export class EditProfileComponent implements OnInit {
             for(let u in users){
               if(this.currentPassword === users[u].password){
                 this.userService.updateUser(this.name, this.email, this.newPassword);
+                flag = 1;
                 break;
               }
-              else {
-                UIkit.notification({
-                  message: "<span uk-icon='icon: ban'></span> Senha atual incorreta!",
-                  status: "danger",
-                  timeout: 1500
-                })
-              }
+            }
+            if(flag === 0){
+              UIkit.notification({
+                message: "<span uk-icon='icon: ban'></span> Senha atual incorreta!",
+                status: "danger",
+                timeout: 1500
+              })
             }
           },
           error => console.log(error)
@@ -50,8 +52,5 @@ export class EditProfileComponent implements OnInit {
       }
     }
     else this.userService.updateUser(this.name, this.email, this.newPassword);
-  }
-  cancel(){
-
   }
 }
