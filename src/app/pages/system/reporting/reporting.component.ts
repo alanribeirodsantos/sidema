@@ -40,7 +40,6 @@ export class ReportingComponent implements OnInit {
   }
 
   getLocalization() {
-    let x;
     let url: string = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + this.location.latitude + "," + this.location.longitude;
     this.http.get(url).map(data => {
       return this.localizationInfo = data.json()

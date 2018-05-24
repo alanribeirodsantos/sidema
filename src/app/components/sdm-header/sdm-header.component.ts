@@ -9,7 +9,7 @@ export class SdmHeaderComponent {
 
   isOpen = false;
 
-  toggleModal() {
+  toggleModal(event) {
     this.isOpen = !this.isOpen;
   }
 }
