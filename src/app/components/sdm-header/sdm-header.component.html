@@ -1,8 +1,3 @@
-<div class="modal-overlay" *ngIf="isOpen" (click)="toggleModal()">
-  <div class="modal-overlay__modal" (click)="$event.stopPropagation()">
-    <sdm-form-card></sdm-form-card>
-  </div>
-</div>
 <header class="sdm-header">
   <div class="sdm-header__layer">
     <div class="sdm-header__layer__logo">
@@ -13,3 +8,8 @@
     <sdm-button [type]="'primary'" (click)="toggleModal()">Cadastrar/Entrar</sdm-button>
   </div>
 </header> 
+<div class="modal-overlay" *ngIf="isOpen" (click)="toggleModal()">
+  <div class="modal-overlay__modal" (click)="$event.stopPropagation()">
+    <sdm-form-card></sdm-form-card>
+  </div>
+</div>
