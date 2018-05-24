@@ -5,6 +5,10 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule} from 'angularfire2/auth';
 
+import { ReportFilterPipe } from '../assets/js-utils/pipes/report-filter.pipe';
+import { ReportOrderByPipe } from '../assets/js-utils/pipes/report-order-by.pipe';
+import { ReportSearchPipe } from '../assets/js-utils/pipes/report-search.pipe';
+
 import { AppComponent } from './app.component';
 import { StyleguideComponent } from './pages/styleguide/styleguide.component';
 import { routing } from './app.routing';
@@ -37,6 +41,7 @@ import { SdmFormForgotPasswordComponent } from './components/sdm-form-card/sdm-f
 import { SdmFooterComponent } from './components/sdm-footer/sdm-footer.component';
 import { ReportDetailsComponent } from './pages/system/report-details/report-details.component';
 import { SdmHintsComponent } from './components/sdm-side-menu/sdm-hints/sdm-hints.component';
+import { SdmFilterChipComponent } from './components/sdm-filter-chip/sdm-filter-chip.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASY7GlvEimsp0Gqv1H6qvwdX_w6AI0m6Y",
@@ -76,7 +81,11 @@ export const firebaseConfig = {
     SdmFormForgotPasswordComponent,
     SdmFooterComponent,
     ReportDetailsComponent,
-    SdmHintsComponent
+    SdmHintsComponent,
+    ReportFilterPipe,
+    ReportOrderByPipe,
+    ReportSearchPipe,
+    SdmFilterChipComponent
   ],
   imports: [
     BrowserModule,
