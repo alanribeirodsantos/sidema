@@ -8,7 +8,7 @@
             <textarea class="uk-textarea" rows="5" placeholder="Decrição da Denúncia* (Informe a maior quantidade possível de detalhes)" name="description" [(ngModel)]="description"></textarea>
         </div>
         <div class="uk-width-1-2@s">
-            <input class="uk-input" type="text" placeholder="Endereço*" name="address" [(ngModel)]="address">
+            <input class="uk-input" type="text" placeholder="Endereço*" name="address" [(ngModel)]="address" (ngModelChange)="address=$event">
         </div>
         <div class="uk-width-1-4@s">
             <input class="uk-input" type="text" placeholder="Número" name="number" [(ngModel)]="number">
@@ -20,7 +20,7 @@
             <input class="uk-input" type="text" placeholder="Complemento" name="complement" [(ngModel)]="complement">
         </div>
         <div class="uk-width-1-4@s">
-            <sdm-button [type]="'tertiary'" [btnWidth]="'large'" uk-tooltip="title: Gerar localização automaticamente">GERAR LOCALIZAÇÃO</sdm-button>
+            <sdm-button [type]="'tertiary'" [btnWidth]="'large'" uk-tooltip="title: Gerar localização automaticamente" (click)="getLocalization()">GERAR LOCALIZAÇÃO</sdm-button>
         </div>
         <div class="uk-width-1-1">
             <input class="uk-input" type="text" placeholder="Descrição do Infrator (se houver)" name="violator" [(ngModel)]="violator">

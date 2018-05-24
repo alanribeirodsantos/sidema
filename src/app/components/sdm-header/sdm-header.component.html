@@ -1,3 +1,6 @@
+<div class="login-modal" *ngIf="isOpen">
+  <sdm-form-card></sdm-form-card>
+</div>
 <header class="sdm-header">
   <div class="sdm-header__layer">
     <div class="sdm-header__layer__logo">
@@ -5,6 +8,7 @@
         <sdm-logo></sdm-logo>
       </a>
     </div>
-    <sdm-button [type]="'primary'">Entrar</sdm-button>
+    <sdm-button [type]="'primary'" (click)="toggleModal()">Cadastrar/Entrar</sdm-button>
   </div>
-</header>
+</header> 
+<div class="modal-overlay" *ngIf="isOpen" (click)="toggleModal()"></div>
