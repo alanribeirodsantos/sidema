@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule} from 'angularfire2/auth';
+import { HttpModule } from "@angular/http";
 
 import { ReportFilterPipe } from '../assets/js-utils/pipes/report-filter.pipe';
 import { ReportOrderByPipe } from '../assets/js-utils/pipes/report-order-by.pipe';
@@ -93,9 +94,11 @@ export const firebaseConfig = {
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpModule
   ],
   providers: [UserService, ReportService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
