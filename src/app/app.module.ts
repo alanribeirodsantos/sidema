@@ -18,6 +18,7 @@ import { SdmSectionComponent } from './components/sdm-section/sdm-section.compon
 import { HomeComponent } from './pages/home/home.component';
 import { SdmDownArrowComponent } from './components/sdm-down-arrow/sdm-down-arrow.component';
 import { SdmLogoComponent } from './components/sdm-logo/sdm-logo.component';
+import { SdmLogoBrancaComponent } from './components/sdm-logo-branca/sdm-logo-branca.component';
 import { SdmSideMenuComponent } from './components/sdm-side-menu/sdm-side-menu.component';
 import { SystemComponent } from './pages/system/system.component';
 import { SdmReportCardComponent } from './components/sdm-report-card/sdm-report-card.component';
@@ -57,6 +58,7 @@ export const firebaseConfig = {
     HomeComponent,
     SdmDownArrowComponent,
     SdmLogoComponent,
+    SdmLogoBrancaComponent,
     SdmSideMenuComponent,
     SystemComponent,
     SdmReportCardComponent,

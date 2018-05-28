@@ -1,0 +1,10 @@
+@import '~assets/sass-utils/variables.scss';
+@import '~assets/sass-utils/mixins.scss';
+
+.sdm-logo-branca {
+    width: 380px;
+
+    @include mqMaxWidth('mdx') {
+        width: 50vw;
+    }
+}
