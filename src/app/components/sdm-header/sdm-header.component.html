@@ -5,6 +5,11 @@
         <sdm-logo></sdm-logo>
       </a>
     </div>
-    <sdm-button [type]="'primary'">Entrar</sdm-button>
+    <sdm-button [type]="'primary'" (click)="toggleModal()">Cadastrar/Entrar</sdm-button>
   </div>
-</header>
+</header> 
+<div class="modal-overlay" *ngIf="isOpen" (click)="toggleModal()">
+  <div class="modal-overlay__modal" (click)="$event.stopPropagation()">
+    <sdm-form-card></sdm-form-card>
+  </div>
+</div>

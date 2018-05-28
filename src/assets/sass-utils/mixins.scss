@@ -66,4 +66,18 @@
         font-size: $font-size-title;
         
     }
+//Z-indexes
+@function z($element, $list:"") {
+    @if $list == "" {
+        $list: $z-indexes;
+    }
+
+    $z-index: index($list, $element);
+
+    @if $z-index {
+        @return $z-index;
+    }
+
+    @warn 'There is no item "#{$element}" in this list; choose one of: #{$list}';
+    @return null;
 }

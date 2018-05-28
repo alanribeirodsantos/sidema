@@ -1,9 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule} from 'angularfire2/auth';
+import { HttpModule } from "@angular/http";
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { ReportFilterPipe } from '../assets/js-utils/pipes/report-filter.pipe';
+import { ReportOrderByPipe } from '../assets/js-utils/pipes/report-order-by.pipe';
+import { ReportSearchPipe } from '../assets/js-utils/pipes/report-search.pipe';
 
 import { AppComponent } from './app.component';
 import { StyleguideComponent } from './pages/styleguide/styleguide.component';
@@ -13,7 +18,8 @@ import { SdmSocialButtonComponent } from './components/sdm-social-button/sdm-soc
 import { SdmFormCardComponent } from './components/sdm-form-card/sdm-form-card.component';
 import { SdmFormSignUpComponent } from './components/sdm-form-card/sdm-form-sign-up/sdm-form-sign-up.component';
 import { SdmFormSignInComponent } from './components/sdm-form-card/sdm-form-sign-in/sdm-form-sign-in.component';
-import { UserService } from './backend/services/user.service';
+import { UserService } from './backend/services/user/user.service';
+import { ReportService } from './backend/services/report/report.service';
 import { SdmSectionComponent } from './components/sdm-section/sdm-section.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SdmDownArrowComponent } from './components/sdm-down-arrow/sdm-down-arrow.component';
@@ -36,6 +42,8 @@ import { EditProfileComponent } from './pages/system/edit-profile/edit-profile.c
 import { SdmFormForgotPasswordComponent } from './components/sdm-form-card/sdm-form-forgot-password/sdm-form-forgot-password.component';
 import { SdmFooterComponent } from './components/sdm-footer/sdm-footer.component';
 import { ReportDetailsComponent } from './pages/system/report-details/report-details.component';
+import { SdmHintsComponent } from './components/sdm-side-menu/sdm-hints/sdm-hints.component';
+import { SdmFilterChipComponent } from './components/sdm-filter-chip/sdm-filter-chip.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASY7GlvEimsp0Gqv1H6qvwdX_w6AI0m6Y",
@@ -75,7 +83,12 @@ export const firebaseConfig = {
     EditProfileComponent,
     SdmFormForgotPasswordComponent,
     SdmFooterComponent,
-    ReportDetailsComponent
+    ReportDetailsComponent,
+    SdmHintsComponent,
+    ReportFilterPipe,
+    ReportOrderByPipe,
+    ReportSearchPipe,
+    SdmFilterChipComponent
   ],
   imports: [
     BrowserModule,
@@ -83,9 +96,12 @@ export const firebaseConfig = {
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpModule,
+    AngularFireStorageModule
   ],
-  providers: [UserService],
+  providers: [UserService, ReportService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

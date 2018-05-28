@@ -27,5 +27,10 @@
         &__media {
            max-width: 175px;
         }
+
+        &__socialicons:hover {
+            color: $primary-color;
+            transition-duration: 250ms;
+        }
     }
 }

@@ -11,7 +11,7 @@ import { EditProfileComponent } from './pages/system/edit-profile/edit-profile.c
 import { ReportDetailsComponent } from './pages/system/report-details/report-details.component';
 
 const APP_ROUTES: Routes = [
-    {path: "", redirectTo: "/styleguide", pathMatch: "full"},
+    {path: "", redirectTo: "/home", pathMatch: "full"},
     {path: "styleguide", component: StyleguideComponent},
     {path: "home", component: HomeComponent},
     {path: "sobre-nos", component: AboutUsComponent},

@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class SdmHeaderComponent {
 
+  isOpen = false;
+
+  toggleModal(event) {
+    this.isOpen = !this.isOpen;
+  }
 }

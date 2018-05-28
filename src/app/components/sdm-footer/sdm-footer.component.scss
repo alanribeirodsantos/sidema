@@ -1,11 +1,16 @@
 @import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
 
 .sdm-footer {
     background-color: $primary-color;
     // margin-top: 50px;
     padding: 50px;
+    position: absolute;
+    width: 100vw;
+    bottom: 0px;
     box-sizing: border-box;
     color: $white;
+    z-index: z('footer');
 
     &__grid {
         &__infos {
