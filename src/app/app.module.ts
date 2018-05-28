@@ -5,7 +5,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule} from 'angularfire2/auth';
 import { HttpModule } from "@angular/http";
-
+import { AngularFireStorageModule } from 'angularfire2/storage';
 import { ReportFilterPipe } from '../assets/js-utils/pipes/report-filter.pipe';
 import { ReportOrderByPipe } from '../assets/js-utils/pipes/report-order-by.pipe';
 import { ReportSearchPipe } from '../assets/js-utils/pipes/report-search.pipe';
@@ -95,7 +95,8 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    HttpModule
+    HttpModule,
+    AngularFireStorageModule
   ],
   providers: [UserService, ReportService],
   bootstrap: [AppComponent]

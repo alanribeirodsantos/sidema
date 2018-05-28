@@ -23,8 +23,9 @@ export class ReportingComponent implements OnInit {
   complement:string = "";
   violator:string = "";
   category:string = "";
-  subcategory:string = "subcategoria";
-  media:string = "midias";
+  subcategory:string = "";
+  media:any;
+  mediaSize:any;
 
   ngOnInit(){
     if(navigator.geolocation){
@@ -51,11 +52,38 @@ export class ReportingComponent implements OnInit {
       500
     });
   }
-
-  sendReport() {
-    this.reportService.addReport(this.title, this.description, this.address, this.number, this.neighborhood, this.complement, this.violator, this.category, this.subcategory, this.media);
+  sendReport(){
+    this.reportService.addReport(this.title, this.description, this.address, this.number, this.neighborhood, this.complement, this.violator, this.category, this.subcategory, this.media, this.mediaSize);
   }
 
-  cancelReport() {
+  selectedMedias(event){
+      this.media = Array.from(event.target.files);
+      [].forEach.call(this.media, (media, index) => {
+        this.mediaSize += media.size; 
+        var reader = new FileReader();
+        reader.addEventListener("load", () => {
+          var div = document.createElement("div");
+          div.style.width = "100px";
+          div.style.height = "100px";
+          div.addEventListener("click", () => {
+            div.parentNode.removeChild(div);
+            this.media.splice(index, 1);
+          })
+          if(media.type === "audio/mp3" || media.type === "audio/ogg" || media.type === "audio/wav"){
+            div.style.background = "url('../../../assets/images/audio.png') no-repeat";
+            div.style.backgroundSize = "cover";
+          }
+          else if(media.type === "video/mp4" || media.type === "video/avi" || media.type === "video/mpeg"){
+            div.style.background = "url('../../../assets/images/video.png') no-repeat";
+            div.style.backgroundSize = "cover";
+          }
+          else{
+            div.style.background = `url(${reader.result}) no-repeat`;
+            div.style.backgroundSize = "cover";
+          }
+          document.getElementsByClassName("list-media")[0].appendChild(div);
+        }, false);
+        reader.readAsDataURL(media);
+      })
   }
 }

@@ -1,15 +1,18 @@
 @import "~assets/sass-utils/variables";
-
-.form-report{
-    &__title{
+.form-report {
+    &__title {
         font-family: $primary-font-bold;
         color: $primary-color;
         font-size: $font-size-title;
         margin-bottom: 20px;
     }
-    &__subtitle{
+    &__subtitle {
         font-family: $primary-font;
         color: $black;
         font-size: $font-size-medium;
     }
+}
+
+.list-media {
+    display: flex;
 }

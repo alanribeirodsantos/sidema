@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../backend/services/user/user.service';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
 import * as UIkit from 'uikit';
 
 @Component({
@@ -22,6 +22,10 @@ export class EditProfileComponent implements OnInit {
     var user = JSON.parse(localStorage.getItem("user"));
     this.name = user.name;
     this.email = user.email;
+  }
+
+  changeProfilePic(event){    
+    this.userService.uploadProfilePic(event.target.files[0]);
   }
 
   editProfile(){

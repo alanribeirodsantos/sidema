@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { UserService } from '../../backend/services/user/user.service';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 @Component({
   selector: 'sdm-side-menu',
@@ -9,8 +10,11 @@ import { UserService } from '../../backend/services/user/user.service';
 export class SdmSideMenuComponent implements OnInit {
   
   userName:string = "";
+  userId = JSON.parse(localStorage.getItem("user")).id;
+  userRef:any;
+  userPhoto:any;
 
-  constructor(private userService:UserService) {}
+  constructor(private userService:UserService, private angularFireStorage:AngularFireStorage) {}
 
   ngOnInit(){
     var user = JSON.parse(localStorage.getItem("user"));
@@ -18,6 +22,14 @@ export class SdmSideMenuComponent implements OnInit {
       this.userName = "";
     }
     else this.userName = user.name;
+
+    this.userRef = this.angularFireStorage.ref(`images/${this.userId}`);
+    this.userRef.getDownloadURL().subscribe(
+      url => {
+        this.userPhoto = url
+      },
+      error => this.userPhoto = "/assets/images/user-default.png"
+    )
   }
   
   signOut(){
