@@ -26,19 +26,19 @@
             <input class="uk-input" type="text" placeholder="Descrição do Infrator (se houver)" name="violator" [(ngModel)]="violator">
         </div>
         <div class="uk-width-auto@m">
-          <div class="uk-margin">
-            <select class="uk-select" (change)="onChange($event.target.value)" [(ngModel)]="category" name="category">
+            <div class="uk-margin">
+                <select class="uk-select" (change)="onChange($event.target.value)" [(ngModel)]="category" name="category">
                 <option value="">Categoria*</option>
                 <option value="monoliths">Monólitos</option>
                 <option value="water-resources">Recursos Hidricos</option>
                 <option value="vegetation">Vegetação</option>
                 <option value="historical-patrimony">Patrimônio</option>
             </select>
-          </div>
+            </div>
         </div>
         <div class="uk-width-auto@m">
-          <div class="uk-margin">
-            <select class="uk-select">
+            <div class="uk-margin">
+                <select class="uk-select" [(ngModel)]="subcategory" name="subcategory">
                 <option>Tipo de Infração*</option>
                 <option>Poluição</option>
                 <option *ngIf="categorySelect== 'water-resources'">Poços Irregulares</option>
@@ -50,20 +50,21 @@
                 <option *ngIf="categorySelect== 'historical-patrimony'">Ocupação Ilegal</option>
                 <option>Outro</option>
             </select>
-          </div>
+            </div>
         </div>
         <span class="form-report__subtitle uk-width-1-1">Mídias*</span>
         <div class="uk-width-1-1">
             <div uk-form-custom uk-tooltip="title: Insira uma mídia sobre a denúncia">
-                <input type="file">
+                <input type="file" accept=".png, .jpg, .jpeg, .mp4, .avi, .mpeg, .mp3, .wav, .ogg" (change)="selectedMedias($event)" multiple="multiple">
                 <div type="button" class="uk-button uk-button-default uk-card uk-card-body" uk-icon="icon: plus"></div>
             </div>
+            <div class="list-media"></div>
         </div>
-        <div class="uk-margin uk-width-1-2@m">
-            <sdm-button [type]="'quaternary'" [btnWidth]="'large'" (click)="sendReport()">ENVIAR DENÚNCIA</sdm-button>
+        <div class="uk-margin uk-width-1-2@m ">
+            <sdm-button [type]=" 'quaternary' " [btnWidth]=" 'large' " (click)="sendReport() ">ENVIAR DENÚNCIA</sdm-button>
         </div>
-        <div class="uk-margin uk-width-1-2@s">
-          <sdm-button [type]="'danger-secondary'" [btnWidth]="'large'" (click)="cancelReport()" routerLink="/sistema/denuncias">Cancelar</sdm-button>
+        <div class="uk-margin uk-width-1-2@s ">
+            <sdm-button [type]=" 'danger-secondary' " [btnWidth]=" 'large' " (click)="cancelReport() " routerLink="/sistema/denuncias ">Cancelar</sdm-button>
         </div>
     </form>
 </section>

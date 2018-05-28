@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, snapshotChanges } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 import * as firebase from 'firebase';
 import * as UIkit from 'uikit';
 import { Router } from '@angular/router';
@@ -11,7 +12,10 @@ export class UserService {
 
   users:Observable<any[]>;
   user:any;
-  constructor(private angularFireAuth:AngularFireAuth, private angularFireDatabase:AngularFireDatabase, private router:Router) {}
+  storageRef:AngularFireStorageReference;
+  taskUpload:AngularFireUploadTask;
+
+  constructor(private angularFireAuth:AngularFireAuth, private angularFireDatabase:AngularFireDatabase, private router:Router, private angularFireStorage:AngularFireStorage) {}
 
   createUser(name, email, password){
     this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password)
@@ -107,11 +111,39 @@ export class UserService {
                 }
               }
               break;
-            }          
+            }        
           }
         },
         error => console.log(error)
       )
+    }
+  }
+
+  uploadProfilePic(file){
+    if(file.size > 2097152){
+      UIkit.notification({
+        message: "<span uk-icon='icon: ban'></span> A foto excede os 2MB permitidos!",
+        status: "danger",
+        timeout: 1500
+      })
+    }
+    else {
+      var userId = JSON.parse(localStorage.getItem("user")).id;
+      this.storageRef = this.angularFireStorage.ref(`/images/${userId}`);
+      this.storageRef.put(file).snapshotChanges().toPromise()
+      .then( () => {
+        UIkit.notification({
+          message: "<span uk-icon='icon: check'></span> Foto de perfil atualizada!",
+          status: "success",
+          timeout: 1500
+        })
+      }).catch( () => {
+        UIkit.notification({
+          message: "<span uk-icon='icon: ban'></span> Erro ao atualizar foto de perfil!",
+          status: "danger",
+          timeout: 1500
+        })
+      });
     }
   }
 

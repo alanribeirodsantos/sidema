@@ -4,7 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule} from 'angularfire2/auth';
+<<<<<<< HEAD
 import { HttpModule } from "@angular/http";
+=======
+import { AngularFireStorageModule } from 'angularfire2/storage';
+>>>>>>> Firebase Storage sem excluir foto do perfil
 
 import { ReportFilterPipe } from '../assets/js-utils/pipes/report-filter.pipe';
 import { ReportOrderByPipe } from '../assets/js-utils/pipes/report-order-by.pipe';
@@ -95,7 +99,11 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+<<<<<<< HEAD
     HttpModule
+=======
+    AngularFireStorageModule
+>>>>>>> Firebase Storage sem excluir foto do perfil
   ],
   providers: [UserService, ReportService],
   bootstrap: [AppComponent]
