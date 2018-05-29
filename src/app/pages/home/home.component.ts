@@ -39,6 +39,8 @@ export class HomeComponent implements OnInit {
     if (this.isModalOpen == false) {
       this.renderer.removeClass(document.body, 'overflow-fix');
     }
+
+    console.log(this.isModalOpen);
   }
 
   swipe(e: TouchEvent, when: string): void {

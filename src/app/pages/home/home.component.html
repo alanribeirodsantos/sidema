@@ -1,4 +1,9 @@
 <div (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
+  
+<div class="form-mobile" [ngClass]="{'opened-modal': isModalOpen, 'closed-modal': isModalClosed}">
+    <sdm-form-card (closeModal)="exitModal()"></sdm-form-card>
+</div>
+
   <sdm-section [image]="'assets/images/main-background.jpg'" class="section-one">
     <div class="section-one__layer">
       <div class="section-one__layer__introduction">
