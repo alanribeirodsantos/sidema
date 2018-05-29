@@ -1,5 +1,6 @@
 <article class="form-card uk-card uk-card-default">
-    <section class="form-card__content uk-card-body">
+    <section class="form-card__content">
+        <div class="form-card__content__close-mobile"><span uk-icon="close" (click)="exitThisModal()"></span></div>
         <div class="form-card__content__slider" [ngClass]="{'form-card__content__slider--on-sign-in': OnSignIn, 'form-card__content__slider--on-forgot-password': OnForgotPassword}">
             <sdm-form-sign-up class="form-card__content__slider__sign-up"></sdm-form-sign-up>
             <sdm-form-sign-in class="form-card__content__slider__sign-in" (clickedForgot)="toggleState($event)"></sdm-form-sign-in>

@@ -3,3 +3,7 @@
 @import "~assets/sass-utils/variables.scss";
 @import "~assets/sass-utils/mixins.scss";
 @import "../node_modules/uikit/src/scss/uikit-theme.scss";
+
+.overflow-fix {
+    overflow-y: hidden;
+}

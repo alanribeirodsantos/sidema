@@ -20,6 +20,14 @@
             &__container {
                 max-width: 900px;
 
+                &__btn {
+                    display: none;
+
+                    @include mqMaxWidth('lg') {
+                        display: block;
+                    }
+                }
+
                 &__logo {
                     text-align: center;
                 }
@@ -56,7 +64,7 @@
                     @include mqMaxWidth('mdx') {
                         margin: 25px 0;
                     }
-                }
+                }  
     
                 &__actions {
                     text-align: left;
@@ -77,7 +85,7 @@
         }
     
         &__form {
-            width: 450px;
+            width: 400px;
             height: 100%;
             display: flex;
             align-items: center;
@@ -86,5 +94,36 @@
                 display: none;
             }
         }
+    }
+}
+
+.form-mobile {
+    display: none;
+    background-color: $gray-fa;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    box-sizing: border-box;
+    transition: 0.2s;
+    z-index: 10;
+
+    @include mqMaxWidth('lg') {
+        display: block;
+        overflow: scroll;
+    }
+}
+
+.opened-modal {
+    @include mqMaxWidth('lg') {
+        transform: translateX(0%);
+    }
+}
+
+.closed-modal {
+    @include mqMaxWidth('lg') {
+        transform: translateX(-100%);
     }
 }

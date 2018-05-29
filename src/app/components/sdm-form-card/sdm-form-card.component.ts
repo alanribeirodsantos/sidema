@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'sdm-form-card',
@@ -10,6 +11,12 @@ export class SdmFormCardComponent {
   OnSignIn:boolean = false;
   OnSignUp:boolean = true;
   OnForgotPassword:boolean = false;
+
+  @Output() closeModal:EventEmitter<any> = new EventEmitter();
+
+  exitThisModal() {
+    this.closeModal.emit("");
+  }
 
   toggleState(state){
     if(state === "signIn"){
