@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'sdm-filter-chip',
@@ -8,5 +8,10 @@ import { Component, Input } from '@angular/core';
 export class SdmFilterChipComponent {
 
   @Input() filterName:string;
+  @Output() clickedremoveFilter:EventEmitter<any> = new EventEmitter();
+
+  removeFilter() {
+    this.clickedremoveFilter.emit();
+  }
 
 }

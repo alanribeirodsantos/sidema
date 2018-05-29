@@ -19,10 +19,10 @@
         }
     }
 
-    // &__filter-tags {
-    //     background-color: red;
-    //     height: 30px;
-    // }
+    &__filter-tags {
+        height: 30px;
+        display: flex;
+    }
 
     &__list {
         display: flex;
