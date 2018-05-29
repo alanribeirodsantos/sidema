@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-consult-reports',
+  selector: 'consult-reports',
   templateUrl: './consult-reports.component.html',
   styleUrls: ['./consult-reports.component.scss']
 })
-export class ConsultReportsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+export class ConsultReportsComponent {
 
 }

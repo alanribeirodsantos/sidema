@@ -44,7 +44,7 @@
         <div class="uk-width-auto@m">
           <div class="uk-margin">
             <select class="uk-select form-report__text" [(ngModel)]="subcategory" #reportSubcategory="ngModel" name="subcategory" required>
-                <option>Tipo de Infração*</option>
+                <option value="">Tipo de Infração*</option>
                 <option>Poluição</option>
                 <option *ngIf="categorySelect== 'water-resources'">Poços Irregulares</option>
                 <option *ngIf="categorySelect== 'water-resources'">Desperdício de Água</option>
