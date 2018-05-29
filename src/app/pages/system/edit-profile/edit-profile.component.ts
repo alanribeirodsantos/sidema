@@ -10,6 +10,7 @@ import * as UIkit from 'uikit';
 })
 export class EditProfileComponent implements OnInit {
 
+  edit: boolean = false;
   name:string;
   email:string;
   newPassword:string = "";
@@ -29,8 +30,9 @@ export class EditProfileComponent implements OnInit {
   }
 
   editProfile(){
+    this.edit = true;
     var flag:number = 0;
-    if(this.newPassword.length > 0 && this.newPassword === this.confirmNewPassword){
+    if(this.newPassword.length >= 6 && this.newPassword === this.confirmNewPassword){
       if(this.currentPassword.length > 0){
         var users:any;
         this.userService.getUsers().subscribe(

@@ -8,6 +8,7 @@
     background-size: cover;
     background-position-x: -500px; 
     display: inline-block;
+    position: relative;
 
     &__layer {
         width: 100%;
@@ -41,6 +42,10 @@
         }
 
         &__actions {
+            position: absolute;
+            bottom: 0;
+            width: 230px;
+
             &__option {
                 margin: 10px 0px;   
 

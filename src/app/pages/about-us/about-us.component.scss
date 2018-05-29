@@ -2,12 +2,19 @@
 
 .aboutus-container {
     padding: 25px 65px 0 65px;
+    height: auto;
 
     &__title {
         font-family: $primary-font-bold;
         font-size: $font-size-title-large;
         color: $primary-color;
         margin-bottom: 10px;
+    }
+
+    &__team{
+        font-family: $primary-font-bold;
+        color: $black;
+        font-size: $font-size-title-big;
     }
 
     &__content {

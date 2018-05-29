@@ -5,16 +5,16 @@
     </div>
     <div class="hints-container__hint__text">
       Aqui estão todas as denúncias já realizadas no sistema. Você pode clicar no ícone de impulsionar
-      para apoiar uma denúncia. Caso queira ver mais detalhes de uma denúncia, basta clicar em seu título.
+      para apoiar uma denúncia ou clicar no título para ver mais detalhes
     </div>
-  </div>  
+  </div> 
   <div class="hints-container__hint uk-margin-bottom" *ngIf="router.url == '/sistema/denuncias'">
     <div class="hints-container__hint__icon">
       <i uk-icon="icon: info; ratio: 0.7"></i>
     </div>
     <div class="hints-container__hint__text">
-      Nos filtros você pode escolher quais denúncias deseja ver. Os filtros são por Categoria, Subcategoria e 
-      Estado da Denúncia. Você também pode fazer uma pesquisa por localidade ou título da denúncia.
+      Você pode filtar as denúncias por Categoria, Subcategoria e Status da Denúncia, além de poder digitar
+      um termo de pesquisa na barra de busca
     </div>
   </div>
   <div class="hints-container__hint uk-margin-bottom" *ngIf="router.url == '/sistema/denunciar'">
@@ -22,11 +22,18 @@
       <i uk-icon="icon: info; ratio: 0.7"></i>
     </div>
     <div class="hints-container__hint__text">
-      Este é o formulário de denúncia, os campos que possuem * são de preenchimento obrigatório. Você pode gerar sua localização 
-      de forma automática, facilitando e agilizando o processo de denúncia. Não esqueça de carregar uma mídia referente a denúncia, ela pode ser 
-      uma foto, um vídeo ou até mesmo um áudio.
+      Este é o formulário de denúncia, os campos que possuem * são de preenchimento obrigatório. A localização pode ser
+      gerada de forma automática, para agilizar todo o processo
     </div>
   </div> 
+  <div class="hints-container__hint uk-margin-bottom" *ngIf="router.url == '/sistema/denunciar'">
+    <div class="hints-container__hint__icon">
+      <i uk-icon="icon: info; ratio: 0.7"></i>
+    </div>
+    <div class="hints-container__hint__text">
+      Você pode carregar mídias de foto, vídeo e até mesmo áudio referentes a sua denúncia. O espaço para essas mídias é de até 25mb
+    </div>
+  </div>
   <div class="hints-container__hint uk-margin-bottom" *ngIf="router.url == '/sistema/perfil'">
     <div class="hints-container__hint__icon">
       <i uk-icon="icon: info; ratio: 0.7"></i>
