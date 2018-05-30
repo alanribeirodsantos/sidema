@@ -1,51 +1,118 @@
 @import "~assets/sass-utils/variables";
 @import "~assets/sass-utils/mixins";
+
+:host {
+    width: inherit;
+}
+
 .form-card {
     background-color: $gray-fa;
-    width: 400px;
+    width: inherit;
+    box-shadow: none;
+
     &__content {
         width: 100%;
         padding: 30px;
         box-sizing: border-box;
         overflow: hidden;
+
+        @include mqMaxWidth('lg') {
+            padding: 0;
+        }
+
+        &__close-mobile {
+            display: none;
+
+            @include mqMaxWidth('lg') {
+                display: block;
+                text-align: right;
+                padding: 15px 30px 0px 0px;
+            }
+        }
+
         &__slider {
             width: calc(300% + 120px);
             display: flex;
             justify-content: space-between;
             transition: transform 0.2s linear;
+
+            @include mqMaxWidth('lg') {
+                width: 300vw;
+            }
+
             &__sign-up,
             &__sign-in,
             &__forgot-password {
                 width: 340px;
+                box-sizing: border-box;
+
+                @include mqMaxWidth('lg') {
+                    padding: 15px 30px 30px 30px;
+                    width: 100vw;
+                }
             }
             &--on-sign-in {
                 transform: translateX(-400px);
+
+                @include mqMaxWidth('lg') {
+                    transform: translateX(-100vw);
+                }
             }
+
             &--on-forgot-password {
                 transform: translateX(-800px);
+
+                @include mqMaxWidth('lg') {
+                    transform: translateX(-200vw);
+                }
             }
         }
     }
+
     &__footer {
         font-family: $secondary-font;
         font-size: $font-size-text;
         text-align: center;
-        padding: 15px 30px;
+        padding: 30px 30px;
         width: calc(100% - 60px);
         overflow: hidden;
+
+        @include mqMaxWidth('lg') {
+            width: 100%;
+            padding: 0;
+        }
+
         &__slider {
             width: calc(200% + 60px);
             display: flex;
             justify-content: space-between;
             transition: transform 0.2s linear;
-            &__sign-up,
-            &__sign-in {
-                width: 340px;
+
+            @include mqMaxWidth('lg') {
+                width: 200vw;
             }
+            
+            &__sign-up,
+            &__sign-in,
+            &__forgot-password {
+                width: 340px;
+                box-sizing: border-box;
+
+                @include mqMaxWidth('lg') {
+                    padding: 30px;
+                    width: 100vw;
+                } 
+            }
+
             &--on-sign-in {
                 transform: translateX(400px);
+
+                @include mqMaxWidth('lg') {
+                    transform: translateX(-350vw);
+                } 
             }
         }
+        
         &__link {
             color: $primary-color;
             font-family: $primary-font;

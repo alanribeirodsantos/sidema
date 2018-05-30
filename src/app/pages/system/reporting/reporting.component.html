@@ -19,7 +19,7 @@
         <div class="uk-width-1-2@s">
             <input class="uk-input" type="text" placeholder="Complemento" name="complement" [(ngModel)]="complement">
         </div>
-        <div class="uk-width-1-4@s">
+        <div class="uk-width-1-4@l">
             <sdm-button [type]="'tertiary'" [btnWidth]="'large'" uk-tooltip="title: Gerar localização automaticamente" (click)="getLocalization()">GERAR LOCALIZAÇÃO</sdm-button>
         </div>
         <div class="uk-width-1-1">
@@ -60,10 +60,10 @@
             </div>
             <div class="list-media"></div>
         </div>
-        <div class="uk-margin uk-width-1-2@m ">
+        <div class="uk-margin uk-margin-remove-top uk-width-1-2@m">
             <sdm-button [type]=" 'quaternary' " [btnWidth]=" 'large' " (click)="sendReport() ">ENVIAR DENÚNCIA</sdm-button>
         </div>
-        <div class="uk-margin uk-width-1-2@s ">
+        <div class="uk-margin uk-margin-remove-top uk-width-1-2@m ">
             <sdm-button [type]=" 'danger-secondary' " [btnWidth]=" 'large' " (click)="cancelReport() " routerLink="/sistema/denuncias ">Cancelar</sdm-button>
         </div>
     </form>

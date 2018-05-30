@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { UserService } from '../../backend/services/user/user.service';
 import { AngularFireStorage } from 'angularfire2/storage';
 
@@ -8,11 +8,17 @@ import { AngularFireStorage } from 'angularfire2/storage';
   styleUrls: ['./sdm-side-menu.component.scss']
 })
 export class SdmSideMenuComponent implements OnInit {
+
+  @Output() closeMenu:EventEmitter<any> = new EventEmitter();
+
+  exitThisMenu() {
+    this.closeMenu.emit("");
+  }
   
   userName:string = "";
   userId = JSON.parse(localStorage.getItem("user")).id;
   userRef:any;
-  userPhoto:any;
+  userPhoto:any; 
 
   constructor(private userService:UserService, private angularFireStorage:AngularFireStorage) {}
 
