@@ -23,7 +23,7 @@
         <div class="uk-width-1-2@s">
             <input class="uk-input form-report__text" type="text" placeholder="Complemento" name="complement" [(ngModel)]="complement">
         </div>
-        <div class="uk-width-1-4@s">
+        <div class="uk-width-1-4@l">
             <sdm-button [type]="'tertiary'" [btnWidth]="'large'" uk-tooltip="title: Gerar localização automaticamente" (click)="getLocalization()">GERAR LOCALIZAÇÃO</sdm-button>
         </div>
         <div class="uk-width-1-1">
@@ -66,6 +66,7 @@
             </div>
             <div class="list-media"></div>
         </div>
+<<<<<<< HEAD
         <div class="uk-margin uk-width-1-1" *ngIf="router.url == '/sistema/denunciar'">
             <label class="form-report__text"><input class="uk-checkbox" type="checkbox"> Denunciar de forma Anônima</label>
         </div>
@@ -77,6 +78,13 @@
         </div>
         <div class="uk-margin uk-width-1-2@s" *ngIf="router.url == '/realizar-denuncia'">
             <sdm-button [type]="'danger-secondary'" [btnWidth]="'large'" routerLink="/home">Cancelar</sdm-button>
+=======
+        <div class="uk-margin uk-margin-remove-top uk-width-1-2@m">
+            <sdm-button [type]=" 'quaternary' " [btnWidth]=" 'large' " (click)="sendReport() ">ENVIAR DENÚNCIA</sdm-button>
+        </div>
+        <div class="uk-margin uk-margin-remove-top uk-width-1-2@m ">
+            <sdm-button [type]=" 'danger-secondary' " [btnWidth]=" 'large' " (click)="cancelReport() " routerLink="/sistema/denuncias ">Cancelar</sdm-button>
+>>>>>>> Responsividade do Sistema
         </div>
     </form>
 </section>

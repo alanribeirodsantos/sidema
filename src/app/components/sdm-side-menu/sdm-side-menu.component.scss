@@ -1,7 +1,8 @@
 @import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
 
 .menu-container {
-    width: 270px;
+    width: inherit;
     height: 100vh;
     text-align: center;
     background-image: url("/assets/images/main-background.jpg");
@@ -9,6 +10,10 @@
     background-position-x: -500px; 
     display: inline-block;
     position: relative;
+
+    @include mqMaxWidth('lg') {
+        width: 100vw;
+    }
 
     &__layer {
         width: 100%;
@@ -18,6 +23,17 @@
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
+
+        &__close-mobile {
+            display: none;
+
+            @include mqMaxWidth('lg') {
+                display: block;
+                text-align: right;
+                color: $white;
+                margin: -20px 0 10px 0;
+            }
+        }
 
         &__user-image-container {
             margin-bottom: 10px;
