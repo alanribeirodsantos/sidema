@@ -15,7 +15,6 @@
         padding: 0 65px; 
         box-sizing: border-box;
 
-
         &__logo {
             max-width: 100px;
         }
@@ -30,7 +29,6 @@
     top: 0;
     left: 0;
     z-index: z('login_modal');
-
 
     &__modal {
         position: fixed;

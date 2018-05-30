@@ -7,7 +7,6 @@
         width: 100%;
         background-color: rgba($black, $alpha: 0.8);
         display: flex;
-        
 
         &__introduction {
             width: calc(100% - 450px);
@@ -96,7 +95,6 @@
         width: 100%;
         display: flex;
     
-
         &__container {
             max-width: 1200px;
             margin: 0 auto;
@@ -140,7 +138,7 @@
       }
 }
 
-.section-tree{
+.section-three{
     &__layer {
         height: 100%;
         width: 100%;
@@ -149,8 +147,7 @@
 
         &__container {
             max-width: 1200px;
-            margin: 0 auto;
-            
+            margin: 0 auto;   
         }
     }
 }
@@ -235,29 +232,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: inline-flex;
-            margin-left: 240px;
-
-            &__card{
-                width: 206px;
-                height: 248px;
-                text-align: center;
-                margin: 5px;
-
-                &__textTitle{
-                    font-size: 15px;
-                    font-family: $primary-font;
-                    padding-top: 10px;
-                    padding-right: 8px;
-                    color: black;
-                }
-
-                &__textContent{
-                    font-size: 12px;
-                    font-family: $secondary-font;
-                    color: black;
-                    padding: 10px;
-                }
-            }
+            margin-left: 245px;
         }
     }
 }

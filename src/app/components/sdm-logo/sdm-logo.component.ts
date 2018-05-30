@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'sdm-logo',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sdm-logo.component.scss']
 })
 export class SdmLogoComponent implements OnInit {
+
+  @Input() typeImg:string;
+  logoNormal = 'assets/images/logo.png'
+  logoBranca = 'assets/images/secao3/logoBranca.png'
 
   constructor() { }
 

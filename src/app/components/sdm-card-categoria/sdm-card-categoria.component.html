@@ -1,0 +1,32 @@
+<div *ngFor="let categoria of categorias" class="card-categoria">
+  <div class="uk-card uk-card-default card-categoria__container_card__card">
+    <div class="card-categoria__container_card__card__textTitle">
+      <img class="uk-border-circle" width="20" height="20" src="{{categoria.img}}">
+      {{categoria.categoria}}
+    </div>
+    <div class="uk-heading-divider"></div>
+    <div class="card-categoria__container_card__card__textContent">{{categoria.subcategoria[0]}}</div>
+    <div class="uk-heading-divider"></div>
+    <div class="card-categoria__container_card__card__textContent">{{categoria.subcategoria[1]}}</div>
+    <div class="uk-heading-divider"></div>
+    <div class="card-categoria__container_card__card__textContent">{{categoria.subcategoria[2]}}</div>
+    <div class="uk-heading-divider"></div>
+    <div href="#modal-group-1" class="container_card__card__textContent uk-button uk-button-text" uk-toggle>Orgão responsável: SEMA</div>          
+  </div>
+</div>
+
+
+<div id="modal-group-1" uk-modal>
+  <div class="uk-modal-dialog">
+      <button class="uk-modal-close-default" type="button" uk-close></button>
+      <div class="uk-modal-header">
+          <h2 class="uk-modal-title">SEMA</h2>
+      </div>
+      <div class="uk-modal-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="uk-modal-footer uk-text-right">
+          <button class="uk-button uk-button-primary uk-modal-close" type="button">Fechar</button>
+      </div>
+  </div>
+</div>

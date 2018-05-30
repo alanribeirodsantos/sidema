@@ -5,7 +5,7 @@
            [ngClass]="{'uk-animation-slide-left-small': showContent}"
            *ngIf="showContent">
         <div class="section-one__layer__introduction__container__logo">
-            <sdm-logo></sdm-logo>
+            <sdm-logo [typeImg]="'logoNormal'"></sdm-logo>
           </div>
           <div class="section-one__layer__introduction__container__slogan">
             Faça parte, você também, da luta contra<br class="section-one__layer__introduction__container__slogan__break-line">
@@ -34,7 +34,7 @@
 </div> -->
 
 <!-- Seção 2 -->
-<sdm-section [image]="'assets/images/secao2/FundoSec2.jpg'">  
+<sdm-section [image]="'assets/images/secao2/FundoSec2.jpg'" class="section-two">  
   <div class="section-two__layer">
     <div class="section-two__layer__container">
       <div class="section-two__layer__container__subtitle" uk-parallax="opacity: 0,1; y: 200,0; viewport: 0.5">
@@ -48,11 +48,9 @@
 </sdm-section>
 
 <!-- Seção 3 -->
-<sdm-section>
-
-  <div class="uk-position-relative uk-visible-toggle uk-light section-tree__layer" uk-slider="clsActivated: uk-transition-active; center: true" uk-parallax="opacity: 0,8; y: 50,0; viewport: 0.4">
-
-    <ul class="uk-slider-items uk-grid section-tree__layer__container">
+<sdm-section class="section-three">
+  <div class="uk-position-relative uk-visible-toggle uk-light section-three__layer" uk-slider="clsActivated: uk-transition-active; center: true" uk-parallax="opacity: 0,8; y: 50,0; viewport: 0.4">
+    <ul class="uk-slider-items uk-grid section-three__layer__container">
         <li class="uk-width-1-1">
             <div class="uk-panel">
                 <img src="assets/images/secao2/FundoSec2.jpg" alt="">
@@ -110,17 +108,16 @@
 </sdm-section>
 
 <!-- Seção 4 -->
-<sdm-section [image]="'assets/images/secao3/FundoSec3.jpg'"> 
+<sdm-section [image]="'assets/images/secao3/FundoSec3.jpg'" class="section-four"> 
   <div class="section-four__layer">
     <div class="section-four__layer__container">
       <div class="section-four__layer__container__logo" uk-parallax="opacity: 0,1; y: 100,0; viewport: 0.3">
-        <sdm-logo-branca></sdm-logo-branca>
+        <sdm-logo [typeImg]="'logoBranca'"></sdm-logo>
       </div>
       <div class="section-four__layer__container__introduction" uk-parallax="opacity: 0,1; x: 100,0; viewport: 0.4">
           E para ajudar nisso, te apresentamos o SIDEMA, um sistema de denúncias de crimes ambientais feito para ajudar Quixadá nessa empreitada. As denúncias feitas no sistema serão direcionadas para os órgãos públicos responsáveis por tratar as infrações, que são SEMA, o DNOCS e SEDUMA.
       </div>
     </div>
-
     <div class="section-four__layer__containerimg">
       <div class="section-four__layer__containerimg__imagem">
         <img src="assets/images/secao3/imagem.png" alt="Sidema desktop e mobile" height="600" width="600"  uk-parallax="viewport:0.5; x: -30">
@@ -130,7 +127,7 @@
 </sdm-section>
 
 <!-- Seção 5 -->
-<sdm-section [image]="'assets/images/secao4/FundoSec4.jpg'">
+<sdm-section [image]="'assets/images/secao4/FundoSec4.jpg'" class="section_five">
   <div class="section-five__layer">   
     <div class="section_five__layer__container">
       <div class="section_five__layer__container__title" uk-parallax="opacity: 0,1,1; y: -100,0,0; scale: 2,1,1; viewport: 0.5;">
@@ -143,89 +140,14 @@
         Você pode fazer denuncias em quatro categorias de crimes ambientais.
       </div>
     </div>
-    <div class="section_five__layer__container_card">
-        
-        <div class="uk-card uk-card-default section_five__layer__container_card__card">
-          <div class="section_five__layer__container_card__card__textTitle">
-            <img class="uk-border-circle" width="20" height="20" src="assets/images/category-water-resources.svg">
-            Recursos Hidricos
-          </div>
-          <div class="uk-heading-divider"></div>
-          <div class="section_five__layer__container_card__card__textContent">Poluição de açudes, rios e lagos</div>
-          <div class="uk-heading-divider"></div>
-          <div class="section_five__layer__container_card__card__textContent">Construção de poços ilegais</div>
-          <div class="uk-heading-divider"></div>
-          <div class="section_five__layer__container_card__card__textContent">Mal uso da água de açudes, rios e lagos</div>
-          <div class="uk-heading-divider"></div>
-          <div href="#modal-group-1" class="section_five__layer__container_card__card__textContent uk-button uk-button-text" uk-toggle>Orgão responsável: SEMA</div>          
-        </div>
-
-        <div class="uk-card uk-card-default section_five__layer__container_card__card">
-            <div class="section_five__layer__container_card__card__textTitle">
-              <img class="uk-border-circle" width="20" height="20" src="assets/images/category-monoliths.svg">
-              Monólitos
-            </div>  
-            <div class="uk-heading-divider"></div>
-            <div class="section_five__layer__container_card__card__textContent">Poluição de açudes, rios e lagos</div>
-            <div class="uk-heading-divider"></div>
-            <div class="section_five__layer__container_card__card__textContent">Construção de poços ilegais</div>
-            <div class="uk-heading-divider"></div>
-            <div class="section_five__layer__container_card__card__textContent">Mal uso da água de açudes, rios e lagos</div>
-            <div class="uk-heading-divider"></div>
-            <div href="#modal-group-1" class="section_five__layer__container_card__card__textContent uk-button uk-button-text" uk-toggle>Orgão responsável: SEMA</div>          
-          </div>
-
-          <div class="uk-card uk-card-default section_five__layer__container_card__card">
-              <div class="section_five__layer__container_card__card__textTitle">
-                <img class="uk-border-circle" width="20" height="20" src="assets/images/category-vegetation.svg">
-                Vegetação
-              </div>    
-              <div class="uk-heading-divider"></div>
-              <div class="section_five__layer__container_card__card__textContent">Poluição de açudes, rios e lagos</div>
-              <div class="uk-heading-divider"></div>
-              <div class="section_five__layer__container_card__card__textContent">Construção de poços ilegais</div>
-              <div class="uk-heading-divider"></div>
-              <div class="section_five__layer__container_card__card__textContent">Mal uso da água de açudes, rios e lagos</div>
-              <div class="uk-heading-divider"></div>
-              <div href="#modal-group-1" class="section_five__layer__container_card__card__textContent uk-button uk-button-text" uk-toggle>Orgão responsável: SEMA</div>          
-            </div>
-
-            <div class="uk-card uk-card-default section_five__layer__container_card__card">
-                <div class="section_five__layer__container_card__card__textTitle">
-                  <img class="uk-border-circle" width="20" height="20" src="assets/images/category-historical-patrimony.svg">
-                  Patrimônio Historico
-                </div>
-                <div class="uk-heading-divider"></div>
-                <div class="section_five__layer__container_card__card__textContent">Poluição de açudes, rios e lagos</div>
-                <div class="uk-heading-divider"></div>
-                <div class="section_five__layer__container_card__card__textContent">Construção de poços ilegais</div>
-                <div class="uk-heading-divider"></div>
-                <div class="section_five__layer__container_card__card__textContent">Mal uso da água de açudes, rios e lagos</div>
-                <div class="uk-heading-divider"></div>
-                <div href="#modal-group-1" class="section_five__layer__container_card__card__textContent uk-button uk-button-text" uk-toggle>Orgão responsável: SEMA</div>          
-              </div>
-
-              <div id="modal-group-1" uk-modal>
-                  <div class="uk-modal-dialog">
-                      <button class="uk-modal-close-default" type="button" uk-close></button>
-                      <div class="uk-modal-header">
-                          <h2 class="uk-modal-title">SEMA</h2>
-                      </div>
-                      <div class="uk-modal-body">
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                      </div>
-                      <div class="uk-modal-footer uk-text-right">
-                          <button class="uk-button uk-button-primary uk-modal-close" type="button">Fechar</button>
-                      </div>
-                  </div>
-              </div>       
+    <div>
+      <sdm-card-categoria class="section_five__layer__container_card"></sdm-card-categoria>
     </div>
   </div>
 </sdm-section>
 
 <!-- Seção 6 -->
-<sdm-section [image]="'assets/images/secao5/FundoSec5.jpg'">
-  
+<sdm-section [image]="'assets/images/secao5/FundoSec5.jpg'" class="section-six">
   <div class="section-six__layer">   
     <div class="section-six__layer__container">
       <div class="section-six__layer__container__title" uk-parallax="opacity: 0,1,1; y: -100,0,0; scale: 2,1,1; viewport: 0.5;">
@@ -242,12 +164,10 @@
       </div>
     </div>
   </div>
-
 </sdm-section>
 
 <!-- Seção 7 -->
-<sdm-section [image]="'assets/images/secao6/FundoSec6.jpg'">
-
+<sdm-section [image]="'assets/images/secao6/FundoSec6.jpg'" class="section-seven">
   <div class="section-seven__layer">   
     <div class="section-seven__layer__container">
       <div class="section-seven__layer__container__title" uk-parallax="opacity: 0,1,1; y: -100,0,0; scale: 2,1,1; viewport: 0.5;">
@@ -261,6 +181,5 @@
         </div>
     </div>
   </div>
-
 </sdm-section>
-<sdm-footer></sdm-footer>
+<!-- <sdm-footer></sdm-footer> -->
