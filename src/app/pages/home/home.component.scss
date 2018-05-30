@@ -108,7 +108,6 @@
     left: 0px;
     box-sizing: border-box;
     transition: 0.2s;
-    z-index: 10;
 
     @include mqMaxWidth('lg') {
         display: block;

@@ -24,6 +24,10 @@
         text-align: justify;
         margin-bottom: 20px;
 
+        &__left {
+            text-align: left;
+        }
+
         &__media {
            max-width: 175px;
         }
