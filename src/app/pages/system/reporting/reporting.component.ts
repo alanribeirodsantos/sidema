@@ -16,11 +16,8 @@ export class ReportingComponent implements OnInit {
   }
 
   router;
-
   report: boolean = false;
-
   localizationInfo;
-
   categorySelect: string;
   location: any;
   title:string = "";
@@ -32,7 +29,8 @@ export class ReportingComponent implements OnInit {
   violator:string = "";
   category:string = "";
   subcategory:string = "";
-  media:any;
+  media:Array<any> = [];
+  mediaAux:any;
   mediaSize:any;
 
   ngOnInit(){
@@ -72,9 +70,13 @@ export class ReportingComponent implements OnInit {
   }
 
   selectedMedias(event){
-      this.media = Array.from(event.target.files);
-      [].forEach.call(this.media, (media, index) => {
-        this.mediaSize += media.size; 
+      document.getElementById("filePicker").onclick = () => {
+        event.target.value = null;
+      }
+      this.mediaAux = Array.from(event.target.files);
+      [].forEach.call(this.mediaAux, (media, index) => {
+        console.log(this.mediaAux);
+        this.mediaSize += media.size;
         var reader = new FileReader();
         reader.addEventListener("load", () => {
           var div = document.createElement("div");
@@ -82,7 +84,8 @@ export class ReportingComponent implements OnInit {
           div.style.height = "100px";
           div.addEventListener("click", () => {
             div.parentNode.removeChild(div);
-            this.media.splice(index, 1);
+            this.mediaAux.splice(index, 1);
+            this.media.splice(this.media.indexOf(media), 1);
           })
           if(media.type === "audio/mp3" || media.type === "audio/ogg" || media.type === "audio/wav"){
             div.style.background = "url('../../../assets/images/audio.png') no-repeat";
@@ -100,5 +103,6 @@ export class ReportingComponent implements OnInit {
         }, false);
         reader.readAsDataURL(media);
       })
-  }  
+      this.media = this.media.concat(this.mediaAux);
+  }
 }

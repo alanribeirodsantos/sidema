@@ -61,7 +61,7 @@
         <span class="form-report__subtitle uk-width-1-1">Mídias*</span>
         <div class="uk-width-1-1">
             <div uk-form-custom uk-tooltip="title: Insira uma mídia sobre a denúncia">
-                <input type="file" accept=".png, .jpg, .jpeg, .mp4, .avi, .mpeg, .mp3, .wav, .ogg" (change)="selectedMedias($event)" multiple="multiple">
+                <input id="filePicker" type="file" accept=".png, .jpg, .jpeg, .mp4, .avi, .mpeg, .mp3, .wav, .ogg" (change)="selectedMedias($event)" value="media" multiple="multiple">
                 <div type="button" class="uk-button uk-button-default uk-card uk-card-body" uk-icon="icon: plus"></div>
             </div>
             <div class="list-media"></div>
