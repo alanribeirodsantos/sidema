@@ -1,27 +1,30 @@
 @import '~assets/sass-utils/variables';
-@import '~assets/sass-utils/mixins';
 
-.card-categoria{
-    &__container_card{
-    
+.card-category{
+    &__container_card{    
         &__card{
             width: 206px;
             height: 248px;
             text-align: center;
             margin: 5px;
+
+            &__logo{
+                height: 20px;
+                width: 20px;
+            }
     
             &__textTitle{
                 font-size: 15px;
                 font-family: $primary-font;
                 padding-top: 10px;
                 padding-right: 8px;
-                color: black;
+                color: $black;
             }
     
             &__textContent{
                 font-size: 12px;
                 font-family: $secondary-font;
-                color: black;
+                color: $black;
                 padding: 10px;
             }
         }

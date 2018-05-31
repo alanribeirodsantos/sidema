@@ -1,20 +1,17 @@
-<div *ngFor="let categoria of categorias" class="card-categoria">
-  <div class="uk-card uk-card-default card-categoria__container_card__card">
-    <div class="card-categoria__container_card__card__textTitle">
-      <img class="uk-border-circle" width="20" height="20" src="{{categoria.img}}">
-      {{categoria.categoria}}
+<div *ngFor="let category of categories" class="card-category">
+  <div class="uk-card uk-card-default card-category__container_card__card">
+    <div class="card-category__container_card__card__textTitle">
+      <img class="uk-border-circle card-category__container_card__card__logo" src="{{category.img}}">
+      {{category.category}}
+    </div>
+    <div *ngFor= "let subcategory of category.subcategory">
+      <div class="uk-heading-divider"></div>
+      <div class="card-category__container_card__card__textContent">{{subcategory}}</div>
     </div>
     <div class="uk-heading-divider"></div>
-    <div class="card-categoria__container_card__card__textContent">{{categoria.subcategoria[0]}}</div>
-    <div class="uk-heading-divider"></div>
-    <div class="card-categoria__container_card__card__textContent">{{categoria.subcategoria[1]}}</div>
-    <div class="uk-heading-divider"></div>
-    <div class="card-categoria__container_card__card__textContent">{{categoria.subcategoria[2]}}</div>
-    <div class="uk-heading-divider"></div>
-    <div href="#modal-group-1" class="container_card__card__textContent uk-button uk-button-text" uk-toggle>Orgão responsável: SEMA</div>          
+    <div href="#modal-group-1" class="container_card__card__textContent uk-button uk-button-text" uk-toggle>ÓRGÃO RESPONSÁVEL: {{category.institute}}</div>          
   </div>
 </div>
-
 
 <div id="modal-group-1" uk-modal>
   <div class="uk-modal-dialog">
