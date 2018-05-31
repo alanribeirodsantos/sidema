@@ -7,9 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SdmLogoComponent implements OnInit {
 
-  @Input() typeImg:string;
-  logoNormal = 'assets/images/logo.png'
-  logoBranca = 'assets/images/secao3/logoBranca.png'
+  @Input() type:string = '';
 
   constructor() { }
 

@@ -5,7 +5,7 @@
            [ngClass]="{'uk-animation-slide-left-small': showContent}"
            *ngIf="showContent">
         <div class="section-one__layer__introduction__container__logo">
-            <sdm-logo [typeImg]="'logoNormal'"></sdm-logo>
+            <sdm-logo></sdm-logo>
           </div>
           <div class="section-one__layer__introduction__container__slogan">
             Faça parte, você também, da luta contra<br class="section-one__layer__introduction__container__slogan__break-line">
@@ -29,12 +29,12 @@
   </div>
 </sdm-section>
 
-<!-- <div class="botaoEntrar__button" uk-scrollspy="cls:uk-animation-fade; repeat: true; delay: 500">
+<!-- <div class="buttonEnter__button" uk-scrollspy="cls:uk-animation-fade; repeat: true; delay: 500">
   <sdm-button [type]="'primary'">Entrar/Cadastrar</sdm-button>
 </div> -->
 
 <!-- Seção 2 -->
-<sdm-section [image]="'assets/images/secao2/FundoSec2.jpg'" class="section-two">  
+<sdm-section [image]="'assets/images/section2/bg-section2.jpg'" class="section-two">  
   <div class="section-two__layer">
     <div class="section-two__layer__container">
       <div class="section-two__layer__container__subtitle" uk-parallax="opacity: 0,1; y: 200,0; viewport: 0.5">
@@ -108,11 +108,11 @@
 </sdm-section>
 
 <!-- Seção 4 -->
-<sdm-section [image]="'assets/images/secao3/FundoSec3.jpg'" class="section-four"> 
+<sdm-section [image]="'assets/images/section4/bg-section4.jpg'" class="section-four"> 
   <div class="section-four__layer">
     <div class="section-four__layer__container">
       <div class="section-four__layer__container__logo" uk-parallax="opacity: 0,1; y: 100,0; viewport: 0.3">
-        <sdm-logo [typeImg]="'logoBranca'"></sdm-logo>
+        <sdm-logo [type]="'--white'"></sdm-logo>
       </div>
       <div class="section-four__layer__container__introduction" uk-parallax="opacity: 0,1; x: 100,0; viewport: 0.4">
           E para ajudar nisso, te apresentamos o SIDEMA, um sistema de denúncias de crimes ambientais feito para ajudar Quixadá nessa empreitada. As denúncias feitas no sistema serão direcionadas para os órgãos públicos responsáveis por tratar as infrações, que são SEMA, o DNOCS e SEDUMA.
@@ -120,14 +120,14 @@
     </div>
     <div class="section-four__layer__containerimg">
       <div class="section-four__layer__containerimg__imagem">
-        <img src="assets/images/secao3/imagem.png" alt="Sidema desktop e mobile" height="600" width="600"  uk-parallax="viewport:0.5; x: -30">
+        <img src="assets/images/section4/devices-image.png" alt="Sidema desktop e mobile" height="600" width="600"  uk-parallax="viewport:0.5; x: -30">
       </div>
     </div>
   </div>
 </sdm-section>
 
 <!-- Seção 5 -->
-<sdm-section [image]="'assets/images/secao4/FundoSec4.jpg'" class="section_five">
+<sdm-section [image]="'assets/images/section5/bg-section5.jpg'" class="section_five">
   <div class="section-five__layer">   
     <div class="section_five__layer__container">
       <div class="section_five__layer__container__title" uk-parallax="opacity: 0,1,1; y: -100,0,0; scale: 2,1,1; viewport: 0.5;">
@@ -141,13 +141,13 @@
       </div>
     </div>
     <div>
-      <sdm-card-categoria class="section_five__layer__container_card"></sdm-card-categoria>
+      <sdm-card-category class="section_five__layer__container_card"></sdm-card-category>
     </div>
   </div>
 </sdm-section>
 
 <!-- Seção 6 -->
-<sdm-section [image]="'assets/images/secao5/FundoSec5.jpg'" class="section-six">
+<sdm-section [image]="'assets/images/section6/bg-section6.jpg'" class="section-six">
   <div class="section-six__layer">   
     <div class="section-six__layer__container">
       <div class="section-six__layer__container__title" uk-parallax="opacity: 0,1,1; y: -100,0,0; scale: 2,1,1; viewport: 0.5;">
@@ -160,14 +160,14 @@
         Você pode acompanhar todo o processamento das denúncias que realizou, saber em que estado elas se sencontram e se o órgão responsável já tomou medidas para solucioná-las. Também é possivel, caso você esteja logado no sistema, visualizar todas as denúncias já realizadas e apoiá-las, gerando maior visibilidade para os casos denunciados. E não se preocupe, as denúncias podem ser feitas de forma anônima, caso opte por não se identificar. O SIDEMA se preocupa com sua segurança e com a transparência na resolução das denúncias.
       </div>
       <div class="section-six__layer__container__card">
-        <img src="assets/images/secao5/bolas.png" alt="">
+        <img src="assets/images/section6/sidema-elements.png" alt="">
       </div>
     </div>
   </div>
 </sdm-section>
 
 <!-- Seção 7 -->
-<sdm-section [image]="'assets/images/secao6/FundoSec6.jpg'" class="section-seven">
+<sdm-section [image]="'assets/images/section7/bg-section7.jpg'" class="section-seven">
   <div class="section-seven__layer">   
     <div class="section-seven__layer__container">
       <div class="section-seven__layer__container__title" uk-parallax="opacity: 0,1,1; y: -100,0,0; scale: 2,1,1; viewport: 0.5;">

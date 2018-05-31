@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SdmCardCategoriaComponent } from './sdm-card-categoria.component';
+import { SdmCardCategoryComponent } from './sdm-card-category.component';
 
-describe('SdmCardCategoriaComponent', () => {
-  let component: SdmCardCategoriaComponent;
-  let fixture: ComponentFixture<SdmCardCategoriaComponent>;
+describe('SdmCardCategoryComponent', () => {
+  let component: SdmCardCategoryComponent;
+  let fixture: ComponentFixture<SdmCardCategoryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SdmCardCategoriaComponent ]
+      declarations: [ SdmCardCategoryComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SdmCardCategoriaComponent);
+    fixture = TestBed.createComponent(SdmCardCategoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
