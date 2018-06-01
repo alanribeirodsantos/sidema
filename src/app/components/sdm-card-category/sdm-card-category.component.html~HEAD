@@ -9,7 +9,7 @@
       <div class="card-category__container_card__card__textContent">{{subcategory}}</div>
     </div>
     <div class="uk-heading-divider"></div>
-    <div href="#modal-group-1" class="container_card__card__textContent uk-button uk-button-text" uk-toggle>ÓRGÃO RESPONSÁVEK: {{category.institute}}</div>          
+    <div href="#modal-group-1" class="container_card__card__textContent uk-button uk-button-text" uk-toggle>ÓRGÃO RESPONSÁVEL: {{category.institute}}</div>          
   </div>
 </div>
 
