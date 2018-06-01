@@ -96,7 +96,6 @@
         width: 100%;
         display: flex;
     
-
         &__container {
             max-width: 1200px;
             margin: 0 auto;
@@ -130,17 +129,16 @@
     }
 }
 
-.botaoEntrar{
+.buttonEnter{
     &__button{
         float: right;
         padding: 20px 20px; 
         position: sticky;
         top: 0;
-        z-index: 0;
       }
 }
 
-.section-tree{
+.section-three{
     &__layer {
         height: 100%;
         width: 100%;
@@ -149,8 +147,7 @@
 
         &__container {
             max-width: 1200px;
-            margin: 0 auto;
-            
+            margin: 0 auto;   
         }
     }
 }
@@ -176,7 +173,7 @@
                 text-align: justify;
                 font-size: 25px;
                 font-family: $secondary-font;
-                }
+            }
 
             &__logo {
                 text-align: center;
@@ -235,29 +232,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: inline-flex;
-            margin-left: 240px;
-
-            &__card{
-                width: 206px;
-                height: 248px;
-                text-align: center;
-                margin: 5px;
-
-                &__textTitle{
-                    font-size: 15px;
-                    font-family: $primary-font;
-                    padding-top: 10px;
-                    padding-right: 8px;
-                    color: black;
-                }
-
-                &__textContent{
-                    font-size: 12px;
-                    font-family: $secondary-font;
-                    color: black;
-                    padding: 10px;
-                }
-            }
+            margin-left: 245px;
         }
     }
 }
@@ -365,7 +340,6 @@
                 margin: 0 auto;
                 width: 500px;
             }
-
         }
     }
 }
