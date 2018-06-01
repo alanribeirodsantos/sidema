@@ -44,6 +44,30 @@
     }
 }
 
+//Notification
+
+@mixin hook-notification-misc () {
+
+    .uk-notification-message{
+        align-items: center;
+        background-image: url(/assets/images/logoFolha.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 87px 140px;
+    } 
+
+    .uk-notification-message-warning{
+        color: red;
+    }
+    
+    .uk-notification div{
+        width: 100%;
+        padding: 20px;
+        font-family: $primary-font-light;
+        font-size: $font-size-title;
+    }
+}
+
 //Z-indexes
 @function z($element, $list:"") {
     @if $list == "" {

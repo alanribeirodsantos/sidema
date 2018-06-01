@@ -43,6 +43,7 @@ import { SdmFooterComponent } from './components/sdm-footer/sdm-footer.component
 import { ReportDetailsComponent } from './pages/system/report-details/report-details.component';
 import { SdmHintsComponent } from './components/sdm-side-menu/sdm-hints/sdm-hints.component';
 import { SdmFilterChipComponent } from './components/sdm-filter-chip/sdm-filter-chip.component';
+import { SdmCardCategoryComponent } from './components/sdm-card-category/sdm-card-category.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASY7GlvEimsp0Gqv1H6qvwdX_w6AI0m6Y",
@@ -86,7 +87,8 @@ export const firebaseConfig = {
     ReportFilterPipe,
     ReportOrderByPipe,
     ReportSearchPipe,
-    SdmFilterChipComponent
+    SdmFilterChipComponent,
+    SdmCardCategoryComponent
   ],
   imports: [
     BrowserModule,
