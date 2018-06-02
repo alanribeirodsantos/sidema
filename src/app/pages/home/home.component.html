@@ -29,4 +29,151 @@
     <sdm-down-arrow>ENTENDA</sdm-down-arrow>
   </div>
 </sdm-section>
-<sdm-section></sdm-section>
+
+<!-- Seção 2 -->
+<sdm-section [image]="'assets/images/section2/bg-section2.jpg'" class="section-two">  
+  <div class="section-two__layer">
+    <div class="section-two__layer__container">
+      <div class="section-two__layer__container__subtitle" uk-parallax="opacity: 0,1; y: 200,0; viewport: 0.5">
+        Acreditamos que Quixadá merece um futuro digno.
+      </div>
+      <div class="section-two__layer__container__title" uk-parallax="opacity: 0,4; y: -200,0; viewport: 0.4">
+        E você, também acredita nisso?
+      </div>
+    </div> 
+  </div>
+</sdm-section>
+
+<!-- Seção 3 -->
+<sdm-section class="section-three">
+  <div class="uk-position-relative uk-visible-toggle uk-light section-three__layer" uk-slider="clsActivated: uk-transition-active; center: true" uk-parallax="opacity: 0,8; y: 50,0; viewport: 0.4">
+    <ul class="uk-slider-items uk-grid section-three__layer__container">
+        <li class="uk-width-1-1">
+            <div class="uk-panel">
+                <img src="assets/images/section2/bg-section2.jpg" alt="">
+                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                    <h3 class="uk-margin-remove">Bottom</h3>
+                    <p class="uk-margin-remove">Quixadá é uma cidade cercada por áreas verdes de preservação ambiental e por monumentos naturais, mais conhecidos como monólitos.</p>
+                </div>  
+            </div>
+        </li>
+        <li class="uk-width-1-1">
+            <div class="uk-panel">
+                <img src="assets/images/section2/bg-section2.jpg" alt="">
+                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                    <h3 class="uk-margin-remove">Bottom</h3>
+                    <p class="uk-margin-remove">No entanto grande parte disso vem se perdendo ou sendo degradado, devido a intervenção humana e aos chamados crimes ambientais.</p>
+                </div>
+            </div>
+        </li>
+        <li class="uk-width-1-1">
+            <div class="uk-panel">
+                <img src="assets/images/section2/bg-section2.jpg" alt="">
+                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                    <h3 class="uk-margin-remove">Bottom</h3>
+                    <p class="uk-margin-remove">Crimes ambientais são todos os tipos de agressão ao meio ambiente que prejudicam a flora, fauna, recursos naturais ou patrimônios culturais. Além disso, esses crimes podem, também, afetar a nossa qualidade de vida.</p>
+                </div>
+            </div>
+        </li>
+        <li class="uk-width-1-1">
+            <div class="uk-panel">
+                <img src="assets/images/section2/bg-section2.jpg" alt="">
+                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                    <h3 class="uk-margin-remove">Bottom</h3>
+                    <p class="uk-margin-remove">Existem órgãos municipais, estaduais e federais responsáveis pela a fiscalização dessas irregularidades ambientais, mas eles também precisam da ajuda da população nessa luta em prol do meio ambiente.
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li class="uk-width-1-1">
+            <div class="uk-panel">
+                <img src="assets/images/section2/bg-section2.jpg" alt="">
+                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                    <h3 class="uk-margin-remove">Bottom</h3>
+                    <p class="uk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+</div>
+</sdm-section>
+
+<!-- Seção 4 -->
+<sdm-section [image]="'assets/images/section4/bg-section4.jpg'" class="section-four"> 
+  <div class="section-four__layer">
+    <div class="section-four__layer__container">
+      <div class="section-four__layer__container__logo" uk-parallax="opacity: 0,1; y: 100,0; viewport: 0.3">
+        <sdm-logo [type]="'--white'"></sdm-logo>
+      </div>
+      <div class="section-four__layer__container__introduction" uk-parallax="opacity: 0,1; x: 100,0; viewport: 0.4">
+          E para ajudar nisso, te apresentamos o SIDEMA, um sistema de denúncias de crimes ambientais feito para ajudar Quixadá nessa empreitada. As denúncias feitas no sistema serão direcionadas para os órgãos públicos responsáveis por tratar as infrações, que são SEMA, o DNOCS e SEDUMA.
+      </div>
+    </div>
+    <div class="section-four__layer__containerimg">
+      <div class="section-four__layer__containerimg__imagem">
+        <img src="assets/images/section4/devices-image.png" alt="Sidema desktop e mobile" height="600" width="600"  uk-parallax="viewport:0.5; x: -30">
+      </div>
+    </div>
+  </div>
+</sdm-section>
+
+<!-- Seção 5 -->
+<sdm-section [image]="'assets/images/section5/bg-section5.jpg'" class="section_five">
+  <div class="section-five__layer">   
+    <div class="section_five__layer__container">
+      <div class="section_five__layer__container__title" uk-parallax="opacity: 0,1,1; y: -100,0,0; scale: 2,1,1; viewport: 0.5;">
+        Entenda como denunciar
+      </div>
+      <div class="section_five__layer__container__subtitle" uk-parallax="opacity: 0,1; y: -100,0; scale: 2,1; viewport: 0.5;">
+        Na plataforma, basta preencher um formulário rápido, mesmo que você não tenha se cadastrado.
+      </div>
+      <div class="section_five__layer__container__subtitle" uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.5;">
+        Você pode fazer denuncias em quatro categorias de crimes ambientais.
+      </div>
+    </div>
+    <div>
+      <sdm-card-category class="section_five__layer__container_card"></sdm-card-category>
+    </div>
+  </div>
+</sdm-section>
+
+<!-- Seção 6 -->
+<sdm-section [image]="'assets/images/section6/bg-section6.jpg'" class="section-six">
+  <div class="section-six__layer">   
+    <div class="section-six__layer__container">
+      <div class="section-six__layer__container__title" uk-parallax="opacity: 0,1,1; y: -100,0,0; scale: 2,1,1; viewport: 0.5;">
+        Segurança e transparência
+      </div>
+      <div class="section-six__layer__container__subtitle" uk-parallax="opacity: 0,1; y: -100,0; scale: 2,1; viewport: 0.5;">
+        O SIDEMA te aproxima dos órgãos de preservação ambiental e do meio ambiente de forma segura e confiável.
+      </div>
+      <div class="section-six__layer__container__introduction">
+        Você pode acompanhar todo o processamento das denúncias que realizou, saber em que estado elas se sencontram e se o órgão responsável já tomou medidas para solucioná-las. Também é possivel, caso você esteja logado no sistema, visualizar todas as denúncias já realizadas e apoiá-las, gerando maior visibilidade para os casos denunciados. E não se preocupe, as denúncias podem ser feitas de forma anônima, caso opte por não se identificar. O SIDEMA se preocupa com sua segurança e com a transparência na resolução das denúncias.
+      </div>
+      <div class="section-six__layer__container__card">
+        <img src="assets/images/section6/sidema-elements.png" alt="Elementos do sistema">
+      </div>
+    </div>
+  </div>
+</sdm-section>
+
+<!-- Seção 7 -->
+<sdm-section [image]="'assets/images/section7/bg-section7.jpg'" class="section-seven">
+  <div class="section-seven__layer">   
+    <div class="section-seven__layer__container">
+      <div class="section-seven__layer__container__title" uk-parallax="opacity: 0,1,1; y: -100,0,0; scale: 2,1,1; viewport: 0.5;">
+        Então, que tal ajudar a preservar o meio ambiente da cidade de Quixadá?
+      </div>
+      <div class="section-seven__layer__container__subtitle" uk-parallax="opacity: 0,1; y: -100,0; scale: 2,1; viewport: 0.5;">
+        Participe dessa causa ajudando a denunciar os crimes ambientais!      
+      </div>
+      <div class="section-seven__layer__container__report-button">
+          <sdm-button [type]="'primary'" [btnWidth]="'large'" routerLink="/sistema/denunciar">REALIZAR DENÚNCIA</sdm-button>
+        </div>
+    </div>
+  </div>
+</sdm-section>
+<!-- <sdm-footer></sdm-footer> -->

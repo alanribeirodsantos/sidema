@@ -45,6 +45,7 @@ import { SdmHintsComponent } from './components/sdm-side-menu/sdm-hints/sdm-hint
 import { SdmFilterChipComponent } from './components/sdm-filter-chip/sdm-filter-chip.component';
 import { ReportComponent } from './pages/report/report.component';
 import { ConsultReportsComponent } from './pages/consult-reports/consult-reports.component';
+import { SdmCardCategoryComponent } from './components/sdm-card-category/sdm-card-category.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASY7GlvEimsp0Gqv1H6qvwdX_w6AI0m6Y",
@@ -91,6 +92,7 @@ export const firebaseConfig = {
     SdmFilterChipComponent,
     ReportComponent,
     ConsultReportsComponent,
+    SdmCardCategoryComponent,
   ],
   imports: [
     BrowserModule,

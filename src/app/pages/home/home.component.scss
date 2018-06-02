@@ -88,3 +88,257 @@
         }
     }
 }
+
+.section-two {
+    &__layer {
+        height: 100%;
+        width: 100%;
+        display: flex;
+    
+        &__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 18%;
+
+            &__title {
+                width: 100%;
+                padding: 0 50px;
+                color: $white;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 70px;
+                font-family: $primary-font-bold
+            }
+
+            &__subtitle {
+                padding: 0 50px;
+                color: $white;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 30px;
+                font-family: $primary-font
+            }
+        }
+    }
+}
+
+.buttonEnter{
+    &__button{
+        float: right;
+        padding: 20px 20px; 
+        position: sticky;
+        top: 0;
+      }
+}
+
+.section-three{
+    &__layer {
+        height: 100%;
+        width: 100%;
+        background-color: rgba($black, $alpha: 1);
+        display: flex;
+
+        &__container {
+            max-width: 1200px;
+            margin: 0 auto;   
+        }
+    }
+}
+
+.section-four {
+    &__layer {
+        height: 100%;
+        width: 100%;
+        display: flex;
+
+        &__container {
+        max-width: 550px;
+        margin-top: 95px;
+        margin-left: 70px;
+
+            &__introduction {
+                padding: 20px 50px;
+                color: $white;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: justify;
+                font-size: 25px;
+                font-family: $secondary-font;
+            }
+
+            &__logo {
+                text-align: center;
+            }
+        }
+
+        &__containerimg {
+            max-width: 550px;
+            margin-top: 80px;
+            margin-left: 50px;
+    
+            &__imagem {
+                margin-bottom: 150px;
+            }
+        }
+    }
+}
+
+.section_five{
+    &__layer {
+        height: 100%;
+        width: 100%;
+        display: flex;
+
+        &__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 85px;
+
+            &__title {
+                width: 100%;
+                color: $white;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 70px;
+                font-family: $primary-font-bold                
+            }
+
+            &__subtitle {
+                padding: 0 50px;
+                color: $white;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 20px;
+                font-family: $primary-font
+            }
+        }
+
+        &__container_card{
+            max-width: 1200px;
+            margin: 0 auto;
+            display: inline-flex;
+            margin-left: 245px;
+        }
+    }
+}
+
+.section-six{
+    &__layer {
+        height: 100%;
+        width: 100%;
+        display: flex;
+
+        &__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 70px;
+
+            &__introduction {
+                max-width: 800px;
+                padding: 50px 50px;
+                color: $white;
+                float: left;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: justify;
+                font-size: 18px;
+                font-family: $primary-font-light;
+                }
+
+            &__title {
+                width: 100%;
+                color: $white;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 70px;
+                font-family: $primary-font-bold                
+            }
+
+            &__subtitle {
+                padding: 0 50px;
+                max-width: 900px;
+                color: $white;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 20px;
+                font-family: $primary-font
+            }
+
+            &__card{
+                width: 372px;
+                height: 332px;
+                padding-left: 5px;
+                padding-top: 10px;
+                display: flex;
+                float: right;
+            }
+        }
+    }
+}
+
+.section-seven{
+
+    &__layer {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        
+        &__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 180px;
+
+            &__title {
+                width: 100%;
+                color: $white;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 50px;
+                font-family: $primary-font-bold 
+            }
+
+            &__subtitle {
+                padding: 0 50px;
+                color: $white;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 20px;
+                font-family: $primary-font-light
+            }
+
+            &__report-button {
+                padding: 30px;
+                margin: 0 auto;
+                width: 500px;
+            }
+        }
+    }
+}
