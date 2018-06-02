@@ -1,4 +1,5 @@
 @import "~assets/sass-utils/variables";
+
 .form-report {
     &__title {
         font-family: $primary-font-bold;
@@ -11,8 +12,16 @@
         color: $black;
         font-size: $font-size-medium;
     }
+    &__error-message{
+        font-family: $primary-font;
+        padding: 5px;
+    }
 }
 
 .list-media {
     display: flex;
+
+    &__text{
+        font-family: $primary-font;
+    }
 }

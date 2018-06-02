@@ -17,8 +17,9 @@
             pode fazer mais pela cidade de Quixadá e nos ajudar a preservar o meio ambiente. Faça a sua parte e denuncie! 
           </div>
           <div class="section-one__layer__introduction__container__actions">
-            <sdm-button [type]="'primary'" class="uk-margin-right">REALIZAR DENÚNCIA</sdm-button>
-            <sdm-button [type]="'secondary'">CONSULTAR DENÚNCIAS</sdm-button>
+            <sdm-button [type]="'primary'" class="uk-margin-right" routerLink="/realizar-denuncia">REALIZAR DENÚNCIA</sdm-button>
+            <sdm-button [type]="'secondary'" routerLink="/consultar-denuncias">CONSULTAR DENÚNCIAS</sdm-button>
+            <router-outlet></router-outlet>
           </div>
       </div>
     </div>

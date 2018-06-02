@@ -2,55 +2,61 @@
     <header class="form-report__title">Registrar nova denúncia</header>
     <form class="uk-grid-small" uk-grid>
         <div class="uk-width-1-1">
-            <input class="uk-input" type="text" placeholder="Título da Denúncia*" name="title" [(ngModel)]="title">
+            <input class="uk-input form-report__text" type="text" #reportTitle="ngModel" placeholder="Título da Denúncia*" name="title" [(ngModel)]="title" required>
+            <div *ngIf="report && !reportTitle.valid" class="uk-alert-danger form-report__error-message">Informe um título para esta denúncia</div>
         </div>
         <div class="uk-width-1-1">
-            <textarea class="uk-textarea" rows="5" placeholder="Decrição da Denúncia* (Informe a maior quantidade possível de detalhes)" name="description" [(ngModel)]="description"></textarea>
+            <textarea class="uk-textarea form-report__text" rows="5" #reportDescription="ngModel" placeholder="Decrição da Denúncia* (Informe a maior quantidade possível de detalhes)" name="description" [(ngModel)]="description" required></textarea>
+            <div *ngIf="report && !reportDescription.valid" class="uk-alert-danger form-report__error-message">Informe uma descrição para esta denúncia</div>
         </div>
         <div class="uk-width-1-2@s">
-            <input class="uk-input" type="text" placeholder="Endereço*" name="address" [(ngModel)]="address" (ngModelChange)="address=$event">
+            <input class="uk-input form-report__text" type="text" #reportAddress="ngModel" placeholder="Endereço*" name="address" [(ngModel)]="address" (ngModelChange)="address=$event" required>
+            <div *ngIf="report && !reportAddress.valid" class="uk-alert-danger form-report__error-message">Informe o endereço relacionado a denúncia</div>
         </div>
         <div class="uk-width-1-4@s">
-            <input class="uk-input" type="text" placeholder="Número" name="number" [(ngModel)]="number">
+            <input class="uk-input form-report__text" type="text" placeholder="Número" name="number" [(ngModel)]="number">
         </div>
         <div class="uk-width-1-4@s">
-            <input class="uk-input" type="text" placeholder="Bairro*" name="neighborhood" [(ngModel)]="neighborhood">
+            <input class="uk-input form-report__text" type="text" #reportNeighborhood="ngModel" placeholder="Bairro*" name="neighborhood" [(ngModel)]="neighborhood" required>
+            <div *ngIf="report && !reportNeighborhood.valid" class="uk-alert-danger form-report__error-message">Informe o bairro relacionado a denúncia</div>
         </div>
         <div class="uk-width-1-2@s">
-            <input class="uk-input" type="text" placeholder="Complemento" name="complement" [(ngModel)]="complement">
+            <input class="uk-input form-report__text" type="text" placeholder="Complemento" name="complement" [(ngModel)]="complement">
         </div>
         <div class="uk-width-1-4@s">
             <sdm-button [type]="'tertiary'" [btnWidth]="'large'" uk-tooltip="title: Gerar localização automaticamente" (click)="getLocalization()">GERAR LOCALIZAÇÃO</sdm-button>
         </div>
         <div class="uk-width-1-1">
-            <input class="uk-input" type="text" placeholder="Descrição do Infrator (se houver)" name="violator" [(ngModel)]="violator">
+            <input class="uk-input form-report__text" type="text" placeholder="Descrição do Infrator (se houver)" name="violator" [(ngModel)]="violator">
         </div>
         <div class="uk-width-auto@m">
-            <div class="uk-margin">
-                <select class="uk-select" (change)="onChange($event.target.value)" [(ngModel)]="category" name="category">
-                    <option value="">Categoria*</option>
-                    <option value="monoliths">Monólitos</option>
-                    <option value="water-resources">Recursos Hidricos</option>
-                    <option value="vegetation">Vegetação</option>
-                    <option value="historical-patrimony">Patrimônio</option>
-                </select>
-            </div>
+          <div class="uk-margin">
+            <select class="uk-select form-report__text" (change)="onChange($event.target.value)" [(ngModel)]="category" name="category" #reportCategory="ngModel" required>
+                <option value="">Categoria*</option>
+                <option value="monoliths">Monólitos</option>
+                <option value="water-resources">Recursos Hidricos</option>
+                <option value="vegetation">Vegetação</option>
+                <option value="historical-patrimony">Patrimônio</option>
+            </select>
+            <div *ngIf="report && !reportCategory.valid" class="uk-alert-danger form-report__error-message">Selecione uma categoria referente a denúncia</div>
+          </div>
         </div>
         <div class="uk-width-auto@m">
-            <div class="uk-margin">
-                <select class="uk-select" [(ngModel)]="subcategory" name="subcategory">
-                    <option>Tipo de Infração*</option>
-                    <option>Poluição</option>
-                    <option *ngIf="categorySelect== 'water-resources'">Poços Irregulares</option>
-                    <option *ngIf="categorySelect== 'water-resources'">Desperdício de Água</option>
-                    <option *ngIf="categorySelect== 'monoliths'">Construção Irregular</option>
-                    <option *ngIf="categorySelect== 'monoliths' || categorySelect== 'historical-patrimony'">Depredação</option>
-                    <option *ngIf="categorySelect== 'vegetation'">Queimada</option>
-                    <option *ngIf="categorySelect== 'vegetation'">Desmatamento</option>
-                    <option *ngIf="categorySelect== 'historical-patrimony'">Ocupação Ilegal</option>
-                    <option>Outro</option>
-                </select>
-            </div>
+          <div class="uk-margin">
+            <select class="uk-select form-report__text" [(ngModel)]="subcategory" #reportSubcategory="ngModel" name="subcategory" required>
+                <option value="">Tipo de Infração*</option>
+                <option>Poluição</option>
+                <option *ngIf="categorySelect== 'water-resources'">Poços Irregulares</option>
+                <option *ngIf="categorySelect== 'water-resources'">Desperdício de Água</option>
+                <option *ngIf="categorySelect== 'monoliths'">Construção Irregular</option>
+                <option *ngIf="categorySelect== 'monoliths' || categorySelect== 'historical-patrimony'">Depredação</option>
+                <option *ngIf="categorySelect== 'vegetation'">Queimada</option>
+                <option *ngIf="categorySelect== 'vegetation'">Desmatamento</option>
+                <option *ngIf="categorySelect== 'historical-patrimony'">Ocupação Ilegal</option>
+                <option>Outro</option>
+            </select>
+            <div *ngIf="report && !reportSubcategory.valid" class="uk-alert-danger form-report__error-message">Selecione o tipo de infração referente a denúncia</div>
+          </div>
         </div>
         <span class="form-report__subtitle uk-width-1-1">Mídias*</span>
         <div class="uk-width-1-1">
@@ -60,11 +66,17 @@
             </div>
             <div class="list-media"></div>
         </div>
-        <div class="uk-margin uk-width-1-2@m ">
-            <sdm-button [type]=" 'quaternary' " [btnWidth]=" 'large' " (click)="sendReport() ">ENVIAR DENÚNCIA</sdm-button>
+        <div class="uk-margin uk-width-1-1" *ngIf="router.url == '/sistema/denunciar'">
+            <label class="form-report__text"><input class="uk-checkbox" type="checkbox"> Denunciar de forma Anônima</label>
         </div>
-        <div class="uk-margin uk-width-1-2@s ">
-            <sdm-button [type]=" 'danger-secondary' " [btnWidth]=" 'large' " (click)="cancelReport() " routerLink="/sistema/denuncias ">Cancelar</sdm-button>
+        <div class="uk-margin uk-width-1-2@m">
+            <sdm-button [type]="'quaternary'" [btnWidth]="'large'" (click)="sendReport()">ENVIAR DENÚNCIA</sdm-button>
+        </div>
+        <div class="uk-margin uk-width-1-2@s" *ngIf="router.url == '/sistema/denunciar'">
+          <sdm-button [type]="'danger-secondary'" [btnWidth]="'large'" routerLink="/sistema/denuncias">Cancelar</sdm-button>
+        </div>
+        <div class="uk-margin uk-width-1-2@s" *ngIf="router.url == '/realizar-denuncia'">
+            <sdm-button [type]="'danger-secondary'" [btnWidth]="'large'" routerLink="/home">Cancelar</sdm-button>
         </div>
     </form>
 </section>

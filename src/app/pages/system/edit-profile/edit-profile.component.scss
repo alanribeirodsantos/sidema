@@ -12,4 +12,11 @@
         color: $black;
         font-size: $font-size-medium;
     }
+    &__error-message{
+        font-family: $primary-font;
+        padding: 5px;
+    }
+    &__text{
+        font-family: $primary-font;
+    }
 }

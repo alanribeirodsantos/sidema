@@ -9,11 +9,15 @@ import { FaqComponent } from './pages/faq/faq.component';
 import { ReportingComponent } from './pages/system/reporting/reporting.component';
 import { EditProfileComponent } from './pages/system/edit-profile/edit-profile.component';
 import { ReportDetailsComponent } from './pages/system/report-details/report-details.component';
+import { ReportComponent } from './pages/report/report.component';
+import { ConsultReportsComponent } from './pages/consult-reports/consult-reports.component';
 
 const APP_ROUTES: Routes = [
     {path: "", redirectTo: "/home", pathMatch: "full"},
     {path: "styleguide", component: StyleguideComponent},
     {path: "home", component: HomeComponent},
+    {path: "realizar-denuncia", component: ReportComponent},
+    {path: "consultar-denuncias", component: ConsultReportsComponent},
     {path: "sobre-nos", component: AboutUsComponent},
     {path: "FAQ", component: FaqComponent},
     {path: "sistema", component: SystemComponent, children:[

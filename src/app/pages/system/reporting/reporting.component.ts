@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ReportService } from '../../../backend/services/report/report.service';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import * as UIkit from 'uikit';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'reporting',
@@ -9,7 +11,13 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 })
 export class ReportingComponent implements OnInit {
 
-  constructor(private reportService:ReportService, private http:Http) {}
+  constructor(private reportService:ReportService, private http:Http, private _router: Router) {
+    this.router = _router;
+  }
+
+  router;
+
+  report: boolean = false;
 
   localizationInfo;
 
@@ -40,6 +48,16 @@ export class ReportingComponent implements OnInit {
     this.categorySelect = option;
   }
 
+  sendReport() {
+    this.report = true;
+    if(this.title.length == 0 || this.description.length == 0 || this.address.length == 0 || this.neighborhood.length == 0 || this.category.length == 0 || this.subcategory.length == 0 || this.media.length == 0){
+      console.log("Existem campos de preenchimento obrigatório em branco!")
+    }
+    else{
+      this.reportService.addReport(this.title, this.description, this.address, this.number, this.neighborhood, this.complement, this.violator, this.category, this.subcategory, this.media, this.mediaSize);
+    }
+  }
+
   getLocalization() {
     let url: string = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + this.location.latitude + "," + this.location.longitude;
     this.http.get(url).map(data => {
@@ -51,9 +69,6 @@ export class ReportingComponent implements OnInit {
       this.neighborhood = this.localizationInfo.results[0].address_components[2].long_name,
       500
     });
-  }
-  sendReport(){
-    this.reportService.addReport(this.title, this.description, this.address, this.number, this.neighborhood, this.complement, this.violator, this.category, this.subcategory, this.media, this.mediaSize);
   }
 
   selectedMedias(event){
@@ -85,5 +100,5 @@ export class ReportingComponent implements OnInit {
         }, false);
         reader.readAsDataURL(media);
       })
-  }
+  }  
 }
