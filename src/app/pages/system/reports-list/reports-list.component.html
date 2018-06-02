@@ -14,9 +14,25 @@
         </div>
     </header>
 
-    <!-- <section class="reports-list__filter-tags">
-        <sdm-filter-chip [filterName]="'Categoria: Monólitos'"></sdm-filter-chip>
-    </section> -->
+    <section class="reports-list__filter-tags"
+             *ngIf="(filterCategory != '' && filterCategory != 'Todas') ||
+                    (filterSubcategory != '' && filterSubcategory != 'Todas') ||
+                    (filterStatus != '' && filterStatus != 'Todos')">
+        <sdm-filter-chip *ngIf="filterCategory != '' && filterCategory != 'Todas'"
+                         [filterName]="filterCategory"
+                         (clickedremoveFilter)="filterCategory = 'Todas'">
+        </sdm-filter-chip>
+        <sdm-filter-chip *ngIf="filterSubcategory != '' && filterSubcategory != 'Todas'"
+                         [filterName]="filterSubcategory"
+                         (clickedremoveFilter)="filterSubcategory = 'Todas'">
+        </sdm-filter-chip>
+        <sdm-filter-chip *ngIf="filterStatus != '' && filterStatus != 'Todos'"
+                         [filterName]="filterStatus"
+                         (clickedremoveFilter)="filterStatus = 'Todos'">
+        </sdm-filter-chip>
+    </section>
+
+    <hr>
 
     <section class="reports-list__list">
         <div class="reports-list__list__container">

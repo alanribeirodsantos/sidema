@@ -1,6 +1,22 @@
+@import '~assets/sass-utils/variables';
+
 .sdm-filter-chips {
-    height: 50px;
-    padding: 0 10px;
-    background-color: grey;
-    margin-right: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px 0 10px;
+    background-color: $gray-ee;
+    margin-right: 10px;
+    font-family: $primary-font;
+    font-size: $font-size-text;
+
+    &__close {
+        margin-left: 10px;
+        cursor: pointer;
+
+        &:hover {
+            color: $primary-color;
+        }
+    }
 }
