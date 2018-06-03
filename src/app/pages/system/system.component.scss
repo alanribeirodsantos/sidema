@@ -1,3 +1,6 @@
+@import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
+
 .system-container {
     height: 100vh;
     width: calc(100% - 270px);
@@ -5,4 +8,65 @@
     box-sizing: border-box;
     display: inline-block;
     overflow-y: auto;
+
+    @include mqMaxWidth('lg') {
+        width: 100vw;
+    }
+
+    &__mobile {
+        display: none;
+
+        @include mqMaxWidth('lg') {
+            display: block;
+        }
+
+        &__menu {
+            font: $font-size-text $primary-font;
+            color: $gray-33;
+            text-transform: uppercase;
+    
+            @include mqMaxWidth('lg') {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
 }
+
+.sdm-side-menu {
+    width: 270px;
+
+    @include mqMaxWidth('lg') {
+        display: none;
+    }
+}
+
+.sdm-side-menu-mobile {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    box-sizing: border-box;
+    transition: 0.2s;
+    
+    @include mqMaxWidth('lg') {
+        display: block;
+        overflow: scroll;
+    }
+}
+
+.opened-menu {
+    @include mqMaxWidth('lg') {
+        transform: translateX(0%);
+    }
+}
+    
+.closed-menu {
+    @include mqMaxWidth('lg') {
+        transform: translateX(-100%);
+    }
+}
+    

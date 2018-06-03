@@ -1,6 +1,22 @@
-<sdm-section [display]="'flex'">
-    <sdm-side-menu></sdm-side-menu>
-    <article class="system-container">
-        <router-outlet></router-outlet>
-    </article>
-</sdm-section>
+<div (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
+    <sdm-section [display]="'flex'">
+        <div class="sdm-side-menu">
+            <sdm-side-menu></sdm-side-menu>
+        </div>
+        <article class="system-container">
+            <div class="system-container__mobile">
+                <div class="system-container__mobile__menu">
+                    <span (click)="openMenu()">
+                        <a uk-icon="icon: menu; ratio: 1.2" class="uk-margin-small-right"></a>
+                        Menu
+                    </span>
+                </div>
+                <hr>
+            </div>
+            <router-outlet></router-outlet>
+        </article>
+    </sdm-section>
+    <div class="sdm-side-menu-mobile" [ngClass]="{'opened-menu': isMenuOpen, 'closed-menu': isMenuClosed}">
+        <sdm-side-menu (closeMenu)="exitMenu()"></sdm-side-menu>
+    </div>
+</div>

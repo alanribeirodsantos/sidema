@@ -1,35 +1,39 @@
-<sdm-section [image]="'assets/images/main-background.jpg'" class="section-one">
-  <div class="section-one__layer">
-    <div class="section-one__layer__introduction">
-      <div class="section-one__layer__introduction__container"
-           [ngClass]="{'uk-animation-slide-left-small': showContent}"
-           *ngIf="showContent">
-        <div class="section-one__layer__introduction__container__logo">
-            <sdm-logo></sdm-logo>
-          </div>
-          <div class="section-one__layer__introduction__container__slogan">
-            Faça parte, você também, da luta contra<br class="section-one__layer__introduction__container__slogan__break-line">
-            os crimes ambientais em Quixadá!
-          </div>
-          <div class="section-one__layer__introduction__container__description">
-            Existem várias formas de se combater a destruição do meio ambiente. Atitudes simples como não jogar lixo nas ruas e economizar no uso da água são meios de ajudar na preservação ambiental.
-            Outra importante forma de ajudar é agir contra atitudes que desrespeitem o meio ambiente. E isto pode ser feito realizando denúncias de crimes ambientais aqui, no SIDEMA. Você
-            pode fazer mais pela cidade de Quixadá e nos ajudar a preservar o meio ambiente. Faça a sua parte e denuncie! 
-          </div>
-          <div class="section-one__layer__introduction__container__actions">
-            <sdm-button [type]="'primary'" class="uk-margin-right" routerLink="/realizar-denuncia">REALIZAR DENÚNCIA</sdm-button>
-            <sdm-button [type]="'secondary'" routerLink="/consultar-denuncias">CONSULTAR DENÚNCIAS</sdm-button>
-            <router-outlet></router-outlet>
-          </div>
+<div (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
+  <sdm-section [image]="'assets/images/main-background.jpg'" class="section-one">
+    <div class="section-one__layer">
+      <div class="section-one__layer__introduction">
+        <div class="section-one__layer__introduction__container"
+             [ngClass]="{'uk-animation-slide-left-small': showContent}"
+             *ngIf="showContent">
+          <sdm-button [type]="'secondary'" (click)="openModal()" class="section-one__layer__introduction__container__btn uk-margin-bottom">Cadastrar/Entrar</sdm-button>
+          <div class="section-one__layer__introduction__container__logo">
+              <sdm-logo></sdm-logo>
+            </div>
+            <div class="section-one__layer__introduction__container__slogan">
+              Faça parte, você também, da luta contra<br class="section-one__layer__introduction__container__slogan__break-line">
+              os crimes ambientais em Quixadá!
+            </div>
+            <div class="section-one__layer__introduction__container__description">
+              Existem várias formas de se combater a destruição do meio ambiente. Atitudes simples como não jogar lixo nas ruas e economizar no uso da água são meios de ajudar na preservação ambiental.
+              Outra importante forma de ajudar é agir contra atitudes que desrespeitem o meio ambiente. E isto pode ser feito realizando denúncias de crimes ambientais aqui, no SIDEMA. Você
+              pode fazer mais pela cidade de Quixadá e nos ajudar a preservar o meio ambiente. Faça a sua parte e denuncie.
+            </div>
+            <div class="section-one__layer__introduction__container__actions">
+              <sdm-button [type]="'primary'" class="uk-margin-right">REALIZAR DENÚNCIA</sdm-button>
+              <sdm-button [type]="'secondary'">CONSULTAR DENÚNCIAS</sdm-button>
+            </div>
+        </div>
       </div>
+      <div class="section-one__layer__form">
+        <sdm-form-card [ngClass]="{'uk-animation-slide-right-small': showContent}" *ngIf="showContent"></sdm-form-card>
+      </div>
+      <sdm-down-arrow>ENTENDA</sdm-down-arrow>
     </div>
-    <div class="section-one__layer__form">
-      <sdm-form-card [ngClass]="{'uk-animation-slide-right-small': showContent}" *ngIf="showContent"></sdm-form-card>
-    </div>
-    <sdm-down-arrow>ENTENDA</sdm-down-arrow>
-  </div>
-</sdm-section>
-
+    <div class="form-mobile" [ngClass]="{'opened-modal': isModalOpen, 'closed-modal': isModalClosed}">
+      <sdm-form-card (closeModal)="exitModal()"></sdm-form-card>
+    </div>    
+  </sdm-section>
+</div>
 <!-- Seção 2 -->
 <sdm-section [image]="'assets/images/section2/bg-section2.jpg'" class="section-two">  
   <div class="section-two__layer">
