@@ -1,15 +1,15 @@
 <div (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
-  
-<div class="form-mobile" [ngClass]="{'opened-modal': isModalOpen, 'closed-modal': isModalClosed}">
-    <sdm-form-card (closeModal)="exitModal()"></sdm-form-card>
-</div>
 
+  <div class="form-mobile" [ngClass]="{'opened-modal': isModalOpen, 'closed-modal': isModalClosed}">
+      <sdm-form-card (closeModal)="exitModal()"></sdm-form-card>
+  </div>
+  
   <sdm-section [image]="'assets/images/main-background.jpg'" class="section-one">
     <div class="section-one__layer">
       <div class="section-one__layer__introduction">
         <div class="section-one__layer__introduction__container"
-            [ngClass]="{'uk-animation-slide-left-small': showContent}"
-            *ngIf="showContent">
+             [ngClass]="{'uk-animation-slide-left-small': showContent}"
+             *ngIf="showContent">
           <sdm-button [type]="'secondary'" (click)="openModal()" class="section-one__layer__introduction__container__btn uk-margin-bottom">Cadastrar/Entrar</sdm-button>
           <div class="section-one__layer__introduction__container__logo">
               <sdm-logo></sdm-logo>
