@@ -4,13 +4,15 @@
             <sdm-side-menu></sdm-side-menu>
         </div>
         <article class="system-container">
-            <div class="system-container__menu">
-                <span (click)="openMenu()">
-                    <a uk-icon="icon: menu; ratio: 1.2" class="uk-margin-small-right"></a>
-                    Menu
-                </span>
+            <div class="system-container__mobile">
+                <div class="system-container__mobile__menu">
+                    <span (click)="openMenu()">
+                        <a uk-icon="icon: menu; ratio: 1.2" class="uk-margin-small-right"></a>
+                        Menu
+                    </span>
+                </div>
+                <hr>
             </div>
-            <hr>
             <router-outlet></router-outlet>
         </article>
     </sdm-section>

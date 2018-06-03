@@ -16,7 +16,8 @@ export class SdmSideMenuComponent implements OnInit {
   }
   
   userName:string = "";
-  userId = JSON.parse(localStorage.getItem("user")).id;
+ // userId = JSON.parse(localStorage.getItem("user")).id;
+ userId = "o";
   userRef:any;
   userPhoto:any; 
 
