@@ -30,20 +30,20 @@
             <input class="uk-input form-report__text" type="text" placeholder="Descrição do Infrator (se houver)" name="violator" [(ngModel)]="violator">
         </div>
         <div class="uk-width-auto@m">
-          <div class="uk-margin">
-            <select class="uk-select form-report__text" (change)="onChange($event.target.value)" [(ngModel)]="category" name="category" #reportCategory="ngModel" required>
+            <div class="uk-margin">
+                <select class="uk-select form-report__text" (change)="onChange($event.target.value)" [(ngModel)]="category" name="category" #reportCategory="ngModel" required>
                 <option value="">Categoria*</option>
                 <option value="monoliths">Monólitos</option>
                 <option value="water-resources">Recursos Hidricos</option>
                 <option value="vegetation">Vegetação</option>
                 <option value="historical-patrimony">Patrimônio</option>
             </select>
-            <div *ngIf="report && !reportCategory.valid" class="uk-alert-danger form-report__error-message">Selecione uma categoria referente a denúncia</div>
-          </div>
+                <div *ngIf="report && !reportCategory.valid" class="uk-alert-danger form-report__error-message">Selecione uma categoria referente a denúncia</div>
+            </div>
         </div>
         <div class="uk-width-auto@m">
-          <div class="uk-margin">
-            <select class="uk-select form-report__text" [(ngModel)]="subcategory" #reportSubcategory="ngModel" name="subcategory" required>
+            <div class="uk-margin">
+                <select class="uk-select form-report__text" [(ngModel)]="subcategory" #reportSubcategory="ngModel" name="subcategory" required>
                 <option value="">Tipo de Infração*</option>
                 <option>Poluição</option>
                 <option *ngIf="categorySelect== 'water-resources'">Poços Irregulares</option>
@@ -55,8 +55,8 @@
                 <option *ngIf="categorySelect== 'historical-patrimony'">Ocupação Ilegal</option>
                 <option>Outro</option>
             </select>
-            <div *ngIf="report && !reportSubcategory.valid" class="uk-alert-danger form-report__error-message">Selecione o tipo de infração referente a denúncia</div>
-          </div>
+                <div *ngIf="report && !reportSubcategory.valid" class="uk-alert-danger form-report__error-message">Selecione o tipo de infração referente a denúncia</div>
+            </div>
         </div>
         <span class="form-report__subtitle uk-width-1-1">Mídias*</span>
         <div class="uk-width-1-1">
@@ -73,7 +73,7 @@
             <sdm-button [type]="'quaternary'" [btnWidth]="'large'" (click)="sendReport()">ENVIAR DENÚNCIA</sdm-button>
         </div>
         <div class="uk-margin uk-width-1-2@s" *ngIf="router.url == '/sistema/denunciar'">
-          <sdm-button [type]="'danger-secondary'" [btnWidth]="'large'" routerLink="/sistema/denuncias">Cancelar</sdm-button>
+            <sdm-button [type]="'danger-secondary'" [btnWidth]="'large'" routerLink="/sistema/denuncias">Cancelar</sdm-button>
         </div>
         <div class="uk-margin uk-width-1-2@s" *ngIf="router.url == '/realizar-denuncia'">
             <sdm-button [type]="'danger-secondary'" [btnWidth]="'large'" routerLink="/home">Cancelar</sdm-button>

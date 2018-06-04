@@ -32,6 +32,7 @@ export class ReportingComponent implements OnInit {
   media:Array<any> = [];
   mediaAux:any;
   mediaSize:any;
+  hour = new Date().toLocaleTimeString('pt-BR', {hour: "numeric", minute: "numeric"});
 
   ngOnInit(){
     if(navigator.geolocation){
@@ -52,7 +53,11 @@ export class ReportingComponent implements OnInit {
       console.log("Existem campos de preenchimento obrigatório em branco!")
     }
     else{
-      this.reportService.addReport(this.title, this.description, this.address, this.number, this.neighborhood, this.complement, this.violator, this.category, this.subcategory, this.media, this.mediaSize);
+      let date = new Date();
+      var utcDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes())).toJSON();
+      utcDate.slice(0, 10).replace(/-/g,'/').split('/').reverse().join('/');
+      var dateReport = utcDate.slice(0, 10).replace(/-/g,'/').split('/').reverse().join('/');
+      this.reportService.addReport(this.title, this.description, this.address, this.number, this.neighborhood, this.complement, this.violator, this.category, this.subcategory, this.media, this.mediaSize, dateReport, this.hour);
     }
   }
 

@@ -16,23 +16,27 @@ export class SdmSideMenuComponent implements OnInit {
   }
   
   userName:string = "";
-  userId = JSON.parse(localStorage.getItem("user")).id;
+  userId:any;
   userRef:any;
   userPhoto:any; 
 
-  constructor(private userService:UserService, private angularFireStorage:AngularFireStorage) {}
+  constructor(private userService:UserService, private angularFireStorage:AngularFireStorage) {
+  }
 
   ngOnInit(){
     var user = JSON.parse(localStorage.getItem("user"));
     if(user === null){
-      this.userName = "";
+      this.userName = "Anônimo";
     }
-    else this.userName = user.name;
+    else {
+      this.userName = user.name;
+      this.userId = JSON.parse(localStorage.getItem("user")).id;
+    }
 
     this.userRef = this.angularFireStorage.ref(`images/${this.userId}`);
     this.userRef.getDownloadURL().subscribe(
       url => {
-        this.userPhoto = url
+        this.userPhoto = url;
       },
       error => this.userPhoto = "/assets/images/user-default.png"
     )

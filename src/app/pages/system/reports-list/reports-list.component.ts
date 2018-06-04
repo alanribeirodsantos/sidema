@@ -19,7 +19,7 @@ export class ReportsListComponent {
 
   constructor(private reportService:ReportService, private angularFireAuth:AngularFireAuth){
     this.reportService.getReports().subscribe(
-      data => { this.reportsList = data},
+      data => { this.reportsList = data.reverse()},
       error => console.log(error)
     );
   }
