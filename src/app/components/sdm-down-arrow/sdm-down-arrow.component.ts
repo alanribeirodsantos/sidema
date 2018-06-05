@@ -10,6 +10,5 @@ export class SdmDownArrowComponent {
 
   scrollDown() {
     $("html, body").animate({ scrollTop: $(window).height()});
-    console.log("chamou");
   }
 }
