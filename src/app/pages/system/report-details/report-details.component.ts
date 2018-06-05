@@ -1,93 +1,145 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ReportService } from '../../../backend/services/report/report.service';
+import { UserService } from '../../../backend/services/user/user.service';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 @Component({
   selector: 'app-report-details',
   templateUrl: './report-details.component.html',
   styleUrls: ['./report-details.component.scss']
 })
-export class ReportDetailsComponent {
+export class ReportDetailsComponent implements OnInit, OnDestroy {
 
   commentary: string;
+  report:any;
+  user:any;
+  organ:string;
+  category:string;
+  log:any;
+  comments:any;
+  medias:any;
+  isMine:boolean = false;
+  hasComments:boolean = false;
+  hasMedia:boolean = false;
+  place: "Quixadá - CE, Brasil";
+  
+  constructor(private reportService:ReportService, private userService:UserService, private angularFireStorage:AngularFireStorage){}
 
-  /* Eu coloquei alguns atributos do modelo de denúncia aqui, ainda que eles não existam no model, pois eles são necessários nessa página. */
-  report = {
-    id: 8,
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    description: "Suspendisse potenti. Integer urna tellus, porttitor a convallis vitae, tristique ac ante. Vivamus efficitur aliquet lectus, sit amet maximus arcu interdum placerat. Aenean iaculis enim neque, eget euismod arcu maximus a. Cras vel varius magna. Nunc fermentum ligula tempor, suscipit nisl imperdiet, gravida libero. Aenean nisl turpis, consectetur ac gravida eget, lacinia eget tellus. Morbi imperdiet aliquet neque quis congue.",
-    category: "historical-patrimony",
-    media: [
-      {
-        src:'http://vilamulher.uol.com.br/imagens/vilamulher/thumbs/2015/04/13/os-caroes-de-britney-spears-10-momentos-da-diva13-5-thumb-570.jpg',
-        type: 'img'
+  ngOnInit(){
+    this.report = JSON.parse(localStorage.getItem("report"));
+    this.user = JSON.parse(localStorage.getItem("user"));
+    if(this.user !== null){
+      var userId = this.user.id;
+      this.userService.getUserReports(userId).subscribe(
+        data => {
+          for(let r in data){
+            if(data[r] === this.report.id){
+              this.isMine = true;
+            }
+          }
+        }
+      )
+    }
+    this.reportService.getLogReport(this.report.id).subscribe(
+      data => {
+        this.log = data
       },
-      {
-        src: 'https://storage.googleapis.com/coverr-main/mp4/Noted.mp4',
-        type: 'video'
+      error => console.log(error)
+    )
+
+    this.reportService.getComments(this.report.id).subscribe(
+      data => {
+        if(data.length > 0){
+          this.comments = data;
+          this.hasComments = true;
+        }
       },
-      {
-        src: 'https://cdn.dbr.ee/d/s/uCDc/original_Demo%20235.mp3?token=vTIXFUFMLFEEn0bC_LXqlQ&expires=1526457956',
-        type: 'audio'
-      }
-    ],
-    location: {
-      place: "Quixadá - CE, Brasil",
-      region: "Centro",
-      street: "R. Rodrigues Júnior",
-      number: 34,
-      complements: "Não informado"
-    },
-    numberOfSupporters: 15,
-    status: "verifying-veracity",
-    log: [
-      {
-        author: "Você",
-        date: "14/03/2018",
-        hour: "10h28min",
-        message: "registou a denúncia."
+      error => console.log(error)
+    )
+    this.reportService.getReportMedias(this.report.id).subscribe(
+      data => {
+        if(data.length > 0){
+          this.medias = data;
+          this.hasMedia = true;
+          for(let m in this.medias){
+            var mediaRef = this.angularFireStorage.ref(`reports/${this.user.id}/${this.report.id}/${this.medias[m].name}`);
+            mediaRef.getDownloadURL().subscribe(
+              url => {
+                if(this.medias[m].type === "image/jpg" || this.medias[m].type === "image/jpeg" || this.medias[m].type === "image/png"){
+                  var img = document.createElement("img");
+                  img.style.width = "120px";
+                  img.style.height = "120px";
+                  img.style.marginRight = "10px";
+                  img.setAttribute("src", url);
+                  document.getElementById("medias").appendChild(img);
+                }
+                else if(this.medias[m].type === "audio/mp3" || this.medias[m].type === "audio/wav" || this.medias[m].type === "audio/ogg"){
+                  var audio = document.createElement("audio");
+                  var source = document.createElement("source");
+                  audio.style.width = "120px";
+                  audio.style.height = "120px";
+                  source.setAttribute("src", url);
+                  source.setAttribute("type", this.medias[m].type);
+                  audio.appendChild(source);
+                  document.getElementById("medias").appendChild(audio);
+                }
+                else if(this.medias[m].type === "video/avi" || this.medias[m].type === "video/mp4" || this.medias[m].type === "video/mpeg"){
+                  var video = document.createElement("video");
+                  var source = document.createElement("source");
+                  video.style.width = "120px";
+                  video.style.height = "120px";
+                  source.setAttribute("src", url);
+                  source.setAttribute("type", this.medias[m].type);
+                  video.appendChild(source);
+                  document.getElementById("medias").appendChild(video);
+                }
+              },
+              error => console.log(error)
+            )
+          }
+        }
       },
-      {
-        author: "SEMA",
-        date: "16/03/2018",
-        hour: "12h28min",
-        message: "alterou o estado dessa denúncia para verificando veracidade."
+      error => console.log(error)
+    )
+    this.responsibleOrgan();
+  }
+
+  ngOnDestroy(){
+    localStorage.setItem("report", "null");
+  }
+
+  responsibleOrgan() {
+    switch(this.report.category) {
+      case 'historical-patrimony': {
+        this.category = "Patrimônio Histórico";
+        this.organ = "SEMA";
       }
-    ],
-    comments: [
-      {
-        author: "Você",
-        date: "14/03/2018",
-        hour: "10h28min",
-        message: "Lorem ipsum solor sit amet."
+      case 'water-resources': {
+        this.category = "Recursos Hídricos";
+        this.organ = "DNOCS";
       }
-    ],
-    reportDate: "14/03/2018",
-    occurrenceDate: "12/03/2018",
-    organ: function() {
-      switch(this.category) {
-        case 'historical-patrimony': {
-          return "SEMA"
-        }
-        case 'water': {
-          return "DNOCS"
-        }
-        case 'monolith': {
-          return "SEDUMA"
-        }
-        case 'vegetation': {
-          return "SEDUMA"
-        }
+      case 'monoliths': {
+        this.category = "Monólitos";
+        this.organ = "SEDUMA";
+      }
+      case 'vegetation': {
+        this.category = "Vegetação";
+        this.organ = "SEDUMA";
       }
     }
   }
 
   sendCommentary(){
     let date = new Date();
-    this.report.comments.push({
-      author: "Você", //precisa verificar se é orgão ou usuário comum.
-      date: date.toJSON().slice(0,10).replace(/-/g,'/').split('/').reverse().join('/'),
+    var utcDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes())).toJSON();
+    utcDate.slice(0, 10).replace(/-/g,'/').split('/').reverse().join('/');
+    var dateComment = utcDate.slice(0, 10).replace(/-/g,'/').split('/').reverse().join('/');
+    var comment = {
+      author: this.user.name,
+      date: dateComment,
       hour: date.getHours() + 'h' + date.getMinutes() + 'min',
       message: this.commentary
-    })
+    }
+    this.reportService.commentOnReport(this.report.id, comment);
   }
-
 }

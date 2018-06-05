@@ -12,6 +12,8 @@ export class UserService {
 
   users:Observable<any[]>;
   user:any;
+  userReports:Observable<any[]>;
+  userBoostedReports:Observable<any[]>;
   storageRef:AngularFireStorageReference;
   taskUpload:AngularFireUploadTask;
 
@@ -60,9 +62,9 @@ export class UserService {
     return this.users = this.angularFireDatabase.list("usuários").valueChanges();
   }
 
-  updateUser(name, email, newPassword){
+  updateUser(name, email, newPassword, profilePic){
     var credentialsChanged = localStorage.getItem("credentialsChanged");
-    if(credentialsChanged === "true"){
+    if(credentialsChanged === "true" && profilePic == undefined){
       this.logout();
       UIkit.notification({
         message: "<span uk-icon='icon: warning'></span> Você trocou suas credenciais recentemente! É necessário fazer login para continuar.",
@@ -83,8 +85,9 @@ export class UserService {
                 .then( () => {
                   var userLocal = JSON.parse(localStorage.getItem("user"));
                   userLocal.name = name;
-                  localStorage.setItem("user", JSON.stringify(userLocal));
+                  localStorage.setItem("user", JSON.stringify(userLocal));               
                 }).catch( (error) => console.log(error.message));
+                user.updateProfile({displayName: name, photoURL: ""});
               }
               else if(users[u].email !== email && email.length > 0){
                 this.angularFireDatabase.object(`/usuários/${user.uid}/email`).set(email)
@@ -99,7 +102,7 @@ export class UserService {
                 
               }
               else if(newPassword.length > 0){
-                if(users[u].password !== undefined && users[u].password !== newPassword){
+                if(users[u].password !== undefined){
                   this.angularFireDatabase.object(`/usuários/${user.uid}/password`).set(newPassword)
                   .then( () => {
                     var temp = true;
@@ -110,40 +113,26 @@ export class UserService {
                   user.updatePassword(newPassword).then( () => console.log("update password")).catch( (error) => console.log(error.code));
                 }
               }
+              else if(profilePic !== undefined ){
+                var userId = JSON.parse(localStorage.getItem("user")).id;
+                this.storageRef = this.angularFireStorage.ref(`/images/${userId}`);
+                this.storageRef.put(profilePic);
+              }
+              UIkit.notification({
+                message: "<span uk-icon='icon: check'></span> Seu perfil foi atualizado atualizado!",
+                status: "success",
+                timeout: 1500
+              })
+              window.setTimeout( () => {
+                window.location.reload();
+                this.router.navigateByUrl("/sistema");
+              }, 2000);
               break;
             }        
           }
         },
         error => console.log(error)
       )
-    }
-  }
-
-  uploadProfilePic(file){
-    if(file.size > 2097152){
-      UIkit.notification({
-        message: "<span uk-icon='icon: ban'></span> A foto excede os 2MB permitidos!",
-        status: "danger",
-        timeout: 1500
-      })
-    }
-    else {
-      var userId = JSON.parse(localStorage.getItem("user")).id;
-      this.storageRef = this.angularFireStorage.ref(`/images/${userId}`);
-      this.storageRef.put(file).snapshotChanges().toPromise()
-      .then( () => {
-        UIkit.notification({
-          message: "<span uk-icon='icon: check'></span> Foto de perfil atualizada!",
-          status: "success",
-          timeout: 1500
-        })
-      }).catch( () => {
-        UIkit.notification({
-          message: "<span uk-icon='icon: ban'></span> Erro ao atualizar foto de perfil!",
-          status: "danger",
-          timeout: 1500
-        })
-      });
     }
   }
 
@@ -312,5 +301,13 @@ export class UserService {
       timeout: 1500
     }))
     .catch( (error) => console.log(error.code));
+  }
+
+  getUserReports(userId){
+    return this.userReports = this.angularFireDatabase.list(`usuários/${userId}/reports`).valueChanges();
+  }
+  
+  getUserBoostedReports(userId){
+    return this.userBoostedReports = this.angularFireDatabase.list(`usuários/${userId}/boostedReports`).valueChanges();
   }
 }

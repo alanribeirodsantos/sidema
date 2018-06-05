@@ -16,6 +16,8 @@ export class EditProfileComponent implements OnInit {
   newPassword:string = "";
   confirmNewPassword:string = "";
   currentPassword:string = "";
+  profilePic:any;
+  flag:number = 0;
   
   constructor(private userService:UserService, private router:Router){}
 
@@ -25,27 +27,51 @@ export class EditProfileComponent implements OnInit {
     this.email = user.email;
   }
 
-  changeProfilePic(event){    
-    this.userService.uploadProfilePic(event.target.files[0]);
+  changeProfilePic(event){  
+    document.getElementById("filePicker").onclick = () => {
+      event.target.value = null;
+    }
+    this.profilePic = event.target.files[0];
+    var reader = new FileReader();
+    reader.addEventListener("loadend", () => {
+      var photo = document.getElementById("photo");
+      photo.style.background = `url(${reader.result}) no-repeat`;
+      photo.style.backgroundSize = "cover";
+    }, false);
+    reader.readAsDataURL(this.profilePic);
   }
 
   editProfile(){
-    this.edit = true;
-    var flag:number = 0;
-    if(this.newPassword.length >= 6 && this.newPassword === this.confirmNewPassword){
-      if(this.currentPassword.length > 0){
+    if(this.profilePic !== undefined){
+      if(this.profilePic.size > 2097152){
+        UIkit.notification({
+          message: "<span uk-icon='icon: ban'></span> A foto excede os 2MB permitidos!",
+          status: "danger",
+          timeout: 1500
+        })
+      }
+    }
+    if(this.newPassword.length > 0 && this.newPassword === this.confirmNewPassword){
+      if(this.newPassword.length < 6){
+        UIkit.notification({
+          message: "<span uk-icon='icon: ban'></span> Sua senha deve conter pelo menos 6 caracteres!",
+          status: "danger",
+          timeout: 1500
+        })
+      }
+      else if(this.currentPassword.length > 0){
         var users:any;
         this.userService.getUsers().subscribe(
           data => {
             users = data;
             for(let u in users){
               if(this.currentPassword === users[u].password){
-                this.userService.updateUser(this.name, this.email, this.newPassword);
-                flag = 1;
+                this.userService.updateUser(this.name, this.email, this.newPassword, this.profilePic);
+                this.flag = 1;
                 break;
               }
             }
-            if(flag === 0){
+            if(this.flag === 0){
               UIkit.notification({
                 message: "<span uk-icon='icon: ban'></span> Senha atual incorreta!",
                 status: "danger",
@@ -56,7 +82,21 @@ export class EditProfileComponent implements OnInit {
           error => console.log(error)
         )
       }
+      else {
+        UIkit.notification({
+          message: "<span uk-icon='icon: ban'></span> É necessário digitar a senha atual!",
+          status: "danger",
+          timeout: 1500
+        })
+      }
     }
-    else this.userService.updateUser(this.name, this.email, this.newPassword);
+    else if(this.newPassword !== this.confirmNewPassword){
+      UIkit.notification({
+        message: "<span uk-icon='icon: ban'></span> As senhas não correspondem!",
+        status: "danger",
+        timeout: 1500
+      })
+    }
+    else this.userService.updateUser(this.name, this.email, this.newPassword, this.profilePic);
   }
 }

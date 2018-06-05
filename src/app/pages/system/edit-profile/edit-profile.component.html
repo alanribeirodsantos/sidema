@@ -22,8 +22,8 @@
         <span class="form-editProfile__subtitle uk-width-1-1">Atualizar Foto</span>
         <div class="uk-width-1-1">
             <div uk-form-custom uk-tooltip="title: Insira uma nova foto de perfil">
-                <input type="file" accept=".png, .jpg" (change)="changeProfilePic($event)">
-                <div type="button" class="uk-button uk-button-default uk-card uk-card-body" uk-icon="icon: plus"></div>
+                <input id="filePicker" type="file" accept=".png, .jpg" (change)="changeProfilePic($event)">
+                <div id="photo" type="button" class="uk-button uk-button-default uk-card uk-card-body" uk-icon="icon: plus"></div>
             </div>
         </div>
         <div class="uk-margin uk-width-1-2@s">
