@@ -123,7 +123,10 @@ export class UserService {
                 status: "success",
                 timeout: 1500
               })
-              this.router.navigateByUrl("/sistema");
+              window.setTimeout( () => {
+                window.location.reload();
+                this.router.navigateByUrl("/sistema");
+              }, 2000);
               break;
             }        
           }

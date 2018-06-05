@@ -73,13 +73,13 @@ export class ReportService {
                     message: "<span uk-icon='icon: check'></span> Denúncia cadastrada com sucesso!",
                     status: "success",
                     timeout: 1500
-                  })
-                  this.angularFireDatabase.list(`usuários/${userId}/reports`).push(id);
-                  this.router.navigateByUrl("/sistema");
+                    })
+                    this.router.navigateByUrl("/sistema");
                   }
                }
             });
           }, false)
+          this.angularFireDatabase.list(`usuários/${userId}/reports`).push(id);
         }
       }
       else {

@@ -58,6 +58,7 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
     )
     this.reportService.getReportMedias(this.report.id).subscribe(
       data => {
+        console.log(data);
         if(data.length > 0){
           this.medias = data;
           this.hasMedia = true;
@@ -69,6 +70,7 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
                   var img = document.createElement("img");
                   img.style.width = "120px";
                   img.style.height = "120px";
+                  img.style.marginRight = "10px";
                   img.setAttribute("src", url);
                   document.getElementById("medias").appendChild(img);
                 }

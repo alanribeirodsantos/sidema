@@ -87,6 +87,7 @@ export class ReportingComponent implements OnInit {
           var div = document.createElement("div");
           div.style.width = "100px";
           div.style.height = "100px";
+          div.style.marginRight = "10px";
           div.addEventListener("click", () => {
             div.parentNode.removeChild(div);
             this.mediaAux.splice(index, 1);
