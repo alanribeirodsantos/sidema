@@ -58,7 +58,6 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
     )
     this.reportService.getReportMedias(this.report.id).subscribe(
       data => {
-        console.log(data);
         if(data.length > 0){
           this.medias = data;
           this.hasMedia = true;

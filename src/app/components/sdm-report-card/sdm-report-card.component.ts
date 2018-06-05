@@ -31,5 +31,4 @@ export class SdmReportCardComponent implements OnInit {
   referenceReport(){
     localStorage.setItem("report", JSON.stringify(this.report));
   }
-
 }

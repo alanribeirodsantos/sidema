@@ -32,29 +32,29 @@
         <div class="uk-width-auto@m">
             <div class="uk-margin">
                 <select class="uk-select form-report__text" (change)="onChange($event.target.value)" [(ngModel)]="category" name="category" #reportCategory="ngModel" required>
-                <option value="">Categoria*</option>
-                <option value="monoliths">Monólitos</option>
-                <option value="water-resources">Recursos Hidricos</option>
-                <option value="vegetation">Vegetação</option>
-                <option value="historical-patrimony">Patrimônio</option>
-            </select>
+                    <option value="">Categoria*</option>
+                    <option value="monoliths">Monólitos</option>
+                    <option value="water-resources">Recursos Hidricos</option>
+                    <option value="vegetation">Vegetação</option>
+                    <option value="historical-patrimony">Patrimônio</option>
+                </select>
                 <div *ngIf="report && !reportCategory.valid" class="uk-alert-danger form-report__error-message">Selecione uma categoria referente a denúncia</div>
             </div>
         </div>
         <div class="uk-width-auto@m">
             <div class="uk-margin">
                 <select class="uk-select form-report__text" [(ngModel)]="subcategory" #reportSubcategory="ngModel" name="subcategory" required>
-                <option value="">Tipo de Infração*</option>
-                <option>Poluição</option>
-                <option *ngIf="categorySelect== 'water-resources'">Poços Irregulares</option>
-                <option *ngIf="categorySelect== 'water-resources'">Desperdício de Água</option>
-                <option *ngIf="categorySelect== 'monoliths'">Construção Irregular</option>
-                <option *ngIf="categorySelect== 'monoliths' || categorySelect== 'historical-patrimony'">Depredação</option>
-                <option *ngIf="categorySelect== 'vegetation'">Queimada</option>
-                <option *ngIf="categorySelect== 'vegetation'">Desmatamento</option>
-                <option *ngIf="categorySelect== 'historical-patrimony'">Ocupação Ilegal</option>
-                <option>Outro</option>
-            </select>
+                    <option value="">Tipo de Infração*</option>
+                    <option>Poluição</option>
+                    <option *ngIf="categorySelect== 'water-resources'">Poços Irregulares</option>
+                    <option *ngIf="categorySelect== 'water-resources'">Desperdício de Água</option>
+                    <option *ngIf="categorySelect== 'monoliths'">Construção Irregular</option>
+                    <option *ngIf="categorySelect== 'monoliths' || categorySelect== 'historical-patrimony'">Depredação</option>
+                    <option *ngIf="categorySelect== 'vegetation'">Queimada</option>
+                    <option *ngIf="categorySelect== 'vegetation'">Desmatamento</option>
+                    <option *ngIf="categorySelect== 'historical-patrimony'">Ocupação Ilegal</option>
+                    <option>Outro</option>
+                </select>
                 <div *ngIf="report && !reportSubcategory.valid" class="uk-alert-danger form-report__error-message">Selecione o tipo de infração referente a denúncia</div>
             </div>
         </div>

@@ -19,10 +19,7 @@ export class SdmBoostReportComponent implements OnInit {
   constructor(private reportService:ReportService, private userService:UserService){}
 
   ngOnInit(): void {
-    if(this.user === null){
-
-    }
-    else {
+    if(this.user !== null){
       var userId = JSON.parse(localStorage.getItem("user")).id;
       this.userService.getUserBoostedReports(userId).subscribe(
         data => {
