@@ -69,7 +69,7 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
           this.medias = data;
           this.hasMedia = true;
           for(let m in this.medias){
-            var mediaRef = this.angularFireStorage.ref(`reports/${this.user.id}/${this.report.id}/${this.medias[m].name}`);
+            var mediaRef = this.angularFireStorage.ref(`reports/${this.medias[m].owner}/${this.report.id}/${this.medias[m].name}`);
             mediaRef.getDownloadURL().subscribe(
               url => {
                 if(this.medias[m].type === "image/jpg" || this.medias[m].type === "image/jpeg" || this.medias[m].type === "image/png"){
@@ -78,7 +78,7 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
                   img.style.height = "120px";
                   img.style.marginRight = "10px";
                   img.setAttribute("src", url);
-                  document.getElementById("medias").appendChild(img);
+                  document.getElementsByClassName("medias")[0].appendChild(img);
                 }
                 else if(this.medias[m].type === "audio/mp3" || this.medias[m].type === "audio/wav" || this.medias[m].type === "audio/ogg"){
                   var audio = document.createElement("audio");

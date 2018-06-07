@@ -75,9 +75,9 @@ export class ReportingComponent implements OnInit {
   }
 
   selectedMedias(event){
-      document.getElementById("filePicker").onclick = () => {
+      document.getElementsByClassName("filePicker")[0].addEventListener("click", () => {
         event.target.value = null;
-      }
+      })
       this.mediaAux = Array.from(event.target.files);
       [].forEach.call(this.mediaAux, (media, index) => {
         console.log(this.mediaAux);

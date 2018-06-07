@@ -60,7 +60,8 @@ export class ReportService {
           [].forEach.call(media, (element, index) => {
             this.angularFireDatabase.database.ref("denúncias").child(id).child("medias").push({
               name: element.name,
-              type: element.type
+              type: element.type,
+              owner: userId
             });
             this.storageRef = this.angularFireStorage.ref(`/reports/${userId}/${id}/${element.name}`);
             this.taskUpload = this.storageRef.put(element);
