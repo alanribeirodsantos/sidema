@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ReportService } from '../../../backend/services/report/report.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 
@@ -8,6 +8,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
   styleUrls: ['./reports-list.component.scss']
 })
 export class ReportsListComponent {
+
+  @Input() logged:boolean;
 
   reportsList:any[];
 

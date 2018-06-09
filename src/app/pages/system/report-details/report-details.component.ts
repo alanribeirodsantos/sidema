@@ -1,15 +1,17 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ReportService } from '../../../backend/services/report/report.service';
 import { UserService } from '../../../backend/services/user/user.service';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-report-details',
+  selector: 'report-details',
   templateUrl: './report-details.component.html',
   styleUrls: ['./report-details.component.scss']
 })
 export class ReportDetailsComponent implements OnInit, OnDestroy {
+
+  @Input() logged:boolean;
 
   commentary: string;
   report:any;
@@ -26,7 +28,9 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
 
   urlShareFacebook:string;
   urlShareTwitter:string;
-  
+
+  isLogged:string = '';
+
   constructor(private reportService:ReportService, private userService:UserService, private angularFireStorage:AngularFireStorage, private _router: Router){
     this.urlShareFacebook = "http://www.facebook.com/sharer/sharer.php?u=" + _router;
     this.urlShareTwitter = "http://twitter.com/intent/tweet?url=URL&text=" + _router;

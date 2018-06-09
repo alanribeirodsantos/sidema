@@ -1,7 +1,7 @@
 <div class="sdm-report-card">
     <sdm-boost-report [reportId]="report.id" [numberOfSupporters]="report.numberOfSupporters" [active]="false"></sdm-boost-report>
     <div class="sdm-report-card__divider"></div>
-    <div class="sdm-report-card__content" [routerLink]="['/sistema/denuncia/', report.id]" (click)="referenceReport()">
+    <div class="sdm-report-card__content" [routerLink]="[routerLinkUrl, report.id]" (click)="referenceReport()">
         <div class="sdm-report-card__content__report-title">
             {{report.title}}
         </div>

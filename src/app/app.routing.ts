@@ -11,6 +11,8 @@ import { EditProfileComponent } from './pages/system/edit-profile/edit-profile.c
 import { ReportDetailsComponent } from './pages/system/report-details/report-details.component';
 import { ReportComponent } from './pages/report/report.component';
 import { ConsultReportsComponent } from './pages/consult-reports/consult-reports.component';
+import { ReportDetailsLoggedOffComponent } from './pages/report-details-logged-off/report-details-logged-off.component'
+
 
 const APP_ROUTES: Routes = [
     {path: "", redirectTo: "/home", pathMatch: "full"},
@@ -18,6 +20,7 @@ const APP_ROUTES: Routes = [
     {path: "home", component: HomeComponent},
     {path: "realizar-denuncia", component: ReportComponent},
     {path: "consultar-denuncias", component: ConsultReportsComponent},
+    {path: "denuncia/:id", component: ReportDetailsLoggedOffComponent},
     {path: "sobre-nos", component: AboutUsComponent},
     {path: "FAQ", component: FaqComponent},
     {path: "sistema", component: SystemComponent, children:[
