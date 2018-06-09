@@ -20,4 +20,9 @@
             font-family: $primary-font;
         }
     }
+
+    &__cursor{
+        cursor: pointer;
+        z-index: 99999;
+    }
 }

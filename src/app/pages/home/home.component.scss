@@ -61,10 +61,27 @@
                     hyphens: auto;
                     margin: 50px 0;
 
-                    @include mqMaxWidth('mdx') {
-                        margin: 25px 0;
+                    @include mqMaxWidth('lg') {
+                        display: none;
                     }
-                }  
+                } 
+                
+                &__description-mobile {
+                    display: none;
+                    font-family: $secondary-font;
+                    font-size: $font-size-medium;
+                    color: $gray-fa;
+                    text-align: justify;
+                    -moz-hyphens: auto;
+                    -webkit-hyphens: auto;
+                    hyphens: auto;
+                    margin: 50px 0;
+                    margin: 25px 0;
+
+                    @include mqMaxWidth('lg') {
+                        display: block;
+                    }
+                } 
     
                 &__actions {
                     text-align: left;
@@ -102,35 +119,45 @@
         height: 100%;
         width: 100%;
         display: flex;
+        align-items: center;
+        justify-content: center;
     
         &__container {
-            max-width: 1200px;
-            margin: 0 auto;
-            margin-top: 18%;
 
             &__title {
-                width: 100%;
                 padding: 0 50px;
                 color: $white;
-                box-sizing: border-box;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                font-size: 3.5em;
                 text-align: center;
-                font-size: 70px;
-                font-family: $primary-font-bold
+                font-family: $primary-font-bold;
+
+                @include mqMaxWidth('mdx') {
+                    font-size: 1.75em;
+                }
             }
 
             &__subtitle {
                 padding: 0 50px;
                 color: $white;
-                box-sizing: border-box;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                font-size: 1.6em;
                 text-align: center;
-                font-size: 30px;
-                font-family: $primary-font
+                font-family: $primary-font;
+
+                @include mqMaxWidth('mdx') {
+                    font-size: 1em;
+                }
+            }
+
+            &__subtitle-small {
+                padding: 0 50px;
+                color: $white;
+                font-size: 1.25em;
+                text-align: center;
+                font-family: $primary-font-light;
+
+                @include mqMaxWidth('mdx') {
+                    font-size: 0.8em;
+                }
             }
         }
     }
@@ -153,7 +180,8 @@
         display: flex;
 
         &__container {
-            max-width: 1200px;
+            width: 100%;
+            height: 100%;
             margin: 0 auto;   
         }
     }

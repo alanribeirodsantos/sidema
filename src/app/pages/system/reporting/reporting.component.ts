@@ -15,6 +15,7 @@ export class ReportingComponent implements OnInit {
     this.router = _router;
   }
 
+  pickedUp: boolean = true;
   router;
   report: boolean = false;
   localizationInfo;
@@ -39,6 +40,7 @@ export class ReportingComponent implements OnInit {
     if(navigator.geolocation){
        navigator.geolocation.getCurrentPosition(position => {
          this.location = position.coords;
+         this.pickedUp = false;
          console.log('Localização Adquirida!')
        });
     }
