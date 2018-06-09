@@ -116,23 +116,21 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
   }
 
   responsibleOrgan() {
-    switch(this.report.category) {
-      case 'historical-patrimony': {
-        this.category = "Patrimônio Histórico";
-        this.organ = "SEMA";
-      }
-      case 'water-resources': {
-        this.category = "Recursos Hídricos";
-        this.organ = "DNOCS";
-      }
-      case 'monoliths': {
-        this.category = "Monólitos";
-        this.organ = "SEDUMA";
-      }
-      case 'vegetation': {
-        this.category = "Vegetação";
-        this.organ = "SEDUMA";
-      }
+    if(this.report.category === "historical-patrimony"){
+      this.category = "Patrimônio Histórico";
+      this.organ = "SEMA";
+    }
+    else if(this.report.category === "water-resources"){
+      this.category = "Recursos Hídricos";
+      this.organ = "DNOCS";
+    }
+    else if(this.report.category === "monoliths"){
+      this.category = "Monólitos";
+      this.organ = "SEDUMA";
+    }
+    else if(this.report.category === "vegetation"){
+      this.category = "Vegetation";
+      this.organ = "SEDUMA";
     }
   }
 

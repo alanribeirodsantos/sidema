@@ -32,6 +32,7 @@ export class ReportingComponent implements OnInit {
   media:Array<any> = [];
   mediaAux:any;
   mediaSize:any;
+  checkbox:boolean = false;
   hour = new Date().toLocaleTimeString('pt-BR', {hour: "numeric", minute: "numeric"});
 
   ngOnInit(){
@@ -57,7 +58,7 @@ export class ReportingComponent implements OnInit {
       var utcDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes())).toJSON();
       utcDate.slice(0, 10).replace(/-/g,'/').split('/').reverse().join('/');
       var dateReport = utcDate.slice(0, 10).replace(/-/g,'/').split('/').reverse().join('/');
-      this.reportService.addReport(this.title, this.description, this.address, this.number, this.neighborhood, this.complement, this.violator, this.category, this.subcategory, this.media, this.mediaSize, dateReport, this.hour);
+      this.reportService.addReport(this.title, this.description, this.address, this.number, this.neighborhood, this.complement, this.violator, this.category, this.subcategory, this.media, this.mediaSize, dateReport, this.hour, this.checkbox);
     }
   }
 
@@ -72,6 +73,11 @@ export class ReportingComponent implements OnInit {
       this.neighborhood = this.localizationInfo.results[0].address_components[2].long_name,
       500
     });
+  }
+
+  check(){
+    this.checkbox = !this.checkbox;
+    console.log(this.checkbox);
   }
 
   selectedMedias(event){

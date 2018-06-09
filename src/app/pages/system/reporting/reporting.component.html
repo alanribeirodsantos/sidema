@@ -66,8 +66,9 @@
             </div>
             <div class="list-media"></div>
         </div>
+        <progress *ngIf="report" class="uk-progress" value="{{this.reportService.percentage | async}}" max="100"></progress>
         <div class="uk-margin uk-width-1-1" *ngIf="router.url == '/sistema/denunciar'">
-            <label class="form-report__text"><input class="uk-checkbox" type="checkbox"> Denunciar de forma Anônima</label>
+            <label class="form-report__text"><input class="uk-checkbox" type="checkbox" (click)="check()"> Denunciar de forma Anônima</label>
         </div>
         <div class="uk-margin uk-width-1-2@m">
             <sdm-button [type]="'quaternary'" [btnWidth]="'large'" (click)="sendReport()">ENVIAR DENÚNCIA</sdm-button>

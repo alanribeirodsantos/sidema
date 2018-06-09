@@ -102,7 +102,7 @@ export class UserService {
                   localStorage.setItem("credentialsChanged", JSON.stringify(temp));
                   this.changedEmail = true;
                 }).catch( (error) => console.log(error.code));
-                // user.updateEmail(email).then( () => console.log("update email")).catch( (error) => console.log(error.code));
+                user.updateEmail(email).then( () => console.log("update email")).catch( (error) => console.log(error.code));
                 
               }
               else if(newPassword.length > 0){
@@ -113,99 +113,25 @@ export class UserService {
                     localStorage.setItem("credentialsChanged", JSON.stringify(temp));
                     this.changedPass = true;
                   }).catch( (error) => console.log(error.code));
-                  // var credentials = firebase.auth.EmailAuthProvider.credential(email, users[u].password);
-                  // user.reauthenticateAndRetrieveDataWithCredential(credentials).then( () => console.log("reauth pass ok")).catch( (error) => console.log(error.code));
-                  // user.updatePassword(newPassword).then( () => console.log("update password")).catch( (error) => console.log(error.code));
-                }
-              }
-              // else if(profilePic !== undefined ){
-              //   var userId = JSON.parse(localStorage.getItem("user")).id;
-              //   this.storageRef = this.angularFireStorage.ref(`/images/${userId}`);
-              //   this.storageRef.put(profilePic);
-              // }
-              if(this.changedEmail === true || this.changedPass === true){
-                if(this.changedEmail === true && this.changedPass === true){
-                  var credentials = firebase.auth.EmailAuthProvider.credential(email, users[u].password);
-                  user.updateEmail(email).then( () => console.log("update email")).catch( (error) => console.log(error.code));
-                  user.reauthenticateAndRetrieveDataWithCredential(credentials).then( () => console.log("reauth pass ok")).catch( (error) => console.log(error.code));
-                  user.updatePassword(newPassword).then( () => {
-                    UIkit.notification({
-                      message: "<span uk-icon='icon: check'></span> Seu perfil foi atualizado atualizado!",
-                      status: "success",
-                      timeout: 1500
-                    })
-                    window.location.reload();
-                    this.router.navigateByUrl("/sistema");
-                  }).catch( (error) => console.log(error.code));
-                }
-                else if(this.changedEmail === true && this.changedPass === false){
-                  user.updateEmail(email).then( () => {
-                    UIkit.notification({
-                      message: "<span uk-icon='icon: check'></span> Seu perfil foi atualizado atualizado!",
-                      status: "success",
-                      timeout: 1500
-                    });
-                    console.log("trocou email");
-                    window.location.reload();
-                    this.router.navigateByUrl("/sistema");
-                  }).catch( (error) => console.log(error.code));
-                }
-                else if(this.changedEmail === false && this.changedPass === true){
                   var credentials = firebase.auth.EmailAuthProvider.credential(email, users[u].password);
                   user.reauthenticateAndRetrieveDataWithCredential(credentials).then( () => console.log("reauth pass ok")).catch( (error) => console.log(error.code));
-                  user.updatePassword(newPassword).then( () => {
-                    UIkit.notification({
-                      message: "<span uk-icon='icon: check'></span> Seu perfil foi atualizado atualizado!",
-                      status: "success",
-                      timeout: 1500
-                    })
-                    console.log("trocou senha");
-                    window.location.reload();
-                    this.router.navigateByUrl("/sistema");
-                  }).catch( (error) => console.log(error.code));
+                  user.updatePassword(newPassword).then( () => console.log("update password")).catch( (error) => console.log(error.code));
                 }
               }
-              else {
-                if(profilePic !== undefined ){
-                  var userId = JSON.parse(localStorage.getItem("user")).id;
-                  this.storageRef = this.angularFireStorage.ref(`/images/${userId}`);
-                  this.taskUpload = this.storageRef.put(profilePic);
-                  this.percentage = this.taskUpload.percentageChanges();
-                  this.percentage.subscribe( p => {
-                      if(p == 100){
-                        UIkit.notification({
-                          message: "<span uk-icon='icon: check'></span> Seu perfil foi atualizado atualizado!",
-                          status: "success",
-                          timeout: 1500
-                        })
-                        window.setTimeout( () => {
-                          window.location.reload();
-                          this.router.navigateByUrl("/sistema");
-                        }, 2000);
-                      }
-                  });
-                }
-                else {
-                  UIkit.notification({
-                    message: "<span uk-icon='icon: check'></span> Seu perfil foi atualizado atualizado!",
-                    status: "success",
-                    timeout: 1500
-                  })
-                  window.setTimeout( () => {
-                    window.location.reload();
-                    this.router.navigateByUrl("/sistema");
-                  }, 2000);  
-                }
+              else if(profilePic !== undefined ){
+                var userId = JSON.parse(localStorage.getItem("user")).id;
+                this.storageRef = this.angularFireStorage.ref(`/images/${userId}`);
+                this.storageRef.put(profilePic);
               }
-              // UIkit.notification({
-              //   message: "<span uk-icon='icon: check'></span> Seu perfil foi atualizado atualizado!",
-              //   status: "success",
-              //   timeout: 1500
-              // })
-              // window.setTimeout( () => {
-              //   window.location.reload();
-              //   this.router.navigateByUrl("/sistema");
-              // }, 2000);
+              UIkit.notification({
+                message: "<span uk-icon='icon: check'></span> Seu perfil foi atualizado atualizado!",
+                status: "success",
+                timeout: 1500
+              })
+              window.setTimeout( () => {
+                window.location.reload();
+                this.router.navigateByUrl("/sistema");
+              }, 3000);
               break;
             }        
           }
