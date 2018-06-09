@@ -1,29 +1,29 @@
 <section class="form-editProfile">
     <header class="form-editProfile__title">Editar Perfil</header>
-    <form class="uk-grid-small" uk-grid>
+    <form class="form-editProfile__form uk-grid-small" uk-grid>
         <div class="uk-width-1-1">
-            <input class="uk-input form-editProfile__text" type="text" placeholder="Nome" name="name" [(ngModel)]="name" autocomplete="off">
+            <input class="uk-input form-editProfile__form__text" type="text" placeholder="Nome" name="name" [(ngModel)]="name" autocomplete="off">
         </div>
         <div class="uk-width-1-1">
-            <input class="uk-input form-editProfile__text" type="email" placeholder="E-mail" name="email" [(ngModel)]="email" autocomplete="off">
+            <input class="uk-input form-editProfile__form__text" type="email" placeholder="E-mail" name="email" [(ngModel)]="email" autocomplete="off">
         </div>
         <div class="uk-width-1-1">
-            <input class="uk-input form-editProfile__text" type="password" #newpassword="ngModel" placeholder="Nova Senha" name="newPassword" [(ngModel)]="newPassword" autocomplete="off" minlength="6">
+            <input class="uk-input form-editProfile__form__text" type="password" #newpassword="ngModel" placeholder="Nova Senha" name="newPassword" [(ngModel)]="newPassword" autocomplete="off" minlength="6">
             <div *ngIf="edit && !newpassword.valid" class="uk-alert-danger form-editProfile__error-message">A senha precisa ter no mínimo 6 caracteres</div>
         </div>
         <div class="uk-width-1-1">
-            <input class="uk-input form-editProfile__text" type="password" #confirmpassword="ngModel" placeholder="Confirmar Senha" name="confirmNewPassword" [(ngModel)]="confirmNewPassword" autocomplete="off">
+            <input class="uk-input form-editProfile__form__text" type="password" #confirmpassword="ngModel" placeholder="Confirmar Senha" name="confirmNewPassword" [(ngModel)]="confirmNewPassword" autocomplete="off">
             <div *ngIf="edit && !newpassword.pristine && !confirmpassword.pristine" class="uk-alert-danger form-editProfile__error-message">Você precisa confirmar a senha</div>
         </div>
         <div class="uk-width-1-1">
-            <input class="uk-input form-editProfile__text" type="password" #currentpassword="ngModel" placeholder="Senha Atual*" name="currentPassword" [(ngModel)]="currentPassword" autocomplete="off" required>
+            <input class="uk-input form-editProfile__form__text" type="password" #currentpassword="ngModel" placeholder="Senha Atual*" name="currentPassword" [(ngModel)]="currentPassword" autocomplete="off" required>
             <div *ngIf="edit && !currentpassword.valid" class="uk-alert-danger form-editProfile__error-message">Informe sua senha atual antes de salvar as alterações!</div>
         </div>
-        <span class="form-editProfile__subtitle uk-width-1-1">Atualizar Foto</span>
+        <span class="form-editProfile__form__subtitle uk-width-1-1">Atualizar Foto</span>
         <div class="uk-width-1-1">
             <div uk-form-custom uk-tooltip="title: Insira uma nova foto de perfil">
-                <input id="filePicker" type="file" accept=".png, .jpg" (change)="changeProfilePic($event)">
-                <div id="photo" type="button" class="uk-button uk-button-default uk-card uk-card-body" uk-icon="icon: plus"></div>
+                <input class="form-editProfile__form__filePicker" type="file" accept=".png, .jpg, .jpeg" (change)="changeProfilePic($event)">
+                <div type="button" class="form-editProfile__form__photo uk-button uk-button-default uk-card uk-card-body" uk-icon="icon: plus"></div>
             </div>
         </div>
         <div class="uk-margin uk-width-1-2@s">

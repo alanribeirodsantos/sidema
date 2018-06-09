@@ -26,7 +26,7 @@ export class SdmSideMenuComponent implements OnInit {
   ngOnInit(){
     var user = JSON.parse(localStorage.getItem("user"));
     if(user === null){
-      this.userName = "Anônimo";
+      this.userName = "";
     }
     else {
       this.userName = user.name;

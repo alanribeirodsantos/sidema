@@ -69,7 +69,7 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
           this.medias = data;
           this.hasMedia = true;
           for(let m in this.medias){
-            var mediaRef = this.angularFireStorage.ref(`reports/${this.user.id}/${this.report.id}/${this.medias[m].name}`);
+            var mediaRef = this.angularFireStorage.ref(`reports/${this.medias[m].owner}/${this.report.id}/${this.medias[m].name}`);
             mediaRef.getDownloadURL().subscribe(
               url => {
                 if(this.medias[m].type === "image/jpg" || this.medias[m].type === "image/jpeg" || this.medias[m].type === "image/png"){
@@ -78,7 +78,7 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
                   img.style.height = "120px";
                   img.style.marginRight = "10px";
                   img.setAttribute("src", url);
-                  document.getElementById("medias").appendChild(img);
+                  document.getElementsByClassName("report-content__section-description")[0].appendChild(img);
                 }
                 else if(this.medias[m].type === "audio/mp3" || this.medias[m].type === "audio/wav" || this.medias[m].type === "audio/ogg"){
                   var audio = document.createElement("audio");
@@ -88,7 +88,7 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
                   source.setAttribute("src", url);
                   source.setAttribute("type", this.medias[m].type);
                   audio.appendChild(source);
-                  document.getElementById("medias").appendChild(audio);
+                  document.getElementById("report-content__section-description").appendChild(audio);
                 }
                 else if(this.medias[m].type === "video/avi" || this.medias[m].type === "video/mp4" || this.medias[m].type === "video/mpeg"){
                   var video = document.createElement("video");
@@ -98,7 +98,7 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
                   source.setAttribute("src", url);
                   source.setAttribute("type", this.medias[m].type);
                   video.appendChild(source);
-                  document.getElementById("medias").appendChild(video);
+                  document.getElementById("report-content__section-description").appendChild(video);
                 }
               },
               error => console.log(error)
@@ -116,23 +116,21 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
   }
 
   responsibleOrgan() {
-    switch(this.report.category) {
-      case 'historical-patrimony': {
-        this.category = "Patrimônio Histórico";
-        this.organ = "SEMA";
-      }
-      case 'water-resources': {
-        this.category = "Recursos Hídricos";
-        this.organ = "DNOCS";
-      }
-      case 'monoliths': {
-        this.category = "Monólitos";
-        this.organ = "SEDUMA";
-      }
-      case 'vegetation': {
-        this.category = "Vegetação";
-        this.organ = "SEDUMA";
-      }
+    if(this.report.category === "historical-patrimony"){
+      this.category = "Patrimônio Histórico";
+      this.organ = "SEMA";
+    }
+    else if(this.report.category === "water-resources"){
+      this.category = "Recursos Hídricos";
+      this.organ = "DNOCS";
+    }
+    else if(this.report.category === "monoliths"){
+      this.category = "Monólitos";
+      this.organ = "SEDUMA";
+    }
+    else if(this.report.category === "vegetation"){
+      this.category = "Vegetation";
+      this.organ = "SEDUMA";
     }
   }
 

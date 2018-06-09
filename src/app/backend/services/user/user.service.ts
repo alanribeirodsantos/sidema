@@ -16,6 +16,9 @@ export class UserService {
   userBoostedReports:Observable<any[]>;
   storageRef:AngularFireStorageReference;
   taskUpload:AngularFireUploadTask;
+  percentage:any;
+  changedEmail:boolean = false;
+  changedPass:boolean = false;
 
   constructor(private angularFireAuth:AngularFireAuth, private angularFireDatabase:AngularFireDatabase, private router:Router, private angularFireStorage:AngularFireStorage) {}
 
@@ -97,6 +100,7 @@ export class UserService {
                   localStorage.setItem("user", JSON.stringify(userLocal));
                   var temp = true;
                   localStorage.setItem("credentialsChanged", JSON.stringify(temp));
+                  this.changedEmail = true;
                 }).catch( (error) => console.log(error.code));
                 user.updateEmail(email).then( () => console.log("update email")).catch( (error) => console.log(error.code));
                 
@@ -107,6 +111,7 @@ export class UserService {
                   .then( () => {
                     var temp = true;
                     localStorage.setItem("credentialsChanged", JSON.stringify(temp));
+                    this.changedPass = true;
                   }).catch( (error) => console.log(error.code));
                   var credentials = firebase.auth.EmailAuthProvider.credential(email, users[u].password);
                   user.reauthenticateAndRetrieveDataWithCredential(credentials).then( () => console.log("reauth pass ok")).catch( (error) => console.log(error.code));
@@ -126,7 +131,7 @@ export class UserService {
               window.setTimeout( () => {
                 window.location.reload();
                 this.router.navigateByUrl("/sistema");
-              }, 2000);
+              }, 3000);
               break;
             }        
           }

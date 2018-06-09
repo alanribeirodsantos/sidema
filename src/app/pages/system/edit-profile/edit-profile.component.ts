@@ -28,9 +28,9 @@ export class EditProfileComponent implements OnInit {
   }
 
   changeProfilePic(event){  
-    document.getElementById("filePicker").onclick = () => {
+    document.getElementsByClassName("form-editProfile__form__filePicker")[0].addEventListener("click", () => {
       event.target.value = null;
-    }
+    })
     this.profilePic = event.target.files[0];
     var reader = new FileReader();
     reader.addEventListener("loadend", () => {

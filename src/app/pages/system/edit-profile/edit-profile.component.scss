@@ -1,22 +1,23 @@
 @import "~assets/sass-utils/variables";
-
-.form-editProfile{
-    &__title{
-        font-family: $primary-font-bold;
-        color: $primary-color;
-        font-size: $font-size-title;
-        margin-bottom: 20px;
-    }
-    &__subtitle{
-        font-family: $primary-font;
-        color: $black;
-        font-size: $font-size-medium;
-    }
-    &__error-message{
-        font-family: $primary-font;
-        padding: 5px;
-    }
-    &__text{
-        font-family: $primary-font;
+.form-editProfile {
+    &__form {
+        &__title {
+            font-family: $primary-font-bold;
+            color: $primary-color;
+            font-size: $font-size-title;
+            margin-bottom: 20px;
+        }
+        &__subtitle {
+            font-family: $primary-font;
+            color: $black;
+            font-size: $font-size-medium;
+        }
+        &__error-message {
+            font-family: $primary-font;
+            padding: 5px;
+        }
+        &__text {
+            font-family: $primary-font;
+        }
     }
 }
