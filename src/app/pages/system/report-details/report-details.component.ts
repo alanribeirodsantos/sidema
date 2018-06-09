@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ReportService } from '../../../backend/services/report/report.service';
 import { UserService } from '../../../backend/services/user/user.service';
 import { AngularFireStorage } from 'angularfire2/storage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-report-details',
@@ -22,8 +23,14 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
   hasComments:boolean = false;
   hasMedia:boolean = false;
   place: "Quixadá - CE, Brasil";
+
+  urlShareFacebook:string;
+  urlShareTwitter:string;
   
-  constructor(private reportService:ReportService, private userService:UserService, private angularFireStorage:AngularFireStorage){}
+  constructor(private reportService:ReportService, private userService:UserService, private angularFireStorage:AngularFireStorage, private _router: Router){
+    this.urlShareFacebook = "http://www.facebook.com/sharer/sharer.php?u=" + _router;
+    this.urlShareTwitter = "http://twitter.com/intent/tweet?url=URL&text=" + _router;
+  }
 
   ngOnInit(){
     this.report = JSON.parse(localStorage.getItem("report"));

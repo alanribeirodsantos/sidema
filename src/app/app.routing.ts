@@ -25,7 +25,7 @@ const APP_ROUTES: Routes = [
         {path: "denuncias", component: ReportsListComponent},
         {path: "denunciar", component: ReportingComponent},
         {path: "perfil", component: EditProfileComponent},
-        {path: "denuncia", component: ReportDetailsComponent}
+        {path: "denuncia/:id", component: ReportDetailsComponent}
     ]},
 ];
 
