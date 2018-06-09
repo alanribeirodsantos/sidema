@@ -53,7 +53,7 @@
             <a href="{{urlShareTwitter}}" target="_blank" uk-icon="icon: twitter; ratio: 1.4" class="report-content__section-description__socialicons"></a>
             <a href="" uk-icon="icon: google-plus; ratio: 1.4" class="report-content__section-description__socialicons"></a>
         </div>
-        <sdm-button [type]="'primary'" [btnWidth]="'large'" uk-tooltip="pos: left; title: Se você viu que o problema foi resolvido mas não foi atualizado no sistema, você pode marcar essa denúncia como resolvida">Finalizar Denúncia</sdm-button>
+        <sdm-button *ngIf="isMine" [type]="'primary'" [btnWidth]="'large'" uk-tooltip="pos: left; title: Se você viu que o problema foi resolvido mas não foi atualizado no sistema, você pode marcar essa denúncia como resolvida">Finalizar Denúncia</sdm-button>
         <div class="uk-margin-small-bottom"></div>
         <sdm-button *ngIf="isMine" [type]="'danger-secondary'" [btnWidth]="'large'" uk-tooltip="pos: left; title: A denúncia não será mais vinculada ao seu usuário e se tornará anônima">Desvincular Denúncia</sdm-button>
         <div class="uk-margin-small-bottom"></div>

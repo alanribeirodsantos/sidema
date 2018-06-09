@@ -8,10 +8,18 @@ import { UserService } from '../../backend/services/user/user.service';
 })
 export class SdmReportCardComponent implements OnInit {
 
+  @Input() logged:boolean;
   @Input() report:any;
   isMine:boolean = false;
+  routerLinkUrl:string = '';
 
-  constructor(private userService:UserService){}
+  constructor(private userService:UserService){
+    if (this.logged){
+      this.routerLinkUrl = '/sistema/denuncia/';
+    }else{
+      this.routerLinkUrl = '/denuncia';
+    }
+  }
 
   ngOnInit(){
     var user = JSON.parse(localStorage.getItem("user"));
