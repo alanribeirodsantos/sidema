@@ -39,46 +39,74 @@ export class ReportService {
       date: date,
       hour: hour
     }).then( () => {
-      if(!checked){
-        var userName = JSON.parse(localStorage.getItem("user")).name;
-        this.angularFireDatabase.database.ref("denúncias").child(id).child("log").push({
-          author: userName,
-          date: date,
-          hour: hour,
-          message: "registrou a denúncia."
-        })
-      }
-      else {
-        this.angularFireDatabase.database.ref("denúncias").child(id).child("log").push({
-          author: "Anônimo",
-          date: date,
-          hour: hour,
-          message: "registrou a denúncia."
-        })
-      }
-      if(mediaSize > 26214400){
-        UIkit.notification({
-          message: "<span uk-icon='icon: ban'></span> As mídias excedem os 25MB permitidos!",
-          status: "danger",
-          timeout: 1500
-        })
-      }
-      else {
+      if(JSON.parse(localStorage.getItem("user")) !== null){
         if(!checked){
-          var userId = JSON.parse(localStorage.getItem("user")).id;
-          var total = 0;
-          [].forEach.call(media, (element, index) => {
-            this.angularFireDatabase.database.ref("denúncias").child(id).child("medias").push({
-              name: element.name,
-              type: element.type,
-              owner: userId
-            });
-            this.storageRef = this.angularFireStorage.ref(`/reports/${userId}/${id}/${element.name}`);
-            this.taskUpload = this.storageRef.put(element);
-            this.percentage = this.taskUpload.percentageChanges();
-            this.percentage.subscribe( p => {
+          var userName = JSON.parse(localStorage.getItem("user")).name;
+          this.angularFireDatabase.database.ref("denúncias").child(id).child("log").push({
+            author: userName,
+            date: date,
+            hour: hour,
+            message: "registrou a denúncia."
+          })
+        }
+        else {
+          this.angularFireDatabase.database.ref("denúncias").child(id).child("log").push({
+            author: "Anônimo",
+            date: date,
+            hour: hour,
+            message: "registrou a denúncia."
+          })
+        }
+        if(mediaSize > 26214400){
+          UIkit.notification({
+            message: "<span uk-icon='icon: ban'></span> As mídias excedem os 25MB permitidos!",
+            status: "danger",
+            timeout: 1500
+          })
+        }
+        else {
+          if(!checked){
+            var userId = JSON.parse(localStorage.getItem("user")).id;
+            var total = 0;
+            [].forEach.call(media, (element, index) => {
+              this.angularFireDatabase.database.ref("denúncias").child(id).child("medias").push({
+                name: element.name,
+                type: element.type,
+                owner: userId
+              });
+              this.storageRef = this.angularFireStorage.ref(`/reports/${userId}/${id}/${element.name}`);
+              this.taskUpload = this.storageRef.put(element);
+              this.percentage = this.taskUpload.percentageChanges();
+              this.percentage.subscribe( p => {
+                  if(p == 100){
+                    total += p; 
+                    if(total === media.length * 100){
+                      UIkit.notification({
+                        message: "<span uk-icon='icon: check'></span> Denúncia cadastrada com sucesso!",
+                        status: "success",
+                        timeout: 1500
+                      })
+                      this.router.navigateByUrl("/sistema");
+                    }
+                  }
+              });
+            }, false);
+            this.angularFireDatabase.list(`usuários/${userId}/reports`).push(id);
+          }
+          else {
+            var total = 0;
+            [].forEach.call(media, (element, index) => {
+              this.angularFireDatabase.database.ref("denúncias").child(id).child("medias").push({
+                name: element.name,
+                type: element.type,
+                owner: "anonymous"
+              });
+              this.storageRef = this.angularFireStorage.ref(`/reports/anonymous/${id}/${element.name}`);
+              this.taskUpload = this.storageRef.put(element);
+              this.percentage = this.taskUpload.percentageChanges();
+              this.percentage.subscribe( p => {
                 if(p == 100){
-                  total += p; 
+                  total += p;
                   if(total === media.length * 100){
                     UIkit.notification({
                       message: "<span uk-icon='icon: check'></span> Denúncia cadastrada com sucesso!",
@@ -88,36 +116,42 @@ export class ReportService {
                     this.router.navigateByUrl("/sistema");
                   }
                 }
-            });
-          }, false);
-          this.angularFireDatabase.list(`usuários/${userId}/reports`).push(id);
+              })
+            }, false);
+          }
         }
-        else {
-          var total = 0;
-          [].forEach.call(media, (element, index) => {
-            this.angularFireDatabase.database.ref("denúncias").child(id).child("medias").push({
-              name: element.name,
-              type: element.type,
-              owner: "anonymous"
-            });
-            this.storageRef = this.angularFireStorage.ref(`/reports/anonymous/${id}/${element.name}`);
-            this.taskUpload = this.storageRef.put(element);
-            this.percentage = this.taskUpload.percentageChanges();
-            this.percentage.subscribe( p => {
-              if(p == 100){
-                total += p;
-                if(total === media.length * 100){
-                  UIkit.notification({
-                    message: "<span uk-icon='icon: check'></span> Denúncia cadastrada com sucesso!",
-                    status: "success",
-                    timeout: 1500
-                  })
-                  this.router.navigateByUrl("/sistema");
-                }
+      }
+      else {
+        var total = 0;
+        this.angularFireDatabase.database.ref("denúncias").child(id).child("log").push({
+          author: "Anônimo",
+          date: date,
+          hour: hour,
+          message: "registrou a denúncia."
+        });
+        [].forEach.call(media, (element, index) => {
+          this.angularFireDatabase.database.ref("denúncias").child(id).child("medias").push({
+            name: element.name,
+            type: element.type,
+            owner: "anonymous"
+          });
+          this.storageRef = this.angularFireStorage.ref(`/reports/anonymous/${id}/${element.name}`);
+          this.taskUpload = this.storageRef.put(element);
+          this.percentage = this.taskUpload.percentageChanges();
+          this.percentage.subscribe( p => {
+            if(p == 100){
+              total += p;
+              if(total === media.length * 100){
+                UIkit.notification({
+                  message: "<span uk-icon='icon: check'></span> Denúncia cadastrada com sucesso!",
+                  status: "success",
+                  timeout: 1500
+                })
+                this.router.navigateByUrl("/sistema");
               }
-            })
-          }, false);
-        }
+            }
+          })
+        }, false);
       }
     }).catch( (error) => {
       UIkit.notification({
