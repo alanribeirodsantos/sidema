@@ -81,9 +81,9 @@ export class ReportService {
                   total += p; 
                   if(total === media.length * 100){
                     UIkit.notification({
-                    message: "<span uk-icon='icon: check'></span> Denúncia cadastrada com sucesso!",
-                    status: "success",
-                    timeout: 1500
+                      message: "<span uk-icon='icon: check'></span> Denúncia cadastrada com sucesso!",
+                      status: "success",
+                      timeout: 1500
                     })
                     this.router.navigateByUrl("/sistema");
                   }
@@ -111,8 +111,8 @@ export class ReportService {
                     message: "<span uk-icon='icon: check'></span> Denúncia cadastrada com sucesso!",
                     status: "success",
                     timeout: 1500
-                    })
-                    this.router.navigateByUrl("/sistema");
+                  })
+                  this.router.navigateByUrl("/sistema");
                 }
               }
             })

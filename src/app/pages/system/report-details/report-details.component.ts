@@ -78,7 +78,7 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
                   img.style.height = "120px";
                   img.style.marginRight = "10px";
                   img.setAttribute("src", url);
-                  document.getElementsByClassName("medias")[0].appendChild(img);
+                  document.getElementsByClassName("report-content__section-description")[0].appendChild(img);
                 }
                 else if(this.medias[m].type === "audio/mp3" || this.medias[m].type === "audio/wav" || this.medias[m].type === "audio/ogg"){
                   var audio = document.createElement("audio");
@@ -88,7 +88,7 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
                   source.setAttribute("src", url);
                   source.setAttribute("type", this.medias[m].type);
                   audio.appendChild(source);
-                  document.getElementById("medias").appendChild(audio);
+                  document.getElementById("report-content__section-description").appendChild(audio);
                 }
                 else if(this.medias[m].type === "video/avi" || this.medias[m].type === "video/mp4" || this.medias[m].type === "video/mpeg"){
                   var video = document.createElement("video");
@@ -98,7 +98,7 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
                   source.setAttribute("src", url);
                   source.setAttribute("type", this.medias[m].type);
                   video.appendChild(source);
-                  document.getElementById("medias").appendChild(video);
+                  document.getElementById("report-content__section-description").appendChild(video);
                 }
               },
               error => console.log(error)
