@@ -124,7 +124,7 @@ export class UserService {
                 this.storageRef.put(profilePic);
               }
               UIkit.notification({
-                message: "<span uk-icon='icon: check'></span> Seu perfil foi atualizado atualizado!",
+                message: "<span uk-icon='icon: check'></span> Seu perfil foi atualizado com sucesso!",
                 status: "success",
                 timeout: 1500
               })
