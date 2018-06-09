@@ -18,9 +18,13 @@
               Outra importante forma de ajudar é agir contra atitudes que desrespeitem o meio ambiente. E isto pode ser feito realizando denúncias de crimes ambientais aqui, no SIDEMA. Você
               pode fazer mais pela cidade de Quixadá e nos ajudar a preservar o meio ambiente. Faça a sua parte e denuncie.
             </div>
+            <div class="section-one__layer__introduction__container__description-mobile">
+                Crimes ambientais prejudicam a qualidade de vida da sociedade e destroem o meio ambiente. Com o SIDEMA, você pode fazer mais pela cidade de Quixadá e nos ajudar a preservar o meio ambiente, denunciando crimes ambientais.
+                Colabore e denuncie.
+              </div>
             <div class="section-one__layer__introduction__container__actions">
-              <sdm-button [type]="'primary'" class="uk-margin-right">REALIZAR DENÚNCIA</sdm-button>
-              <sdm-button [type]="'secondary'">CONSULTAR DENÚNCIAS</sdm-button>
+              <sdm-button [type]="'primary'" class="uk-margin-right" routerLink="/realizar-denuncia">REALIZAR DENÚNCIA</sdm-button>
+              <sdm-button [type]="'secondary'" routerLink="/consultar-denuncias">CONSULTAR DENÚNCIAS</sdm-button>
             </div>
         </div>
       </div>
@@ -36,74 +40,60 @@
 </div>
 
 <!-- Seção 2 -->
-<sdm-section [image]="'assets/images/section2/bg-section2.jpg'" class="section-two">  
-  <!-- <div class="section-two__layer">
+<sdm-section [image]="'https://i.imgur.com/34rGEs3.png'" class="section-two">  
+  <div class="section-two__layer">
     <div class="section-two__layer__container">
-      <div class="section-two__layer__container__subtitle" uk-parallax="opacity: 0,1; y: 200,0; viewport: 0.5">
-        Acreditamos que Quixadá merece um futuro digno.
+      <div class="section-two__layer__container__subtitle" uk-parallax="opacity: 0,1; y: 25,0; viewport: 0.4; blur: 10,0;">
+        Acreditamos que Quixadá merece ser respeitada.
       </div>
-      <div class="section-two__layer__container__title" uk-parallax="opacity: 0,4; y: -200,0; viewport: 0.4">
+      <div class="section-two__layer__container__title" uk-parallax="opacity: 0,1; y: 50,0; viewport: 0.4; blur: 10,0;">
         E você, também acredita nisso?
       </div>
+      <div class="section-two__layer__container__subtitle-small" uk-parallax="opacity: 0,1; y: 50,0; viewport: 0.3; blur: 10,0;">
+          Conheça um pouco da história de Quixadá e como proteger suas belezas ambientais.
+        </div>
     </div> 
-  </div> -->
+  </div>
 </sdm-section>
 
 <!-- Seção 3 -->
 <sdm-section class="section-three">
-  <!-- <div class="uk-position-relative uk-visible-toggle uk-light section-three__layer" uk-slider="clsActivated: uk-transition-active; center: true" uk-parallax="opacity: 0,8; y: 50,0; viewport: 0.4">
-    <ul class="uk-slider-items uk-grid section-three__layer__container">
+  <div class="uk-position-relative uk-visible-toggle uk-light" uk-slider="clsActivated: uk-transition-active; center: true; autoplay: true">
+    <ul class="uk-slider-items">
         <li class="uk-width-1-1">
-            <div class="uk-panel">
                 <img src="assets/images/section2/bg-section2.jpg" alt="">
                 <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
                     <h3 class="uk-margin-remove">Bottom</h3>
                     <p class="uk-margin-remove">Quixadá é uma cidade cercada por áreas verdes de preservação ambiental e por monumentos naturais, mais conhecidos como monólitos.</p>
                 </div>  
-            </div>
         </li>
         <li class="uk-width-1-1">
-            <div class="uk-panel">
                 <img src="assets/images/section2/bg-section2.jpg" alt="">
                 <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
                     <h3 class="uk-margin-remove">Bottom</h3>
                     <p class="uk-margin-remove">No entanto grande parte disso vem se perdendo ou sendo degradado, devido a intervenção humana e aos chamados crimes ambientais.</p>
                 </div>
-            </div>
         </li>
         <li class="uk-width-1-1">
-            <div class="uk-panel">
                 <img src="assets/images/section2/bg-section2.jpg" alt="">
                 <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
                     <h3 class="uk-margin-remove">Bottom</h3>
                     <p class="uk-margin-remove">Crimes ambientais são todos os tipos de agressão ao meio ambiente que prejudicam a flora, fauna, recursos naturais ou patrimônios culturais. Além disso, esses crimes podem, também, afetar a nossa qualidade de vida.</p>
                 </div>
-            </div>
         </li>
         <li class="uk-width-1-1">
-            <div class="uk-panel">
                 <img src="assets/images/section2/bg-section2.jpg" alt="">
                 <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
                     <h3 class="uk-margin-remove">Bottom</h3>
                     <p class="uk-margin-remove">Existem órgãos municipais, estaduais e federais responsáveis pela a fiscalização dessas irregularidades ambientais, mas eles também precisam da ajuda da população nessa luta em prol do meio ambiente.
                     </p>
                 </div>
-            </div>
-        </li>
-        <li class="uk-width-1-1">
-            <div class="uk-panel">
-                <img src="assets/images/section2/bg-section2.jpg" alt="">
-                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
-                    <h3 class="uk-margin-remove">Bottom</h3>
-                    <p class="uk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
         </li>
     </ul>
 
     <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
     <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-  </div> -->
+  </div>
 </sdm-section>
 
 <!-- Seção 4 -->

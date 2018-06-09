@@ -20,4 +20,8 @@
             font-family: $primary-font;
         }
     }
+
+    &__cursor{
+        cursor: pointer;
+    }
 }

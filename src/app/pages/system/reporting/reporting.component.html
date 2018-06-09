@@ -24,7 +24,10 @@
             <input class="uk-input form-report__text" type="text" placeholder="Complemento" name="complement" [(ngModel)]="complement">
         </div>
         <div class="uk-width-1-4@l">
-            <sdm-button [type]="'tertiary'" [btnWidth]="'large'" uk-tooltip="title: Gerar localização automaticamente" (click)="getLocalization()">GERAR LOCALIZAÇÃO</sdm-button>
+            <sdm-button [type]="'tertiary'" [btnWidth]="'large'" uk-tooltip="title: Gerar localização automaticamente" (click)="getLocalization()">
+                <div uk-spinner class="spinner" *ngIf="pickedUp"></div>
+                <div *ngIf="!pickedUp">GERAR LOCALIZAÇÃO</div>
+            </sdm-button>
         </div>
         <div class="uk-width-1-1">
             <input class="uk-input form-report__text" type="text" placeholder="Descrição do Infrator (se houver)" name="violator" [(ngModel)]="violator">
