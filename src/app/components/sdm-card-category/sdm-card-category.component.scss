@@ -16,7 +16,7 @@
                 width: 40vw;
             }
 
-            &__logo{
+            &__logo {
                 height: 25px;
             }
     
@@ -33,7 +33,7 @@
     
             &__textContent{
                 margin: 10px auto;
-                font-size: 12px;
+                font-size: $font-size-text;
                 font-family: $secondary-font;
                 color: $white;
                 padding: 10px;
@@ -41,7 +41,7 @@
 
             &__textOrgan {
                 margin: 15px auto;
-                font-size: 12px;
+                font-size: $font-size-text;
                 font-family: $secondary-font-bold;
                 color: $white;
                 display: flex;

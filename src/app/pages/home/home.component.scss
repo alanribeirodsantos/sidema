@@ -231,7 +231,7 @@
             &__containerimg {
                 text-align: center;
 
-                & img {
+                &__img {
                     width: 350px;
 
                     @include mqMaxWidth('lgx') {
@@ -259,6 +259,7 @@
 
         &__container {
             padding: 0 50px;
+
             &__title {
                 text-align: center;
                 width: 100%;

@@ -37,8 +37,9 @@ export class AppComponent {
                 if (ev.url == this.lastPoppedUrl) {
                     this.lastPoppedUrl = undefined;
                     window.scrollTo(0, this.yScrollStack.pop());
-                } else
+                } else {
                     window.scrollTo(0, 0);
+                }
             }
         });
     }

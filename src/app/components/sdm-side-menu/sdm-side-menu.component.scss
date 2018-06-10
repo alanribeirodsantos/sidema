@@ -58,10 +58,12 @@
             justify-content: center;
             box-sizing: border-box;
             margin: 0px -20px;
+            
             &__option {
                 margin: 5px 0px;
                 width: 100%;
-                a {
+
+                &__link {
                     color: $white;
                     font-family: $primary-font;
                     font-size: $font-size-medium;
