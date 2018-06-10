@@ -42,4 +42,18 @@
       Aqui você pode editar o seu perfil, alterando suas informações básicas e modificando sua senha. Você também pode inserir sua foto de perfil!
     </div>
   </div> 
+  <div class="hints-container__hint uk-margin-bottom" *ngIf="router.url == '/sistema/denuncia/:id'">
+    <div class="hints-container__hint__icon">
+      <i uk-icon="icon: info; ratio: 0.7"></i>
+    </div>
+    <div class="hints-container__hint__text">
+      Aqui você pode visualizar mais detalhes referentes a denúncia selecionada. possível compartilhar a denúncia em rede social e adicionar comentários.
+    </div>
+    <div class="hints-container__hint__icon">
+      <i uk-icon="icon: info; ratio: 0.7"></i>
+    </div>
+    <div class="hints-container__hint__text">
+      Caso a denúncia seja sua, você pode desvinculá-la de sua conta, fazendo assim com que ela passe a ser uma denúncia anônima.
+    </div>
+  </div>
 </div>
