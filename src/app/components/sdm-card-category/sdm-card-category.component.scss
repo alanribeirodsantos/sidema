@@ -1,31 +1,63 @@
 @import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
 
 .card-category{
+    display: inline-block;
+    
     &__container_card{    
         &__card{
-            width: 206px;
-            height: 248px;
+            width: 18vw;
             text-align: center;
             margin: 5px;
+            background-color: rgba($black, $alpha: 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+
+            @include mqMaxWidth('lg') {
+                width: 40vw;
+            }
 
             &__logo{
-                height: 20px;
-                width: 20px;
+                height: 25px;
             }
     
             &__textTitle{
-                font-size: 15px;
-                font-family: $primary-font;
-                padding-top: 10px;
-                padding-right: 8px;
-                color: $black;
+                padding: 0 10px;
+                margin: 20px auto;
+                font-size: 1em;
+                font-family: $primary-font-bold;
+                color: $white;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;  
             }
     
             &__textContent{
+                margin: 10px auto;
                 font-size: 12px;
                 font-family: $secondary-font;
-                color: $black;
+                color: $white;
                 padding: 10px;
+            }
+
+            &__textOrgan {
+                margin: 15px auto;
+                font-size: 12px;
+                font-family: $secondary-font-bold;
+                color: $white;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                cursor: pointer;
+            }
+
+            &__hr {
+                margin: 0;
+                padding: 0;
+                border: 0px;
+                height: 0px;
+                border-top: 1px solid $white;
+                opacity: 0.4;
+                width: 100%;
             }
         }
     }   

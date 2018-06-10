@@ -3,7 +3,11 @@
 
 .sdm-header {
     background: url('/assets/images/main-background.jpg');
-    height: 105px;
+    height: 110px;
+
+    @include mqMaxWidth('md') {
+        height: auto;
+    }
 
     &__layer {
         width: 100%;
@@ -12,12 +16,22 @@
         display: flex;
         justify-content: space-between;
         align-items: center;  
-        padding: 0 65px; 
+        padding: 10px 65px; 
         box-sizing: border-box;
 
-        &__logo {
-            max-width: 100px;
+        @include mqMaxWidth('md') {
+            flex-wrap: wrap;
+            justify-content: center;
         }
+
+        &__logo {
+            max-width: 110px;
+
+            @include mqMaxWidth('md') {
+                padding-bottom: 15px;
+            }
+        }
+
     }
 }
 
@@ -31,6 +45,7 @@
     z-index: z('login_modal');
 
     &__modal {
+        width: 400px;
         position: fixed;
         margin: 0;
         top: 50%;
