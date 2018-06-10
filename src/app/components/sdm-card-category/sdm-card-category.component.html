@@ -1,15 +1,15 @@
 <div *ngFor="let category of categories" class="card-category">
-  <div class="uk-card uk-card-default card-category__container_card__card">
+  <div class="card-category__container_card__card">
     <div class="card-category__container_card__card__textTitle">
-      <img class="uk-border-circle card-category__container_card__card__logo" src="{{category.img}}">
+      <img class="card-category__container_card__card__logo" src="{{category.img}}">
       {{category.category}}
     </div>
+    <hr class="card-category__container_card__card__hr">
     <div *ngFor= "let subcategory of category.subcategory">
-      <div class="uk-heading-divider"></div>
       <div class="card-category__container_card__card__textContent">{{subcategory}}</div>
     </div>
-    <div class="uk-heading-divider"></div>
-    <div href="#modal-group-1" class="container_card__card__textContent uk-button uk-button-text" uk-toggle>ÓRGÃO RESPONSÁVEK: {{category.institute}}</div>          
+    <hr class="card-category__container_card__card__hr">
+    <div href="#modal-group-1" class="card-category__container_card__card__textOrgan" uk-toggle>Órgão responsável: {{category.institute}} <span uk-icon="icon: question; ratio: 0.7;"></span></div>          
   </div>
 </div>
 
