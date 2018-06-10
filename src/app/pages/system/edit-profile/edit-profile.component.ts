@@ -54,7 +54,7 @@ export class EditProfileComponent implements OnInit {
     if(this.newPassword.length > 0 && this.newPassword === this.confirmNewPassword){
       if(this.newPassword.length < 6){
         UIkit.notification({
-          message: "<span uk-icon='icon: ban'></span> Sua senha deve conter pelo menos 6 caracteres!",
+          message: "<span uk-icon='icon: ban'></span> Sua senha deve conter no mínimo 6 caracteres!",
           status: "danger",
           timeout: 1500
         })

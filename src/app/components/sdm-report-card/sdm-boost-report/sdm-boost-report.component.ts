@@ -37,7 +37,7 @@ export class SdmBoostReportComponent implements OnInit {
   boostReport() {
     if(this.user === null){
       UIkit.notification({
-        message: "<span uk-icon='icon: warning'></span> Impulsionar denúncia é somente permitido para usuários logados!",
+        message: "<span uk-icon='icon: warning'></span> Apenas usuários logados podem impulsionar denúncias!",
         status: "warning",
         timeout: 1500
       })
