@@ -42,7 +42,9 @@ export class ReportService {
       if(JSON.parse(localStorage.getItem("user")) !== null){
         if(!checked){
           var userName = JSON.parse(localStorage.getItem("user")).name;
-          this.angularFireDatabase.database.ref("denúncias").child(id).child("log").push({
+          var idLog = this.angularFireDatabase.database.ref().push().key;
+          this.angularFireDatabase.database.ref("denúncias").child(id).child("log").child(idLog).set({
+            id: idLog,
             author: userName,
             date: date,
             hour: hour,
@@ -50,7 +52,9 @@ export class ReportService {
           })
         }
         else {
-          this.angularFireDatabase.database.ref("denúncias").child(id).child("log").push({
+          var idLog = this.angularFireDatabase.database.ref().push().key;
+          this.angularFireDatabase.database.ref("denúncias").child(id).child("log").child(idLog).set({
+            id: idLog,
             author: "Anônimo",
             date: date,
             hour: hour,
@@ -91,7 +95,9 @@ export class ReportService {
                   }
               });
             }, false);
-            this.angularFireDatabase.list(`usuários/${userId}/reports`).push(id);
+            this.angularFireDatabase.database.ref(`usuários/${userId}/reports`).child(id).set({
+              idReport: id
+            });
           }
           else {
             var total = 0;
@@ -123,7 +129,9 @@ export class ReportService {
       }
       else {
         var total = 0;
-        this.angularFireDatabase.database.ref("denúncias").child(id).child("log").push({
+        var idLog = this.angularFireDatabase.database.ref().push().key;
+        this.angularFireDatabase.database.ref("denúncias").child(id).child("log").child(idLog).set({
+          id: idLog,
           author: "Anônimo",
           date: date,
           hour: hour,
@@ -185,6 +193,63 @@ export class ReportService {
       return numberOfSupporters - 1;
     });
     this.angularFireDatabase.object(`usuários/${userId}/boostedReports/${reportId}`).remove();
+  }
+
+  
+
+  unlinkReport(userId, reportId){
+    this.angularFireDatabase.object(`usuários/${userId}/reports/${reportId}`).remove().then( () => {
+      var userLogged = JSON.parse(localStorage.getItem("user"));
+      var reportLog:any;
+      this.getLogReport(reportId).subscribe(
+        data => {
+          reportLog = data;
+          for(let l in reportLog){
+            if(userLogged.name === reportLog[l].author){
+              this.angularFireDatabase.object(`denúncias/${reportId}/log/${reportLog[l].id}/author`).set("Anônimo");
+            }
+          }
+        }
+      )
+      UIkit.notification({
+        message: "<span uk-icon='icon: check'></span> Denúncia desvinculada!",
+        status: "success",
+        timeout: 1500
+      })
+      this.router.navigateByUrl("/sistema");
+    }).catch( () => {
+      UIkit.notification({
+        message: "<span uk-icon='icon: ban'></span> Erro ao desvincular denúncia!",
+        status: "danger",
+        timeout: 1500
+      })
+    });
+  }
+
+  deleteReport(userId, reportId){
+    this.angularFireDatabase.object(`denúncias/${reportId}`).remove().then( () => {
+      var userLogged = JSON.parse(localStorage.getItem("user"));
+      this.angularFireDatabase.object(`usuários/${userId}/reports/${reportId}`).remove().then( () => {
+        UIkit.notification({
+          message: "<span uk-icon='icon: check'></span> Denúncia deletada com sucesso!",
+          status: "success",
+          timeout: 1500
+        })
+        this.router.navigateByUrl("/sistema");
+      }).catch( () => {
+        UIkit.notification({
+          message: "<span uk-icon='icon: ban'></span> Erro ao deletar denúncia!",
+          status: "danger",
+          timeout: 1500
+        })
+      });
+    }).catch( () => {
+      UIkit.notification({
+        message: "<span uk-icon='icon: ban'></span> Erro ao deletar denúncia!",
+        status: "danger",
+        timeout: 1500
+      })
+    });
   }
 
   getLogReport(reportId){
