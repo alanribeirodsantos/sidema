@@ -144,38 +144,6 @@ export class UserService {
               break;
             }
             else this.flag = 0;
-            // else if(flag === 0){
-            //   if(users[u].email !== email || users[u].password !== password){
-            //     if(users[u].email !== email && users[u].password !== password){
-            //       UIkit.notification({
-            //         message: "<span uk-icon='icon: ban'></span> Erro, usuário não existe!",
-            //         status: "danger",
-            //         timeout: 1500
-            //       })
-            //     }
-            //     else if(users[u].email !== email && users[u].password === password){
-            //       UIkit.notification({
-            //         message: "<span uk-icon='icon: ban'></span> E-mail incorreto ou inválido!",
-            //         status: "danger",
-            //         timeout: 1500
-            //       })
-            //     }
-            //     else if(users[u].email === email && users[u].password !== password){
-            //       UIkit.notification({
-            //         message: "<span uk-icon='icon: ban'></span> Senha incorreta!",
-            //         status: "danger",
-            //         timeout: 1500
-            //       })
-            //     }
-            //   }
-            //   else {
-            //     UIkit.notification({
-            //       message: "<span uk-icon='icon: ban'></span> Erro interno!",
-            //       status: "danger",
-            //       timeout: 1500
-            //     })
-            //   }
-            // }
           }
           if(this.flag === 0){
             UIkit.notification({
