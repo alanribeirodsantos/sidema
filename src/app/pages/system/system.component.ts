@@ -1,4 +1,5 @@
 import { Component, Renderer2 } from '@angular/core';
+import { UserService } from '../../backend/services/user/user.service';
 
 @Component({
   selector: 'system',
@@ -7,7 +8,7 @@ import { Component, Renderer2 } from '@angular/core';
 })
 export class SystemComponent {
 
-  constructor(private renderer: Renderer2) {
+  constructor(private renderer: Renderer2, private userService:UserService) {
   }
 
   isMenuOpen:boolean = false;

@@ -17,8 +17,7 @@ export class EditProfileComponent implements OnInit {
   confirmNewPassword:string = "";
   currentPassword:string = "";
   profilePic:any;
-  flag:number = 0;
-  clickedEdit:boolean = false;
+  flag:number = 0;  
   
   constructor(private userService:UserService, private router:Router){}
 
@@ -68,7 +67,6 @@ export class EditProfileComponent implements OnInit {
             users = data;
             for(let u in users){
               if(this.currentPassword === users[u].password){
-                this.clickedEdit = true;
                 this.userService.updateUser(this.name, this.email, this.newPassword, this.profilePic);
                 this.flag = 1;
                 break;
@@ -101,7 +99,6 @@ export class EditProfileComponent implements OnInit {
       })
     }
     else {
-      this.clickedEdit = true;
       this.userService.updateUser(this.name, this.email, this.newPassword, this.profilePic);
     }
   }
