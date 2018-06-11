@@ -95,7 +95,6 @@ export class ReportService {
                   }
               });
             }, false);
-            // var idReportUser = this.angularFireDatabase.database.ref().push().key;
             this.angularFireDatabase.database.ref(`usuários/${userId}/reports`).child(id).set({
               idReport: id
             });
