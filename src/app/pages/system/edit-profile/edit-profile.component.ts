@@ -18,6 +18,7 @@ export class EditProfileComponent implements OnInit {
   currentPassword:string = "";
   profilePic:any;
   flag:number = 0;
+  clickedEdit:boolean = false;
   
   constructor(private userService:UserService, private router:Router){}
 
@@ -42,6 +43,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   editProfile(){
+    var userLogged = JSON.parse(localStorage.getItem("user"));
     if(this.profilePic !== undefined){
       if(this.profilePic.size > 2097152){
         UIkit.notification({
@@ -66,6 +68,7 @@ export class EditProfileComponent implements OnInit {
             users = data;
             for(let u in users){
               if(this.currentPassword === users[u].password){
+                this.clickedEdit = true;
                 this.userService.updateUser(this.name, this.email, this.newPassword, this.profilePic);
                 this.flag = 1;
                 break;
@@ -97,6 +100,9 @@ export class EditProfileComponent implements OnInit {
         timeout: 1500
       })
     }
-    else this.userService.updateUser(this.name, this.email, this.newPassword, this.profilePic);
+    else {
+      this.clickedEdit = true;
+      this.userService.updateUser(this.name, this.email, this.newPassword, this.profilePic);
+    }
   }
 }
