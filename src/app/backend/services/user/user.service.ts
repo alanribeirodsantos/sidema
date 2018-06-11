@@ -17,8 +17,6 @@ export class UserService {
   storageRef:AngularFireStorageReference;
   taskUpload:AngularFireUploadTask;
   percentage:any;
-  changedEmail:boolean = false;
-  changedPass:boolean = false;
 
   constructor(private angularFireAuth:AngularFireAuth, private angularFireDatabase:AngularFireDatabase, private router:Router, private angularFireStorage:AngularFireStorage) {}
 
@@ -66,79 +64,60 @@ export class UserService {
   }
 
   updateUser(name, email, newPassword, profilePic){
-    var credentialsChanged = localStorage.getItem("credentialsChanged");
-    if(credentialsChanged === "true" && profilePic == undefined){
-      this.logout();
-      UIkit.notification({
-        message: "<span uk-icon='icon: warning'></span> Você trocou suas credenciais recentemente! É necessário fazer login para continuar.",
-        status: "warning",
-        timeout: 3000
-      })
-    }
-    else {
-      var users:any;
-      var user = firebase.auth().currentUser;
-      this.getUsers().subscribe(
-        data => {
-          users = data;
-          for(let u in users){
-            if(users[u].id === user.uid){
-              if(users[u].name !== name && name.length > 0){
-                this.angularFireDatabase.object(`/usuários/${user.uid}/name`).set(name)
+    var users:any;
+    var user = JSON.parse(localStorage.getItem("user"));
+    this.getUsers().subscribe(
+      data => {
+        users = data;
+        for(let u in users){
+          if(users[u].id === user.id){
+            if(users[u].name !== name && name.length > 0){
+              this.angularFireDatabase.object(`/usuários/${user.id}/name`).set(name)
+              .then( () => {
+                var userLocal = JSON.parse(localStorage.getItem("user"));
+                userLocal.name = name;
+                localStorage.setItem("user", JSON.stringify(userLocal));               
+              }).catch( (error) => console.log(error.message));
+              user.updateProfile({displayName: name, photoURL: ""});
+            }
+            else if(users[u].email !== email && email.length > 0){
+              this.angularFireDatabase.object(`/usuários/${user.id}/email`).set(email)
+              .then( () => {
+                var userLocal = JSON.parse(localStorage.getItem("user"));
+                userLocal.email = email;
+                localStorage.setItem("user", JSON.stringify(userLocal));
+              }).catch( (error) => console.log(error.code));
+              
+            }
+            else if(newPassword.length > 0){
+              if(users[u].password !== undefined){
+                this.angularFireDatabase.object(`/usuários/${user.id}/password`).set(newPassword)
                 .then( () => {
-                  var userLocal = JSON.parse(localStorage.getItem("user"));
-                  userLocal.name = name;
-                  localStorage.setItem("user", JSON.stringify(userLocal));               
-                }).catch( (error) => console.log(error.message));
-                user.updateProfile({displayName: name, photoURL: ""});
-              }
-              else if(users[u].email !== email && email.length > 0){
-                this.angularFireDatabase.object(`/usuários/${user.uid}/email`).set(email)
-                .then( () => {
-                  var userLocal = JSON.parse(localStorage.getItem("user"));
-                  userLocal.email = email;
-                  localStorage.setItem("user", JSON.stringify(userLocal));
-                  var temp = true;
-                  localStorage.setItem("credentialsChanged", JSON.stringify(temp));
-                  this.changedEmail = true;
                 }).catch( (error) => console.log(error.code));
-                user.updateEmail(email).then( () => console.log("update email")).catch( (error) => console.log(error.code));
-                
               }
-              else if(newPassword.length > 0){
-                if(users[u].password !== undefined){
-                  this.angularFireDatabase.object(`/usuários/${user.uid}/password`).set(newPassword)
-                  .then( () => {
-                    var temp = true;
-                    localStorage.setItem("credentialsChanged", JSON.stringify(temp));
-                    this.changedPass = true;
-                  }).catch( (error) => console.log(error.code));
-                  var credentials = firebase.auth.EmailAuthProvider.credential(email, users[u].password);
-                  user.reauthenticateAndRetrieveDataWithCredential(credentials).then( () => console.log("reauth pass ok")).catch( (error) => console.log(error.code));
-                  user.updatePassword(newPassword).then( () => console.log("update password")).catch( (error) => console.log(error.code));
-                }
-              }
-              else if(profilePic !== undefined ){
-                var userId = JSON.parse(localStorage.getItem("user")).id;
-                this.storageRef = this.angularFireStorage.ref(`/images/${userId}`);
-                this.storageRef.put(profilePic);
-              }
+            }
+            else if(profilePic !== undefined ){
+              var userId = JSON.parse(localStorage.getItem("user")).id;
+              this.storageRef = this.angularFireStorage.ref(`/images/${userId}`);
+              this.storageRef.put(profilePic);
+            }
+            window.setTimeout( () => {
               UIkit.notification({
                 message: "<span uk-icon='icon: check'></span> Seu perfil foi atualizado com sucesso!",
                 status: "success",
                 timeout: 1500
-              })
-              window.setTimeout( () => {
-                window.location.reload();
-                this.router.navigateByUrl("/sistema");
-              }, 3000);
-              break;
-            }        
+              });
+            }, 1500);
+            window.setTimeout( () => {
+              window.location.reload();
+              this.router.navigateByUrl("/sistema");
+            }, 3000);
+            break;
           }
-        },
-        error => console.log(error)
-      )
-    }
+        }
+      },
+      error => console.log(error)
+    )
   }
 
   login(email, password){
@@ -150,61 +129,64 @@ export class UserService {
       })
     }
     else {
-      this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
-      .then( () => {
-        var email = this.angularFireAuth.auth.currentUser.email;
-        var users:any;
-        this.getUsers().subscribe(
-          data => {
-            users = data;
-            for(let u in users){
-              if(users[u].email === email){
-                this.user = users[u].name;
-                var userLogged = { 
-                  id: users[u].id,
-                  name: users[u].name,
-                  email: users[u].email,
+      var users:any;
+      var flag:number = 0;
+      this.getUsers().subscribe(
+        data => {
+          users = data;
+          for(let u in users){
+            if(users[u].email === email && users[u].password === password){
+              this.user = users[u].name;
+              var userLogged = {
+                id: users[u].id,
+                name: users[u].name,
+                email: users[u].email
+              }
+              localStorage.setItem("user", JSON.stringify(userLogged));
+              this.router.navigateByUrl("/sistema/denuncias");
+              flag = 1;
+              break;
+            }
+            else if(flag === 0){
+              if(users[u].email !== email || users[u].password !== password){
+                if(users[u].email !== email && users[u].password !== password){
+                  UIkit.notification({
+                    message: "<span uk-icon='icon: ban'></span> Erro, usuário não existe!",
+                    status: "danger",
+                    timeout: 1500
+                  })
+                  break;
                 }
-                localStorage.setItem("user", JSON.stringify(userLogged));
+                else if(users[u].email !== email && users[u].password === password){
+                  UIkit.notification({
+                    message: "<span uk-icon='icon: ban'></span> E-mail incorreto ou inválido!",
+                    status: "danger",
+                    timeout: 1500
+                  })
+                  break;
+                }
+                else if(users[u].email === email && users[u].password !== password){
+                  UIkit.notification({
+                    message: "<span uk-icon='icon: ban'></span> Senha incorreta!",
+                    status: "danger",
+                    timeout: 1500
+                  })
+                  break;
+                }
+              }
+              else {
+                UIkit.notification({
+                  message: "<span uk-icon='icon: ban'></span> Erro interno!",
+                  status: "danger",
+                  timeout: 1500
+                })
                 break;
               }
             }
-            this.router.navigateByUrl("/sistema/denuncias");
-          },
-          error => console.log(error)
-        )
-      })
-      .catch( (error) => {
-        if(error.code === "auth/user-not-found"){
-          UIkit.notification({
-            message: "<span uk-icon='icon: ban'></span> Erro, usuário não existe!",
-            status: "danger",
-            timeout: 1500
-          })
-        }
-        else if(error.code === "auth/wrong-password"){
-          UIkit.notification({
-            message: "<span uk-icon='icon: ban'></span> A senha está incorreta!",
-            status: "danger",
-            timeout: 1500
-          })
-        }
-        else if(error.code === "auth/invalid-email"){
-          UIkit.notification({
-            message: "<span uk-icon='icon: ban'></span> O e-mail é inválido ou está incorreto!",
-            status: "danger",
-            timeout: 1500
-          })
-        }
-        else if(error.code === "auth/network-request-failed"){
-          UIkit.notification({
-            message: "<span uk-icon='icon: ban'></span> Erro, sem conexão com a internet!",
-            status: "danger",
-            timeout: 1500
-          })
-        }
-        else UIkit.notification({message: "<span uk-icon='icon: ban'></span> Erro interno!", status: "danger", timeout: 3000})
-      })
+          }
+        },
+        error => console.log(error)
+      )
     }
   }
 
@@ -292,9 +274,7 @@ export class UserService {
   logout(){
     this.angularFireAuth.auth.signOut().then( () => {
       this.router.navigateByUrl("/home");
-      localStorage.setItem("user", "null");
-      var temp = false;
-      localStorage.setItem("credentialsChanged", JSON.stringify(temp));
+      localStorage.setItem("user", "null");      
     });
   }
 

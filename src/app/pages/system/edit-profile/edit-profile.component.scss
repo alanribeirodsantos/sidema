@@ -1,13 +1,16 @@
 @import "~assets/sass-utils/variables";
 .form-editProfile {
-
     &__title {
         font-family: $primary-font-bold;
         color: $primary-color;
         font-size: $font-size-title;
         margin-bottom: 20px;
     }
-    
+    &__spinner {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
     &__form {
         &__subtitle {
             font-family: $primary-font;
@@ -22,8 +25,7 @@
             font-family: $primary-font;
         }
     }
-
-    &__cursor{
+    &__cursor {
         cursor: pointer;
     }
 }
