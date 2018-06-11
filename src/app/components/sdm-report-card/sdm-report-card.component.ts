@@ -10,6 +10,7 @@ export class SdmReportCardComponent implements OnInit {
 
   @Input() logged:boolean;
   @Input() report:any;
+  reports:any;
   isMine:boolean = false;
   routerLinkUrl:string = '';
 
@@ -26,8 +27,9 @@ export class SdmReportCardComponent implements OnInit {
     if(user !== null){
       this.userService.getUserReports(user.id).subscribe(
         data => {
-          for(let r in data){
-            if(data[r] === this.report.id){
+          this.reports = data;
+          for(let r in this.reports){
+            if(this.reports[r].idReport === this.report.id){
               this.isMine = true;
             }
           }

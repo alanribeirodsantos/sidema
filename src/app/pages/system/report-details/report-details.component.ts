@@ -15,9 +15,11 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
 
   commentary: string;
   report:any;
+  reports:any;
   user:any;
   organ:string;
   category:string;
+  complement:string;
   log:any;
   comments:any;
   medias:any;
@@ -43,8 +45,9 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
       var userId = this.user.id;
       this.userService.getUserReports(userId).subscribe(
         data => {
-          for(let r in data){
-            if(data[r] === this.report.id){
+          this.reports = data;
+          for(let r in this.reports){
+            if(this.reports[r].idReport === this.report.id){
               this.isMine = true;
             }
           }
@@ -120,6 +123,11 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
   }
 
   responsibleOrgan() {
+    if(this.report.complement === ""){
+      this.complement = "Não informado";
+    }
+    else this.complement = this.report.complement;
+
     if(this.report.category === "historical-patrimony"){
       this.category = "Patrimônio Histórico";
       this.organ = "SEMA";
@@ -133,7 +141,7 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
       this.organ = "SEDUMA";
     }
     else if(this.report.category === "vegetation"){
-      this.category = "Vegetation";
+      this.category = "Vegetação";
       this.organ = "SEDUMA";
     }
   }
@@ -150,5 +158,13 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
       message: this.commentary
     }
     this.reportService.commentOnReport(this.report.id, comment);
+  }
+
+  unlinkReport(){
+    this.reportService.unlinkReport(this.user.id, this.report.id);
+  }
+
+  deleteReport(){
+    this.reportService.deleteReport(this.user.id, this.report.id);
   }
 }

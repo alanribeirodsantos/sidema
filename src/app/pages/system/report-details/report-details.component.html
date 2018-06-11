@@ -37,7 +37,7 @@
             <b>Bairro:</b> {{report.neighborhood}}<br>
             <b>Logradouro:</b> {{report.address}}<br>
             <b>Número:</b> {{report.number}}<br>
-            <b>Complemento:</b> {{report.complement}}
+            <b>Complemento:</b> {{complement}}
         </div>
 
         <div class="report-content__section-title">Detalhes Adicionais</div>
@@ -55,8 +55,8 @@
         </div>
         <sdm-button *ngIf="isMine" [type]="'primary'" [btnWidth]="'large'" uk-tooltip="pos: left; title: Se você viu que o problema foi resolvido mas não foi atualizado no sistema, você pode marcar essa denúncia como resolvida">Finalizar Denúncia</sdm-button>
         <div class="uk-margin-small-bottom"></div>
-        <sdm-button *ngIf="isMine" [type]="'danger-secondary'" [btnWidth]="'large'" uk-tooltip="pos: left; title: A denúncia não será mais vinculada ao seu usuário e se tornará anônima">Desvincular Denúncia</sdm-button>
+        <sdm-button *ngIf="isMine" [type]="'danger-secondary'" [btnWidth]="'large'" uk-tooltip="pos: left; title: A denúncia não será mais vinculada ao seu usuário e se tornará anônima" (click)="unlinkReport()">Desvincular Denúncia</sdm-button>
         <div class="uk-margin-small-bottom"></div>
-        <sdm-button *ngIf="isMine" [type]="'danger'" [btnWidth]="'large'">Deletar Denúncia</sdm-button>
+        <sdm-button *ngIf="isMine" [type]="'danger'" [btnWidth]="'large'" (click)="deleteReport()">Deletar Denúncia</sdm-button>
     </div>
 </div>
