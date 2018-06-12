@@ -6,11 +6,6 @@
         font-size: $font-size-title;
         margin-bottom: 20px;
     }
-    &__spinner {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-    }
     &__form {
         &__subtitle {
             font-family: $primary-font;
