@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../backend/services/user/user.service';
 import { Router } from '@angular/router';
+import { AngularFireStorage } from 'angularfire2/storage';
 import * as UIkit from 'uikit';
 
 @Component({
@@ -17,32 +18,36 @@ export class EditProfileComponent implements OnInit {
   confirmNewPassword:string = "";
   currentPassword:string = "";
   profilePic:any;
-  flag:number = 0;  
+  flag:number = 0;
+  userRef:any;
+  userPhoto:any;
   
-  constructor(private userService:UserService, private router:Router){}
+  constructor(private userService:UserService, private angularFireStorage:AngularFireStorage, private router:Router){}
 
   ngOnInit(){
     var user = JSON.parse(localStorage.getItem("user"));
     this.name = user.name;
     this.email = user.email;
+
+    this.userRef = this.angularFireStorage.ref(`images/${user.id}`);
+    this.userRef.getDownloadURL().subscribe(
+      url => {
+        this.userPhoto = url;
+      },
+      error => this.userPhoto = "/assets/images/user-default.png"
+    )
   }
 
-  changeProfilePic(event){  
-    document.getElementsByClassName("form-editProfile__form__filePicker")[0].addEventListener("click", () => {
-      event.target.value = null;
-    })
+  changeProfilePic(event){
     this.profilePic = event.target.files[0];
     var reader = new FileReader();
     reader.addEventListener("loadend", () => {
-      var photo = document.getElementById("photo");
-      photo.style.background = `url(${reader.result}) no-repeat`;
-      photo.style.backgroundSize = "cover";
+      this.userPhoto = reader.result;
     }, false);
     reader.readAsDataURL(this.profilePic);
   }
 
   editProfile(){
-    var userLogged = JSON.parse(localStorage.getItem("user"));
     if(this.profilePic !== undefined){
       if(this.profilePic.size > 2097152){
         UIkit.notification({

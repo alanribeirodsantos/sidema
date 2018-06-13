@@ -8,14 +8,15 @@ import { UserService } from '../../backend/services/user/user.service';
 })
 export class SdmReportCardComponent implements OnInit {
 
-  @Input() logged:boolean;
   @Input() report:any;
   reports:any;
   isMine:boolean = false;
   routerLinkUrl:string = '';
+  user:any;
 
   constructor(private userService:UserService){
-    if (this.logged){
+    this.user = JSON.parse(localStorage.getItem("user"));
+    if (this.user !== null){
       this.routerLinkUrl = '/sistema/denuncia/';
     }else{
       this.routerLinkUrl = '/denuncia';
@@ -23,9 +24,8 @@ export class SdmReportCardComponent implements OnInit {
   }
 
   ngOnInit(){
-    var user = JSON.parse(localStorage.getItem("user"));
-    if(user !== null){
-      this.userService.getUserReports(user.id).subscribe(
+    if(this.user !== null){
+      this.userService.getUserReports(this.user.id).subscribe(
         data => {
           this.reports = data;
           for(let r in this.reports){

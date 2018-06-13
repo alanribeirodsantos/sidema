@@ -1,5 +1,5 @@
 import { Component, Output, Input, EventEmitter } from '@angular/core';
-import { ReportService } from '../../backend/services/report/report.service';
+// import { ReportService } from '../../backend/services/report/report.service';
 import * as UIkit from 'uikit';
 
 @Component({
@@ -16,7 +16,7 @@ export class SdmUploadMediaComponent {
   mediaAux:any;
   mediaList:Array<any> = [];
 
-  constructor(private reportService:ReportService) {}
+  constructor() {}
 
   selectedMedias(event){
     this.mediaAux = Array.from(event.target.files);

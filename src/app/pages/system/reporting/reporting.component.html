@@ -63,7 +63,10 @@
         </div>
         <span class="form-report__subtitle uk-width-1-1">Mídias*</span>
 
-        <sdm-upload-media [uploading]="report" [percentage]="this.reportService.percentage | async" (sendMedias)="saveMedias($event)"></sdm-upload-media>
+        <sdm-upload-media [uploading]="report"
+                          [percentage]="this.reportService.percentage | async"
+                          (sendMedias)="saveMedias($event)">
+        </sdm-upload-media>
 
         <div class="uk-margin uk-width-1-1" *ngIf="router.url == '/sistema/denunciar'">
             <label class="form-report__text"><input class="uk-checkbox" type="checkbox" (click)="check()"> Denunciar de forma Anônima</label>
