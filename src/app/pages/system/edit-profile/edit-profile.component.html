@@ -20,10 +20,21 @@
             <div *ngIf="edit && !currentpassword.valid" class="uk-alert-danger form-editProfile__error-message">Informe sua senha atual antes de salvar as alterações!</div>
         </div>
         <span class="form-editProfile__form__subtitle uk-width-1-1">Atualizar Foto</span>
-        <div class="uk-width-1-1">
-            <div uk-form-custom uk-tooltip="title: Insira uma nova foto de perfil">
-                <input id="photo" class="form-editProfile__form__filePicker" type="file" accept=".png, .jpg, .jpeg" (change)="changeProfilePic($event)">
-                <div type="button" class="form-editProfile__form__photo uk-button uk-button-default uk-card uk-card-body form-editProfile__cursor" uk-icon="icon: plus"></div>
+        <div class="form-editProfile__form__update-profile-pic uk-width-1-1">
+            <div class="form-editProfile__form__update-profile-pic__container"
+                 [style.backgroundImage]="'url(' + userPhoto + ')'">
+                <div class="form-editProfile__form__update-profile-pic__container__input-container"
+                     uk-form-custom
+                     uk-tooltip="title: Insira uma nova foto de perfil; pos: right">
+                    <input class="form-editProfile__form__update-profile-pic__container__input-container__filePicker"
+                           type="file"
+                           accept=".png, .jpg, .jpeg"
+                           (change)="changeProfilePic($event)">
+                    <div type="button"
+                         class="form-editProfile__form__update-profile-pic__container__input-container__button uk-button uk-button-default"
+                         uk-icon="icon: camera">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="uk-margin uk-width-1-2@s">

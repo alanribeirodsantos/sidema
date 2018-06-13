@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ReportService } from '../../../backend/services/report/report.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 
@@ -9,10 +9,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class ReportsListComponent {
 
-  @Input() logged:boolean;
-
   reportsList:any[];
-
   searchTag:string = "";
   orderField:string = "";
   filterCategory:string = "";

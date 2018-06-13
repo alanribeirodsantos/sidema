@@ -62,14 +62,12 @@
             </div>
         </div>
         <span class="form-report__subtitle uk-width-1-1">Mídias*</span>
-        <div class="uk-width-1-1">
-            <div uk-form-custom uk-tooltip="title: Insira uma mídia sobre a denúncia">
-                <input class="filePicker" type="file" accept=".png, .jpg, .jpeg, .mp4, .avi, .mpeg, .mp3, .wav, .ogg" (change)="selectedMedias($event)" value="media" multiple="multiple">
-                <div type="button" class="uk-button uk-button-default uk-card uk-card-body" uk-icon="icon: plus"></div>
-            </div>
-            <div class="list-media"></div>
-        </div>
-        <progress *ngIf="report" class="uk-progress" value="{{this.reportService.percentage | async}}" max="100"></progress>
+
+        <sdm-upload-media [uploading]="report"
+                          [percentage]="this.reportService.percentage | async"
+                          (sendMedias)="saveMedias($event)">
+        </sdm-upload-media>
+
         <div class="uk-margin uk-width-1-1" *ngIf="router.url == '/sistema/denunciar'">
             <label class="form-report__text"><input class="uk-checkbox" type="checkbox" (click)="check()"> Denunciar de forma Anônima</label>
         </div>

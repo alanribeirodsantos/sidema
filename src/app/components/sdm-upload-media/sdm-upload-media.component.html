@@ -1,0 +1,25 @@
+<div class="sdm-upload-media">
+  <div class="sdm-upload-media__container">
+    <div class="sdm-upload-media__container__input-container" uk-form-custom uk-tooltip="title: Insira uma mídia sobre a denúncia">
+        <input class="sdm-upload-media__container__input-container__filePicker"
+               type="file"
+               accept=".png, .jpg, .jpeg, .mp4, .avi, .mpeg, .mp3, .wav, .ogg"
+               (change)="selectedMedias($event)"
+               value="media"
+               multiple="multiple">
+        <div type="button" class="sdm-upload-media__container__input-container__button uk-button uk-button-default" uk-icon="icon: plus"></div>
+    </div>
+  </div>
+
+  <div class="sdm-upload-media__media-list">
+    <sdm-media *ngFor="let media of mediaList; index as i"
+               [background]="media.background"
+               (deleteMedia)="deleteMedia(i)">
+    </sdm-media>
+  </div>
+</div>
+<progress *ngIf="uploading"
+            class="uk-progress"
+            value="{{percentage}}"
+            max="100">
+</progress>
