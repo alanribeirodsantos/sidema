@@ -47,7 +47,9 @@ import { ReportComponent } from './pages/report/report.component';
 import { ConsultReportsComponent } from './pages/consult-reports/consult-reports.component';
 import { SdmCardCategoryComponent } from './components/sdm-card-category/sdm-card-category.component';
 import { SdmBackToTopComponent } from './components/sdm-back-to-top/sdm-back-to-top.component';
-import { ReportDetailsLoggedOffComponent } from './pages/report-details-logged-off/report-details-logged-off.component'
+import { ReportDetailsLoggedOffComponent } from './pages/report-details-logged-off/report-details-logged-off.component';
+import { SdmUploadMediaComponent } from './components/sdm-upload-media/sdm-upload-media.component';
+import { SdmMediaComponent } from './components/sdm-upload-media/sdm-media/sdm-media.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASY7GlvEimsp0Gqv1H6qvwdX_w6AI0m6Y",
@@ -96,7 +98,9 @@ export const firebaseConfig = {
     ConsultReportsComponent,
     SdmCardCategoryComponent,
     SdmBackToTopComponent,
-    ReportDetailsLoggedOffComponent
+    ReportDetailsLoggedOffComponent,
+    SdmUploadMediaComponent,
+    SdmMediaComponent,
   ],
   imports: [
     BrowserModule,

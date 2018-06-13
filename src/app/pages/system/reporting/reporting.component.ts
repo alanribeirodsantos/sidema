@@ -31,7 +31,6 @@ export class ReportingComponent implements OnInit {
   category:string = "";
   subcategory:string = "";
   media:Array<any> = [];
-  mediaAux:any;
   mediaSize:any;
   checkbox:boolean = false;
   hour = new Date().toLocaleTimeString('pt-BR', {hour: "numeric", minute: "numeric"});
@@ -53,7 +52,11 @@ export class ReportingComponent implements OnInit {
   sendReport() {
     this.report = true;
     if(this.title.length == 0 || this.description.length == 0 || this.address.length == 0 || this.neighborhood.length == 0 || this.category.length == 0 || this.subcategory.length == 0 || this.media.length == 0){
-      console.log("Existem campos de preenchimento obrigatório em branco!")
+      UIkit.notification({
+        message: "<span uk-icon='icon: ban'></span> Existem campos obrigatórios em branco!",
+        status: "danger",
+        timeout: 1500
+      })
     }
     else{
       let date = new Date();
@@ -77,46 +80,17 @@ export class ReportingComponent implements OnInit {
     });
   }
 
-  check(){
+  check() {
     this.checkbox = !this.checkbox;
     console.log(this.checkbox);
   }
 
-  selectedMedias(event){
-      document.getElementsByClassName("filePicker")[0].addEventListener("click", () => {
-        event.target.value = null;
-      })
-      this.mediaAux = Array.from(event.target.files);
-      [].forEach.call(this.mediaAux, (media, index) => {
-        console.log(this.mediaAux);
-        this.mediaSize += media.size;
-        var reader = new FileReader();
-        reader.addEventListener("load", () => {
-          var div = document.createElement("div");
-          div.style.width = "100px";
-          div.style.height = "100px";
-          div.style.marginRight = "10px";
-          div.addEventListener("click", () => {
-            div.parentNode.removeChild(div);
-            this.mediaAux.splice(index, 1);
-            this.media.splice(this.media.indexOf(media), 1);
-          })
-          if(media.type === "audio/mp3" || media.type === "audio/ogg" || media.type === "audio/wav"){
-            div.style.background = "url('../../../assets/images/audio.png') no-repeat";
-            div.style.backgroundSize = "cover";
-          }
-          else if(media.type === "video/mp4" || media.type === "video/avi" || media.type === "video/mpeg"){
-            div.style.background = "url('../../../assets/images/video.png') no-repeat";
-            div.style.backgroundSize = "cover";
-          }
-          else{
-            div.style.background = `url(${reader.result}) no-repeat`;
-            div.style.backgroundSize = "cover";
-          }
-          document.getElementsByClassName("list-media")[0].appendChild(div);
-        }, false);
-        reader.readAsDataURL(media);
-      })
-      this.media = this.media.concat(this.mediaAux);
+  saveMedias(event) {
+    this.media = [];
+    for(let i in event) {
+      this.media.push(event[i].value);
+      this.mediaSize += event[i].value.size;
+    }
+    console.log(this.media);
   }
 }

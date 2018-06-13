@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ReportService } from '../../../backend/services/report/report.service';
 import { UserService } from '../../../backend/services/user/user.service';
-import { AngularFireStorage } from 'angularfire2/storage';
+import { AngularFireStorage, AngularFireStorageModule } from 'angularfire2/storage';
 import { Router } from '@angular/router';
 
 @Component({
