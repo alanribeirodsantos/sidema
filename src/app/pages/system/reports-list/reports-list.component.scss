@@ -4,7 +4,7 @@
 .reports-list {
 
     &__header {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -12,8 +12,8 @@
 
         &__title {
             font-family: $primary-font-bold;
-            font-size: $font-size-title-large;
             color: $primary-color;
+            font-size: $font-size-title-big;
         }
 
         &__search-and-filter {
@@ -36,7 +36,7 @@
         justify-content: center;
         
         &__container {
-            width: 80%;
+            width: 100%;
         }
     }
 }

@@ -1,5 +1,6 @@
-<div class="report-title">{{report.title}}</div>
-<sdm-report-status [status]="report.status"></sdm-report-status>
+<div class="report-title">{{report.title}}
+    <sdm-report-status [status]="report.status" class="uk-margin-left"></sdm-report-status>
+</div>
 
 <div class="report-content" uk-grid>
     <div class="uk-width-expand@m">
@@ -16,7 +17,8 @@
             </div>
         </div>
 
-        <div class="report-content__section-title" *ngIf="hasComments">Comentários</div>
+        <div class="report-content__section-title">Comentários</div>
+        <div class="report-content__section-description" *ngIf="!hasComments">Essa denúncia ainda não possuí comentários.</div>
         <div class="report-content__section-description" *ngIf="hasComments">
             <div *ngFor="let comment of comments">
                 <article class="uk-comment uk-margin-small-bottom">
@@ -33,7 +35,7 @@
     <div class="uk-width-1-3@m">
         <div class="report-content__section-title">Localização</div>
         <div class="report-content__section-description">
-            <img src="https://maps.googleapis.com/maps/api/staticmap?center={{report.address}} - {{report.neighborhood}}, {{place}}&zoom=15&size=170x170&scale=2&key=AIzaSyBXyKK61RQc67FPWJsCg_5x3gY8qrvQK9E"><br>
+            <img src="https://maps.googleapis.com/maps/api/staticmap?center={{report.address}} - {{report.neighborhood}}, {{place}}&zoom=15&size=170x170&scale=2&key=AIzaSyBXyKK61RQc67FPWJsCg_5x3gY8qrvQK9E"><p>
             <b>Bairro:</b> {{report.neighborhood}}<br>
             <b>Logradouro:</b> {{report.address}}<br>
             <b>Número:</b> {{report.number}}<br>

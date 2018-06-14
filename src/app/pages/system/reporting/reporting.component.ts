@@ -34,6 +34,7 @@ export class ReportingComponent implements OnInit {
   mediaSize:any;
   checkbox:boolean = false;
   hour = new Date().toLocaleTimeString('pt-BR', {hour: "numeric", minute: "numeric"});
+  isLoading:boolean = false;
 
   ngOnInit(){
     if(navigator.geolocation){
@@ -51,7 +52,9 @@ export class ReportingComponent implements OnInit {
 
   sendReport() {
     this.report = true;
+    this.isLoading = true;
     if(this.title.length == 0 || this.description.length == 0 || this.address.length == 0 || this.neighborhood.length == 0 || this.category.length == 0 || this.subcategory.length == 0 || this.media.length == 0){
+      this.isLoading = false;
       UIkit.notification({
         message: "<span uk-icon='icon: ban'></span> Existem campos obrigatórios em branco!",
         status: "danger",
