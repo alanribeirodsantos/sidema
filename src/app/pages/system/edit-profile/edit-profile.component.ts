@@ -21,6 +21,7 @@ export class EditProfileComponent implements OnInit {
   flag:number = 0;
   userRef:any;
   userPhoto:any;
+  isLoading:boolean = false;
   
   constructor(private userService:UserService, private angularFireStorage:AngularFireStorage, private router:Router){}
 
@@ -48,8 +49,10 @@ export class EditProfileComponent implements OnInit {
   }
 
   editProfile(){
+    this.isLoading = true;
     if(this.profilePic !== undefined){
       if(this.profilePic.size > 2097152){
+        this.isLoading = false;
         UIkit.notification({
           message: "<span uk-icon='icon: ban'></span> A foto excede os 2MB permitidos!",
           status: "danger",
@@ -59,6 +62,7 @@ export class EditProfileComponent implements OnInit {
     }
     if(this.newPassword.length > 0 && this.newPassword === this.confirmNewPassword){
       if(this.newPassword.length < 6){
+        this.isLoading = false;
         UIkit.notification({
           message: "<span uk-icon='icon: ban'></span> Sua senha deve conter no mínimo 6 caracteres!",
           status: "danger",
@@ -89,6 +93,7 @@ export class EditProfileComponent implements OnInit {
         )
       }
       else {
+        this.isLoading = false;
         UIkit.notification({
           message: "<span uk-icon='icon: ban'></span> É necessário digitar a senha atual!",
           status: "danger",
@@ -97,6 +102,7 @@ export class EditProfileComponent implements OnInit {
       }
     }
     else if(this.newPassword !== this.confirmNewPassword){
+      this.isLoading = false;
       UIkit.notification({
         message: "<span uk-icon='icon: ban'></span> As senhas não correspondem!",
         status: "danger",

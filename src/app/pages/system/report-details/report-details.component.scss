@@ -1,13 +1,14 @@
 @import '~assets/sass-utils/variables.scss';
 .report-title {
     font-family: $primary-font-bold;
-    font-size: $font-size-title-large;
+    font-size: $font-size-title-big;
     color: $primary-color;
     margin-bottom: 10px;
 }
 
 .report-content {
     margin-top: 25px;
+
     &__section-title {
         font-family: $primary-font-bold;
         color: $black;

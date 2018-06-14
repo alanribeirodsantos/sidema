@@ -31,10 +31,15 @@
             }
         }
         &__user-image-container {
+            align-self: center;
+            width: 140px;
+            height: 140px;
             margin-bottom: 10px;
+            overflow: hidden;
+            border-radius: 50%;
+
             &__image {
-                width: 60%;
-                border-radius: 50%;
+                min-height: 140px;
             }
         }
         &__welcome-text {

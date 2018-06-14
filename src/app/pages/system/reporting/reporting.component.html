@@ -1,5 +1,5 @@
 <section class="form-report">
-    <header class="form-report__title">Registrar nova denúncia</header>
+    <header class="form-report__title">Registrar Denúncia</header>
     <form class="uk-grid-small" uk-grid>
         <div class="uk-width-1-1">
             <input class="uk-input form-report__text" type="text" #reportTitle="ngModel" placeholder="Título da Denúncia*" name="title" [(ngModel)]="title" required>
@@ -14,7 +14,7 @@
             <div *ngIf="report && !reportAddress.valid" class="uk-alert-danger form-report__error-message">Informe o endereço relacionado a denúncia</div>
         </div>
         <div class="uk-width-1-4@s">
-            <input class="uk-input form-report__text" type="text" placeholder="Número" name="number" [(ngModel)]="number">
+            <input class="uk-input form-report__text" type="text" placeholder="Número*" name="number" [(ngModel)]="number">
         </div>
         <div class="uk-width-1-4@s">
             <input class="uk-input form-report__text" type="text" #reportNeighborhood="ngModel" placeholder="Bairro*" name="neighborhood" [(ngModel)]="neighborhood" required>
@@ -72,7 +72,9 @@
             <label class="form-report__text"><input class="uk-checkbox" type="checkbox" (click)="check()"> Denunciar de forma Anônima</label>
         </div>
         <div class="uk-margin uk-width-1-2@m">
-            <sdm-button [type]="'quaternary'" [btnWidth]="'large'" (click)="sendReport()">ENVIAR DENÚNCIA</sdm-button>
+            <sdm-button [type]="'quaternary'" [btnWidth]="'large'" (click)="sendReport()">
+                <div *ngIf="!isLoading">Enviar Denúncia</div>
+                <div *ngIf="isLoading"><div uk-spinner="ratio: 0.9"></div></div></sdm-button>
         </div>
         <div class="uk-margin uk-width-1-2@s" *ngIf="router.url == '/sistema/denunciar'">
             <sdm-button [type]="'danger-secondary'" [btnWidth]="'large'" routerLink="/sistema/denuncias">Cancelar</sdm-button>
