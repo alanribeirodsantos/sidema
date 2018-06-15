@@ -82,6 +82,7 @@ export class EditProfileComponent implements OnInit {
               }
             }
             if(this.flag === 0){
+              this.isLoading = false;
               UIkit.notification({
                 message: "<span uk-icon='icon: ban'></span> Senha atual incorreta!",
                 status: "danger",
