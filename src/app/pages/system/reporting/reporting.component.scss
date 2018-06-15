@@ -4,24 +4,22 @@
     &__title {
         font-family: $primary-font-bold;
         color: $primary-color;
-        font-size: $font-size-title-big;
-        margin-bottom: 20px;
+        font-size: $font-size-title-large;
+        padding: 20px 30px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
     }
-    &__subtitle {
-        font-family: $primary-font;
-        color: $black;
-        font-size: $font-size-medium;
-    }
-    &__error-message{
-        font-family: $primary-font;
-        padding: 5px;
-    }
-}
+    &__form {
+        padding: 0px 30px;
 
-.list-media {
-    display: flex;
-
-    &__text{
-        font-family: $primary-font;
+        &__subtitle {
+            font-family: $primary-font;
+            color: $black;
+            font-size: $font-size-medium;
+        }
+        &__error-message{
+            font-family: $primary-font;
+            padding: 5px;
+        }
     }
 }

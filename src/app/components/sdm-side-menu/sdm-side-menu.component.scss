@@ -1,5 +1,6 @@
 @import '~assets/sass-utils/variables';
 @import '~assets/sass-utils/mixins';
+
 .menu-container {
     width: inherit;
     height: 100vh;
@@ -9,6 +10,7 @@
     background-position-x: -200px;
     display: inline-block;
     position: relative;
+
     @include mqMaxWidth('lg') {
         width: 100vw;
     }
@@ -21,8 +23,10 @@
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
+
         &__close-mobile {
             display: none;
+
             @include mqMaxWidth('lg') {
                 display: block;
                 text-align: right;
@@ -30,6 +34,7 @@
                 margin: -20px 0 10px 0;
             }
         }
+
         &__user-image-container {
             align-self: center;
             width: 140px;
@@ -37,15 +42,16 @@
             margin-bottom: 10px;
             overflow: hidden;
             border-radius: 50%;
-
-            &__image {
-                min-height: 140px;
-            }
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
+
         &__welcome-text {
             color: $white;
             font-family: $primary-font;
             font-size: $font-size-medium;
+
             &__user-name {
                 font-size: $font-size-title;
             }
@@ -73,6 +79,7 @@
                     font-family: $primary-font;
                     font-size: $font-size-medium;
                     transition: color 0.1s linear;
+
                     &:hover {
                         color: $primary-color;
                     }
