@@ -2,41 +2,52 @@
 @import '~assets/sass-utils/mixins.scss';
 
 .reports-list {
-
     &__header {
-        margin-bottom: 20px;
-        display: flex;
+        width: calc(100vw - 270px);
+        background-color: white;
+        margin-bottom: 15px;
+        padding: 20px 30px;
+        box-sizing: border-box;
         align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        position: fixed;
+        top: 0;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 
-        &__title {
-            font-family: $primary-font-bold;
-            color: $primary-color;
-            font-size: $font-size-title-big;
-        }
-
-        &__search-and-filter {
+        &__container {
             display: flex;
-
-            @include mqMaxWidth('lg') {
-                width: 100%;
-                margin-top: 15px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            
+            &__title {
+                font-family: $primary-font-bold;
+                font-size: $font-size-title-large;
+                color: $primary-color;
+            }
+    
+            &__search-and-filter {
+                display: flex;
+    
+                @include mqMaxWidth('lg') {
+                    width: 100%;
+                    margin-top: 15px;
+                }
             }
         }
-    }
 
-    &__filter-tags {
-        height: 30px;
-        display: flex;
+        &__filter-tags {
+            height: 30px;
+            margin-top: 20px;
+            display: flex
+        }
     }
 
     &__list {
         display: flex;
         justify-content: center;
+        margin: 80px;
         
         &__container {
-            width: 100%;
+            max-width: 80%;
         }
     }
 }
