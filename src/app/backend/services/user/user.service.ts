@@ -242,7 +242,7 @@ export class UserService {
   logout(){
     this.angularFireAuth.auth.signOut().then( () => {
       this.router.navigateByUrl("/home");
-      localStorage.setItem("user", "null");      
+      localStorage.setItem("user", "null");     
     });
   }
 
