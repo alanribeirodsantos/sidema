@@ -16,7 +16,10 @@
         <div class="uk-margin">
             <input class="uk-input" type="password" placeholder="Confirmar senha" [(ngModel)]="confirmPassword" name="confirmaPassword">
         </div>
-        <sdm-button [type]="'primary'" [btnWidth]="'large'" (click)="createUser()">PARTICIPAR</sdm-button>
+        <sdm-button [type]="'primary'" [btnWidth]="'large'" (click)="createUser()">
+            <div *ngIf="!isLoading">Participar</div>
+            <div *ngIf="isLoading"><div uk-spinner="ratio: 0.9"></div></div>
+        </sdm-button>
     </form>
     <hr class="uk-divider-icon">
     <sdm-social-button [socialNetwork]="'Facebook'" [btnWidth]="'half'"></sdm-social-button>

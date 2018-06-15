@@ -14,6 +14,7 @@ export class SdmFormSignUpComponent {
   password:string = "";
   confirmPassword:string = "";
   users:any;
+  isLoading:boolean = false;
 
   constructor(private userService:UserService) {
     this.userService.getUsers().subscribe(
@@ -23,7 +24,9 @@ export class SdmFormSignUpComponent {
   }
 
   createUser(){
+    this.isLoading = true;
     if(this.name.length == 0 || this.email.length == 0 || this.password.length == 0 || this.confirmPassword.length == 0){
+      this.isLoading = false;
       UIkit.notification({
         message: "<span uk-icon='icon: warning'></span> Existem campos em branco!",
         status: "warning",
@@ -37,8 +40,12 @@ export class SdmFormSignUpComponent {
         this.email = "";
         this.password = "";
         this.confirmPassword = "";
+        setTimeout(this.isLoading = false, 300)
       }
-      else  UIkit.notification({message: "<span uk-icon='icon: close'></span> As senhas não correspondem!", status: "danger", timeout: 3000})
+      else  {
+        this.isLoading = true;
+        UIkit.notification({message: "<span uk-icon='icon: close'></span> As senhas não correspondem!", status: "danger", timeout: 3000})
+      }
     }
   }
 }

@@ -10,12 +10,15 @@ export class SdmFormSignInComponent {
 
   email:string = "";
   password:string = "";
+  isLoading: boolean = false;
   @Output() clickedForgot:EventEmitter<any> = new EventEmitter();
 
   constructor(private userService:UserService) {}
 
   login(){
+    this.isLoading = true;
     this.userService.login(this.email, this.password);
+    setTimeout(this.isLoading = false, 300)
   }
 
   loginFacebook(){
