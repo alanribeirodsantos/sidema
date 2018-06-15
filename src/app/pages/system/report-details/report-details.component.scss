@@ -1,35 +1,90 @@
 @import '~assets/sass-utils/variables.scss';
-.report-title {
-    font-family: $primary-font-bold;
-    font-size: $font-size-title-big;
-    color: $primary-color;
-    margin-bottom: 10px;
-}
 
-.report-content {
-    margin-top: 25px;
+.report-details {
+    &__content {
+        padding: 25px 30px;
+        box-sizing: border-box;
+        display: flex;
 
-    &__section-title {
-        font-family: $primary-font-bold;
-        color: $black;
-        font-size: $font-size-title-big;
-        margin-bottom: 10px;
-    }
-    &__section-description {
-        font-family: $secondary-font;
-        color: $black;
-        font-size: $font-size-medium;
-        text-align: justify;
-        margin-bottom: 20px;
-        &__left {
-            text-align: left;
+        &__main-info {
+            padding-right: 30px;
+            box-sizing: border-box;
+
+            &__title {
+                font-family: $primary-font-bold;
+                font-size: $font-size-title-large;
+                color: $primary-color;
+                margin-bottom: 25px;
+            }
+        
+            &__status {
+                margin-bottom: 30px;
+            }
+
+            &__section-title {
+                font-family: $primary-font-bold;
+                color: $black;
+                font-size: $font-size-title;
+                margin-bottom: 10px;
+            }
+            &__section-description {
+                font-family: $secondary-font;
+                color: $gray-66;
+                font-size: $font-size-description;
+                text-align: justify;
+                margin-bottom: 20px;
+
+                &__left {
+                    text-align: left;
+                }
+
+                &__media {
+                    max-width: 175px;
+                }
+            }
+
+            &__comment {
+                background-color: $gray-fa;
+                padding: 15px;
+                margin-bottom: 10px;
+
+                &__info {
+                    padding-left: 10px;
+
+                    &__author {
+                        font-family: $primary-font;
+                        font-size: $font-size-title;
+                    }
+
+                    &__date {
+                        font-family: $secondary-font;
+                        font-size: $font-size-text;
+                    }
+                }
+            }
         }
-        &__media {
-            max-width: 175px;
-        }
-        &__socialicons:hover {
-            color: $primary-color;
-            transition-duration: 250ms;
+
+        &__side-info {
+            background-color:$gray-fa;        
+            padding: 30px;
+            box-sizing: border-box;
+
+            &__section-title {
+                @extend .report-details__content__main-info__section-title;
+            }
+            &__section-description {
+                @extend .report-details__content__main-info__section-description;
+            }
+
+            &__localization-image {
+                margin-bottom: 20px;
+            }
+
+            &__share-report {
+                display: flex;
+                justify-content: space-around;
+                margin-bottom: 20px;
+            }
         }
     }
 }

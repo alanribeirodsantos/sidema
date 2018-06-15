@@ -44,6 +44,7 @@ $font-size-title-enormous: 38px;
 $font-size-title-large: 26px;
 $font-size-title-big: 20px;
 $font-size-title: 18px;
+$font-size-description: 16px;
 $font-size-medium: 14px;
 $font-size-text: 12px;
 $font-size-small: 10px;
@@ -66,6 +67,7 @@ $label-font-size: $font-size-text;
 //Z-indexes
 $z-indexes: (
     footer,
+    reports_list_header,
     login_modal
 );
 

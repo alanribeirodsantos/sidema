@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ReportService } from '../../../backend/services/report/report.service';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { Router } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'reports-list',
@@ -15,12 +16,28 @@ export class ReportsListComponent {
   filterCategory:string = "";
   filterSubcategory:string = "";
   filterStatus:string = "";
+  currentRouter:any;
+  scrolled:boolean = false;
 
-  constructor(private reportService:ReportService, private angularFireAuth:AngularFireAuth){
+  constructor(private reportService:ReportService, private _router: Router){
     this.reportService.getReports().subscribe(
       data => { this.reportsList = data.reverse()},
       error => console.log(error)
     );
+
+    this.currentRouter = this._router.routerState.snapshot.url;
+    
+    let that = this;
+    window.addEventListener('scroll', function(e){
+      $(window).scroll(function(){
+        if($(window).scrollTop() >= (130)) {
+          that.scrolled = true;
+        }
+        else {
+          that.scrolled = false;
+        }
+      });
+    })
   }
 
   orderBy () {

@@ -11,7 +11,6 @@ export class SdmHintsComponent{
   router;
 
   constructor(private _router: Router){
-    this.router = _router;
-
+    this.router = this._router;
   }
 }

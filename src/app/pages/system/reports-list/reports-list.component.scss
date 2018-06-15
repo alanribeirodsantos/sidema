@@ -3,7 +3,7 @@
 
 .reports-list {
     &__header {
-        width: calc(100vw - 270px);
+        width: calc(100vw - 270px) !important;
         background-color: white;
         margin-bottom: 15px;
         padding: 20px 30px;
@@ -11,7 +11,8 @@
         align-items: center;
         position: fixed;
         top: 0;
-        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+        border-bottom: 1px solid $gray-bb;
+        z-index: z('reports_list_header');
 
         &__container {
             display: flex;
@@ -38,6 +39,14 @@
             height: 30px;
             margin-top: 20px;
             display: flex
+        }
+
+        &--full-width {
+            width: 100%;
+        }
+
+        &--not-fixed {
+            position: inherit;  
         }
     }
 

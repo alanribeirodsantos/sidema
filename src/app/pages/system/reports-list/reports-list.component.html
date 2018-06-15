@@ -1,5 +1,7 @@
 <div class="uk-offcanvas-content reports-list">
-    <header class="reports-list__header">
+    <header class="reports-list__header"
+            [ngClass]="{'reports-list__header--full-width': this.currentRouter == '/consultar-denuncias',
+                        'reports-list__header--not-fixed': this.currentRouter == '/consultar-denuncias' && !scrolled}">
         <div class="reports-list__header__container">
             <div class="reports-list__header__container__title">Denúncias</div>
             <div class="reports-list__header__container__search-and-filter uk-width-1-2">
