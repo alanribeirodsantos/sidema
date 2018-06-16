@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SdmReportCategoryComponent implements OnInit {
 
   @Input() category:string;
+  categoryType:string;
   categoryName:string;
 
   ngOnInit(): void {
@@ -15,17 +16,21 @@ export class SdmReportCategoryComponent implements OnInit {
   }
 
   setCategoryName() {
-    if(this.category == "historical-patrimony") {
-      this.categoryName = "Patrimônio histórico";
+    if(this.category === "Patrimônio Histórico") {
+      this.categoryName = "Patrimônio Histórico";
+      this.categoryType = "historical-patrimony";
     }
-    else if (this.category == "monoliths") {
+    else if (this.category === "Monólitos") {
       this.categoryName = "Monólitos";
+      this.categoryType = "monoliths";
     }
-    else if (this.category == "vegetation") {
+    else if (this.category === "Vegetação") {
       this.categoryName = "Vegetação";
+      this.categoryType = "vegetation";
     }
-    else if (this.category == "water-resources") {
-      this.categoryName = "Recursos hídricos";
+    else if (this.category === "Recursos Hídricos") {
+      this.categoryName = "Recursos Hídricos";
+      this.categoryType = "water-resources";
     }
     else {
       throw new Error("Category not found");

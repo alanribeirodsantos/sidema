@@ -39,6 +39,7 @@ export class ReportService {
       date: date,
       hour: hour
     }).then( () => {
+      this.addOrganReport(id, title, description, address, number, neighborhood, complement, violator, category, subcategory, date, hour);
       if(JSON.parse(localStorage.getItem("user")) !== null){
         if(!checked){
           var userName = JSON.parse(localStorage.getItem("user")).name;
@@ -171,6 +172,66 @@ export class ReportService {
     });
   }
 
+  addOrganReport(id, title, description, address, number, neighborhood, complement, violator, category, subcategory, date, hour){
+    if(category === "Patrimônio Histórico"){
+      this.angularFireDatabase.database.ref("orgão/sema").child("reports").child(id).set({
+        id: id,
+        title: title,
+        description: description,
+        location: `${address}, ${number} - ${neighborhood}`,
+        address: address,
+        neighborhood: neighborhood,
+        number: number,
+        complement: complement,
+        violator: violator,
+        category: category,
+        subcategory: subcategory,
+        numberOfSupporters: 0,
+        status: "received",
+        date: date,
+        hour: hour
+      });
+    }
+    else if(category === "Recursos Hídricos"){
+      this.angularFireDatabase.database.ref("orgão/dnocs").child("reports").child(id).set({
+        id: id,
+        title: title,
+        description: description,
+        location: `${address}, ${number} - ${neighborhood}`,
+        address: address,
+        neighborhood: neighborhood,
+        number: number,
+        complement: complement,
+        violator: violator,
+        category: category,
+        subcategory: subcategory,
+        numberOfSupporters: 0,
+        status: "received",
+        date: date,
+        hour: hour
+      });
+    }
+    else {
+      this.angularFireDatabase.database.ref("orgão/seduma").child("reports").child(id).set({
+        id: id,
+        title: title,
+        description: description,
+        location: `${address}, ${number} - ${neighborhood}`,
+        address: address,
+        neighborhood: neighborhood,
+        number: number,
+        complement: complement,
+        violator: violator,
+        category: category,
+        subcategory: subcategory,
+        numberOfSupporters: 0,
+        status: "received",
+        date: date,
+        hour: hour
+      });
+    }
+  }
+
   getReports(){
     return this.reports = this.angularFireDatabase.list("denúncias").valueChanges();
   }
@@ -194,8 +255,6 @@ export class ReportService {
     });
     this.angularFireDatabase.object(`usuários/${userId}/boostedReports/${reportId}`).remove();
   }
-
-  
 
   unlinkReport(userId, reportId){
     this.angularFireDatabase.object(`usuários/${userId}/reports/${reportId}`).remove().then( () => {
@@ -234,7 +293,8 @@ export class ReportService {
           message: "<span uk-icon='icon: check'></span> Denúncia deletada com sucesso!",
           status: "success",
           timeout: 1500
-        })
+        });
+        this.angularFireStorage.ref(`reports/${userId}`).child(reportId).delete();
         this.router.navigateByUrl("/sistema");
       }).catch( () => {
         UIkit.notification({

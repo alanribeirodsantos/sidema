@@ -18,7 +18,7 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
   reports:any;
   user:any;
   organ:string;
-  category:string;
+  // category:string;
   complement:string;
   log:any;
   comments:any;
@@ -128,20 +128,16 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
     }
     else this.complement = this.report.complement;
 
-    if(this.report.category === "historical-patrimony"){
-      this.category = "Patrimônio Histórico";
+    if(this.report.category === "Patrimônio Histórico"){
       this.organ = "SEMA";
     }
-    else if(this.report.category === "water-resources"){
-      this.category = "Recursos Hídricos";
+    else if(this.report.category === "Recursos Hídricos"){
       this.organ = "DNOCS";
     }
-    else if(this.report.category === "monoliths"){
-      this.category = "Monólitos";
+    else if(this.report.category === "Monólitos"){
       this.organ = "SEDUMA";
     }
-    else if(this.report.category === "vegetation"){
-      this.category = "Vegetação";
+    else if(this.report.category === "Vegetação"){
       this.organ = "SEDUMA";
     }
   }
