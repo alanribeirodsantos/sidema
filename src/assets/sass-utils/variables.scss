@@ -61,7 +61,7 @@ $width-breakpoints: (
 
 //UIkit overwritten
 $global-primary-background: $primary-color;
-$button-default-border-color: #78BD0080;
+$button-default-border-color: unquote('#78BD0080');
 $label-background: $status-resolved;
 $label-font-size: $font-size-text;
 
@@ -69,6 +69,7 @@ $label-font-size: $font-size-text;
 $z-indexes: (
     footer,
     reports_list_header,
+    side_menu,
     login_modal
 );
 

@@ -1,2 +1,5 @@
-<img class="sdm-logo" [src]="'../../../assets/images/logo' + type + '.png'" alt="SIDEMA">
+<img class="sdm-logo"
+     [ngClass]="{'sdm-logo--small': size == 'small'}"
+     [src]="'../../../assets/images/logo' + type + '.png'"
+     alt="SIDEMA">
 

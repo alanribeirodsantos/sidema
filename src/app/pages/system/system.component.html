@@ -5,13 +5,14 @@
         </div>
         <article class="system-container">
             <div class="system-container__mobile">
-                <div class="system-container__mobile__menu">
-                    <span (click)="openMenu()">
-                        <a uk-icon="icon: menu; ratio: 1.2" class="uk-margin-small-right"></a>
-                        Menu
-                    </span>
+                <div class="system-container__mobile__menu-btn" (click)="openMenu()">
+                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                        <path fill="#FFFFFF" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+                    </svg>
                 </div>
-                <hr>
+                <div class="system-container__mobile__logo">
+                    <sdm-logo [type]="'--white'" [size]="'small'"></sdm-logo>
+                </div>
             </div>
             <router-outlet></router-outlet>
         </article>

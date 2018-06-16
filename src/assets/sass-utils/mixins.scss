@@ -34,16 +34,6 @@
     }
 }
 
-@mixin mqMaxHeight($height) {
-    @if map_has_key($height-breakpoints, $height) {
-        $width: map_get($height-breakpoints, $height);
-        
-        @media only screen and (max-height: $height) {
-            @content;
-        }
-    }
-}
-
 //Notification
 
 @mixin hook-notification-misc () {

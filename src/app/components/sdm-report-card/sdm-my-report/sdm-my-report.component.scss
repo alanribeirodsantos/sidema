@@ -1,11 +1,19 @@
-@import '~assets/sass-utils/variables.scss';
+@import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
 
 .sdm-my-report {
-    font-family: $secondary-font;
-    font-size: $font-size-text;
     color: $my-report-text-color;
-
+    
     &__icon {
         margin-right: 3px;
+    }
+
+    &__text {
+        font-family: $secondary-font;
+        font-size: $font-size-text;
+
+        @include mqMaxWidth('lg') {
+            display: none;
+        }
     }
 }

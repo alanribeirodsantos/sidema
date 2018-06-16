@@ -3,9 +3,18 @@
         <div class="menu-container__layer__close-mobile">
             <span uk-icon="close" (click)="exitThisMenu()"></span>
         </div>
-        <div class="menu-container__layer__user-image-container" [style.backgroundImage]="'url(' + userPhoto + ')'"></div>
-        <div class="menu-container__layer__welcome-text">
-            Bem vindo(a),<br><span class="menu-container__layer__welcome-text__user-name">{{userName}}</span>
+        <div class="menu-container__layer__user-area">
+            <div class="menu-container__layer__user-area__image"
+                 [style.backgroundImage]="'url(' + userPhoto + ')'">
+            </div>
+            <div class="menu-container__layer__user-area__user-info">
+                <div class="menu-container__layer__user-area__user-info__welcome-text">
+                    Bem vindo(a),<br>
+                    <span class="menu-container__layer__user-area__user-info__welcome-text__user-name">
+                        {{userName}}
+                    </span>
+                </div>
+            </div>
         </div>
         <div class="menu-container__layer__report-button">
             <sdm-button [type]="'primary'" [btnWidth]="'large'" routerLink="/sistema/denunciar" (click)="exitThisMenu()">REALIZAR DENÚNCIA</sdm-button>

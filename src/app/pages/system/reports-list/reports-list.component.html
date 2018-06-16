@@ -5,15 +5,20 @@
         <div class="reports-list__header__container">
             <div class="reports-list__header__container__title">Denúncias</div>
             <div class="reports-list__header__container__search-and-filter uk-width-1-2">
-                <form class="uk-search uk-search-default uk-width-expand uk-margin-right">
+                <form class="reports-list__header__container__search-and-filter__search uk-search uk-search-default uk-width-expand uk-margin-right">
                     <span class="uk-search-icon-flip" uk-search-icon></span>
-                    <input class="uk-search-input"
-                            name="search"
-                            type="search"
-                            placeholder="Digite um termo para pesquisar..."
-                            [(ngModel)]="searchTag">
+                    <input class="reports-list__header__container__search-and-filter__search__input uk-search-input"
+                           name="search"
+                           type="search"
+                           placeholder="Digite um termo para pesquisar..."
+                           [(ngModel)]="searchTag">
                 </form>
-                <button class="uk-button uk-button-default reports-list__header__search-and-filter__filter" type="button" uk-toggle="target: #offcanvas-flip">Filtrar</button>
+                <button class="uk-button uk-button-default reports-list__header__container__search-and-filter__filter"
+                        type="button"
+                        uk-toggle="target: #offcanvas-flip">
+                    <span class="reports-list__header__container__search-and-filter__filter__title">Filtrar</span>
+                    <i uk-icon="settings" class="reports-list__header__container__search-and-filter__filter__icon"></i>
+                </button>
             </div>
         </div>
 

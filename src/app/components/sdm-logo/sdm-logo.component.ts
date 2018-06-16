@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class SdmLogoComponent{
 
   @Input() type:string = '';
+  @Input() size:string;
 
   constructor() { }
 
