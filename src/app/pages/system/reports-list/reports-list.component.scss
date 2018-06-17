@@ -35,14 +35,28 @@
                 display: flex;
 
                 &__search {
+                    &--open {
+                        display: block;
+                    }
+
                     @include mqMaxWidth('mdx') {
                         display: none;
                     }
                 }
 
-                &__filter {
-                    padding: 0 15px;
+                &__search-btn-mobile {
+                    padding: 0 10px;
+                    margin-right: 15px;
+                    display: none;
+                    align-items: center;
+                    justify-content: center;
 
+                    @include mqMaxWidth('mdx') {
+                        display: flex;
+                    }
+                }
+
+                &__filter {
                     &__title {
                         @include mqMaxWidth('mdx') {
                             display: none;
@@ -55,6 +69,10 @@
                         @include mqMaxWidth('mdx') {
                             display: block;
                         }
+                    }
+
+                    @include mqMaxWidth('md') {
+                        padding: 0 10px;
                     }
                 }
 
