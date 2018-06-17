@@ -18,4 +18,8 @@
             padding-left: 10px;
         }
     }
+
+    @media only screen and (max-height: 500px) {
+        display: none;
+    }
 }

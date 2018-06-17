@@ -7,4 +7,13 @@
     @include mqMaxWidth('mdx') {
         width: 50vw;
     }
+
+    &--small {
+        width: inherit;
+        height: 70%;
+
+        @include mqMaxWidth('mdx') {
+            width: inherit;
+        }
+    }
 }

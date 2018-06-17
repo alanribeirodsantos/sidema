@@ -17,20 +17,73 @@
         &__container {
             display: flex;
             justify-content: space-between;
-            flex-wrap: wrap;
+            align-items: center;
             
             &__title {
                 font-family: $primary-font-bold;
                 font-size: $font-size-title-large;
                 color: $primary-color;
+
+                @include mqMaxWidth('mdx') {
+                    font-size: $font-size-title;
+                }
             }
     
             &__search-and-filter {
+                width: 60%;
+                height: 39px;
                 display: flex;
-    
-                @include mqMaxWidth('lg') {
+
+                &__search {
+                    margin-right: 10px;
+
+                    @include mqMaxWidth('mdx') {
+                        display: none;
+                    }
+
+                    &--open {
+                        display: block;
+                    }
+                }
+
+                &__search-btn-mobile {
+                    padding: 0 10px;
+                    display: none;
+                    align-items: center;
+                    justify-content: center;
+
+                    @include mqMaxWidth('mdx') {
+                        display: flex;
+                    }
+                }
+
+                &__filter {
+                    &__title {
+                        @include mqMaxWidth('mdx') {
+                            display: none;
+                        }
+                    }
+
+                    &__icon {
+                        display: none;
+
+                        @include mqMaxWidth('mdx') {
+                            display: block;
+                        }
+                    }
+
+                    @include mqMaxWidth('mdx') {
+                        padding: 0 10px;
+                        margin-left: 10px;
+                    }
+                }
+
+                &--search-mobile-open {
                     width: 100%;
-                    margin-top: 15px;
+                }
+
+                @include mqMaxWidth('mdx') {
+                    justify-content: flex-end;
                 }
             }
         }
@@ -48,15 +101,35 @@
         &--not-fixed {
             position: inherit;  
         }
+
+        @include mqMaxWidth('lg') {
+            top: 45px;
+            width: 100vw !important;
+            padding: 15px;
+        }
     }
 
     &__list {
         display: flex;
         justify-content: center;
-        margin: 80px;
+        margin-top: 80px;
+        padding: 0 40px;
         
         &__container {
             max-width: 80%;
+
+            @include mqMaxWidth('mdx') {
+                max-width: 95%;
+            }
+        }
+
+        @include mqMaxWidth('lg') {
+            margin-top: 125px;
+            padding: 0 5vw;
+        }
+
+        @include mqMaxWidth('mdx') {
+            padding: 0 3vw;
         }
     }
 }

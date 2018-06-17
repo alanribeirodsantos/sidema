@@ -18,6 +18,7 @@ export class ReportsListComponent {
   filterStatus:string = "";
   currentRouter:any;
   scrolled:boolean = false;
+  searching:boolean = false;
 
   constructor(private reportService:ReportService, private _router: Router){
     this.reportService.getReports().subscribe(
@@ -112,5 +113,9 @@ export class ReportsListComponent {
         this.filterStatus = "Todos";
         return "";
     }
+  }
+
+  toggleMobileSearch() {
+    this.searching = !this.searching;
   }
 }

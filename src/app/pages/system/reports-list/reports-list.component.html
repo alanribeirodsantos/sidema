@@ -3,17 +3,37 @@
             [ngClass]="{'reports-list__header--full-width': this.currentRouter == '/consultar-denuncias',
                         'reports-list__header--not-fixed': this.currentRouter == '/consultar-denuncias' && !scrolled}">
         <div class="reports-list__header__container">
-            <div class="reports-list__header__container__title">Denúncias</div>
-            <div class="reports-list__header__container__search-and-filter uk-width-1-2">
-                <form class="uk-search uk-search-default uk-width-expand uk-margin-right">
-                    <span class="uk-search-icon-flip" uk-search-icon></span>
-                    <input class="uk-search-input"
-                            name="search"
-                            type="search"
-                            placeholder="Digite um termo para pesquisar..."
-                            [(ngModel)]="searchTag">
+            <div class="reports-list__header__container__title" *ngIf="!searching">Denúncias</div>
+            <div class="reports-list__header__container__search-and-filter uk-width-1-2"
+                 [ngClass]="{'reports-list__header__container__search-and-filter--search-mobile-open': searching}">
+                <form class="reports-list__header__container__search-and-filter__search uk-search uk-search-default uk-width-expand"
+                      [ngClass]="{'reports-list__header__container__search-and-filter__search--open': searching}">
+                    <span class="uk-search-icon-flip" uk-search-icon *ngIf="!searching"></span>
+                    <input class="reports-list__header__container__search-and-filter__search__input uk-search-input"
+                           name="search"
+                           type="search"
+                           placeholder="Digite um termo para pesquisar..."
+                           [(ngModel)]="searchTag">
                 </form>
-                <button class="uk-button uk-button-default reports-list__header__search-and-filter__filter" type="button" uk-toggle="target: #offcanvas-flip">Filtrar</button>
+                <button class="uk-button uk-button-default reports-list__header__container__search-and-filter__search-btn-mobile"
+                        type="button"
+                        (click)="toggleMobileSearch()">
+                    <i uk-icon="search"
+                       *ngIf="!searching"
+                       class="reports-list__header__container__search-and-filter__search-btn-mobile__icon">
+                    </i>
+                    <i uk-icon="close"
+                       *ngIf="searching"
+                       class="reports-list__header__container__search-and-filter__search-btn-mobile__icon">
+                    </i>
+                </button>
+                <button class="uk-button uk-button-default reports-list__header__container__search-and-filter__filter"
+                        type="button"
+                        uk-toggle="target: #offcanvas-flip"
+                        *ngIf="!searching">
+                    <span class="reports-list__header__container__search-and-filter__filter__title">Filtrar</span>
+                    <i uk-icon="settings" class="reports-list__header__container__search-and-filter__filter__icon"></i>
+                </button>
             </div>
         </div>
 
