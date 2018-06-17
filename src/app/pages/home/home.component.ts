@@ -1,10 +1,27 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
+import * as UIkit from 'uikit';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [
+    trigger(
+      'animate', [
+        transition(':enter', [
+          style({opacity: 0}),
+          animate('500ms', style({opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({opacity: 1}),
+          animate('500ms', style({opacity: 0}))
+        ])
+      ]
+    )
+  ]
 })
+
 export class HomeComponent implements OnInit {
 
   constructor(private renderer: Renderer2) {
@@ -13,6 +30,7 @@ export class HomeComponent implements OnInit {
   showContent:boolean = false;
   isModalOpen:boolean = false;
   isModalClosed:boolean = true;
+  sliderId:number = 1;
 
   private swipeCoord?: [number, number];
   private swipeTime?: number;
@@ -21,6 +39,10 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.showContent = true;
     }, 200);
+  }
+
+  moveSlider(id) {
+    this.sliderId = id;
   }
 
   openModal() {

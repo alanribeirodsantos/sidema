@@ -9,6 +9,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { ReportFilterPipe } from '../assets/js-utils/pipes/report-filter.pipe';
 import { ReportOrderByPipe } from '../assets/js-utils/pipes/report-order-by.pipe';
 import { ReportSearchPipe } from '../assets/js-utils/pipes/report-search.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { StyleguideComponent } from './pages/styleguide/styleguide.component';
@@ -50,6 +51,7 @@ import { SdmBackToTopComponent } from './components/sdm-back-to-top/sdm-back-to-
 import { ReportDetailsLoggedOffComponent } from './pages/report-details-logged-off/report-details-logged-off.component';
 import { SdmUploadMediaComponent } from './components/sdm-upload-media/sdm-upload-media.component';
 import { SdmMediaComponent } from './components/sdm-upload-media/sdm-media/sdm-media.component';
+import { SdmSectionDoubleComponent } from './components/sdm-section-double/sdm-section-double.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASY7GlvEimsp0Gqv1H6qvwdX_w6AI0m6Y",
@@ -101,6 +103,7 @@ export const firebaseConfig = {
     ReportDetailsLoggedOffComponent,
     SdmUploadMediaComponent,
     SdmMediaComponent,
+    SdmSectionDoubleComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,7 +113,8 @@ export const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     HttpModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    BrowserAnimationsModule
   ],
   providers: [UserService, ReportService],
   bootstrap: [AppComponent]
