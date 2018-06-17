@@ -35,18 +35,19 @@
                 display: flex;
 
                 &__search {
-                    &--open {
-                        display: block;
-                    }
+                    margin-right: 10px;
 
                     @include mqMaxWidth('mdx') {
                         display: none;
+                    }
+
+                    &--open {
+                        display: block;
                     }
                 }
 
                 &__search-btn-mobile {
                     padding: 0 10px;
-                    margin-right: 15px;
                     display: none;
                     align-items: center;
                     justify-content: center;
@@ -71,9 +72,14 @@
                         }
                     }
 
-                    @include mqMaxWidth('md') {
+                    @include mqMaxWidth('mdx') {
                         padding: 0 10px;
+                        margin-left: 10px;
                     }
+                }
+
+                &--search-mobile-open {
+                    width: 100%;
                 }
 
                 @include mqMaxWidth('mdx') {
