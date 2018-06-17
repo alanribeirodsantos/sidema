@@ -18,7 +18,6 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
   reports:any;
   user:any;
   organ:string;
-  // category:string;
   complement:string;
   log:any;
   comments:any;
