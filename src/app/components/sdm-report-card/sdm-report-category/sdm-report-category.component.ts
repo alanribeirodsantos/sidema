@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SdmReportCategoryComponent implements OnInit {
 
   @Input() category:string;
+  @Input() context:string;
   categoryType:string;
   categoryName:string;
 
