@@ -37,8 +37,12 @@ export class SdmSideMenuComponent implements OnInit {
     this.userRef.getDownloadURL().subscribe(
       url => {
         this.userPhoto = url;
+        this.userService.hasPhoto = true;
       },
-      error => this.userPhoto = "/assets/images/user-default.png"
+      error => {
+        this.userPhoto = "/assets/images/user-default.png";
+        this.userService.hasPhoto = false;
+      }
     )
   }
   

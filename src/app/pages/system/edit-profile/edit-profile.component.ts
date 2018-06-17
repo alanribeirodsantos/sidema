@@ -48,6 +48,11 @@ export class EditProfileComponent implements OnInit {
     reader.readAsDataURL(this.profilePic);
   }
 
+  removePhoto(){
+    var user = JSON.parse(localStorage.getItem("user"));
+    this.userService.removeProfilePic(user.id);
+  }
+
   editProfile(){
     this.isLoading = true;
     if(this.profilePic !== undefined){

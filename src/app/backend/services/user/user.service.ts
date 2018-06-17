@@ -17,7 +17,8 @@ export class UserService {
   storageRef:AngularFireStorageReference;
   taskUpload:AngularFireUploadTask;
   percentage:any;
-  flag:number;
+  flag:number = 0;
+  hasPhoto:boolean;
 
   constructor(private angularFireAuth:AngularFireAuth, private angularFireDatabase:AngularFireDatabase, private router:Router, private angularFireStorage:AngularFireStorage) {}
 
@@ -91,12 +92,12 @@ export class UserService {
                 userLocal.email = email;
                 localStorage.setItem("user", JSON.stringify(userLocal));
               }).catch( (error) => console.log(error.code));
-              
             }
             else if(newPassword.length > 0){
               if(users[u].password !== undefined){
                 this.angularFireDatabase.object(`/usuários/${user.id}/password`).set(newPassword)
                 .then( () => {
+                  console.log("update pass");
                 }).catch( (error) => console.log(error.code));
               }
             }
@@ -110,7 +111,7 @@ export class UserService {
           window.setTimeout( () => {
             window.location.reload();
             this.router.navigateByUrl("/sistema");
-          }, 3000);
+          }, 7000);
         }
       },
       error => console.log(error)
@@ -143,9 +144,8 @@ export class UserService {
               this.flag = 1;
               break;
             }
-            else this.flag = 0;
           }
-          if(this.flag === 0){
+          if(this.flag !== 1){
             UIkit.notification({
               message: "<span uk-icon='icon: ban'></span> Erro ao efetuar login, verifique suas credenciais!",
               status: "danger",
@@ -262,5 +262,13 @@ export class UserService {
   
   getUserBoostedReports(userId){
     return this.userBoostedReports = this.angularFireDatabase.list(`usuários/${userId}/boostedReports`).valueChanges();
+  }
+
+  removeProfilePic(userId){
+    this.angularFireStorage.ref("/images").child(userId).delete();
+    window.setTimeout( () => {
+      location.reload();
+      this.router.navigateByUrl("/sistema");
+    }, 3000);
   }
 }
