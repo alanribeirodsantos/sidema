@@ -117,6 +117,10 @@
         
         &__container {
             max-width: 80%;
+
+            @include mqMaxWidth('mdx') {
+                max-width: 95%;
+            }
         }
 
         @include mqMaxWidth('lg') {

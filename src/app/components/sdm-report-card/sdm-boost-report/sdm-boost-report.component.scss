@@ -1,4 +1,5 @@
-@import '~assets/sass-utils/variables.scss';
+@import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
 
 .sdm-boost-report {
     width: 60px;
@@ -41,5 +42,9 @@
             color: $primary-color;
 
         }
+    }
+
+    @include mqMaxWidth('md') {
+        padding-right: 5vw;
     }
 }
