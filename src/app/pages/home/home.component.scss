@@ -142,16 +142,16 @@
     }
 
     &__layer {
-        height: 100%;
+        height: 100vh;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
 
         @include mqMaxWidth('mdxx') {
+            height: 100%;
             align-items: flex-start;
             padding-top: 30px;
-            overflow-y: scroll;
             box-sizing: border-box;
         }
 
@@ -188,6 +188,7 @@
                 justify-content: space-between;
                 align-items: flex-start;
                 color: $white;
+                margin-bottom: 20px;
 
                 @include mqMaxWidth('mdxx') {
                     flex-wrap: wrap;
@@ -231,6 +232,18 @@
                             margin-bottom: 30px;
                         }
                     }
+                }
+            }
+
+            &__lasttitle {
+                color: $white;
+                font-size: 1.15em;
+                text-align: center;
+                font-family: $primary-font;
+
+                @include mqMaxWidth('mdxx') {
+                    font-size: 0.8em;
+                    margin-bottom: 50px;
                 }
             }
         }
@@ -355,50 +368,132 @@
 }
 
 .section-four {
-    &__layer {
+    &__flex {
+        background: linear-gradient(to bottom left, #b0f40c, #59960a);
         height: 100%;
         width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        
-        &__container {
-            padding: 0 50px;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        padding: 70px 75px 70px 75px;
 
-            &__logo {
+        @include mqMaxWidth('mdxx') {
+            padding-top: 35px;
+            padding-bottom: 35px;
+        }
+
+        &__introduction {
+            width: 50%;
             text-align: center;
-            }
 
-            &__introduction {
+            @include mqMaxWidth('mdxx') {
                 width: 100%;
-                color: $white;
-                text-align: justify;
-                font-size: 1.2em;
-                font-family: $primary-font;
-                padding: 35px 70px;
-                box-sizing: border-box;
-                
-                @include mqMaxWidth('lg') {
-                    font-size: 1.1em;
-                }
+                margin-bottom: 50px;
+            }
 
-                @include mqMaxWidth('md') {
-                    font-size: 0.75em;
+            &__title {
+                margin-bottom: 20px;
+            }
+
+            &__subtitle {
+                margin-bottom: 20px;
+                color: $white;
+                font-size: 1em;
+                text-align: center;
+                font-family: $primary-font;
+
+                @include mqMaxWidth('mdxx') {
+                    font-size: 0.8em;
                 }
             }
 
-            &__containerimg {
+            &__items {
+                color: $white;
+                font-size: 1.2em;
+                text-align: center;
+                font-family: $primary-font-bold;
+                line-height: 250%;
+
+                @include mqMaxWidth('mdxx') {
+                    font-size: 0.8em;
+                }
+            }
+        }
+
+        &__image {
+            width: 40%;
+
+            @include mqMaxWidth('mdxx') {
+                width: 100%;
+            }
+
+        }
+
+        &__thirdtitle {
+            margin-top: 15vh;
+            width: 100%;
+            color: $white;
+            font-size: 1em;
+            text-align: center;
+            font-family: $primary-font;
+            opacity: 0.1;
+            text-transform: uppercase;
+
+            @include mqMaxWidth('mdxx') {
+                margin-top: 5vh;
+            }
+        }
+
+        &__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            color: $white;
+            margin-top: 15vh;
+
+            @include mqMaxWidth('mdxx') {
+                flex-wrap: wrap;
+                margin-top: 5vh;
+            }
+
+            &__item {
+                width: 30%;
                 text-align: center;
 
-                &__img {
-                    width: 350px;
+                @include mqMaxWidth('mdxx') {
+                    width: 100%;
+                }
 
-                    @include mqMaxWidth('lgx') {
-                        width: 250px;
+                &__icon {
+                    filter: brightness(0) invert(1);
+                    width: 80px;
+                    margin-bottom: 15px;
+
+                    @include mqMaxWidth('mdxx') {
+                        width: 50px;
                     }
+                }
 
-                    @include mqMaxWidth('lg') {
-                        width: 175px;
+                &__title {
+                    margin-bottom: 5px;
+                    font-size: 1.8em;
+                    font-family: $primary-font-bold;
+
+                    @include mqMaxWidth('mdxx') {
+                        font-size: 1em;
+                    }
+                }
+
+                &__desc {
+                    font-family: $secondary-font-light;
+                    text-align: justify;
+                    font-size: 0.9em;
+
+                    @include mqMaxWidth('mdxx') {
+                        font-size: 0.75em;
+                        margin-bottom: 30px;
                     }
                 }
             }
@@ -408,13 +503,18 @@
 
 .section-five{
     &__layer {
-        height: 100%;
+        padding: 30px 0;
+        height: 100vh;
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         background-color: rgba($black, $alpha: 0.6);
+
+        @include mqMaxWidth('mdxx') {
+            height: 100%;
+        }
 
         &__container {
             padding: 0 50px;
@@ -427,7 +527,7 @@
                 font-size: 3.5em;
                 font-family: $primary-font-bold;   
                 
-                @include mqMaxWidth('mdx') {
+                @include mqMaxWidth('mdxx') {
                     font-size: 2em;
                 }
             }
@@ -439,8 +539,9 @@
                 font-size: 1.6em;
                 font-family: $primary-font;
 
-                @include mqMaxWidth('mdx') {
-                    font-size: 1.25em;
+                @include mqMaxWidth('mdxx') {
+                    font-size: 1em;
+                    margin-bottom: 20px;
                 }
             }
         }
