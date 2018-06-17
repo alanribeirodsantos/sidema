@@ -11,8 +11,10 @@
         font-family: $secondary-font;
         font-size: $font-size-text;
 
-        @include mqMaxWidth('mdx') {
-            display: none;
+        &--hide {
+            @include mqMaxWidth('mdx') {
+                display: none;
+            }
         }
     }
 }
