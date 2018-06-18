@@ -1,4 +1,6 @@
 @import "~assets/sass-utils/variables";
+@import "~assets/sass-utils/mixins";
+
 .form-editProfile {
     &__title {
         font-family: $primary-font-bold;
@@ -7,14 +9,21 @@
         padding: 20px 30px;
         margin-bottom: 10px;
         box-sizing: border-box;
+
+        @include mqMaxWidth('lg') {
+            padding-top: 70px;
+        }
     }
+
     &__form {
-        padding: 0px 30px;
+        padding: 0px 30px 30px 30px;
+
         &__subtitle {
             font-family: $primary-font;
             color: $black;
             font-size: $font-size-medium;
         }
+
         &__update-profile-pic {
             &__container {
                 width: 120px;

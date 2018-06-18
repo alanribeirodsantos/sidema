@@ -30,7 +30,7 @@
             </div>
         </div>
         <a class="form-editProfile__form__subtitle uk-width-1-1" *ngIf="this.userService.hasPhoto" (click)="removePhoto()">Remover Foto</a>
-        <div class="uk-margin uk-width-1-2@s">
+        <div class="uk-width-1-2@s">
             <sdm-button [type]="'quaternary'" [btnWidth]="'large'" (click)="editProfile()">
                 <div *ngIf="!isLoading">Salvar Alterações</div>
                 <div *ngIf="isLoading">
@@ -38,7 +38,7 @@
                 </div>
             </sdm-button>
         </div>
-        <div class="uk-margin uk-width-1-2@s">
+        <div class="uk-width-1-2@s">
             <sdm-button [type]="'danger-secondary'" [btnWidth]="'large'" routerLink="/sistema/denuncias">Cancelar</sdm-button>
         </div>
     </form>
