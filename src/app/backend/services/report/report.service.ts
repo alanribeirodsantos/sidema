@@ -35,7 +35,7 @@ export class ReportService {
       category: category,
       subcategory: subcategory,
       numberOfSupporters: 0,
-      status: "received",
+      status: "recebida",
       date: date,
       hour: hour
     }).then( () => {
