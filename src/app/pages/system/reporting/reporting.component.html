@@ -46,9 +46,9 @@
                 <select class="uk-select form-report__form__text" (change)="onChange($event.target.value)" [(ngModel)]="category" name="category" #reportCategory="ngModel" required>
                     <option value="">Categoria*</option>
                     <option value="Monólitos">Monólitos</option>
-                    <option value="Recursos Hídricos">Recursos Hidricos</option>
+                    <option value="Recursos hídricos">Recursos Hidricos</option>
                     <option value="Vegetação">Vegetação</option>
-                    <option value="Patrimônio Histórico">Patrimônio</option>
+                    <option value="Patrimônio histórico">Patrimônio</option>
                 </select>
                 <div *ngIf="report && !reportCategory.valid" class="uk-alert-danger form-report__form__error-message">
                     Selecione uma categoria referente a denúncia
@@ -60,13 +60,13 @@
                 <select class="uk-select form-report__form__text" [(ngModel)]="subcategory" #reportSubcategory="ngModel" name="subcategory" required>
                     <option value="">Tipo de Infração*</option>
                     <option>Poluição</option>
-                    <option *ngIf="categorySelect== 'Recursos Hídricos'">Poços Irregulares</option>
-                    <option *ngIf="categorySelect== 'Recursos Hídricos'">Desperdício de Água</option>
+                    <option *ngIf="categorySelect== 'Recursos hídricos'">Poços Irregulares</option>
+                    <option *ngIf="categorySelect== 'Recursos hídricos'">Desperdício de Água</option>
                     <option *ngIf="categorySelect== 'Monólitos'">Construção Irregular</option>
-                    <option *ngIf="categorySelect== 'Monólitos' || categorySelect== 'Patrimônio Histórico'">Depredação</option>
+                    <option *ngIf="categorySelect== 'Monólitos' || categorySelect== 'Patrimônio histórico'">Depredação</option>
                     <option *ngIf="categorySelect== 'Vegetação'">Queimada</option>
                     <option *ngIf="categorySelect== 'Vegetação'">Desmatamento</option>
-                    <option *ngIf="categorySelect== 'Patrimônio Histórico'">Ocupação Ilegal</option>
+                    <option *ngIf="categorySelect== 'Patrimônio histórico'">Ocupação Ilegal</option>
                     <option>Outro</option>
                 </select>
                 <div *ngIf="report && !reportSubcategory.valid" class="uk-alert-danger form-report__form__error-message">

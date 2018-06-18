@@ -173,7 +173,7 @@ export class ReportService {
   }
 
   addOrganReport(id, title, description, address, number, neighborhood, complement, violator, category, subcategory, date, hour){
-    if(category === "Patrimônio Histórico"){
+    if(category === "Patrimônio histórico"){
       this.angularFireDatabase.database.ref("orgão/sema").child("reports").child(id).set({
         id: id,
         title: title,
@@ -192,7 +192,7 @@ export class ReportService {
         hour: hour
       });
     }
-    else if(category === "Recursos Hídricos"){
+    else if(category === "Recursos hídricos"){
       this.angularFireDatabase.database.ref("orgão/dnocs").child("reports").child(id).set({
         id: id,
         title: title,

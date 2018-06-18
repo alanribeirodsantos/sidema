@@ -17,7 +17,7 @@ export class SdmReportCategoryComponent implements OnInit {
   }
 
   setCategoryName() {
-    if(this.category === "Patrimônio Histórico") {
+    if(this.category === "Patrimônio histórico") {
       this.categoryName = "Patrimônio Histórico";
       this.categoryType = "historical-patrimony";
     }
@@ -29,7 +29,7 @@ export class SdmReportCategoryComponent implements OnInit {
       this.categoryName = "Vegetação";
       this.categoryType = "vegetation";
     }
-    else if (this.category === "Recursos Hídricos") {
+    else if (this.category === "Recursos hídricos") {
       this.categoryName = "Recursos Hídricos";
       this.categoryType = "water-resources";
     }

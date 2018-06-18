@@ -127,10 +127,10 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
     }
     else this.complement = this.report.complement;
 
-    if(this.report.category === "Patrimônio Histórico"){
+    if(this.report.category === "Patrimônio histórico"){
       this.organ = "SEMA";
     }
-    else if(this.report.category === "Recursos Hídricos"){
+    else if(this.report.category === "Recursos hídricos"){
       this.organ = "DNOCS";
     }
     else if(this.report.category === "Monólitos"){
