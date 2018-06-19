@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ReportService } from '../../../backend/services/report/report.service';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
@@ -10,12 +10,14 @@ import * as $ from 'jquery';
 })
 export class ReportsListComponent {
 
+  @Input() context:string;
+
   reportsList:any[];
   searchTag:string = "";
   orderField:string = "";
-  filterCategory:string = "";
-  filterSubcategory:string = "";
-  filterStatus:string = "";
+  filterCategory:string = "Todas";
+  filterSubcategory:string = "Todas";
+  filterStatus:string = "Todos";
   currentRouter:any;
   scrolled:boolean = false;
   searching:boolean = false;
@@ -56,63 +58,27 @@ export class ReportsListComponent {
   }
 
   filterByCategory() {
-    switch(this.filterCategory) {
-      case "Monólitos":
-        return "monoliths";
-      case "Patrimônio histórico":
-        return "historical-patrimony";
-      case "Recursos hídricos":
-        return "water-resources";
-      case "Vegetação":
-        return "vegetation";
-      default:
-        this.filterCategory = "Todas";
-        return "";
+    if(this.filterCategory !== "Todas") {
+      return this.filterCategory;
     }
+    this.filterCategory = "Todas";
+    return "";
   }
 
   filterBySubcategory() {
-    switch(this.filterSubcategory) {
-      case "Poluição":
-        return "pollution";
-      case "Poços irregulares":
-        return "irregular-wells";
-      case "Desperdício de água":
-        return "waste-of-water";
-      case "Construção irregular":
-        return "irregular-construction";
-      case "Depredação":
-        return "depredation";
-      case "Queimadas":
-        return "burns";
-      case "Desmatamento":
-        return "deforestation";
-      case "Ocupação ilegal":
-        return "illegal-occupation";
-      case "Outra":
-        return "other";
-      default:
-        this.filterSubcategory = "Todas";
-        return "";
+    if(this.filterSubcategory !== "Todas") {
+      return this.filterSubcategory;
     }
+    this.filterSubcategory = "Todas";
+    return "";
   }
 
   filterByStatus() {
-    switch(this.filterStatus) {
-      case "Arquivada":
-        return "filed";
-      case "Em andamento":
-        return "in-progress";
-      case "Recebida":
-        return "received";
-      case "Resolvida":
-        return "resolved";
-      case "Verificando veracidade":
-        return "verifying-veracity";
-      default:
-        this.filterStatus = "Todos";
-        return "";
+    if(this.filterStatus !== "Todos") {
+      return this.filterStatus;
     }
+    this.filterStatus = "Todos";
+    return "";
   }
 
   toggleMobileSearch() {

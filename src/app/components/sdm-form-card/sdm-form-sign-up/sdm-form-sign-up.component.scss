@@ -18,6 +18,10 @@
         line-height: 1.4;
         margin-bottom: 20px;
         text-align: justify;
+
+        @media only screen and (max-height: 600px) {
+            display: none;
+        }
     }
 
     &__divider {

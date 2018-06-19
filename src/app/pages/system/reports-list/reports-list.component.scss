@@ -89,9 +89,16 @@
         }
 
         &__filter-tags {
-            height: 30px;
+            height: 35px;
             margin-top: 20px;
-            display: flex
+            display: flex;
+
+            &__chip {
+                @include mqMaxWidth('mdx') {
+                    width: calc(30% - 10px);
+                    margin-right: 25px;
+                }
+            }
         }
 
         &--full-width {
@@ -106,6 +113,12 @@
             top: 45px;
             width: 100vw !important;
             padding: 15px;
+        }
+
+        &--logged-off {
+            @include mqMaxWidth('lg') {
+                top: 0;
+            } 
         }
     }
 
@@ -130,6 +143,22 @@
 
         @include mqMaxWidth('mdx') {
             padding: 0 3vw;
+        }
+
+        &--logged-off {
+            margin-top: 0px;
+        }
+
+        &--filter-active {
+            margin-top: 145px;
+
+            @include mqMaxWidth('lg') {
+                margin-top: 190px;
+            }
+
+            &--logged-off {
+                margin-top: 0px;
+            }
         }
     }
 }

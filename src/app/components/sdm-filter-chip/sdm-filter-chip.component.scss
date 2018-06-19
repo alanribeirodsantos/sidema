@@ -1,4 +1,5 @@
 @import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
 
 .sdm-filter-chips {
     height: 35px;
@@ -12,6 +13,13 @@
     font-family: $primary-font;
     font-size: $font-size-text;
 
+    &__title {
+        width: calc(100% - 45px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     &__close {
         margin-left: 10px;
         cursor: pointer;
@@ -19,5 +27,9 @@
         &:hover {
             color: $primary-color;
         }
+    }
+
+    @include mqMaxWidth('mdx') {
+        width: 100%;
     }
 }

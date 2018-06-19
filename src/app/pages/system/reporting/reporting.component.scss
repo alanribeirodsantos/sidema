@@ -1,4 +1,5 @@
 @import "~assets/sass-utils/variables";
+@import "~assets/sass-utils/mixins";
 
 .form-report {
     &__title {
@@ -8,9 +9,19 @@
         padding: 20px 30px;
         margin-bottom: 10px;
         box-sizing: border-box;
+
+        @include mqMaxWidth('lg') {
+            padding-top: 70px;
+        }
+
+        &--logged-off {
+            @include mqMaxWidth('lg') {
+                padding-top: 30px;
+            }
+        }
     }
     &__form {
-        padding: 0px 30px;
+        padding: 0px 30px 30px 30px;
 
         &__subtitle {
             font-family: $primary-font;

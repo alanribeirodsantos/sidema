@@ -147,5 +147,15 @@
         @include mqMaxWidth('md') {
             padding: 70px 15px 0px 15px;
         }
+
+        &--logged-off {
+            @include mqMaxWidth('lg') {
+                padding: 30px 30px;
+            }
+
+            @include mqMaxWidth('md') {
+                padding: 30px 15px 0px 15px;
+            }
+        }
     }
 }

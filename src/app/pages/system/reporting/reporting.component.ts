@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ReportService } from '../../../backend/services/report/report.service';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import * as UIkit from 'uikit';
@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./reporting.component.scss']
 })
 export class ReportingComponent implements OnInit {
+
+  @Input() context: string;
 
   constructor(private reportService:ReportService, private http:Http, private _router: Router) {
     this.router = _router;

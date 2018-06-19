@@ -1,5 +1,4 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import * as UIkit from 'uikit';
 import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
