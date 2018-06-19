@@ -13,6 +13,12 @@
         @include mqMaxWidth('lg') {
             padding-top: 70px;
         }
+
+        &--logged-off {
+            @include mqMaxWidth('lg') {
+                padding-top: 30px;
+            }
+        }
     }
     &__form {
         padding: 0px 30px 30px 30px;

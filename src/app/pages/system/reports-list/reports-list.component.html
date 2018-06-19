@@ -1,7 +1,8 @@
 <div class="uk-offcanvas-content reports-list">
     <header class="reports-list__header"
-            [ngClass]="{'reports-list__header--full-width': this.currentRouter == '/consultar-denuncias',
-                        'reports-list__header--not-fixed': this.currentRouter == '/consultar-denuncias' && !scrolled}">
+            [ngClass]="{'reports-list__header--full-width': currentRouter == '/consultar-denuncias',
+                        'reports-list__header--not-fixed': currentRouter == '/consultar-denuncias' && !scrolled,
+                        'reports-list__header--logged-off': context == 'logged-off'}">
         <div class="reports-list__header__container">
             <div class="reports-list__header__container__title" *ngIf="!searching">Denúncias</div>
             <div class="reports-list__header__container__search-and-filter uk-width-1-2"
@@ -42,21 +43,30 @@
                         (filterSubcategory != '' && filterSubcategory != 'Todas') ||
                         (filterStatus != '' && filterStatus != 'Todos')">
             <sdm-filter-chip *ngIf="filterCategory != '' && filterCategory != 'Todas'"
-                                [filterName]="filterCategory"
-                                (clickedremoveFilter)="filterCategory = 'Todas'">
+                             class="reports-list__header__filter-tags__chip"
+                             [filterName]="filterCategory"
+                             (clickedremoveFilter)="filterCategory = 'Todas'">
             </sdm-filter-chip>
             <sdm-filter-chip *ngIf="filterSubcategory != '' && filterSubcategory != 'Todas'"
-                                [filterName]="filterSubcategory"
-                                (clickedremoveFilter)="filterSubcategory = 'Todas'">
+                             class="reports-list__header__filter-tags__chip"
+                             [filterName]="filterSubcategory"
+                             (clickedremoveFilter)="filterSubcategory = 'Todas'">
             </sdm-filter-chip>
             <sdm-filter-chip *ngIf="filterStatus != '' && filterStatus != 'Todos'"
-                                [filterName]="filterStatus"
-                                (clickedremoveFilter)="filterStatus = 'Todos'">
+                             class="reports-list__header__filter-tags__chip"
+                             [filterName]="filterStatus"
+                             (clickedremoveFilter)="filterStatus = 'Todos'">
             </sdm-filter-chip>
         </section>
     </header>
 
-    <section class="reports-list__list">
+    <section class="reports-list__list"
+             [ngClass]="{'reports-list__list--filter-active':
+                        (filterCategory != '' && filterCategory != 'Todas') ||
+                        (filterSubcategory != '' && filterSubcategory != 'Todas') ||
+                        (filterStatus != '' && filterStatus != 'Todos'),
+                        'reports-list__list--logged-off': context == 'logged-off',
+                        'reports-list__list--filter-active--logged-off': context == 'logged-off'}">
         <div class="reports-list__list__container">
             <sdm-report-card *ngFor="let report of reportsList |
                                      reportSearch: searchTag |
@@ -91,7 +101,7 @@
                 <div class="uk-margin">
                     <label class="uk-form-label" for="form-horizontal-select">Categoria:</label>
                     <div class="uk-form-controls uk-margin-small-top">
-                        <select class="uk-select uk-form-small" id="form-horizontal-select" name="selectCategory" [(ngModel)]="filterCategory">
+                        <select class="uk-select uk-form-small" name="selectCategory" [(ngModel)]="filterCategory">
                             <option>Todas</option>
                             <option>Monólitos</option>
                             <option>Patrimônio histórico</option>
@@ -103,7 +113,7 @@
                 <div class="uk-margin" *ngIf="filterCategory != 'Todas'">
                     <label class="uk-form-label" for="form-horizontal-select">Subcategoria:</label>
                     <div class="uk-form-controls uk-margin-small-top">
-                        <select class="uk-select uk-form-small" id="form-horizontal-select" name="selectFilterSubcategory" [(ngModel)]="filterSubcategory">
+                        <select class="uk-select uk-form-small" name="selectFilterSubcategory" [(ngModel)]="filterSubcategory">
                             <option>Todas</option>
                             <option>Poluição</option>
                             <option *ngIf="filterCategory == 'Recursos hídricos'">Poços irregulares</option>
@@ -120,7 +130,7 @@
                 <div class="uk-margin">
                     <label class="uk-form-label" for="form-horizontal-select">Status:</label>
                     <div class="uk-form-controls uk-margin-small-top">
-                        <select class="uk-select uk-form-small" id="form-horizontal-select" name="selectFilterStatus" [(ngModel)]="filterStatus">
+                        <select class="uk-select uk-form-small" name="selectFilterStatus" [(ngModel)]="filterStatus">
                             <option>Todos</option>
                             <option>Arquivada</option>
                             <option>Em andamento</option>

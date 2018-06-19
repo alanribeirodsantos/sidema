@@ -1,4 +1,5 @@
-@import '~assets/sass-utils/variables.scss';
+@import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
 
 .faq-container {
     padding: 25px 65px;
@@ -8,5 +9,9 @@
         font-size: $font-size-title-large;
         color: $primary-color;
         margin-bottom: 10px;
+    }
+
+    @include mqMaxWidth('md') {
+        padding: 25px;
     }
 }

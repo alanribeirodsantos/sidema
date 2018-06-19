@@ -1,5 +1,6 @@
 <div class="report-details">
-    <div class="report-details__content">
+    <div class="report-details__content"
+         [ngClass]="{'report-details__content--logged-off': context == 'logged-off'}">
         <div class="report-details__content__main-info uk-width-expand">
             <div class="report-details__content__main-info__title">{{report.title}}</div>
             <hr>
@@ -11,7 +12,7 @@
             <div class="report-details__content__main-info__section-description">{{report.description}}</div>
 
             <div class="report-details__content__main-info__section-title" *ngIf="hasMedia">Mídias:</div>
-            <div class="report-details__content__main-info__section-description uk-flex uk-flex-wrap" *ngIf="hasMedia"></div>
+            <div class="report-details__content__main-info__section-description media-list uk-flex uk-flex-wrap" *ngIf="hasMedia"></div>
 
             <div class="report-details__content__main-info__section-title">Acompanhamento:</div>
             <div class="report-details__content__main-info__section-description">

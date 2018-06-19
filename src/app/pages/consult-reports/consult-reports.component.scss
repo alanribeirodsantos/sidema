@@ -1,3 +1,10 @@
+@import "~assets/sass-utils/variables";
+@import "~assets/sass-utils/mixins";
+
 .report-list-content{
     margin: 20px 90px;
+
+    @include mqMaxWidth('lg') {
+        margin: 0px;
+    }
 }
