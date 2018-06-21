@@ -17,6 +17,10 @@
                 color: $primary-color;
                 margin-bottom: 25px;
             }
+
+            &__closeButton{
+                float: right;
+            }
         
             &__status {
                 margin-bottom: 30px;
