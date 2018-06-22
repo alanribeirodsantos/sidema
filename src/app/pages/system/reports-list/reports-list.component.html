@@ -32,7 +32,7 @@
                         type="button"
                         uk-toggle="target: #offcanvas-flip"
                         *ngIf="!searching">
-                    <span class="reports-list__header__container__search-and-filter__filter__title">Filtrar</span>
+                    <span class="reports-list__header__container__search-and-filter__filter__title">Filtros</span>
                     <i uk-icon="settings" class="reports-list__header__container__search-and-filter__filter__icon"></i>
                 </button>
             </div>
@@ -59,6 +59,10 @@
             </sdm-filter-chip>
         </section>
     </header>
+
+    <section *ngIf="gettingReports" class="reports-list__loading">
+        <div uk-spinner="ratio: 1.5"></div>
+    </section>
 
     <section class="reports-list__list"
              [ngClass]="{'reports-list__list--filter-active':

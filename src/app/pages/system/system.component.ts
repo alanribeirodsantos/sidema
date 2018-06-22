@@ -1,5 +1,6 @@
 import { Component, Renderer2 } from '@angular/core';
 import { UserService } from '../../backend/services/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'system',
@@ -8,11 +9,18 @@ import { UserService } from '../../backend/services/user/user.service';
 })
 export class SystemComponent {
 
-  constructor(private renderer: Renderer2, private userService:UserService) {
+  constructor(private renderer: Renderer2, private userService:UserService, private router:Router) {
   }
 
   isMenuOpen:boolean = false;
   isMenuClosed:boolean = true;
+
+  ngOnInit() {
+    let user = JSON.parse(localStorage.getItem("user"));
+    if(user === null){
+      this.router.navigate(["/home"]);
+    }
+  }
 
   openMenu() {
     this.isMenuOpen = true;

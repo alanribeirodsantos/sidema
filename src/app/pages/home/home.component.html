@@ -31,6 +31,10 @@
         <sdm-form-card [ngClass]="{'uk-animation-slide-right-small': showContent}" *ngIf="showContent"></sdm-form-card>
       </div>
       <sdm-down-arrow>ENTENDA</sdm-down-arrow>
+      <div *ngIf="edAlert" class="helper">
+        Entenda mais sobre o meio ambiente e ajude a protegê-lo. Clique abaixo. <a uk-close class="helper__link" (click)="toggleEducationalAlert()"></a>
+      </div>
+      <div *ngIf="edAlert" class="arrow-down"></div>
     </div>
     <div class="form-mobile" [ngClass]="{'opened-modal': isModalOpen, 'closed-modal': isModalClosed}">
       <sdm-form-card (closeModal)="exitModal()"></sdm-form-card>

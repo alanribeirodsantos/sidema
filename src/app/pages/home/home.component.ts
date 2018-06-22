@@ -23,6 +23,8 @@ import { trigger, style, animate, transition } from '@angular/animations';
 
 export class HomeComponent implements OnInit {
 
+  edAlert = false;
+
   constructor(private renderer: Renderer2) {
   }
 
@@ -37,7 +39,18 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.showContent = true;
-    }, 200);
+    }, 250);
+
+    if (!localStorage.getItem('sidema-first')) {
+      localStorage.setItem('sidema-first', 'true');
+      setTimeout(() => {
+        this.toggleEducationalAlert();
+      }, 2000); 
+
+      setTimeout(() => {
+        this.toggleEducationalAlert();
+      }, 12000); 
+    }
   }
 
   moveSlider(id) {
@@ -60,6 +73,10 @@ export class HomeComponent implements OnInit {
     if (this.isModalOpen == false) {
       this.renderer.removeClass(document.body, 'overflow-fix');
     }
+  }
+
+  toggleEducationalAlert() {
+    this.edAlert = (this.edAlert == true) ? false : true;
   }
 
   swipe(e: TouchEvent, when: string): void {

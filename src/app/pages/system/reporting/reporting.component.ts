@@ -43,7 +43,6 @@ export class ReportingComponent implements OnInit {
        navigator.geolocation.getCurrentPosition(position => {
          this.location = position.coords;
          this.pickedUp = false;
-         console.log('Localização Adquirida!')
        });
     }
   }
@@ -75,14 +74,10 @@ export class ReportingComponent implements OnInit {
   getLocalization() {
     let url: string = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + this.location.latitude + "," + this.location.longitude;
     this.http.get(url).map(data => {
-      return this.localizationInfo = data.json()
-    }).subscribe();
-
-    setTimeout(()=>{
+      this.localizationInfo = data.json();
       this.address = this.localizationInfo.results[0].address_components[1].long_name;
-      this.neighborhood = this.localizationInfo.results[0].address_components[2].long_name,
-      500
-    });
+      this.neighborhood = this.localizationInfo.results[0].address_components[2].long_name;
+    }).subscribe();
   }
 
   check() {
