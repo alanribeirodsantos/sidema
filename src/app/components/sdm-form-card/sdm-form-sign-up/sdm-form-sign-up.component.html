@@ -18,10 +18,12 @@
         </div>
         <sdm-button [type]="'primary'" [btnWidth]="'large'" (click)="createUser()">
             <div *ngIf="!isLoading">Participar</div>
-            <div *ngIf="isLoading"><div uk-spinner="ratio: 0.9"></div></div>
+            <div *ngIf="isLoading">
+                <div uk-spinner="ratio: 0.9"></div>
+            </div>
         </sdm-button>
     </form>
     <hr class="uk-divider-icon">
-    <sdm-social-button [socialNetwork]="'Facebook'" [btnWidth]="'half'"></sdm-social-button>
-    <sdm-social-button [socialNetwork]="'Google'" [btnWidth]="'half'" [btnFloat]="'right'"></sdm-social-button>
+    <sdm-social-button [socialNetwork]="'Facebook'" [btnWidth]="'half'" (click)="loginFacebook()"></sdm-social-button>
+    <sdm-social-button [socialNetwork]="'Google'" [btnWidth]="'half'" [btnFloat]="'right'" (click)="loginGoogle()"></sdm-social-button>
 </section>

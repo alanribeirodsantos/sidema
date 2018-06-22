@@ -40,8 +40,18 @@ export class SdmSideMenuComponent implements OnInit {
         this.userService.hasPhoto = true;
       },
       error => {
-        this.userPhoto = "/assets/images/user-default.png";
-        this.userService.hasPhoto = false;
+        if(this.userService.loggedFacebook){
+          this.userPhoto = this.userService.userFacebookPhoto;
+          this.userService.hasPhoto = true;
+        }
+        else if(this.userService.loggedGoogle){
+          this.userPhoto = this.userService.userGooglePhoto;
+          this.userService.hasPhoto = true;
+        }
+        else {
+          this.userPhoto = "/assets/images/user-default.png";
+          this.userService.hasPhoto = false;
+        }
       }
     )
   }
