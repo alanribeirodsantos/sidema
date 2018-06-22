@@ -42,7 +42,6 @@ export class ReportingComponent implements OnInit {
     if(navigator.geolocation){
        navigator.geolocation.getCurrentPosition(position => {
          this.location = position.coords;
-         console.log('Localização Adquirida!')
          this.pickedUp = false;
        });
     }
