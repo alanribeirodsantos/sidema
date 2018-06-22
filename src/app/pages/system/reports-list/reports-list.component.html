@@ -74,7 +74,8 @@
         <div class="reports-list__list__container">
             <sdm-report-card *ngFor="let report of reportsList |
                                      reportSearch: searchTag |
-                                     reportOrderBy: [orderBy()] |
+                                     myReportsFilter: userReports |
+                                     reportOrderBy: ['-numberOfSupporters'] |
                                      reportFilter: [filterByCategory(), filterBySubcategory(), filterByStatus()]"
                              [report]="report">
             </sdm-report-card>
@@ -87,21 +88,10 @@
             <h3>Filtros</h3>
             <hr>
             <form>
-                <label>
-                    <input class="uk-checkbox" type="checkbox"> Somente minhas denúncias
+                <label *ngIf="context != 'logged-off'">
+                    <input class="uk-checkbox" type="checkbox" (click)="filterByMyReports()"> Somente minhas denúncias
+                    <hr>
                 </label>
-                <hr>
-                <div class="uk-margin">
-                    <label class="uk-form-label" for="form-horizontal-select">Organizar por:</label>
-                    <div class="uk-form-controls uk-margin-small-top">
-                        <select class="uk-select uk-form-small" id="form-horizontal-select" name="selectOrderBy" [(ngModel)]="orderField">
-                            <option>Número de apoiadores</option>
-                            <option>Status da denúncia</option>
-                            <option>Categoria</option>
-                        </select>
-                    </div>
-                </div>
-                <hr>
                 <div class="uk-margin">
                     <label class="uk-form-label" for="form-horizontal-select">Categoria:</label>
                     <div class="uk-form-controls uk-margin-small-top">

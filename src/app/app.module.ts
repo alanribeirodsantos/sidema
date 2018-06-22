@@ -9,6 +9,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { ReportFilterPipe } from '../assets/js-utils/pipes/report-filter.pipe';
 import { ReportOrderByPipe } from '../assets/js-utils/pipes/report-order-by.pipe';
 import { ReportSearchPipe } from '../assets/js-utils/pipes/report-search.pipe';
+import { MyReportsFilterPipe } from '../assets/js-utils/pipes/my-reports-filter.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -96,6 +97,7 @@ export const firebaseConfig = {
     ReportFilterPipe,
     ReportOrderByPipe,
     ReportSearchPipe,
+    MyReportsFilterPipe,
     SdmFilterChipComponent,
     ReportComponent,
     ConsultReportsComponent,

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ReportService } from '../../../backend/services/report/report.service';
+import { UserService } from '../../../backend/services/user/user.service';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 
@@ -14,7 +15,7 @@ export class ReportsListComponent {
 
   reportsList:any[];
   searchTag:string = "";
-  orderField:string = "";
+  filterMyReports:boolean = false;
   filterCategory:string = "Todas";
   filterSubcategory:string = "Todas";
   filterStatus:string = "Todos";
@@ -22,8 +23,9 @@ export class ReportsListComponent {
   scrolled:boolean = false;
   searching:boolean = false;
   gettingReports:boolean = true;
+  userReports:any;
 
-  constructor(private reportService:ReportService, private _router: Router){
+  constructor(private reportService:ReportService, private userService:UserService, private _router: Router){
     this.reportService.getReports().subscribe(
       data => {
         this.reportsList = data.reverse()
@@ -47,18 +49,19 @@ export class ReportsListComponent {
     })
   }
 
-  orderBy () {
-    switch(this.orderField) {
-      case "Número de apoiadores":
-        return "-numberOfSupporters";
-      case "Status da denúncia":
-        return "status";
-      case "Categoria":
-        return "category";
-      default:
-        this.orderField = "Número de apoiadores";
-        return "-numberOfSupporters";
+  filterByMyReports() {
+    this.filterMyReports = !this.filterMyReports;
+    if(this.filterMyReports) {
+      let loggedUser = JSON.parse(localStorage.getItem("user"));
+      this.userService.getUserReports(loggedUser.id).subscribe(
+        data => {
+          this.userReports = data;
+        }
+      )
+      return;
     }
+    this.userReports = null;
+    return;
   }
 
   filterByCategory() {
