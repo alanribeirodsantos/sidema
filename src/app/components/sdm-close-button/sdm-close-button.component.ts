@@ -1,6 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { AngularFireStorage, AngularFireStorageModule } from 'angularfire2/storage';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'sdm-close-button',
@@ -9,16 +7,14 @@ import { Router } from '@angular/router';
 })
 export class SdmCloseButtonComponent implements OnInit {
 
-  user:any;
   routerLinkUrl:string = '';
 
   ngOnInit(){
-    this.user = JSON.parse(localStorage.getItem("user"));
-    if(this.user !== null){
+    let user = JSON.parse(localStorage.getItem("user"));
+    if(user !== null){
       this.routerLinkUrl = "/sistema/denuncias"
     }else{
       this.routerLinkUrl = "/consultar-denuncias"
-    }
-      
-    }
+    }  
+  }
 }
