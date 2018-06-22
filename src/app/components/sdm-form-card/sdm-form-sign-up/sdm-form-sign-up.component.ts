@@ -40,10 +40,9 @@ export class SdmFormSignUpComponent {
         this.email = "";
         this.password = "";
         this.confirmPassword = "";
-        setTimeout(this.isLoading = false, 300)
+        setTimeout(this.isLoading = true, 300)
       }
       else  {
-        this.isLoading = true;
         UIkit.notification({message: "<span uk-icon='icon: close'></span> As senhas não correspondem!", status: "danger", timeout: 3000})
       }
     }

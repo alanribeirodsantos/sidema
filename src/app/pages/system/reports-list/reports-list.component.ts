@@ -21,10 +21,14 @@ export class ReportsListComponent {
   currentRouter:any;
   scrolled:boolean = false;
   searching:boolean = false;
+  gettingReports:boolean = true;
 
   constructor(private reportService:ReportService, private _router: Router){
     this.reportService.getReports().subscribe(
-      data => { this.reportsList = data.reverse()},
+      data => {
+        this.reportsList = data.reverse()
+        this.gettingReports = false;
+      },
       error => console.log(error)
     );
 

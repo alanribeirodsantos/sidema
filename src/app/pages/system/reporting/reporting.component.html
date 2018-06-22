@@ -14,6 +14,12 @@
                 Informe uma descrição para esta denúncia
             </div>
         </div>
+        <div class="uk-width-1-1@l">
+                <sdm-button [type]="'tertiary'" [btnWidth]="'large'" uk-tooltip="title: Gerar localização automaticamente" (click)="getLocalization()">
+                    <div uk-spinner class="spinner" *ngIf="pickedUp"></div>
+                    <div *ngIf="!pickedUp">CLIQUE PARA LOCALIZAR AUTOMATICAMENTE</div>
+                </sdm-button>
+        </div>
         <div class="uk-width-1-2@s">
             <input class="uk-input form-report__form__text" type="text" #reportAddress="ngModel" placeholder="Endereço*" name="address" [(ngModel)]="address" (ngModelChange)="address=$event" required>
             <div *ngIf="report && !reportAddress.valid" class="uk-alert-danger form-report__form__error-message">
@@ -29,14 +35,8 @@
                 Informe o bairro relacionado a denúncia
             </div>
         </div>
-        <div class="uk-width-1-2@s">
+        <div class="uk-width-1-1@s">
             <input class="uk-input form-report__form__text" type="text" placeholder="Complemento" name="complement" [(ngModel)]="complement">
-        </div>
-        <div class="uk-width-1-4@l">
-            <sdm-button [type]="'tertiary'" [btnWidth]="'large'" uk-tooltip="title: Gerar localização automaticamente" (click)="getLocalization()">
-                <div uk-spinner class="spinner" *ngIf="pickedUp"></div>
-                <div *ngIf="!pickedUp">GERAR LOCALIZAÇÃO</div>
-            </sdm-button>
         </div>
         <div class="uk-width-1-1">
             <input class="uk-input form-report__form__text" type="text" placeholder="Descrição do Infrator (se houver)" name="violator" [(ngModel)]="violator">

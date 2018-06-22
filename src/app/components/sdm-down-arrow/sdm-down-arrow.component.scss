@@ -2,7 +2,7 @@
 @import '~assets/sass-utils/mixins';
 
 .sdm-down-arrow {
-    width: 100px;
+    width: 190px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,10 +12,14 @@
     margin-left: -50px;
     cursor: pointer;
 
+    @include mqMaxWidth('md') {
+        display: none;
+    }
+
     &__text {
         color: $white;
-        font-family: $primary-font;
-        font-size:  $font-size-medium;
+        font-family: $primary-font-bold;
+        font-size:  $font-size-description;
 
         @include mqMaxWidth('mdx') {
             display: none;
@@ -27,8 +31,8 @@
         animation: floating 1.5s ease-in-out infinite;
 
         svg {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             fill: $primary-color;
         }
     }

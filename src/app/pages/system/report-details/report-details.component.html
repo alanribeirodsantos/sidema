@@ -22,10 +22,15 @@
             </div>
             <hr>
             <div class="report-details__content__main-info__section-title">Comentários:</div>
+            <textarea *ngIf="user !== null" class="uk-textarea uk-margin-small-bottom" type="text" rows="3" placeholder="Insira seu comentário" [(ngModel)]="commentary">
+            </textarea>
+            <sdm-button *ngIf="user !== null" [type]="'quaternary'" [btnWidth]="'large'" (click)="sendCommentary()">
+                Enviar Comentário
+            </sdm-button>
             <div class="report-details__content__main-info__section-description" *ngIf="!hasComments">
                 Essa denúncia ainda não possuí comentários.
             </div>
-            <div class="report-details__content__main-info__section-description" *ngIf="hasComments">
+            <div class="report-details__content__main-info__section-description uk-margin-small-top" *ngIf="hasComments">
                 <div *ngFor="let comment of comments">
                     <article class="report-details__content__main-info__comment uk-comment">
                         <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid>
@@ -45,11 +50,6 @@
                     </article>
                 </div>
             </div>
-            <textarea *ngIf="user !== null" class="uk-textarea uk-margin-small-bottom" type="text" rows="5" placeholder="Insira seu comentário" [(ngModel)]="commentary">
-            </textarea>
-            <sdm-button *ngIf="user !== null" [type]="'quaternary'" [btnWidth]="'large'" (click)="sendCommentary()">
-                Enviar Comentário
-            </sdm-button>
         </div>
 
         <aside class="report-details__content__side-info uk-width-1-3">

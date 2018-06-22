@@ -1,6 +1,44 @@
 @import '~assets/sass-utils/variables';
 @import '~assets/sass-utils/mixins';
 
+.helper {
+    bottom: 85px;
+    left: 50%;
+    margin-left: -243px;
+    position: absolute;
+    width: 525px;
+    background-color: $primary-color;
+    text-align: center;
+    font-family: $secondary-font-light;
+    color: $white;
+    font-size: $font-size-medium;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 500ms;
+
+    @include mqMaxWidth('mdxx') {
+        display: none;
+    }
+}
+
+.helper:after {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(0, 0, 0, 0);
+	border-top-color: $primary-color;
+	border-width: 15px;
+	margin-left: -15px;
+}
+  
+
 .buttonEnter{
     &__button{
         float: right;

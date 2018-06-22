@@ -64,7 +64,8 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
     this.reportService.getComments(this.report.id).subscribe(
       data => {
         if(data.length > 0){
-          this.comments = data;
+          this.comments = data.reverse();
+          console.log(this.comments);
           this.hasComments = true;
         }
       },
@@ -154,6 +155,8 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
       message: this.commentary
     }
     this.reportService.commentOnReport(this.report.id, comment);
+    this.user.name = "";
+    this.commentary = "";
   }
 
   unlinkReport(){
