@@ -2,7 +2,10 @@
     <div class="report-details__content"
          [ngClass]="{'report-details__content--logged-off': context == 'logged-off'}">
         <div class="report-details__content__main-info uk-width-expand">
-            <div class="report-details__content__main-info__title">{{report.title}}</div>
+            <div class="report-details__content__main-info__title">
+                <sdm-close-button></sdm-close-button>
+                {{report.title}}
+            </div>
             <hr>
             <div class="report-details__content__main-info__status">
                 <sdm-report-status [status]="report.status"></sdm-report-status>

@@ -52,6 +52,7 @@ import { ReportDetailsLoggedOffComponent } from './pages/report-details-logged-o
 import { SdmUploadMediaComponent } from './components/sdm-upload-media/sdm-upload-media.component';
 import { SdmMediaComponent } from './components/sdm-upload-media/sdm-media/sdm-media.component';
 import { SdmSectionDoubleComponent } from './components/sdm-section-double/sdm-section-double.component';
+import { SdmCloseButtonComponent } from './components/sdm-close-button/sdm-close-button.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASY7GlvEimsp0Gqv1H6qvwdX_w6AI0m6Y",
@@ -104,6 +105,7 @@ export const firebaseConfig = {
     SdmUploadMediaComponent,
     SdmMediaComponent,
     SdmSectionDoubleComponent,
+    SdmCloseButtonComponent,
   ],
   imports: [
     BrowserModule,
