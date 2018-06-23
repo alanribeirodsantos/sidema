@@ -156,7 +156,12 @@ export class ReportService {
                   status: "success",
                   timeout: 1500
                 })
-                this.router.navigateByUrl("/sistema");
+                if(JSON.parse(localStorage.getItem("user")) !== null) {
+                  this.router.navigateByUrl("/sistema");
+                }
+                else {
+                  this.router.navigateByUrl("/consultar-denuncias");
+                }
               }
             }
           })

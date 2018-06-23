@@ -70,6 +70,7 @@
         }
 
         &__side-info {
+            height: 100%;
             background-color:$gray-fa;        
             padding: 30px;
             box-sizing: border-box;
@@ -90,7 +91,6 @@
                     &__share-report {
                         display: flex;
                         justify-content: space-around;
-                        margin-bottom: 20px;
                     }
     
                     @include mqMaxWidth('mdxxx') {

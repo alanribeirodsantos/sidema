@@ -1,6 +1,6 @@
 <section class="form-report">
     <header class="form-report__title" [ngClass]="{'form-report__title--logged-off': context == 'logged-off'}">Registrar Denúncia</header>
-    <form class="form-report__form uk-grid-small" uk-grid>
+    <form class="form-report__form uk-grid-small" [ngClass]="{'form-report__form--logged-off': context == 'logged-off'}" uk-grid>
         <div class="uk-width-1-1">
             <input class="uk-input form-report__form__text" type="text" #reportTitle="ngModel" placeholder="Título da Denúncia*" name="title" [(ngModel)]="title" required>
             <div *ngIf="report && !reportTitle.valid" class="uk-alert-danger form-report__form__error-message">

@@ -15,6 +15,7 @@ export class SdmUploadMediaComponent {
 
   mediaAux:any;
   mediaList:Array<any> = [];
+  loadingMedias:boolean = false;
 
   constructor() {}
 
@@ -22,6 +23,13 @@ export class SdmUploadMediaComponent {
     this.mediaAux = Array.from(event.target.files);
 
     if(this.mediaAux.length <= 5) {
+      this.loadingMedias = true;
+      let that = this;
+
+      setTimeout(function(){
+        that.loadingMedias = false;
+      }, 4000);
+
       [].forEach.call(this.mediaAux, (media) => {
         let reader = new FileReader();
         reader.addEventListener("loadend", () => {

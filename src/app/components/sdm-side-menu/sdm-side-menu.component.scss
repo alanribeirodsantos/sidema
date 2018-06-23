@@ -44,6 +44,7 @@
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
+                background-color: $gray-bb;
 
                 @media only screen and (max-height: 600px) {
                     width: 70px;
