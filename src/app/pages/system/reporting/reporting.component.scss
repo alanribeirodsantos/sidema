@@ -18,6 +18,10 @@
             @include mqMaxWidth('lg') {
                 padding-top: 30px;
             }
+
+            @include mqMaxWidth('mdx') {
+                padding: 30px 0 20px 0;
+            }
         }
     }
     &__form {
@@ -31,6 +35,12 @@
         &__error-message{
             font-family: $primary-font;
             padding: 5px;
+        }
+
+        &--logged-off {
+            @include mqMaxWidth('mdx') {
+                padding: 0 0 30px 0;
+            }
         }
     }
 }

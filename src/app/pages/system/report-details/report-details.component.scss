@@ -48,6 +48,18 @@
                 padding: 15px;
                 margin-bottom: 10px;
 
+                &__avatar-container {
+                    &__image {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        background-color: $gray-bb;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                }
+
                 &__info {
                     padding-left: 10px;
 
@@ -70,6 +82,7 @@
         }
 
         &__side-info {
+            height: 100%;
             background-color:$gray-fa;        
             padding: 30px;
             box-sizing: border-box;
@@ -90,7 +103,6 @@
                     &__share-report {
                         display: flex;
                         justify-content: space-around;
-                        margin-bottom: 20px;
                     }
     
                     @include mqMaxWidth('mdxxx') {

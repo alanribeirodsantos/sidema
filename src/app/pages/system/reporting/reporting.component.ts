@@ -82,7 +82,6 @@ export class ReportingComponent implements OnInit {
 
   check() {
     this.checkbox = !this.checkbox;
-    console.log(this.checkbox);
   }
 
   saveMedias(event) {
@@ -91,6 +90,5 @@ export class ReportingComponent implements OnInit {
       this.media.push(event[i].value);
       this.mediaSize += event[i].value.size;
     }
-    console.log(this.media);
   }
 }
