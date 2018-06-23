@@ -47,4 +47,12 @@ export class SdmFormSignUpComponent {
       }
     }
   }
+
+  loginFacebook(){
+    this.userService.loginFacebook();
+  }
+
+  loginGoogle(){
+    this.userService.loginGoogle();
+  }
 }

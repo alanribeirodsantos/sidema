@@ -38,10 +38,24 @@ export class SdmSideMenuComponent implements OnInit {
       url => {
         this.userPhoto = url;
         this.userService.hasPhoto = true;
+        this.userService.photoComment = url;
       },
       error => {
-        this.userPhoto = "/assets/images/user-default.png";
-        this.userService.hasPhoto = false;
+        if(this.userService.loggedFacebook){
+          this.userPhoto = this.userService.userFacebookPhoto;
+          this.userService.hasPhoto = true;
+          this.userService.photoComment = this.userService.userFacebookPhoto;
+        }
+        else if(this.userService.loggedGoogle){
+          this.userPhoto = this.userService.userGooglePhoto;
+          this.userService.hasPhoto = true;
+          this.userService.photoComment = this.userService.userGooglePhoto;
+        }
+        else {
+          this.userPhoto = "/assets/images/user-default.png";
+          this.userService.hasPhoto = false;
+          this.userService.photoComment = "/assets/images/user-default.png"
+        }
       }
     )
   }

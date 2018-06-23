@@ -152,6 +152,7 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
       author: this.user.name,
       date: dateComment,
       hour: date.getHours() + 'h' + date.getMinutes() + 'min',
+      photo: this.userService.photoComment,
       message: this.commentary
     }
     this.reportService.commentOnReport(this.report.id, comment);

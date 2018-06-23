@@ -1,6 +1,5 @@
 <div class="report-details">
-    <div class="report-details__content"
-         [ngClass]="{'report-details__content--logged-off': context == 'logged-off'}">
+    <div class="report-details__content" [ngClass]="{'report-details__content--logged-off': context == 'logged-off'}">
         <div class="report-details__content__main-info uk-width-expand">
             <div class="report-details__content__main-info__title">
                 <sdm-close-button></sdm-close-button>
@@ -38,7 +37,7 @@
                     <article class="report-details__content__main-info__comment uk-comment">
                         <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid>
                             <div class="uk-width-auto">
-                                <img class="uk-comment-avatar" src="../../../../assets/images/user-default.png" width="40" height="40" alt="">
+                                <img class="uk-comment-avatar" src="{{comment.photo}}" width="40" height="40" alt="">
                             </div>
                             <div class="report-details__content__main-info__comment__info uk-width-expand">
                                 <h4 class="report-details__content__main-info__comment__info__author uk-comment-title uk-margin-remove">{{comment.author}}</h4>

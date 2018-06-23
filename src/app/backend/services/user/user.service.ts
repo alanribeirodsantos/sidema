@@ -19,6 +19,11 @@ export class UserService {
   percentage:any;
   flag:number = 0;
   hasPhoto:boolean;
+  loggedFacebook:boolean = false;
+  loggedGoogle:boolean = false;
+  userFacebookPhoto:any;
+  userGooglePhoto:any;
+  photoComment:any;
 
   constructor(private angularFireAuth:AngularFireAuth, private angularFireDatabase:AngularFireDatabase, private router:Router, private angularFireStorage:AngularFireStorage) {}
 
@@ -83,7 +88,6 @@ export class UserService {
                 userLocal.name = name;
                 localStorage.setItem("user", JSON.stringify(userLocal));               
               }).catch( (error) => console.log(error.message));
-              user.updateProfile({displayName: name, photoURL: ""});
             }
             else if(users[u].email !== email && email.length > 0){
               this.angularFireDatabase.object(`/usuários/${user.id}/email`).set(email)
@@ -101,17 +105,26 @@ export class UserService {
                 }).catch( (error) => console.log(error.code));
               }
             }
-            else if(profilePic !== undefined ){
-              var userId = JSON.parse(localStorage.getItem("user")).id;
-              this.storageRef = this.angularFireStorage.ref(`/images/${userId}`);
-              this.storageRef.put(profilePic);
-            }
             break;
           }
-          window.setTimeout( () => {
-            window.location.reload();
-            this.router.navigateByUrl("/sistema");
-          }, 7000);
+          if(profilePic !== undefined){
+              var userId = JSON.parse(localStorage.getItem("user")).id;
+              this.storageRef = this.angularFireStorage.ref(`/images/${userId}`);
+              this.storageRef.put(profilePic).downloadURL().subscribe(
+                data => {
+                  window.setTimeout( () => {
+                    window.location.reload();
+                    this.router.navigateByUrl("/sistema");
+                  }, 7000);
+                }
+              );
+          }
+          else {
+            window.setTimeout( () => {
+              window.location.reload();
+              this.router.navigateByUrl("/sistema");
+            }, 7000);
+          }
         }
       },
       error => console.log(error)
@@ -166,6 +179,9 @@ export class UserService {
     firebase.auth().signInWithPopup(provider).then( (result) => {
       var token = result.credential.accessToken;
       var user = result.user;
+      this.loggedFacebook = true;
+      this.userFacebookPhoto = result.user.photoURL;
+      console.log(result.user);
       var users:any;
       this.getUsers().subscribe(
         data => {
@@ -207,6 +223,8 @@ export class UserService {
     firebase.auth().signInWithPopup(provider).then( (result) => {
       var token = result.credential.accessToken;
       var user = result.user;
+      this.loggedGoogle = true;
+      this.userGooglePhoto = result.user.photoURL;
       var users:any;
       this.getUsers().subscribe(
         data => {
@@ -241,7 +259,6 @@ export class UserService {
 
   logout(){
     this.angularFireAuth.auth.signOut().then( () => {
-      this.router.navigateByUrl("/home");
       localStorage.setItem("user", "null");     
     });
   }
