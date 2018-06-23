@@ -2,14 +2,6 @@
 @import '~assets/sass-utils/mixins';
 
 .closeButton{
+    padding: 0 10px;
     margin-right: 10px;
-    width: 35px;
-    height: 35px;
-    background-color: $quaternary-button-background;
-    color: $white;
-    border-radius: 50%;
-
-    &:hover{
-        background-color: $quaternary-button-background-hover;
-    }
 }
