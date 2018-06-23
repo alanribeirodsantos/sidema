@@ -23,6 +23,7 @@ export class UserService {
   loggedGoogle:boolean = false;
   userFacebookPhoto:any;
   userGooglePhoto:any;
+  photoComment:any;
 
   constructor(private angularFireAuth:AngularFireAuth, private angularFireDatabase:AngularFireDatabase, private router:Router, private angularFireStorage:AngularFireStorage) {}
 
