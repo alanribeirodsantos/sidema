@@ -147,7 +147,7 @@
             }
 
             @include mqMaxWidth('md') {
-                padding: 0 25px;
+                padding: 0 7.5vw;
             }
         }
     
@@ -196,9 +196,12 @@
             box-sizing: border-box;
         }
 
-
         &__container {
-            padding: 0px 75px;
+            padding: 0px 50px;
+
+            @include mqMaxWidth('md') {
+                padding: 0 7.5vw;
+            }
 
             &__title {
                 margin-bottom: 10vh;
@@ -314,6 +317,11 @@
                 height: 60%;
             }
 
+            @include mqMaxWidth('mdx') {
+                width: 100%;
+                height: 50%;
+            }
+
             & img {
                 height: 100vh;
                 width: auto;
@@ -327,12 +335,24 @@
         &__content {
             width: 40%;
             height: 100%;
-            padding: 30px;
+            padding: 30px 50px;
             box-sizing: border-box;
+
+            @include mqMaxWidth('md') {
+                padding: 30px 7.5vw;
+            }
 
             @include mqMaxWidth('mdxx') {
                 width: 100%;
                 height: 40%;
+                display: flex;
+                align-items: flex-start;
+                overflow: auto;
+            }
+
+            @include mqMaxWidth('mdx') {
+                width: 100%;
+                height: 50%;
                 display: flex;
                 align-items: flex-start;
                 overflow: auto;
@@ -418,11 +438,15 @@
         align-items: center;
         flex-wrap: wrap;
         box-sizing: border-box;
-        padding: 70px 75px 70px 75px;
+        padding: 70px 50px 70px 50px;
 
         @include mqMaxWidth('mdxx') {
             padding-top: 35px;
             padding-bottom: 35px;
+        }
+
+        @include mqMaxWidth('md') {
+            padding: 0 7.5vw;
         }
 
         &__introduction {
@@ -442,7 +466,7 @@
                 margin-bottom: 20px;
                 color: $white;
                 font-size: 1em;
-                text-align: center;
+                text-align: justify;
                 font-family: $primary-font;
 
                 @include mqMaxWidth('mdxx') {
@@ -560,6 +584,10 @@
         &__container {
             padding: 0 50px;
 
+            @include mqMaxWidth('md') {
+                padding: 0 7.5vw;
+            }
+
             &__title {
                 text-align: center;
                 width: 100%;
@@ -567,6 +595,7 @@
                 box-sizing: border-box;
                 font-size: 3.5em;
                 font-family: $primary-font-bold;   
+                margin-bottom: 15px;
                 
                 @include mqMaxWidth('mdxx') {
                     font-size: 2em;
@@ -607,6 +636,10 @@
             align-items: center;
             flex-wrap: wrap;
             height: 80%;
+
+            @include mqMaxWidth('md') {
+                padding: 0 7.5vw;
+            }
 
             &__title {
                 text-align: center;
@@ -690,6 +723,10 @@
         
         &__container {
             padding: 0 50px;
+
+            @include mqMaxWidth('md') {
+                padding: 0 7.5vw;
+            }
 
             &__title {
                 width: 100%;
