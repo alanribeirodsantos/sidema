@@ -34,16 +34,30 @@ export class SdmFormSignUpComponent {
       })
     }
     else {
-      if(this.confirmPassword === this.password){
-        this.userService.createUser(this.name, this.email, this.password);
-        this.name = "";
-        this.email = "";
-        this.password = "";
-        this.confirmPassword = "";
-        setTimeout(this.isLoading = true, 300)
+      if(this.password.length > 0 && this.confirmPassword === this.password){
+        if(this.password.length < 6){
+          this.isLoading = false;
+          UIkit.notification({
+            message: "<span uk-icon='icon: ban'></span> Sua senha deve conter no mínimo 6 caracteres!",
+            status: "danger",
+            timeout: 1500
+          })
+        }
+        else{
+          this.userService.createUser(this.name, this.email, this.password);
+          this.name = "";
+          this.email = "";
+          this.password = "";
+          this.confirmPassword = "";
+          setTimeout(this.isLoading = true, 300)
+        }
       }
-      else  {
-        UIkit.notification({message: "<span uk-icon='icon: close'></span> As senhas não correspondem!", status: "danger", timeout: 3000})
+      else if(this.confirmPassword !== this.password){
+        this.isLoading = false;
+        UIkit.notification({
+          message: "<span uk-icon='icon: close'></span> As senhas não correspondem!", 
+          status: "danger", 
+          timeout: 1500})
       }
     }
   }

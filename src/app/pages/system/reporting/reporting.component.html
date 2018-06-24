@@ -75,8 +75,10 @@
                 </div>
             </div>
         </div>
-        <span class="form-report__form__subtitle uk-width-1-1">Mídias *</span>
-
+        <span class="form-report__form__subtitle uk-width-1-1">Mídias * <br/>
+            <p class="form-report__form__midia uk-width-1-1">As mídias podem ter até 25MB</p>
+        </span>
+        
         <sdm-upload-media [uploading]="report" [percentage]="this.reportService.percentage | async" (sendMedias)="saveMedias($event)">
         </sdm-upload-media>
 

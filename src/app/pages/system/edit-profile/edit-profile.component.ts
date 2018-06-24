@@ -11,7 +11,6 @@ import * as UIkit from 'uikit';
 })
 export class EditProfileComponent implements OnInit {
 
-  edit: boolean = false;
   name:string;
   email:string;
   newPassword:string = "";
