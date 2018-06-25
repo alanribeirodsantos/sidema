@@ -165,22 +165,6 @@
 }
 
 .section-two {
-    &__video {
-        position: absolute;
-        top: 100vh;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        
-        &__vid {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: block;
-            width: 100%;
-        }
-    }
 
     &__layer {
         height: 100vh;
@@ -188,8 +172,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: rgba($black, $alpha: 0.8);
 
-        @include mqMaxWidth('mdxx') {
+        @include mqMaxWidth('lg') {
             height: 100%;
             align-items: flex-start;
             padding-top: 30px;
@@ -199,7 +184,7 @@
         &__container {
             padding: 0px 50px;
 
-            @include mqMaxWidth('md') {
+            @include mqMaxWidth('lg') {
                 padding: 0 7.5vw;
             }
 
@@ -210,8 +195,8 @@
                 text-align: center;
                 font-family: $primary-font-bold;
 
-                @include mqMaxWidth('mdxx') {
-                    font-size: 2em;
+                @include mqMaxWidth('lg') {
+                    font-size: 2.5em;
                     margin-bottom: 6vh;
                 }
             }
@@ -222,7 +207,7 @@
                 text-align: center;
                 font-family: $primary-font;
 
-                @include mqMaxWidth('mdxx') {
+                @include mqMaxWidth('lg') {
                     font-size: 1.1em;
                 }
             }
@@ -234,7 +219,7 @@
                 color: $white;
                 margin-bottom: 20px;
 
-                @include mqMaxWidth('mdxx') {
+                @include mqMaxWidth('lg') {
                     flex-wrap: wrap;
                 }
 
@@ -242,7 +227,7 @@
                     width: 30%;
                     text-align: center;
 
-                    @include mqMaxWidth('mdxx') {
+                    @include mqMaxWidth('lg') {
                         width: 100%;
                     }
 
@@ -251,7 +236,7 @@
                         width: 80px;
                         margin-bottom: 15px;
 
-                        @include mqMaxWidth('mdxx') {
+                        @include mqMaxWidth('lg') {
                             width: 50px;
                         }
                     }
@@ -261,7 +246,7 @@
                         font-size: 1.8em;
                         font-family: $primary-font-bold;
 
-                        @include mqMaxWidth('mdxx') {
+                        @include mqMaxWidth('lg') {
                             font-size: 1em;
                         }
                     }
@@ -271,7 +256,7 @@
                         text-align: justify;
                         font-size: 0.9em;
 
-                        @include mqMaxWidth('mdxx') {
+                        @include mqMaxWidth('lg') {
                             font-size: 0.75em;
                             margin-bottom: 30px;
                         }
@@ -285,7 +270,7 @@
                 text-align: center;
                 font-family: $primary-font;
 
-                @include mqMaxWidth('mdxx') {
+                @include mqMaxWidth('lg') {
                     font-size: 0.8em;
                     margin-bottom: 50px;
                 }
@@ -577,7 +562,7 @@
         flex-wrap: wrap;
         background-color: rgba($black, $alpha: 0.6);
 
-        @include mqMaxWidth('mdxx') {
+        @include mqMaxWidth('lg') {
             height: 100%;
         }
 
@@ -598,7 +583,7 @@
                 margin-bottom: 15px;
                 
                 @include mqMaxWidth('mdxx') {
-                    font-size: 2em;
+                    font-size: 2.5em;
                 }
             }
 
@@ -609,7 +594,7 @@
                 font-size: 1.6em;
                 font-family: $primary-font;
 
-                @include mqMaxWidth('mdxx') {
+                @include mqMaxWidth('lg') {
                     font-size: 1em;
                     margin-bottom: 20px;
                 }
@@ -737,7 +722,7 @@
                 font-family: $primary-font-bold;
 
                 @include mqMaxWidth('mdx') {
-                    font-size: 2em;
+                    font-size: 2.5em;
                 }
             }
 
