@@ -41,7 +41,8 @@
         <section class="reports-list__header__filter-tags"
                  *ngIf="(filterCategory != '' && filterCategory != 'Todas') ||
                         (filterSubcategory != '' && filterSubcategory != 'Todas') ||
-                        (filterStatus != '' && filterStatus != 'Todos')">
+                        (filterStatus != '' && filterStatus != 'Todos') ||
+                        userReports !== null">
             <sdm-filter-chip *ngIf="filterCategory != '' && filterCategory != 'Todas'"
                              class="reports-list__header__filter-tags__chip"
                              [filterName]="filterCategory"
@@ -57,20 +58,43 @@
                              [filterName]="filterStatus"
                              (clickedremoveFilter)="filterStatus = 'Todos'">
             </sdm-filter-chip>
+            <sdm-filter-chip *ngIf="userReports !== null"
+                             class="reports-list__header__filter-tags__chip"
+                             [filterName]="'Minhas denúncias'"
+                             (clickedremoveFilter)="filterByMyReports()">
+            </sdm-filter-chip>
         </section>
     </header>
 
-    <section *ngIf="gettingReports" class="reports-list__loading">
-        <div uk-spinner="ratio: 1.5"></div>
+    <section *ngIf="gettingReports || reportsList.length == 0"
+             class="reports-list__loading"
+             [ngClass]="{'reports-list__loading--logged-off': context == 'logged-off'}">
+        <div *ngIf="gettingReports" class="reports-list__loading__loading-reports">
+            <div class="reports-list__loading__loading-reports__spinner" uk-spinner="ratio: 1.5"></div>
+            <div>Carregando as denúncias</div>
+        </div>
+        <div *ngIf="!gettingReports && reportsList.length == 0">
+            <div class="reports-list__loading__not-found">
+                <i uk-icon="icon: warning; ratio: 2" class="reports-list__loading__not-found__icon"></i>
+            </div>
+            Nenhuma denúncia encontrada
+        </div>
     </section>
 
-    <section class="reports-list__list"
+    <section *ngIf="reportsList.length !== 0" class="reports-list__list"
              [ngClass]="{'reports-list__list--filter-active':
-                        (filterCategory != '' && filterCategory != 'Todas') ||
-                        (filterSubcategory != '' && filterSubcategory != 'Todas') ||
-                        (filterStatus != '' && filterStatus != 'Todos'),
+                            (filterCategory != '' && filterCategory != 'Todas') ||
+                            (filterSubcategory != '' && filterSubcategory != 'Todas') ||
+                            (filterStatus != '' && filterStatus != 'Todos') ||
+                            userReports !== null,
                         'reports-list__list--logged-off': context == 'logged-off',
-                        'reports-list__list--filter-active--logged-off': context == 'logged-off'}">
+                        'reports-list__list--filter-active--logged-off':
+                            context == 'logged-off' && (
+                            (filterCategory != '' && filterCategory != 'Todas') ||
+                            (filterSubcategory != '' && filterSubcategory != 'Todas') ||
+                            (filterStatus != '' && filterStatus != 'Todos') ||
+                            userReports !== null
+                        )}">
         <div class="reports-list__list__container">
             <sdm-report-card *ngFor="let report of reportsList |
                                      reportSearch: searchTag |
@@ -89,7 +113,7 @@
             <hr>
             <form>
                 <label *ngIf="context != 'logged-off'">
-                    <input class="uk-checkbox" type="checkbox" (click)="filterByMyReports()"> Somente minhas denúncias
+                    <input class="uk-checkbox" type="checkbox" (click)="filterByMyReports()" [checked]="userReports !== null"> Somente minhas denúncias
                     <hr>
                 </label>
                 <div class="uk-margin">

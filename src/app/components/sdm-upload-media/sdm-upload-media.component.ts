@@ -1,5 +1,4 @@
 import { Component, Output, Input, EventEmitter } from '@angular/core';
-// import { ReportService } from '../../backend/services/report/report.service';
 import * as UIkit from 'uikit';
 
 @Component({

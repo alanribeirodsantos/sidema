@@ -16,8 +16,13 @@
                 </div>
             </div>
         </div>
-        <div class="menu-container__layer__report-button">
-            <sdm-button [type]="'primary'" [btnWidth]="'large'" routerLink="/sistema/denunciar" (click)="exitThisMenu()">REALIZAR DENÚNCIA</sdm-button>
+        <div class="menu-container__layer__report-button" *ngIf="currentRoute !== '/sistema/denunciar'">
+            <sdm-button [type]="'primary'"
+                        [btnWidth]="'large'"
+                        routerLink="/sistema/denunciar"
+                        (click)="exitThisMenu()">
+                REALIZAR DENÚNCIA
+            </sdm-button>
         </div>
         <sdm-hints></sdm-hints>
         <ul class="menu-container__layer__actions uk-nav-default uk-nav-parent-icon" uk-nav>

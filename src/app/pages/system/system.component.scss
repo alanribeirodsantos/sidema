@@ -54,6 +54,10 @@
                 opacity: 0.7;
             }
         }
+
+        @include mqMaxWidth('mdx') {
+            display: block;
+        }
     }
 
     @include mqMaxWidth('lg') {

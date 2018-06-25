@@ -1,4 +1,5 @@
 @import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
 
 .sdm-upload-media {
     width: calc(100vw - 340px);
@@ -33,4 +34,12 @@
     &__media-list {
         display: flex;
     }
+
+    @include mqMaxWidth('lg') {
+        width: calc(100vw - 75px);
+    }
+}
+
+.progress-bar {
+    width: 100%;
 }

@@ -13,7 +13,7 @@ export class ReportsListComponent {
 
   @Input() context:string;
 
-  reportsList:any[];
+  reportsList:any[] = [];
   searchTag:string = "";
   filterMyReports:boolean = false;
   filterCategory:string = "Todas";
@@ -23,15 +23,19 @@ export class ReportsListComponent {
   scrolled:boolean = false;
   searching:boolean = false;
   gettingReports:boolean = true;
-  userReports:any;
+  userReports:any = null;
+  getReportsError:boolean = false;
 
   constructor(private reportService:ReportService, private userService:UserService, private _router: Router){
     this.reportService.getReports().subscribe(
       data => {
-        this.reportsList = data.reverse()
+        this.reportsList = data.reverse();
         this.gettingReports = false;
       },
-      error => console.log(error)
+      error => {
+        console.log(error);
+        this.getReportsError = true;
+      }
     );
 
     this.currentRouter = this._router.routerState.snapshot.url;
