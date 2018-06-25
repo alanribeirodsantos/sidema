@@ -2,14 +2,14 @@
 @import '~assets/sass-utils/mixins';
 
 .sdm-down-arrow {
-    width: 190px;
+    width: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     bottom: 25px;
     left: 50%;
-    margin-left: -50px;
+    margin-left: -75px;
     cursor: pointer;
 
     @include mqMaxWidth('md') {

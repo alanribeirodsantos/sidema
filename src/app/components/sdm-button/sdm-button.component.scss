@@ -13,8 +13,8 @@
         }
     
         @include mqMaxWidth('lg') {
-            width: 240px;
-            margin-bottom: 0;
+            width: 100%;
+            margin-bottom: 10px;
         }
 
         @include mqMaxWidth('mdx') {

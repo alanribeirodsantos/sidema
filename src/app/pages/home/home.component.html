@@ -1,9 +1,9 @@
-<div (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
+
   <sdm-section [image]="'assets/images/main-background.jpg'" class="section-one">
     <div class="section-one__layer">
       <div class="section-one__layer__introduction">
         <div class="section-one__layer__introduction__container" [ngClass]="{'uk-animation-slide-left-small': showContent}" *ngIf="showContent">
-          <sdm-button [type]="'secondary'" (click)="openModal()" class="section-one__layer__introduction__container__btn uk-margin-bottom">Cadastrar/Entrar</sdm-button>
+          <sdm-button [type]="'secondary'" (click)="openModal()" class="section-one__layer__introduction__container__btn uk-margin-xlarge-bottom">Cadastrar/Entrar</sdm-button>
           <div class="section-one__layer__introduction__container__logo">
             <sdm-logo></sdm-logo>
           </div>
@@ -318,7 +318,6 @@
       </div>
     </div>
   </sdm-section>
-</div>
 
 <sdm-footer></sdm-footer>
 <sdm-back-to-top></sdm-back-to-top>
