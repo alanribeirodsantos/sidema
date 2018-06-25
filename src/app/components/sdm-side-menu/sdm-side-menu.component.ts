@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { UserService } from '../../backend/services/user/user.service';
 import { AngularFireStorage } from 'angularfire2/storage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sdm-side-menu',
@@ -18,7 +19,7 @@ export class SdmSideMenuComponent implements OnInit {
   userName:string = "";
   userId:any;
   userRef:any;
-  userPhoto:any; 
+  userPhoto:any;
 
   constructor(private userService:UserService, private angularFireStorage:AngularFireStorage) {
   }
