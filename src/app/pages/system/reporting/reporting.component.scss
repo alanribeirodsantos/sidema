@@ -32,6 +32,14 @@
             color: $black;
             font-size: $font-size-medium;
         }
+
+        &__midia {
+            font-family: $primary-font;
+            color: $gray-66;
+            font-size: $font-size-text;
+            margin-top: 5px;
+        }
+        
         &__error-message{
             font-family: $primary-font;
             padding: 5px;
