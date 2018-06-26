@@ -13,7 +13,7 @@ export class ReportingComponent implements OnInit {
 
   @Input() context: string;
 
-  constructor(private reportService:ReportService, private http:Http, private _router: Router) {
+  constructor(public reportService:ReportService, private http:Http, private _router: Router) {
     this.router = _router;
   }
 
@@ -37,6 +37,7 @@ export class ReportingComponent implements OnInit {
   checkbox:boolean = false;
   hour = new Date().toLocaleTimeString('pt-BR', {hour: "numeric", minute: "numeric"});
   isLoading:boolean = false;
+  
 
   ngOnInit(){
     if(navigator.geolocation){
