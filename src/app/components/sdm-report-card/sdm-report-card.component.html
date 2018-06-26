@@ -1,0 +1,20 @@
+<div class="sdm-report-card">
+    <sdm-boost-report [reportId]="report.id" [numberOfSupporters]="report.numberOfSupporters" [active]="false"></sdm-boost-report>
+    <div class="sdm-report-card__divider"></div>
+    <div class="sdm-report-card__content" [routerLink]="[routerLinkUrl, report.id]" (click)="referenceReport()">
+        <div class="sdm-report-card__content__report-title">
+            {{report.title}}
+        </div>
+        <div class="sdm-report-card__content__report-location">
+            {{report.location}}
+        </div>
+        <div class="sdm-report-card__content__report-description">
+            {{report.description}}
+        </div>
+        <div class="sdm-report-card__content__report-status">
+            <sdm-report-status [status]="report.status"></sdm-report-status>
+            <sdm-report-category [category]="report.category"></sdm-report-category>
+            <sdm-my-report *ngIf="isMine"></sdm-my-report>
+        </div>
+    </div>
+</div>

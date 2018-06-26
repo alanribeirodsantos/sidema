@@ -1,0 +1,173 @@
+@import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
+
+.report-details {
+    &__content {
+        padding: 25px 30px;
+        box-sizing: border-box;
+        display: flex;
+
+        &__main-info {
+            padding-right: 30px;
+            box-sizing: border-box;
+
+            &__title {
+                font-family: $primary-font-bold;
+                font-size: $font-size-title-large;
+                color: $primary-color;
+                margin-bottom: 25px;
+            }
+        
+            &__status {
+                margin-bottom: 30px;
+            }
+
+            &__section-title {
+                font-family: $primary-font-bold;
+                color: $black;
+                font-size: $font-size-title;
+                margin-bottom: 10px;
+            }
+            &__section-description {
+                font-family: $secondary-font;
+                color: $gray-66;
+                font-size: $font-size-description;
+                margin-bottom: 20px;
+
+                &__left {
+                    text-align: left;
+                }
+
+                &__media {
+                    max-width: 175px;
+                }
+            }
+
+            &__comment {
+                background-color: $gray-fa;
+                padding: 15px;
+                margin-bottom: 10px;
+
+                &__avatar-container {
+                    &__image {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        background-color: $gray-bb;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                }
+
+                &__info {
+                    padding-left: 10px;
+
+                    &__author {
+                        font-family: $primary-font;
+                        font-size: $font-size-title;
+                    }
+
+                    &__date {
+                        font-family: $secondary-font;
+                        font-size: $font-size-text;
+                    }
+                }
+            }
+
+            @include mqMaxWidth('mdxxx') {
+                width: 100%;
+                padding: 0px;
+            }
+        }
+
+        &__side-info {
+            height: 100%;
+            background-color:$gray-fa;        
+            padding: 30px;
+            box-sizing: border-box;
+
+            &__mobile-row {
+                &__section {
+                    &__section-title {
+                        @extend .report-details__content__main-info__section-title;
+                    }
+                    &__section-description {
+                        @extend .report-details__content__main-info__section-description;
+                    }
+        
+                    &__localization-image {
+                        margin-bottom: 20px;
+                    }
+        
+                    &__share-report {
+                        display: flex;
+                        justify-content: space-around;
+                    }
+    
+                    @include mqMaxWidth('mdxxx') {
+                        width: 33.3%;
+                        padding-left: 30px;
+
+                        &--half {
+                            width: 50%;
+                            padding-left: 30px;
+                        }
+                    }
+
+                    @include mqMaxWidth('mdx') {
+                        width: 100%;
+                        padding-left: 0px;
+
+                        &--half {
+                            width: 100%;
+                            padding-left: 0px;
+                        }
+                    }
+                }
+
+                @include mqMaxWidth('mdxxx') {
+                    display: flex;
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+
+                @include mqMaxWidth('mdx') {
+                    display: block;
+                }
+            }
+
+            @include mqMaxWidth('mdxxx') {
+                width: 100%;
+                margin-top: 20px;
+                padding: 30px 30px 30px 0px;
+            }
+
+            @include mqMaxWidth('mdx') {
+                padding: 30px;
+            }
+        }
+
+        @include mqMaxWidth('lg') {
+            padding: 70px 30px;
+        }
+
+        @include mqMaxWidth('mdxxx') {
+            display: block;
+        }
+
+        @include mqMaxWidth('md') {
+            padding: 70px 15px 0px 15px;
+        }
+
+        &--logged-off {
+            @include mqMaxWidth('lg') {
+                padding: 30px 30px;
+            }
+
+            @include mqMaxWidth('md') {
+                padding: 30px 15px 0px 15px;
+            }
+        }
+    }
+}

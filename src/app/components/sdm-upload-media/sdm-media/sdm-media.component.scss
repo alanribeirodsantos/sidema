@@ -1,0 +1,21 @@
+@import '~assets/sass-utils/variables';
+
+.sdm-media {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &__btn-delete {
+        height: 25px;
+        width: 25px;
+        background-color: $gray-ee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+}

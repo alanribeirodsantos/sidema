@@ -1,0 +1,50 @@
+@import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
+
+.sdm-boost-report {
+    width: 60px;
+    padding-right: 50px;
+    cursor: pointer;
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+            fill: $gray-99;
+            transition: fill 0.1s linear;
+        }
+    }
+
+    &__number-of-supporters {
+        text-align: center;
+        transition: color 0.1s linear;
+
+        &__number {
+            font-family: $primary-font-bold;
+            font-size: $font-size-title-large;
+        }
+
+        &__text {
+            font-family: $secondary-font-bold;
+            font-size: $font-size-small;
+            letter-spacing: 0.2px;
+        }
+    }
+
+    &--active,
+    &:hover {
+        svg {
+            fill: $primary-color;
+        }
+        .sdm-boost-report__number-of-supporters {
+            color: $primary-color;
+
+        }
+    }
+
+    @include mqMaxWidth('md') {
+        padding-right: 5vw;
+    }
+}

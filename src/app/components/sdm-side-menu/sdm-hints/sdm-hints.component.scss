@@ -1,0 +1,25 @@
+@import '~assets/sass-utils/variables';
+
+.hints-container {
+    flex-grow: 1;
+
+    &__hint {
+        color: $white;
+        font-family: $secondary-font;
+        font-size: $font-size-small;
+        text-align: left;
+        display: flex;
+
+        &__icon {
+            color: $primary-color;
+        }
+
+        &__text {
+            padding-left: 10px;
+        }
+    }
+
+    @media only screen and (max-height: 500px) {
+        display: none;
+    }
+}

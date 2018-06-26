@@ -1,0 +1,79 @@
+<div *ngFor="let category of categories" class="card-category">
+  <div class="card-category__container_card__card">
+    <div class="card-category__container_card__card__textTitle">
+      <img class="card-category__container_card__card__logo" src="{{category.img}}">
+      {{category.category}}
+    </div>
+    <hr class="card-category__container_card__card__hr">
+    <div *ngFor= "let subcategory of category.subcategory">
+      <div class="card-category__container_card__card__textContent">{{subcategory}}</div>
+    </div>
+    <hr class="card-category__container_card__card__hr">
+    <div href="#modal-group-1" class="card-category__container_card__card__textOrgan" *ngIf="category.institute == 'DNOCS'" uk-toggle>Órgão responsável: {{category.institute}} <span uk-icon="icon: question; ratio: 0.7;" class="uk-margin-small-left"></span></div>
+    <div href="#modal-group-2" class="card-category__container_card__card__textOrgan" *ngIf="category.institute == 'SEMA'" uk-toggle>Órgão responsável: {{category.institute}} <span uk-icon="icon: question; ratio: 0.7;" class="uk-margin-small-left"></span></div>
+    <div href="#modal-group-3" class="card-category__container_card__card__textOrgan" *ngIf="category.institute == 'TODOS'" uk-toggle>Órgão responsável: {{category.institute}} <span uk-icon="icon: question; ratio: 0.7;" class="uk-margin-small-left"></span></div>
+    <div href="#modal-group-4" class="card-category__container_card__card__textOrgan" *ngIf="category.institute == 'SEDUMA'" uk-toggle>Órgão responsável: {{category.institute}} <span uk-icon="icon: question; ratio: 0.7;" class="uk-margin-small-left"></span></div>          
+  </div>
+</div>
+
+<div id="modal-group-1" uk-modal>
+  <div class="uk-modal-dialog">
+      <button class="uk-modal-close-default" type="button" uk-close></button>
+      <div class="uk-modal-header">
+          <h2 class="uk-modal-title">DNOCS</h2>
+      </div>
+      <div class="uk-modal-body">
+          <p>O DNOCS é o Departamento Nacional de Obras Contra as Secas. Ele atua em Quicadá como o órgão responsável por toda a área do Açude Cedro, de forma a garantir sua preservação.</p>
+      </div>
+      <div class="uk-modal-footer uk-text-right">
+          <button class="uk-button uk-button-primary uk-modal-close" type="button">Fechar</button>
+      </div>
+  </div>
+</div>
+
+<div id="modal-group-2" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">SEMA</h2>
+        </div>
+        <div class="uk-modal-body">
+            <p>A SEMA é a Secretaria Estadual do Meio Ambiente que atua junto a SEMACE na elaboração, planejamento e implementação da política ambiental do estado do Ceará.</p>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-primary uk-modal-close" type="button">Fechar</button>
+        </div>
+    </div>
+</div>
+
+<div id="modal-group-3" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">TODOS</h2>
+        </div>
+        <div class="uk-modal-body">
+            <p>Todos os órgãos são responsáveis por previnir e atuar em cima de crimes ambientais referentes a flora. 
+              Cada órgão possui uma área de atuação, sendo o DNOCS responsável por cuidar da flora presente na região do Açude Cedro, a 
+              SEMA responsável por cuidar da vegetação dos monólitos e a SEDUMA responsável pela vegetação do meio urbano da cidade.</p>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-primary uk-modal-close" type="button">Fechar</button>
+        </div>
+    </div>
+</div>
+
+<div id="modal-group-4" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">SEDUMA</h2>
+        </div>
+        <div class="uk-modal-body">
+            <p>A SEDUMA é o órgão municipal responsável pelo desenvolvimento urbano e o meio ambiente da cidade de Quixadá.</p>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-primary uk-modal-close" type="button">Fechar</button>
+        </div>
+    </div>
+</div>

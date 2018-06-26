@@ -1,0 +1,42 @@
+<section class="form-editProfile">
+    <header class="form-editProfile__title">Editar Perfil</header>
+    <form class="form-editProfile__form uk-grid-small" uk-grid>
+        <div class="uk-width-1-1">
+            <input class="uk-input form-editProfile__form__text" type="text" placeholder="Nome" name="name" [(ngModel)]="name" autocomplete="off">
+        </div>
+        <div class="uk-width-1-1">
+            <input class="uk-input form-editProfile__form__text" type="email" placeholder="E-mail" name="email" [(ngModel)]="email" autocomplete="off">
+        </div>
+        <div class="uk-width-1-1">
+            <input class="uk-input form-editProfile__form__text" type="password" placeholder="Nova Senha" name="newPassword" [(ngModel)]="newPassword" autocomplete="off" minlength="6">
+        </div>
+        <div class="uk-width-1-1">
+            <input class="uk-input form-editProfile__form__text" type="password" #confirmpassword="ngModel" placeholder="Confirmar Senha" name="confirmNewPassword" [(ngModel)]="confirmNewPassword" autocomplete="off">
+        </div>
+        <div class="uk-width-1-1">
+            <input class="uk-input form-editProfile__form__text" type="password" placeholder="Senha Atual*" name="currentPassword" [(ngModel)]="currentPassword" autocomplete="off" required>
+        </div>
+        <span class="form-editProfile__form__subtitle uk-width-1-1">Atualizar Foto</span>
+        <div class="form-editProfile__form__update-profile-pic uk-width-1-1">
+            <div class="form-editProfile__form__update-profile-pic__container" [style.backgroundImage]="'url(' + userPhoto + ')'">
+                <div class="form-editProfile__form__update-profile-pic__container__input-container" uk-form-custom uk-tooltip="title: Insira uma nova foto de perfil; pos: right">
+                    <input class="form-editProfile__form__update-profile-pic__container__input-container__filePicker" type="file" accept=".png, .jpg, .jpeg" (change)="changeProfilePic($event)">
+                    <div type="button" class="form-editProfile__form__update-profile-pic__container__input-container__button uk-button uk-button-default" uk-icon="icon: camera">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="form-editProfile__form__subtitle uk-width-1-1" *ngIf="this.userService.hasPhoto" (click)="removePhoto()">Remover Foto</a>
+        <div class="uk-width-1-2@s">
+            <sdm-button [type]="'quaternary'" [btnWidth]="'large'" (click)="editProfile()">
+                <div *ngIf="!isLoading">Salvar Alterações</div> 
+                <div *ngIf="isLoading">
+                    <div uk-spinner="ratio: 0.9"></div>
+                </div>
+            </sdm-button>
+        </div>
+        <div class="uk-width-1-2@s">
+            <sdm-button [type]="'danger-secondary'" [btnWidth]="'large'" routerLink="/sistema/denuncias">Cancelar</sdm-button>
+        </div>
+    </form>
+</section>

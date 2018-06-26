@@ -1,0 +1,8 @@
+<span class="sdm-report-category uk-margin-right" uk-tooltip="title: Categoria; pos: bottom; delay: 500;">
+    <img class="sdm-report-category__image"
+         [src]="'../../../../assets/images/category-' + categoryType + '.svg'">
+    <span class="sdm-report-category__title"
+          [ngClass]="{'sdm-report-category__title--hide': context !== 'details-page'}">
+        {{categoryName}}
+    </span>
+</span>

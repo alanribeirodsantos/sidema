@@ -1,0 +1,64 @@
+@import "~assets/sass-utils/variables";
+@import "~assets/sass-utils/mixins";
+
+.form-editProfile {
+    &__title {
+        font-family: $primary-font-bold;
+        color: $primary-color;
+        font-size: $font-size-title-large;
+        padding: 20px 30px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+
+        @include mqMaxWidth('lg') {
+            padding-top: 70px;
+        }
+    }
+
+    &__form {
+        padding: 0px 30px 30px 30px;
+
+        &__subtitle {
+            font-family: $primary-font;
+            color: $black;
+            font-size: $font-size-medium;
+        }
+
+        &__update-profile-pic {
+            &__container {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                background-color: #EEE;
+                box-sizing: border-box;
+                margin-right: 10px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                opacity: 0.7;
+                &__input-container {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    &__button {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border: none;
+                    }
+                }
+            }
+        }
+        &__error-message {
+            font-family: $primary-font;
+            padding: 5px;
+        }
+        &__text {
+            font-family: $primary-font;
+        }
+    }
+}

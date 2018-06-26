@@ -1,0 +1,10 @@
+@import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
+
+.report-form {
+    padding: 0 80px;
+
+    @include mqMaxWidth('lg') {
+        padding: 0 5vw;
+    }
+}

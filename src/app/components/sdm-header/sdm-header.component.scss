@@ -1,0 +1,89 @@
+@import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
+
+.sdm-header {
+    background: url('/assets/images/main-background.jpg');
+    height: 110px;
+
+    @include mqMaxWidth('md') {
+        height: auto;
+    }
+
+    &__layer {
+        width: 100%;
+        height: 100%;
+        background-color: rgba($black, $alpha: 0.8);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;  
+        padding: 10px 65px; 
+        box-sizing: border-box;
+
+        &__logo {
+            max-width: 110px;
+
+            @include mqMaxWidth('mdx') {
+                padding-bottom: 10px;
+            }
+        }
+
+        &__button {
+            @include mqMaxWidth('mdx') {
+                display: none;
+            }
+        }
+
+        &__button-mobile {
+            background-color: $primary-color;
+            color: $white;
+            border: none;
+            padding: 0 20px;
+            display: none;
+
+            &__icon {
+                display: none;
+
+                @include mqMaxWidth('md') {
+                    display: initial;
+                }
+            }
+
+            &__text {
+                @include mqMaxWidth('md') {
+                    display: none;
+                }
+            }
+
+            @include mqMaxWidth('mdx') {
+                display: block;
+            }
+
+            @include mqMaxWidth('md') {
+                padding: 0 15px;
+            }
+        }
+
+        @include mqMaxWidth('md') {
+            padding: 10px 20px;
+        }
+
+    }
+}
+
+.modal-overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: z('login_modal');
+
+    &__modal {
+        position: fixed;
+        margin: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

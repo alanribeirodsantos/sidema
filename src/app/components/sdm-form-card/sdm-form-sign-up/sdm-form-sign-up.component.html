@@ -1,24 +1,29 @@
 <section class="form-sign-up">
     <header class="form-sign-up__title">CADASTRE-SE</header>
     <div class="form-sign-up__description">
-        Provident deleniti velit a illo, laudantium reiciendis quas odio ipsum quo aut excepturi soluta sunt, dignissimos ad dolorum repellat quasi nobis reprehenderit.
+        Cadastrando-se, você poderá acompanhar com mais facilidade o andamento das suas denúncias. Além de poder comentar, apoiar e compartilhar uma denúncia nas redes sociais.
     </div>
     <form action="" class="form-sign-up__form">
         <div class="uk-margin">
-            <input class="uk-input" type="text" placeholder="Nome" [(ngModel)]="name" name="name">
+            <input class="uk-input" type="text" placeholder="Nome *" [(ngModel)]="name" name="name">
         </div>
         <div class="uk-margin">
-            <input class="uk-input" type="email" placeholder="E-mail" [(ngModel)]="email" name="email">
+            <input class="uk-input" type="email" placeholder="E-mail *" [(ngModel)]="email" name="email">
         </div>
         <div class="uk-margin">
-            <input class="uk-input" type="password" placeholder="Senha" [(ngModel)]="password" name="password">
+            <input class="uk-input" type="password" placeholder="Senha *" [(ngModel)]="password" name="password" minlength="6">
         </div>
         <div class="uk-margin">
-            <input class="uk-input" type="password" placeholder="Confirmar senha" [(ngModel)]="confirmPassword" name="confirmaPassword">
+            <input class="uk-input" type="password" placeholder="Confirmar senha *" [(ngModel)]="confirmPassword" name="confirmaPassword">
         </div>
-        <sdm-button [type]="'primary'" [btnWidth]="'large'" (click)="createUser()">PARTICIPAR</sdm-button>
+        <sdm-button [type]="'primary'" [btnWidth]="'large'" (click)="createUser()">
+            <div *ngIf="!isLoading">Participar</div>
+            <div *ngIf="isLoading">
+                <div uk-spinner="ratio: 0.9"></div>
+            </div>
+        </sdm-button>
     </form>
     <hr class="uk-divider-icon">
-    <sdm-social-button [socialNetwork]="'Facebook'" [btnWidth]="'half'"></sdm-social-button>
-    <sdm-social-button [socialNetwork]="'Google'" [btnWidth]="'half'" [btnFloat]="'right'"></sdm-social-button>
+    <sdm-social-button [socialNetwork]="'Facebook'" [btnWidth]="'half'" (click)="loginFacebook()"></sdm-social-button>
+    <sdm-social-button [socialNetwork]="'Google'" [btnWidth]="'half'" [btnFloat]="'right'" (click)="loginGoogle()"></sdm-social-button>
 </section>

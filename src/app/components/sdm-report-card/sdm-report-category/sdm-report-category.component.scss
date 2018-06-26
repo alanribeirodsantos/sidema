@@ -1,0 +1,20 @@
+@import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
+
+.sdm-report-category {
+    &__image {
+        height: 15px;
+        margin-right: 3px;
+    }
+
+    &__title {
+        font-family: $secondary-font;
+        font-size: $font-size-text;
+
+        &--hide {
+            @include mqMaxWidth('mdx') {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+@import "~assets/sass-utils/variables";
+@import "~assets/sass-utils/mixins";
+
+.form-report {
+    &__title {
+        font-family: $primary-font-bold;
+        color: $primary-color;
+        font-size: $font-size-title-large;
+        padding: 20px 30px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+
+        @include mqMaxWidth('lg') {
+            padding-top: 70px;
+        }
+
+        &--logged-off {
+            @include mqMaxWidth('lg') {
+                padding-top: 30px;
+            }
+
+            @include mqMaxWidth('mdx') {
+                padding: 30px 0 20px 0;
+            }
+        }
+    }
+    &__form {
+        padding: 0px 30px 30px 30px;
+
+        &__subtitle {
+            font-family: $primary-font;
+            color: $black;
+            font-size: $font-size-medium;
+        }
+
+        &__midia {
+            font-family: $primary-font;
+            color: $gray-66;
+            font-size: $font-size-text;
+            margin-top: 5px;
+        }
+        
+        &__error-message{
+            font-family: $primary-font;
+            padding: 5px;
+        }
+
+        &--logged-off {
+            @include mqMaxWidth('mdx') {
+                padding: 0 0 30px 0;
+            }
+        }
+    }
+}

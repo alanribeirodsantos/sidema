@@ -1,11 +1,70 @@
 @import '~assets/sass-utils/variables.scss';
+@import '~assets/sass-utils/mixins.scss';
 
 .sdm-button {
-    font-family: $primary-font-bold;
+    font-family: $primary-font;
+
+    &--width {
+        width: 240px;
+
+        @include mqMaxWidth('lgx') {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    
+        @include mqMaxWidth('lg') {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        @include mqMaxWidth('mdx') {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+    &--tertiary{
+        border: 1px solid $button-default-border-color;
+        color: $primary-color;
+        background-color: $white;
+    
+        &:hover {
+            border-color: $primary-color;
+        }
+    }
+    &--quaternary{
+        border: 1px solid $quaternary-button-background;
+        color: $white;
+        background-color: $quaternary-button-background;
+    
+        &:hover {
+            background-color: $quaternary-button-background-hover;
+        }
+    }
+
+    &--danger{
+        color: $white;
+        background-color: $danger-button-background;
+
+        &:hover {
+            background-color: $danger-button-background-hover;
+        }
+    }
+
+    &--danger-secondary{
+        border: 1px solid $danger-button-background;
+        color: $danger-button-background;
+        background-color: transparent;
+
+        &:hover {
+            border-color: $danger-button-background-hover;
+            color: $danger-button-background-hover;
+        }
+    }
 }
 
 .uk-button-default-custom {
     border: 1px solid $button-default-border-color;
+    color: $white;
 
     &:hover {
         border-color: $global-primary-background;

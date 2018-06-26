@@ -1,0 +1,57 @@
+@import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
+
+.sdm-upload-media {
+    width: calc(100vw - 340px);
+    display: flex;
+
+    &__container {
+        width: 100px;
+        height: 100px;
+        border: 1px solid $gray-bb;
+        box-sizing: border-box;
+        margin-right: 10px;
+
+        &__input-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            &__button {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__media-list {
+        display: flex;
+    }
+
+    @include mqMaxWidth('lg') {
+        width: calc(100vw - 75px);
+    }
+
+    &--logged-off {
+        width: calc(100vw - 235px);
+
+        @include mqMaxWidth('lg') {
+            width: calc(90vw - 75px);
+        }
+
+        @include mqMaxWidth('mdx') {
+            width: calc(90vw - 15px);
+        }
+    }
+}
+
+.progress-bar {
+    width: 100%;
+}

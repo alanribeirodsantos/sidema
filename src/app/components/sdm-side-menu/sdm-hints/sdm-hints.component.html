@@ -1,0 +1,61 @@
+<div class="hints-container">
+  <div class="hints-container__hint uk-margin-bottom" *ngIf="router.url == '/sistema/denuncias'">
+    <div class="hints-container__hint__icon">
+      <i uk-icon="icon: info; ratio: 0.7"></i>
+    </div>
+    <div class="hints-container__hint__text">
+      Aqui estão todas as denúncias já realizadas no sistema. Você pode clicar no ícone de impulsionar
+      para apoiar uma denúncia ou clicar no título para ver mais detalhes
+    </div>
+  </div> 
+  <div class="hints-container__hint uk-margin-bottom" *ngIf="router.url == '/sistema/denuncias'">
+    <div class="hints-container__hint__icon">
+      <i uk-icon="icon: info; ratio: 0.7"></i>
+    </div>
+    <div class="hints-container__hint__text">
+      Você pode filtar as denúncias por Categoria, Subcategoria e Status da Denúncia, além de poder digitar
+      um termo de pesquisa na barra de busca
+    </div>
+  </div>
+  <div class="hints-container__hint uk-margin-bottom" *ngIf="router.url == '/sistema/denunciar'">
+    <div class="hints-container__hint__icon">
+      <i uk-icon="icon: info; ratio: 0.7"></i>
+    </div>
+    <div class="hints-container__hint__text">
+      Este é o formulário de denúncia, os campos que possuem * são de preenchimento obrigatório. A localização pode ser
+      gerada de forma automática, para agilizar todo o processo
+    </div>
+  </div> 
+  <div class="hints-container__hint uk-margin-bottom" *ngIf="router.url == '/sistema/denunciar'">
+    <div class="hints-container__hint__icon">
+      <i uk-icon="icon: info; ratio: 0.7"></i>
+    </div>
+    <div class="hints-container__hint__text">
+      Você pode carregar mídias de foto, vídeo e até mesmo áudio referentes a sua denúncia. O espaço para essas mídias é de até 25mb
+    </div>
+  </div>
+  <div class="hints-container__hint uk-margin-bottom" *ngIf="router.url == '/sistema/perfil'">
+    <div class="hints-container__hint__icon">
+      <i uk-icon="icon: info; ratio: 0.7"></i>
+    </div>
+    <div class="hints-container__hint__text">
+      Aqui você pode editar o seu perfil, alterando suas informações básicas e modificando sua senha. Você também pode inserir sua foto de perfil!
+    </div>
+  </div> 
+  <div class="hints-container__hint uk-margin-bottom" *ngIf="this.router.url.substring(0, 18) == '/sistema/denuncia/'">
+    <div class="hints-container__hint__icon">
+      <i uk-icon="icon: info; ratio: 0.7"></i>
+    </div>
+    <div class="hints-container__hint__text">
+      Aqui você pode visualizar mais detalhes referentes a denúncia selecionada. É possível compartilhar a denúncia em redes sociais e adicionar comentários.
+    </div>
+  </div> 
+  <div class="hints-container__hint uk-margin-bottom" *ngIf="this.router.url.substring(0, 18) == '/sistema/denuncia/'">
+    <div class="hints-container__hint__icon">
+      <i uk-icon="icon: info; ratio: 0.7"></i>
+    </div>
+    <div class="hints-container__hint__text">
+      Caso a denúncia seja sua, você pode desvinculá-la de sua conta, fazendo com que ela passe a ser uma denúncia anônima.
+    </div>
+  </div>
+</div>

@@ -1,8 +1,5 @@
 <section class="form-sign-in">
     <header class="form-sign-in__title">ENTRAR</header>
-    <div class="form-sign-in__description">
-        Provident deleniti velit a illo, laudantium reiciendis quas odio ipsum quo aut excepturi soluta sunt, dignissimos ad dolorum repellat quasi nobis reprehenderit.
-    </div>
     <form action="" class="form-sign-in__form">
         <div class="uk-margin">
             <input class="uk-input" type="email" placeholder="E-mail" [(ngModel)]="email" name="email">
@@ -11,9 +8,12 @@
             <input class="uk-input" type="password" placeholder="Senha" [(ngModel)]="password" name="password">
         </div>
         <div class="form-sign-in__form__forgot-password uk-margin-bottom">
-            <a class="form-sign-in__form__forgot-password__link uk-link-muted" href="#">Esqueci minha senha</a>
+            <a class="form-sign-in__form__forgot-password__link uk-link-muted" href="javascript:void(0)" (click)="forgotPassword()">Esqueci minha senha</a>
         </div>
-        <sdm-button [type]="'primary'" [btnWidth]="'large'" (click)="login()">ENTRAR</sdm-button>
+        <sdm-button [type]="'primary'" [btnWidth]="'large'" (click)="login()">
+            <div *ngIf="!isLoading">Entrar</div>
+            <div *ngIf="isLoading"><div uk-spinner="ratio: 0.9"></div></div>
+        </sdm-button>
     </form>
     <hr class="uk-divider-icon">
     <sdm-social-button [socialNetwork]="'Facebook'" [btnWidth]="'half'" (click)="loginFacebook()"></sdm-social-button>

@@ -1,0 +1,34 @@
+@import '~assets/sass-utils/variables';
+@import '~assets/sass-utils/mixins';
+
+.aboutus-container {
+    padding: 25px 65px;
+    height: auto;
+
+    &__title {
+        font-family: $primary-font-bold;
+        font-size: $font-size-title-large;
+        color: $primary-color;
+        margin-bottom: 10px;
+    }
+
+    &__team{
+        font-family: $primary-font-bold;
+        color: $black;
+        font-size: $font-size-title-big;
+    }
+
+    &__content {
+        font-family: $secondary-font;
+        font-size: $font-size-medium;
+        color: $black;
+
+        &__main-text {
+            text-align: justify;
+        }
+    }
+
+    @include mqMaxWidth('md') {
+        padding: 25px;
+    }
+}

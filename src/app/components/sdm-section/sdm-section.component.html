@@ -1,0 +1,6 @@
+<section class="sdm-section uk-background-cover"
+         [style.backgroundImage]="image ? 'url(' + image + ')' : 'none'"
+         [style.backgroundColor]="color ? color : 'transparent'"
+         [ngClass]="{'sdm-section--flex': display == 'flex'}">
+    <ng-content></ng-content>
+</section>

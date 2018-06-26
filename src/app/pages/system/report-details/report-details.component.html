@@ -1,0 +1,112 @@
+<div class="report-details">
+    <div class="report-details__content" [ngClass]="{'report-details__content--logged-off': context == 'logged-off'}">
+        <div class="report-details__content__main-info uk-width-expand">
+            <div class="report-details__content__main-info__title">
+                <sdm-close-button></sdm-close-button>
+                {{report.title}}
+            </div>
+            <hr>
+            <div class="report-details__content__main-info__status">
+                <sdm-report-status [status]="report.status"></sdm-report-status>
+                <sdm-report-category [category]="report.category" [context]="'details-page'"></sdm-report-category>
+            </div>
+            <div class="report-details__content__main-info__section-title">Descrição do Autor:</div>
+            <div class="report-details__content__main-info__section-description">{{report.description}}</div>
+
+            <div class="report-details__content__main-info__section-title">Mídias:</div>
+            <div class="report-details__content__main-info__section-description media-list uk-flex uk-flex-wrap">
+                <a *ngFor="let media of mediasObjs" href="{{media.url}}" target="_blank">
+                    <sdm-view-media [media]="media"></sdm-view-media>
+                </a>
+            </div>
+            <div class="report-details__content__main-info__section-title">Acompanhamento:</div>
+            <div class="report-details__content__main-info__section-description">
+                <div *ngFor="let att of log">
+                    {{att.date}} às {{att.hour}} — {{att.author}} {{att.message}}
+                </div>
+            </div>
+            <hr>
+            <div class="report-details__content__main-info__section-title">Comentários:</div>
+            <textarea *ngIf="user !== null" class="uk-textarea uk-margin-small-bottom" type="text" rows="3" placeholder="Insira seu comentário" [(ngModel)]="commentary">
+            </textarea>
+            <sdm-button *ngIf="user !== null" [type]="'quaternary'" [btnWidth]="'large'" (click)="sendCommentary()">
+                Enviar Comentário
+            </sdm-button>
+            <div class="report-details__content__main-info__section-description" *ngIf="!hasComments">
+                Essa denúncia ainda não possuí comentários.
+            </div>
+            <div class="report-details__content__main-info__section-description uk-margin-small-top" *ngIf="hasComments">
+                <div *ngFor="let comment of comments">
+                    <article class="report-details__content__main-info__comment uk-comment">
+                        <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid>
+                            <div class="report-details__content__main-info__comment__avatar-container uk-width-auto">
+                                <div class="report-details__content__main-info__comment__avatar-container__image"
+                                     [style.backgroundImage]="'url(' + comment.photo + ')'">
+                                </div>
+                            </div>
+                            <div class="report-details__content__main-info__comment__info uk-width-expand">
+                                <h4 class="report-details__content__main-info__comment__info__author uk-comment-title uk-margin-remove">{{comment.author}}</h4>
+                                <ul class="report-details__content__main-info__comment__info__date uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+                                    <li>{{comment.date}} às {{comment.hour}}</li>
+                                </ul>
+                            </div>
+                        </header>
+                        <div class="uk-comment-body">
+                            <p>{{comment.message}}</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+        <aside class="report-details__content__side-info uk-width-1-3">
+            <div class="report-details__content__side-info__mobile-row">
+                <div class="report-details__content__side-info__mobile-row__section">
+                    <div class="report-details__content__side-info__mobile-row__section__section-title">Localização:</div>
+                    <img class="report-details__content__side-info__mobile-row__section__localization-image" src="https://maps.googleapis.com/maps/api/staticmap?center={{report.address}} - {{report.neighborhood}}, {{place}}&zoom=15&size=170x170&scale=2&key=AIzaSyBXyKK61RQc67FPWJsCg_5x3gY8qrvQK9E">
+                </div>
+                <div class="report-details__content__side-info__mobile-row__section">
+                    <div class="report-details__content__side-info__mobile-row__section__section-description">
+                        <b>Bairro:</b> {{report.neighborhood}}<br>
+                        <b>Logradouro:</b> {{report.address}}<br>
+                        <b>Número:</b> {{report.number}}<br>
+                        <b>Complemento:</b> {{complement}}
+                    </div>
+                </div>
+                <div class="report-details__content__side-info__mobile-row__section">
+                    <div class="report-details__content__side-info__mobile-row__section__section-title">Detalhes Adicionais</div>
+                    <div class="report-details__content__side-info__mobile-row__section__section-description">
+                        <b>Data do Relato:</b> {{report.date}}<br>
+                        <b>Órgão Responsável:</b> {{organ}}
+                    </div>
+                </div>
+            </div>
+            <div class="report-details__content__side-info__mobile-row">
+                <div class="report-details__content__side-info__mobile-row__section--half">
+                    <div class="report-details__content__side-info__mobile-row__section__section-title">Compartilhar</div>
+                    <div class="report-details__content__side-info__mobile-row__section__share-report">
+                        <a href="{{urlShareFacebook}}" class="uk-icon-button" uk-icon="facebook">
+                        </a>
+                        <a href="{{urlShareTwitter}}" class="uk-icon-button" uk-icon="twitter">
+                        </a>
+                        <a href="" class="uk-icon-button" uk-icon="google-plus">
+                        </a>
+                    </div>
+                </div>
+                <div class="report-details__content__side-info__mobile-row__section--half">
+                    <sdm-button *ngIf="isMine" [type]="'primary'" [btnWidth]="'large'" uk-tooltip="pos: left; title: Se você viu que o problema foi resolvido mas não foi atualizado no sistema, você pode marcar essa denúncia como resolvida">
+                        Finalizar Denúncia
+                    </sdm-button>
+                    <div class="uk-margin-small-bottom"></div>
+                    <sdm-button *ngIf="isMine" [type]="'danger-secondary'" [btnWidth]="'large'" uk-tooltip="pos: left; title: A denúncia não será mais vinculada ao seu usuário e se tornará anônima" (click)="unlinkReport()">
+                        Desvincular Denúncia
+                    </sdm-button>
+                    <div class="uk-margin-small-bottom"></div>
+                    <sdm-button *ngIf="isMine" [type]="'danger'" [btnWidth]="'large'" (click)="deleteReport()">
+                        Deletar Denúncia
+                    </sdm-button>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>

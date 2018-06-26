@@ -1,0 +1,21 @@
+<header class="sdm-header">
+  <div class="sdm-header__layer">
+    <div class="sdm-header__layer__logo">
+      <a href="#" routerLink="/home">
+        <sdm-logo></sdm-logo>
+      </a>
+    </div>
+    <sdm-button class="sdm-header__layer__button" [type]="'primary'" (click)="toggleModal()">Cadastrar/Entrar</sdm-button>
+    <button class="uk-button uk-button-default sdm-header__layer__button-mobile"
+            type="button"
+            (click)="toggleModal()">
+      <i class="sdm-header__layer__button-mobile__icon" uk-icon="user"></i>
+      <span class="sdm-header__layer__button-mobile__text">Entrar</span>
+    </button>
+  </div>
+</header> 
+<div class="modal-overlay" *ngIf="isOpen" (click)="toggleModal()">
+  <div class="modal-overlay__modal" (click)="$event.stopPropagation()">
+    <sdm-form-card (closeModal)="toggleModal()"></sdm-form-card>
+  </div>
+</div>

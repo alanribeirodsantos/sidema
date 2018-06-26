@@ -1,0 +1,35 @@
+<div (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
+    <sdm-section [display]="'flex'">
+        <div class="sdm-side-menu">
+            <sdm-side-menu></sdm-side-menu>
+        </div>
+        <article class="system-container">
+            <div class="system-container__mobile">
+                <div class="system-container__mobile__menu-btn" (click)="openMenu()">
+                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                        <path fill="#FFFFFF" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+                    </svg>
+                </div>
+                <div class="system-container__mobile__logo">
+                    <sdm-logo [type]="'--white'" [size]="'small'"></sdm-logo>
+                </div>
+            </div>
+            <router-outlet></router-outlet>
+            <hr>
+            <div class="system-container__footer">
+                <div>
+                    Sidema © 2018
+                </div>
+                <div>
+                    <a href="/sobre-nos" class="system-container__footer__link">Sobre Nós</a> ·
+                    <a href="/FAQ" class="system-container__footer__link">Perguntas Frequentes</a> ·
+                    <a href="/realizar-denuncia" class="system-container__footer__link">Realizar Denúncia</a> ·
+                    <a href="/consultar-denuncias" class="system-container__footer__link">Consultar Denúncia</a>
+                </div>
+            </div>
+        </article>
+    </sdm-section>
+    <div class="sdm-side-menu-mobile" [ngClass]="{'opened-menu': isMenuOpen, 'closed-menu': isMenuClosed}">
+        <sdm-side-menu (closeMenu)="exitMenu()"></sdm-side-menu>
+    </div>
+</div>
