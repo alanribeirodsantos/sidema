@@ -23,9 +23,9 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
   log:any;
   comments:any;
   medias:any;
+  mediasObjs:any[] = [];
   isMine:boolean = false;
   hasComments:boolean = false;
-  hasMedia:boolean = false;
   place: "Quixadá - CE, Brasil";
 
   urlShareFacebook:string;
@@ -41,6 +41,7 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
   ngOnInit(){
     this.report = JSON.parse(localStorage.getItem("report"));
     this.user = JSON.parse(localStorage.getItem("user"));
+
     if(this.user !== null){
       var userId = this.user.id;
       this.userService.getUserReports(userId).subscribe(
@@ -54,6 +55,7 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
         }
       )
     }
+
     this.reportService.getLogReport(this.report.id).subscribe(
       data => {
         this.log = data
@@ -71,43 +73,20 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
       },
       error => console.log(error)
     )
+
     this.reportService.getReportMedias(this.report.id).subscribe(
       data => {
         if(data.length > 0){
           this.medias = data;
-          this.hasMedia = true;
           for(let m in this.medias){
             var mediaRef = this.angularFireStorage.ref(`reports/${this.medias[m].owner}/${this.report.id}/${this.medias[m].name}`);
             mediaRef.getDownloadURL().subscribe(
               url => {
-                if(this.medias[m].type === "image/jpg" || this.medias[m].type === "image/jpeg" || this.medias[m].type === "image/png"){
-                  var img = document.createElement("img");
-                  img.style.width = "120px";
-                  img.style.height = "120px";
-                  img.style.marginRight = "10px";
-                  img.setAttribute("src", url);
-                  document.getElementsByClassName("media-list")[0].appendChild(img);
+                let mediaObj = {
+                  url: url,
+                  type: this.medias[m].type
                 }
-                else if(this.medias[m].type === "audio/mp3" || this.medias[m].type === "audio/wav" || this.medias[m].type === "audio/ogg"){
-                  var audio = document.createElement("audio");
-                  var source = document.createElement("source");
-                  audio.style.width = "120px";
-                  audio.style.height = "120px";
-                  source.setAttribute("src", url);
-                  source.setAttribute("type", this.medias[m].type);
-                  audio.appendChild(source);
-                  document.getElementById("media-list").appendChild(audio);
-                }
-                else if(this.medias[m].type === "video/avi" || this.medias[m].type === "video/mp4" || this.medias[m].type === "video/mpeg"){
-                  var video = document.createElement("video");
-                  var source = document.createElement("source");
-                  video.style.width = "120px";
-                  video.style.height = "120px";
-                  source.setAttribute("src", url);
-                  source.setAttribute("type", this.medias[m].type);
-                  video.appendChild(source);
-                  document.getElementById("media-list").appendChild(video);
-                }
+                this.mediasObjs.push(mediaObj);
               },
               error => console.log(error)
             )

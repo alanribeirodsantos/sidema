@@ -13,7 +13,6 @@ import { MyReportsFilterPipe } from '../assets/js-utils/pipes/my-reports-filter.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { StyleguideComponent } from './pages/styleguide/styleguide.component';
 import { routing } from './app.routing';
 import { SdmButtonComponent } from './components/sdm-button/sdm-button.component';
 import { SdmSocialButtonComponent } from './components/sdm-social-button/sdm-social-button.component';
@@ -54,6 +53,7 @@ import { SdmUploadMediaComponent } from './components/sdm-upload-media/sdm-uploa
 import { SdmMediaComponent } from './components/sdm-upload-media/sdm-media/sdm-media.component';
 import { SdmSectionDoubleComponent } from './components/sdm-section-double/sdm-section-double.component';
 import { SdmCloseButtonComponent } from './components/sdm-close-button/sdm-close-button.component';
+import { SdmViewMediaComponent } from './components/sdm-view-media/sdm-view-media.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASY7GlvEimsp0Gqv1H6qvwdX_w6AI0m6Y",
@@ -66,7 +66,6 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    StyleguideComponent,
     SdmButtonComponent,
     SdmSocialButtonComponent,
     SdmFormCardComponent,
@@ -108,6 +107,7 @@ export const firebaseConfig = {
     SdmMediaComponent,
     SdmSectionDoubleComponent,
     SdmCloseButtonComponent,
+    SdmViewMediaComponent,
   ],
   imports: [
     BrowserModule,

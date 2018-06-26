@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StyleguideComponent } from './styleguide.component';
+import { SdmViewMediaComponent } from './sdm-view-media.component';
 
-describe('StyleguideComponent', () => {
-  let component: StyleguideComponent;
-  let fixture: ComponentFixture<StyleguideComponent>;
+describe('SdmViewMediaComponent', () => {
+  let component: SdmViewMediaComponent;
+  let fixture: ComponentFixture<SdmViewMediaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StyleguideComponent ]
+      declarations: [ SdmViewMediaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StyleguideComponent);
+    fixture = TestBed.createComponent(SdmViewMediaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

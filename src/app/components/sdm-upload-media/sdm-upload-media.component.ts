@@ -10,6 +10,7 @@ export class SdmUploadMediaComponent {
 
   @Input() uploading:boolean;
   @Input() percentage:any;
+  @Input() context:string;
   @Output() sendMedias: EventEmitter<any> = new EventEmitter();
 
   mediaAux:any;
