@@ -22,7 +22,7 @@ export class EditProfileComponent implements OnInit {
   userPhoto:any;
   isLoading:boolean = false;
   
-  constructor(private userService:UserService, private angularFireStorage:AngularFireStorage, private router:Router){}
+  constructor(public userService:UserService, private angularFireStorage:AngularFireStorage, private router:Router){}
 
   ngOnInit(){
     var user = JSON.parse(localStorage.getItem("user"));
