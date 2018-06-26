@@ -1,0 +1,76 @@
+@import "node_modules/uikit/src/scss/mixins-theme.scss";
+
+// Lienar gradient
+@mixin linear-gradient($direction, $color-stops...) {
+    background: nth($color-stops, 1);
+    background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+    background: linear-gradient($direction, $color-stops);
+}
+
+// Keyframes
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+      @content; 
+    }
+    @-moz-keyframes #{$name} {
+      @content;
+    }
+    @-ms-keyframes #{$name} {
+      @content;
+    }
+    @keyframes #{$name} {
+      @content;
+    } 
+}
+
+// Media querys
+@mixin mqMaxWidth($width) {
+    @if map_has_key($width-breakpoints, $width) {
+        $width: map_get($width-breakpoints, $width);
+        
+        @media only screen and (max-width: $width) {
+            @content;
+        }
+    }
+}
+
+//Notification
+
+@mixin hook-notification-misc () {
+
+    .uk-notification-message{
+        align-items: center;
+        background-image: url(/assets/images/logoFolha2.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 87px 140px;
+        border: 1px solid #333;
+    } 
+
+    .uk-notification-message-warning{
+        color: red;
+    }
+    
+    .uk-notification div{
+        width: 100%;
+        padding: 10px;
+        font-family: $primary-font-light;
+        font-size: $font-size-title;
+    }
+}
+
+//Z-indexes
+@function z($element, $list:"") {
+    @if $list == "" {
+        $list: $z-indexes;
+    }
+
+    $z-index: index($list, $element);
+
+    @if $z-index {
+        @return $z-index;
+    }
+
+    @warn 'There is no item "#{$element}" in this list; choose one of: #{$list}';
+    @return null;
+}
