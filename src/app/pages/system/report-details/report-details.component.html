@@ -13,9 +13,12 @@
             <div class="report-details__content__main-info__section-title">Descrição do Autor:</div>
             <div class="report-details__content__main-info__section-description">{{report.description}}</div>
 
-            <div class="report-details__content__main-info__section-title" *ngIf="hasMedia">Mídias:</div>
-            <div class="report-details__content__main-info__section-description media-list uk-flex uk-flex-wrap" *ngIf="hasMedia"></div>
-
+            <div class="report-details__content__main-info__section-title">Mídias:</div>
+            <div class="report-details__content__main-info__section-description media-list uk-flex uk-flex-wrap">
+                <a *ngFor="let media of mediasObjs" href="{{media.url}}" target="_blank">
+                    <sdm-view-media [media]="media"></sdm-view-media>
+                </a>
+            </div>
             <div class="report-details__content__main-info__section-title">Acompanhamento:</div>
             <div class="report-details__content__main-info__section-description">
                 <div *ngFor="let att of log">

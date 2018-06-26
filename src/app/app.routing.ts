@@ -1,6 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import { StyleguideComponent } from './pages/styleguide/styleguide.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SystemComponent } from './pages/system/system.component';
 import { ReportsListComponent } from './pages/system/reports-list/reports-list.component';
@@ -16,7 +15,6 @@ import { ReportDetailsLoggedOffComponent } from './pages/report-details-logged-o
 
 const APP_ROUTES: Routes = [
     {path: "", redirectTo: "/home", pathMatch: "full"},
-    {path: "styleguide", component: StyleguideComponent},
     {path: "home", component: HomeComponent},
     {path: "realizar-denuncia", component: ReportComponent},
     {path: "consultar-denuncias", component: ConsultReportsComponent},

@@ -38,6 +38,18 @@
     @include mqMaxWidth('lg') {
         width: calc(100vw - 75px);
     }
+
+    &--logged-off {
+        width: calc(100vw - 235px);
+
+        @include mqMaxWidth('lg') {
+            width: calc(90vw - 75px);
+        }
+
+        @include mqMaxWidth('mdx') {
+            width: calc(90vw - 15px);
+        }
+    }
 }
 
 .progress-bar {

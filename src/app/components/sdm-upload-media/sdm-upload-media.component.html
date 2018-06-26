@@ -1,4 +1,4 @@
-<div class="sdm-upload-media">
+<div class="sdm-upload-media" [ngClass]="{'sdm-upload-media--logged-off': context == 'logged-off'}">
   <div class="sdm-upload-media__container">
     <div class="sdm-upload-media__container__input-container" uk-form-custom uk-tooltip="title: Insira uma mídia sobre a denúncia">
         <input class="sdm-upload-media__container__input-container__filePicker"

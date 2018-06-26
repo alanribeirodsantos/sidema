@@ -1,0 +1,16 @@
+<div *ngIf="media.type == 'image/jpg' ||
+            media.type == 'image/jpeg' ||
+            media.type == 'image/png'"
+     class="sdm-view-media"
+     [style.backgroundImage]="'url(' + media.url + ')'">
+</div>
+<div *ngIf="media.type == 'audio/mp3' ||
+            media.type == 'audio/wav' ||
+            media.type == 'audio/ogg'"
+     class="sdm-view-media--audio">
+</div>
+<div *ngIf="media.type == 'video/avi' ||
+            media.type == 'video/mp4' ||
+            media.type == 'video/mpeg'"
+     class="sdm-view-media--video">
+</div>
